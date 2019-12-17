@@ -87,12 +87,12 @@
                                                 <td>2011/04/25</td>
                                                 <td>$320,800</td>
                                                 <td>$320,800</td>
-                                                <td><a type="button" href="" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                            <th><b>NIS</b></th>
+                                                <th><b>NIS</b></th>
                                                 <th><b>NISN</b></th>
                                                 <th><b>Nama Peserta Didik</b></th>
                                                 <th><b>Tempat Tanggal Lahir</b></th>
