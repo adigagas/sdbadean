@@ -25,4 +25,10 @@ class Peserta_didik extends CI_Controller
 
         $this->load->view('peserta_didik/detail_peserta_didik');
     }
+
+    public function mutasiKeluarPeserta()
+    {
+
+        $this->load->view('peserta_didik/mutasi_keluar_pd');
+    }
 }
