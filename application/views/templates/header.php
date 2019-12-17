@@ -185,7 +185,7 @@
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Data </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="<?= base_url() ?>Peserta_didik/index" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Peserta Didik </span></a></li>
-                        <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Gtk </span></a></li>
+                        <li class="sidebar-item"><a href="<?= base_url() ?>Gtk/index" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Gtk </span></a></li>
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Akademik </span></a>
