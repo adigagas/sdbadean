@@ -57,6 +57,11 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="text-right">
+                            <a href="" type="button" class="btn btn-warning ">Edit</a> &nbsp; 
+                            <a href="" type="button" class="btn btn-danger ">Mutasi GTK</a> &nbsp;
+                            <a href="" type="button" class="btn btn-success ">Print</a>
+                        </div><br>
                         <div class="card">
                             <form class="form-horizontal">
                                 <div class="card-body">
