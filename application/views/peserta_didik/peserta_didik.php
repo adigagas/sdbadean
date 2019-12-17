@@ -92,7 +92,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th><b>NIS</b></th>
+                                            <th><b>NIS</b></th>
                                                 <th><b>NISN</b></th>
                                                 <th><b>Nama Peserta Didik</b></th>
                                                 <th><b>Tempat Tanggal Lahir</b></th>
@@ -104,7 +104,6 @@
                                         </tfoot>
                                     </table>
                                 </div>
-
                             </div>
                         </div>
                     </div>

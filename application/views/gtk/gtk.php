@@ -60,24 +60,24 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data GTK</h5><br>
-                            <div class="form-gruop">
-                                <div class="text-right">
-                                <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
-                                <input> &nbsp; &nbsp; &nbsp; &nbsp;
-                                <a type="button" href="<?= base_url() ?>peserta_didik/tambahPeserta" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
-                                </div>
-                            </div><br>
+                                <div class="form-gruop">
+                                    <div class="text-right">
+                                        <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
+                                        <input> &nbsp; &nbsp; &nbsp; &nbsp;
+                                        <a type="button" href="<?= base_url() ?>peserta_didik/tambahPeserta" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                                    </div>
+                                </div><br>
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th><b>NIS</b></th>
-                                                <th><b>NISN</b></th>
-                                                <th><b>Nama Peserta Didik</b></th>
+                                                <th><b>ID</b></th>
+                                                <th><b>NIP</b></th>
+                                                <th><b>Nama GTK</b></th>
                                                 <th><b>Tempat Tanggal Lahir</b></th>
                                                 <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Agama</b></th>
-                                                <th><b>Rombel</b></th>
+                                                <th><b>Posisi di Sekolah</b></th>
+                                                <th><b>Aksi</b></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -88,18 +88,18 @@
                                                 <td>61</td>
                                                 <td>2011/04/25</td>
                                                 <td>$320,800</td>
-                                                <td>$320,800</td>
+                                                <td><a type="button" href="" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th><b>NIS</b></th>
-                                                <th><b>NISN</b></th>
-                                                <th><b>Nama Peserta Didik</b></th>
+                                                 <th><b>ID</b></th>
+                                                <th><b>NIP</b></th>
+                                                <th><b>Nama GTK</b></th>
                                                 <th><b>Tempat Tanggal Lahir</b></th>
                                                 <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Agama</b></th>
-                                                <th><b>Rombel</b></th>
+                                                <th><b>Posisi di Sekolah</b></th>
+                                                <th><b>Aksi</b></th>
                                             </tr>
                                         </tfoot>
                                     </table>
