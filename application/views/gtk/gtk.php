@@ -88,7 +88,7 @@
                                                 <td>61</td>
                                                 <td>2011/04/25</td>
                                                 <td>$320,800</td>
-                                                <td><a type="button" href="" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                <td><a type="button" href="<?= base_url() ?>Gtk/detailGtk" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>

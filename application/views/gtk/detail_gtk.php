@@ -60,134 +60,123 @@
                         <div class="card">
                             <form class="form-horizontal">
                                 <div class="card-body">
-                                    <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah GTK</h4> <br>
+                                    <h2 class="text-center">INDENTITAS GTK</h2>
+                                    <div class="text-right">
+                                        <input style="border-radius: 10px;">
+                                    </div>
+                                    <br>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h5 class="">DATA DIRI GTK</h5>
-                                            <div class="form-group row">
-                                                <label for="fname" class="col-sm-4  control-label col-form-label">ID</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="ID">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">NIP</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="NIP">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Nama GTK</label>
-                                                <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Nama GTK">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="email1" class="col-sm-4  control-label col-form-label">Tempat / Tanggal Lahir</label>
-                                                <div class="col-sm-8">
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <input type="text" style="border-radius: 10px;" class="form-control" id="email1" placeholder="Tempat">
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <input type="date" style="border-radius: 10px;" class="form-control" id="email1" >
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="cono1" class="col-sm-4 control-label col-form-label">Pilih Jenis Kelamin</label>
-                                                <div class="col-sm-8">
-                                                    <div class="row">
-                                                        <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" required>
-                                                            <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
-                                                        </div>
-                                                        <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-                                                            <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="cono1" class="col-sm-4  control-label col-form-label">Agama</label>
-                                                <div class="col-sm-8">
-                                                    <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
-                                                        <option>Pilih Agama</option>
-                                                        <option value="Islam">Islam</option>
-                                                        <option value="Kristen">Kristen</option>
-                                                        <option value="Katolik">Katolik</option>
-                                                        <option value="Hindu">Hindu</option>
-                                                        <option value="Buddha">Buddha</option>
-                                                        <option value="Konghucu">Konghucu</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Pangkat/Golongan</label>
-                                                <div class="col-sm-8">
-                                                    <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
-                                                        <option>Pilih Pangkat</option>
-                                                        <option value="1a">Gol. 1A</option>
-                                                        <option value="1b">Gol. 1B</option>
-                                                        <option value="2a">Gol. 2A</option>
-                                                        <option value="2b">Gol. 2B</option>
-                                                        <option value="3a">Gol. 3A</option>
-                                                        <option value="3b">Gol. 3B</option>
-                                                        <option value="4a">Gol. 4A</option>
-                                                        <option value="4b">Gol. 4B</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Posisi di Sekolah</label>
-                                                <div class="col-sm-8">
-                                                    <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
-                                                        <option>Pilih Posisi</option>
-                                                        <option value="guru">Guru</option>
-                                                        <option value="operator">Operator</option>
-                                                        <option value="kepsek">Kepala Sekolah</option>
-                                                        <option value="tu">Administator/TU</option>
-                                                    </select>
-                                                </div>
-                                            </div><br>
-                                            <h5 class="">Alamat</h5><br>
 
                                             <div class="form-group row">
-                                                <label for="fname" class="col-sm-4  control-label col-form-label">Jalan</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Jalan">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">1.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">ID</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">DA_91281928</label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Desa/Kelurahan</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Desa/Kelurahan">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">2.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">NIP</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">0921092819029</label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
-                                                <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Kecamatan">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">5.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Nama Tenaga Didik</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">Dwi Ayu</label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten/Kota</label>
-                                                <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Kabupaten/Kota">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">5.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Tempat/Tanggal Lahir</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">Bondowoso, 13-06-1999</label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
-                                                <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Provinsi">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">5.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Jenis Kelamin</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">Perempuan</label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Tanggal Masuk</label>
-                                                <div class="col-sm-8">
-                                                    <input type="date" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" >
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">6.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Pangkat/Jabatan/Golongan</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">Guru Seksi/III D</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">7.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Gelar</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">M.Pd</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">8.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Posisi di Sekolah</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">Kepala Sekolah</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">9.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Agama</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">konghucu</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">10.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Alamat</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">Perumahan Nangkaan</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">11.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Mutasi Tenaga Didik</label>
+                                                <div class="col-sm-6">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">10.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Alamat</label>
+                                                <div class="col-sm-6">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">a.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Tanggal Masuk</label>
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">23/12/2010</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+
+                                                <label for="fname" class="col-sm-1 control-label col-form-label">b.</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">Tanggal Keluar</label>
+
+                                                <div class="col-sm-6">
+                                                    <label>:</label> &nbsp; &nbsp;
+                                                    <label type="text" name="nis" id="fname" placeholder="ID">-</label>
                                                 </div>
                                             </div>
                                         </div><br>
@@ -197,7 +186,6 @@
                                             <div class="form-group row">
                                                 <div class="col-sm-12 text-right">
                                                     <img src="<?= base_url() ?>vendor/assets/images/camera.png" class=" card-img-top" alt="...">
-                                                    <input type="file" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Last Name Here">
                                                 </div>
                                             </div>
                                         </div><br>
