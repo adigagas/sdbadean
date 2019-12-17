@@ -14,6 +14,11 @@ class Gtk extends CI_Controller
         $this->load->view('gtk/gtk');
     }
 
+    public function detailGtk()
+    {
+        $this->load->view('gtk/detail_gtk');
+    }
+
     public function tambahGtk()
     {
 
