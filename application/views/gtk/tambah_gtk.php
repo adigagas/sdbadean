@@ -60,7 +60,7 @@
                         <div class="card">
                             <form class="form-horizontal">
                                 <div class="card-body">
-                                    <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah Peserta Didik</h4> <br>
+                                    <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah GTK</h4> <br>
                                     <div class="col-md-6">
                                         <h5 class="">DATA DIRI GTK</h5>
                                         <div class="form-group row">
@@ -112,7 +112,7 @@
                                         <div class="form-group row">
                                             <label for="cono1" class="col-sm-4  control-label col-form-label">Agama</label>
                                             <div class="col-sm-8">
-                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                                <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
                                                     <option>Pilih Agama</option>
                                                     <option value="Islam">Islam</option>
                                                     <option value="Kristen">Kristen</option>
@@ -126,7 +126,7 @@
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-4  control-label col-form-label">Pangkat/Golongan</label>
                                             <div class="col-sm-8">
-                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                                <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
                                                     <option>Pilih Pangkat</option>
                                                     <option value="1a">Gol. 1A</option>
                                                     <option value="1b">Gol. 1B</option>
@@ -142,7 +142,7 @@
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-4  control-label col-form-label">Posisi di Sekolah</label>
                                             <div class="col-sm-8">
-                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                                <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
                                                     <option>Pilih Posisi</option>
                                                     <option value="guru">Guru</option>
                                                     <option value="operator">Operator</option>
@@ -150,142 +150,94 @@
                                                     <option value="tu">Administator/TU</option>
                                                 </select>
                                             </div>
-                                            </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="lname" class="col-sm-4  control-label col-form-label">Golongan Darah</label>
-                                            <div class="col-sm-8">
-                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
-                                                    <option>Pilih Golongan Darah</option>
-                                                    <option value="AB">AB</option>
-                                                    <option value="A">A</option>
-                                                    <option value="B">B</option>
-                                                    <option value="O">O</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div><br>
-                                    <div class="col-md-6">
-                                        <h5 class="">Masuk Menjadi Murid Baru Pada</h5>
-                                        <div class="form-group row">
-                                            <label for="fname" class="col-sm-4  control-label col-form-label">Tanggal</label>
-                                            <div class="col-sm-8">
-                                                <input type="date" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="lname" class="col-sm-4  control-label col-form-label">Di Kelas</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Kelas">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="lname" class="col-sm-4  control-label col-form-label">Asal Sekolah</label>
-                                            <div class="col-sm-8">
-                                                <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <h5 class="">DATA DIRI GTK</h5>
 
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="<?= base_url() ?>vendor/assets/images/camera.png" class=" card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                            </div>
+                                </div><br>
+                                <div class="col-md-6">
+                                    <h5 class="">Alamat</h5>
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-4  control-label col-form-label">Jalan</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="cono1" class="col-sm-4 control-label col-form-label">Contact No</label>
-                                            <div class="col-sm-8">
-                                                <div class="row">
-                                                    <div class="custom-control custom-radio col-md-4">
-                                                        <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" required>
-                                                        <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio col-md-4">
-                                                        <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-                                                        <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-4  control-label col-form-label">Desa/Kelurahan</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Kelas">
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="cono1" class="col-sm-4  control-label col-form-label">Message</label>
-                                            <div class="col-sm-8">
-                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
-                                                    <option>Pilih Agama</option>
-                                                    <option value="Islam">Islam</option>
-                                                    <option value="Kristen">Kristen</option>
-                                                    <option value="Katolik">Katolik</option>
-                                                    <option value="Hindu">Hindu</option>
-                                                    <option value="Buddha">Buddha</option>
-                                                    <option value="Konghucu">Konghucu</option>
-                                                </select>
-                                            </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
+                                        <div class="col-sm-8">
+                                            <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="lname" class="col-sm-4  control-label col-form-label">Kewarganegaraan</label>
-                                            <div class="col-sm-8">
-                                                <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
-                                            </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten/Kota</label>
+                                        <div class="col-sm-8">
+                                            <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="lname" class="col-sm-4  control-label col-form-label">Bahasa Sehari-hari</label>
-                                            <div class="col-sm-8">
-                                                <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
-                                            </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
+                                        <div class="col-sm-8">
+                                            <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="lname" class="col-sm-4  control-label col-form-label">Golongan Darah</label>
-                                            <div class="col-sm-8">
-                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
-                                                    <option>Pilih Golongan Darah</option>
-                                                    <option value="AB">AB</option>
-                                                    <option value="A">A</option>
-                                                    <option value="B">B</option>
-                                                    <option value="O">O</option>
-                                                </select>
-                                            </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-4  control-label col-form-label">Tanggal Masuk</label>
+                                        <div class="col-sm-8">
+                                            <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
                                         </div>
                                     </div>
 
+
+
+
+
+
                                 </div>
-                                <div class="border-top">
-                                    <div class="card-body">
-                                        <button type="button" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
+
                         </div>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- End Container fluid  -->
+            <!-- End PAge Content -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
-            <!-- footer -->
+            <!-- Right sidebar -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
+            <!-- .right-sidebar -->
             <!-- ============================================================== -->
-            <!-- End footer -->
+            <!-- End Right sidebar -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End Container fluid  -->
         <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center">
+            All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
