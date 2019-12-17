@@ -86,43 +86,177 @@
                             <form class="form-horizontal">
                                 <div class="card-body">
                                     <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah Peserta Didik</h4> <br>
-                                    <h4 class="">DATA DIRI PESERTA DIDIK</h4>
-                                    <div class="form-group row">
-                                        <label for="fname" class="col-sm-3  control-label col-form-label">First Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="fname" placeholder="First Name Here">
+                                    <div class="col-md-6">
+                                        <h5 class="">DATA DIRI PESERTA DIDIK</h5>
+                                        <div class="form-group row">
+                                            <label for="fname" class="col-sm-4  control-label col-form-label">NIS</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">NISN</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Last Name Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">Nama Peserta Didik</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email1" class="col-sm-4  control-label col-form-label">Tempat / Tanggal Lahir</label>
+                                            <div class="col-sm-8">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <input type="text" style="border-radius: 10px;" class="form-control" id="email1" placeholder="Company Name Here">
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <input type="date" style="border-radius: 10px;" class="form-control" id="email1" placeholder="Company Name Here">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="cono1" class="col-sm-4 control-label col-form-label">Contact No</label>
+                                            <div class="col-sm-8">
+                                                <div class="row">
+                                                    <div class="custom-control custom-radio col-md-4">
+                                                        <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" required>
+                                                        <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio col-md-4">
+                                                        <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                                                        <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="cono1" class="col-sm-4  control-label col-form-label">Message</label>
+                                            <div class="col-sm-8">
+                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                                    <option>Pilih Agama</option>
+                                                    <option value="Islam">Islam</option>
+                                                    <option value="Kristen">Kristen</option>
+                                                    <option value="Katolik">Katolik</option>
+                                                    <option value="Hindu">Hindu</option>
+                                                    <option value="Buddha">Buddha</option>
+                                                    <option value="Konghucu">Konghucu</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">Kewarganegaraan</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">Bahasa Sehari-hari</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">Golongan Darah</label>
+                                            <div class="col-sm-8">
+                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                                    <option>Pilih Golongan Darah</option>
+                                                    <option value="AB">AB</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="O">O</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div><br>
+                                    <div class="col-md-6">
+                                        <h5 class="">Masuk Menjadi Murid Baru Pada</h5>
+                                        <div class="form-group row">
+                                            <label for="fname" class="col-sm-4  control-label col-form-label">Tanggal</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">Di Kelas</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Kelas">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">Asal Sekolah</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                            </div>
+                                        </div>
+
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="<?= base_url() ?>vendor/assets/images/camera.png" class=" card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="cono1" class="col-sm-4 control-label col-form-label">Contact No</label>
+                                            <div class="col-sm-8">
+                                                <div class="row">
+                                                    <div class="custom-control custom-radio col-md-4">
+                                                        <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" required>
+                                                        <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio col-md-4">
+                                                        <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                                                        <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="cono1" class="col-sm-4  control-label col-form-label">Message</label>
+                                            <div class="col-sm-8">
+                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                                    <option>Pilih Agama</option>
+                                                    <option value="Islam">Islam</option>
+                                                    <option value="Kristen">Kristen</option>
+                                                    <option value="Katolik">Katolik</option>
+                                                    <option value="Hindu">Hindu</option>
+                                                    <option value="Buddha">Buddha</option>
+                                                    <option value="Konghucu">Konghucu</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">Kewarganegaraan</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">Bahasa Sehari-hari</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-4  control-label col-form-label">Golongan Darah</label>
+                                            <div class="col-sm-8">
+                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                                    <option>Pilih Golongan Darah</option>
+                                                    <option value="AB">AB</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="O">O</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3  control-label col-form-label">Last Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="lname" placeholder="Last Name Here">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3  control-label col-form-label">Password</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="lname" placeholder="Password Here">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="email1" class="col-sm-3  control-label col-form-label">Company</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="email1" placeholder="Company Name Here">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1" class="col-sm-3  control-label col-form-label">Contact No</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="cono1" placeholder="Contact No Here">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1" class="col-sm-3  control-label col-form-label">Message</label>
-                                        <div class="col-sm-9">
-                                            <textarea class="form-control"></textarea>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
