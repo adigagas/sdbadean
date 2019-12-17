@@ -19,4 +19,10 @@ class Peserta_didik extends CI_Controller
 
         $this->load->view('peserta_didik/tambah_peserta_didik');
     }
+
+    public function detailPeserta()
+    {
+
+        $this->load->view('peserta_didik/detail_peserta_didik');
+    }
 }
