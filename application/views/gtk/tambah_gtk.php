@@ -205,7 +205,8 @@
                                     <div class="border-top">
                                         <div class="card-body ">
                                             <div class="text-right">
-                                                <a href="" type="button" class="btn btn-warning ">Batal</a> &nbsp; <a href="" type="button" class="btn btn-primary ">Submit</a>
+                                            <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Batal</a> &nbsp; 
+                                                <a href="" type="button" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-save"></i> Simpan</a>
                                             </div>
                                         </div>
                                     </div>

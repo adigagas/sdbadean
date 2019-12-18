@@ -58,9 +58,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="text-right">
-                            <a href="" type="button" class="btn btn-warning ">Edit</a> &nbsp; 
-                            <a href="" type="button" class="btn btn-danger ">Mutasi GTK</a> &nbsp;
-                            <a href="" type="button" class="btn btn-success ">Print</a>
+                            <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a> &nbsp;
+                            <a href="" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Mutasi GTK</a> &nbsp;
+                            <a href="" type="button" class="btn btn-success " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-print"></i> Print</a>
                         </div><br>
                         <div class="card">
                             <form class="form-horizontal">
@@ -90,7 +90,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="fname" class="col-sm-1  control-label col-form-label">5.</label>
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">3.</label>
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Nama Tenaga Didik</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
@@ -98,7 +98,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="fname" class="col-sm-1  control-label col-form-label">5.</label>
+                                                <label for="fname" class="col-sm-1  control-label col-form-label">4.</label>
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Tempat/Tanggal Lahir</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
@@ -175,7 +175,6 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-
                                                 <label for="fname" class="col-sm-1 control-label col-form-label">b.</label>
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Tanggal Keluar</label>
 
@@ -196,11 +195,7 @@
                                         </div><br>
                                     </div>
                                     <div class="border-top">
-                                        <div class="card-body ">
-                                            <div class="text-right">
-                                                <a href="" type="button" class="btn btn-warning ">Batal</a> &nbsp; <a href="" type="button" class="btn btn-primary ">Submit</a>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                             </form>
                         </div>
