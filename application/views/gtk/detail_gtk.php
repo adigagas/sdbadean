@@ -186,10 +186,12 @@
                                         </div><br>
                                         <div class="col-md-6">
                                             <br>
-                                            <h5 class="">Foto GTK</h5>
+                                            <div class="col-sm-5 text-right">
+                                                <h5 class="">Foto GTK</h5>
+                                            </div>
                                             <div class="form-group row">
-                                                <div class="col-sm-12 text-right">
-                                                    <img src="<?= base_url() ?>vendor/assets/images/camera.png" class=" card-img-top" alt="...">
+                                                <div class="col-sm-10 text-right">
+                                                    <img width="300px;" height="400px" src="<?= base_url() ?>vendor/assets/images/camera.png"  alt="...">
                                                 </div>
                                             </div>
                                         </div><br>
