@@ -71,6 +71,12 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
+                                                <label for="lname" class="col-sm-4  control-label col-form-label">NIK</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" style="border-radius: 10px;" name="nik_gtK" class="form-control" id="nik_gtK" placeholder="NIK">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">NIP</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" style="border-radius: 10px;" name="nip_gtK" class="form-control" id="nip_gtK" placeholder="NIP">
@@ -99,13 +105,13 @@
                                                 <label for="cono1" class="col-sm-4 control-label col-form-label">Pilih Jenis Kelamin</label>
                                                 <div class="col-sm-8">
                                                     <div class="row">
-                                                        <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" name="jenis_kelamin_gtk" id="jenis_kelamin_gtk" required>
-                                                            <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
+                                                        <div class="custom-radio col-md-4">
+                                                            <input type="radio"  name="jenis_kelamin_gtk" id="jenis_kelamin_gtk" required>
+                                                            <label class="-label" for="customControlValidation1">Laki-laki</label>
                                                         </div>
-                                                        <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" name="jenis_kelamin_gtk" id="jenis_kelamin_gtk" \ required>
-                                                            <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
+                                                        <div class="custom-radio col-md-4">
+                                                            <input type="radio"  name="jenis_kelamin_gtk" id="jenis_kelamin_gtk" required>
+                                                            <label class="-label" for="customControlValidation2">Perempuan</label>
                                                         </div>
                                                     </div>
                                                 </div>
