@@ -27,14 +27,15 @@
                     <form class="form-horizontal m-t-20" class="user" method="post" action="<?= base_url('auth'); ?>">
                         <div class="row p-b-30">
                             <div class="col-12">
-                            <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
+                                <?= $this->session->flashdata('message'); ?>
+                                <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="Masukan Username..." value="<?= set_value('email'); ?>">    
+                                    <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="Masukan Username..." value="<?= set_value('email'); ?>">
                                 </div>
-                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+                                <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
