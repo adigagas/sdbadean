@@ -25,8 +25,5 @@ class Gtk extends CI_Controller
     {
         $this->load->view('gtk/tambah_gtk');
     }
-    public function mutasiGtk(){
-        
-        $this->load->view('gtk/mutasi_keluar_gtk');
-    }
+  
 }
