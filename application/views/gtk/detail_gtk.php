@@ -167,16 +167,16 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="fname" class="col-sm-1  control-label col-form-label">a.</label>
-                                                <label for="fname" class="col-sm-5  control-label col-form-label">Tanggal Masuk</label>
+                                                <label style="margin-left: 40px" for="fname" class="col-sm-1  control-label col-form-label">a.</label>
+                                                <label for="fname" class="col-sm-4  control-label col-form-label">Tanggal Masuk</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
                                                     <label type="text" name="nis" id="fname" placeholder="ID">23/12/2010</label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="fname" class="col-sm-1 control-label col-form-label">b.</label>
-                                                <label for="fname" class="col-sm-5  control-label col-form-label">Tanggal Keluar</label>
+                                                <label style="margin-left: 40px" for="fname" class="col-sm-1 control-label col-form-label">b.</label>
+                                                <label for="fname" class="col-sm-4  control-label col-form-label">Tanggal Keluar</label>
 
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
