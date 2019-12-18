@@ -58,7 +58,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form class="form-horizontal">
+                            
+                           <?php echo form_open_multipart('Gtk/tambahGtk'); ?> 
                                 <div class="card-body">
                                     <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah GTK</h4> <br>
                                     <div class="row">
@@ -218,7 +219,7 @@
                                             </div>
                                         </div>
                                     </div>
-                            </form>
+                            <?php form_close(); ?>
                         </div>
                     </div>
                 </div>
