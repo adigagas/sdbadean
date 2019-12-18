@@ -10,9 +10,9 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>vendor/assets/images/favicon.png">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <title>SDN Badean 1 - Login</title>
     <!-- Custom CSS -->
-    <link href="<?= base_url("vendor/dist/css/style.min.css")?>" rel="stylesheet">
+    <link href="<?= base_url("vendor/dist/css/style.min.css") ?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
