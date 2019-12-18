@@ -18,7 +18,6 @@ class Peserta_didik extends CI_Controller
 
     public function tambahPeserta()
     {
-
         $this->load->view('peserta_didik/tambah_peserta_didik');
     }
 

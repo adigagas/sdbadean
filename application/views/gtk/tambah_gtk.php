@@ -67,19 +67,19 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">ID</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="ID">
+                                                    <input type="text" style="border-radius: 10px;" name="id_gtk" class="form-control" id="id_gtk" placeholder="ID">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">NIP</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="NIP">
+                                                    <input type="text" style="border-radius: 10px;" name="nip_gtK" class="form-control" id="nip_gtK" placeholder="NIP">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Nama GTK</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Nama GTK">
+                                                    <input type="password" style="border-radius: 10px;" name="nama_gtK" class="form-control" id="nama_gtk" placeholder="Nama GTK">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -87,10 +87,10 @@
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="col-sm-6">
-                                                            <input type="text" style="border-radius: 10px;" class="form-control" id="email1" placeholder="Tempat">
+                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_gtk" class="form-control" id="tempat_lahir_gtk" placeholder="Tempat">
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input type="date" style="border-radius: 10px;" class="form-control" id="email1">
+                                                            <input type="date" style="border-radius: 10px;" name="tanggal_lahir_gtk" class="form-control" id="tanggal_lahir_gtk">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -100,11 +100,11 @@
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" required>
+                                                            <input type="radio" class="custom-control-input" name="jenis_kelamin_gtk" id="jenis_kelamin_gtk" required>
                                                             <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
                                                         </div>
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                                                            <input type="radio" class="custom-control-input" name="jenis_kelamin_gtk" id="jenis_kelamin_gtk" \ required>
                                                             <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
                                                         </div>
                                                     </div>
@@ -113,7 +113,7 @@
                                             <div class="form-group row">
                                                 <label for="cono1" class="col-sm-4  control-label col-form-label">Agama</label>
                                                 <div class="col-sm-8">
-                                                    <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
+                                                    <select name="agama_gtk" id="agama_gtk" class="form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
                                                         <option>Pilih Agama</option>
                                                         <option value="Islam">Islam</option>
                                                         <option value="Kristen">Kristen</option>
@@ -127,7 +127,7 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pangkat/Golongan</label>
                                                 <div class="col-sm-8">
-                                                    <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
+                                                    <select name="pajago_gtk" id="pajago_gtk" class="form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
                                                         <option>Pilih Pangkat</option>
                                                         <option value="1a">Gol. 1A</option>
                                                         <option value="1b">Gol. 1B</option>
@@ -143,7 +143,7 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Posisi di Sekolah</label>
                                                 <div class="col-sm-8">
-                                                    <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
+                                                    <select name="posisi_gtk" id="posisi_gtk" class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
                                                         <option>Pilih Posisi</option>
                                                         <option value="guru">Guru</option>
                                                         <option value="operator">Operator</option>
@@ -157,37 +157,37 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Jalan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Jalan">
+                                                    <input type="text" style="border-radius: 10px;" name="jalan" id="jalan" class="form-control" id="fname" placeholder="Jalan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Desa/Kelurahan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Desa/Kelurahan">
+                                                    <input type="text" style="border-radius: 10px;" name="desa" id="desa" class="form-control" id="lname" placeholder="Desa/Kelurahan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Kecamatan">
+                                                    <input type="password" style="border-radius: 10px;" name="kecamatan" class="form-control" id="kecamatan" placeholder="Kecamatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten/Kota</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Kabupaten/Kota">
+                                                    <input type="password" style="border-radius: 10px;" name="kabupaten" class="form-control" id="kabupaten" placeholder="Kabupaten/Kota">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Provinsi">
+                                                    <input type="password" style="border-radius: 10px;" name="provinsi" class="form-control" id="provinsi" placeholder="Provinsi">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Tanggal Masuk</label>
                                                 <div class="col-sm-8">
-                                                    <input type="date" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname">
+                                                    <input type="date" style="border-radius: 10px;" name="tanggal_masuk_gtk" class="form-control" id="tanggal_masuk_gtk">
                                                 </div>
                                             </div>
                                         </div><br>
@@ -199,7 +199,7 @@
                                             <div class="form-group row">
                                                 <div class="col-sm-8 text-left" style="margin-left: 80px">
                                                     <img width="300px;" height="400px" src="<?= base_url() ?>vendor/assets/images/camera.png" alt="...">
-                                                    <input type="file" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Last Name Here">
+                                                    <input type="file" style="border-radius: 10px;" name="foto_gtk" class="form-control" id="foto_gtk" placeholder="Last Name Here">
                                                 </div>
                                             </div>
                                         </div><br>

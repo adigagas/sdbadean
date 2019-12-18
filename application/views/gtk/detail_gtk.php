@@ -191,13 +191,13 @@
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-10 text-right">
-                                                    <img width="300px;" height="400px" src="<?= base_url() ?>vendor/assets/images/camera.png"  alt="...">
+                                                    <img width="300px;" height="400px" src="<?= base_url() ?>vendor/assets/images/camera.png" alt="...">
                                                 </div>
                                             </div>
                                         </div><br>
                                     </div>
                                     <div class="border-top">
-                                        
+
                                     </div>
                             </form>
                         </div>
