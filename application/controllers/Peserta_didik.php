@@ -6,12 +6,14 @@ class Peserta_didik extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_peserta_didik');
     }
 
     public function index()
     {
 
-        $this->load->view('peserta_didik/peserta_didik');
+        $data['siswa'] = $this->M_peserta_didik->getAllSiswa();
+        $this->load->view('peserta_didik/peserta_didik', $data);
     }
 
     public function tambahPeserta()
