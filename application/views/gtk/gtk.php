@@ -81,8 +81,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach($gtk as $g) : ?>
                                             <tr>
-                                                <td>Tiger Nixon</td>
+                                                <td><?= $g->id_gtk ?></td>
                                                 <td>System Architect</td>
                                                 <td>Edinburgh</td>
                                                 <td>61</td>
@@ -90,6 +91,7 @@
                                                 <td>$320,800</td>
                                                 <td><a type="button" href="<?= base_url() ?>Gtk/detailGtk" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                             </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>

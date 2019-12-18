@@ -12,8 +12,8 @@ class Gtk extends CI_Controller
 
     public function index()
     {
-
-        $this->load->view('gtk/gtk');
+        $data['gtk'] = $this->M_Gtk->getAllGtk();
+        $this->load->view('gtk/gtk', $data);
     }
 
     public function detailGtk()
@@ -23,7 +23,10 @@ class Gtk extends CI_Controller
 
     public function tambahGtk()
     {
-
         $this->load->view('gtk/tambah_gtk');
+    }
+    public function mutasiGtk(){
+        
+        $this->load->view('gtk/mutasi_keluar_gtk');
     }
 }
