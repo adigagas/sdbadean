@@ -90,7 +90,7 @@
                                                             <input type="text" style="border-radius: 10px;" class="form-control" id="email1" placeholder="Tempat">
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input type="date" style="border-radius: 10px;" class="form-control" id="email1" >
+                                                            <input type="date" style="border-radius: 10px;" class="form-control" id="email1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -187,16 +187,18 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Tanggal Masuk</label>
                                                 <div class="col-sm-8">
-                                                    <input type="date" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" >
+                                                    <input type="date" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname">
                                                 </div>
                                             </div>
                                         </div><br>
                                         <div class="col-md-6">
                                             <br>
-                                            <h5 class="">Foto GTK</h5>
+                                            <div class="col-sm-4 text-right">
+                                                <h5 class="">Foto GTK</h5>
+                                            </div>
                                             <div class="form-group row">
-                                                <div class="col-sm-12 text-right">
-                                                    <img src="<?= base_url() ?>vendor/assets/images/camera.png" class=" card-img-top" alt="...">
+                                                <div class="col-sm-8 text-left" style="margin-left: 8px">
+                                                    <img width="300px;" height="400px" src="<?= base_url() ?>vendor/assets/images/camera.png" alt="...">
                                                     <input type="file" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Last Name Here">
                                                 </div>
                                             </div>
@@ -205,7 +207,7 @@
                                     <div class="border-top">
                                         <div class="card-body ">
                                             <div class="text-right">
-                                            <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Batal</a> &nbsp; 
+                                                <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Batal</a> &nbsp;
                                                 <a href="" type="button" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-save"></i> Simpan</a>
                                             </div>
                                         </div>
