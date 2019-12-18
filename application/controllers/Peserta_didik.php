@@ -32,4 +32,10 @@ class Peserta_didik extends CI_Controller
 
         $this->load->view('peserta_didik/mutasi_keluar_pd');
     }
+
+    public function tambahPD()
+    {
+
+        $this->load->view('peserta_didik/tambah_pd');
+    }
 }

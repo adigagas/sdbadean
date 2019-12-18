@@ -14,6 +14,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>vendor/assets/extra-libs/multicheck/multicheck.css">
     <link href="<?= base_url() ?>vendor/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="<?= base_url() ?>vendor/assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
+    <link href="<?= base_url() ?>vendor/assets/libs/jquery-steps/steps.css" rel="stylesheet">
     <link href="<?= base_url() ?>vendor/dist/css/style.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
