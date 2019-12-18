@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Des 2019 pada 17.27
+-- Waktu pembuatan: 18 Des 2019 pada 03.05
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -31,6 +31,24 @@ SET time_zone = "+00:00";
 CREATE TABLE `jabatan` (
   `id_jabatan` int(1) NOT NULL,
   `jabatan` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_absensi_siswa`
+--
+
+CREATE TABLE `tb_absensi_siswa` (
+  `id_absensi_siswa` int(11) NOT NULL,
+  `id_rombel` varchar(35) NOT NULL,
+  `id_siswa` varchar(35) NOT NULL,
+  `kehadiran` varchar(20) NOT NULL,
+  `waktu_masuk` varchar(20) NOT NULL,
+  `waktu_keluar` varchar(20) NOT NULL,
+  `tanggal` varchar(2) NOT NULL,
+  `bulan` varchar(15) NOT NULL,
+  `tahun` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -275,6 +293,12 @@ ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
 
 --
+-- Indeks untuk tabel `tb_absensi_siswa`
+--
+ALTER TABLE `tb_absensi_siswa`
+  ADD PRIMARY KEY (`id_absensi_siswa`);
+
+--
 -- Indeks untuk tabel `tb_alamat_ortu`
 --
 ALTER TABLE `tb_alamat_ortu`
@@ -373,6 +397,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `jabatan`
   MODIFY `id_jabatan` int(1) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_absensi_siswa`
+--
+ALTER TABLE `tb_absensi_siswa`
+  MODIFY `id_absensi_siswa` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kelas`

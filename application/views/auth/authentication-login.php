@@ -24,20 +24,22 @@
                         <span class="db"><img src="<?= base_url() ?>vendor/assets/images/logo.png" alt="logo" /></span>
                     </div>
                     <!-- Form -->
-                    <form class="form-horizontal m-t-20" id="loginform" action="index.html">
+                    <form class="form-horizontal m-t-20" class="user" method="post" action="<?= base_url('auth'); ?>">
                         <div class="row p-b-30">
                             <div class="col-12">
+                            <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required="">
+                                    <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="Masukan Username..." value="<?= set_value('email'); ?>">    
                                 </div>
+                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required="">
+                                    <input type="text" class="form-control form-control-lg" id="password" name="password" placeholder="Masukan Password..." value="<?= set_value('password'); ?>">
                                 </div>
                             </div>
                         </div>
