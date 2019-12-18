@@ -50,32 +50,26 @@ class M_Gtk extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
-    function addGtk()
+    function addGtk($data)
     {
-
-        $post = $this->input->post();
-        $this->id_gtk = $post['id_gtk'];
-        $this->nik_gtk = $post['nik_gtk'];
-        $this->nip_gtk = $post['nip_gtk'];
-        $this->nama_gtk = $post['nama_gtk'];
-        $this->tempat_lahir_gtk = $post['tempat_lahir_gtk'];
-        $this->tanggal_lahir_gtk = $post['tanggal_lahir_gtk'];
-        $this->jenis_kelamin_gtk = $post['jenis_kelamin_gtk'];
-        $this->pajago_gtk = $post['pajago_gtk'];
-        $this->gelar_gtk = $post['gelar_gtk'];
-        $this->posisi_gtk = $post['posisi_gtk'];
-        $this->agama_gtk = $post['agama_gtk'];
-        $this->alamat_gtk = $post['alamat_gtk'];
-        $this->tgl_masuk_gtk = $post['tgl_masuk_gtk'];
-        $this->tgl_keluar_gtk = $post['tgl_keluar_gtk'];
-        $this->foto_gtk = $post['foto_gtk'];
-        $this->db->insert($this->_table, $this);
+        $this->db->insert('tb_gtk', $data);
     }
     function updateGtk()
     {
     }
 
-    function deleteGtk()
+    function deleteGtk($id_gtk)
     {
+        $this->_deleteImage($id_gtk);
+        $this->db->where('id_gtk', $id_gtk);
+        $this->db->delete('tb_gtk');
+    }
+    private function _deleteImage($id_gtk)
+    {
+        $gtk = $this->getById($id_gtk);
+        if ($gtk->image != "camera.png") {
+            $filename = explode(".", $gtk->foto_gtk)[0];
+            return array_map('unlink', glob(FCPATH . ".vendor/assets/images/$filename.*"));
+        }
     }
 }

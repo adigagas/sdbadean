@@ -64,7 +64,7 @@
                                     <div class="text-right">
                                         <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
                                         <input> &nbsp; &nbsp; &nbsp; &nbsp;
-                                        <a type="button" href="<?= base_url() ?>Gtk/tambahGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                                        <a type="button" href="<?= base_url() ?>Gtk/inputGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
                                     </div>
                                 </div><br>
                                 <div class="table-responsive">
@@ -84,12 +84,12 @@
                                             <?php foreach($gtk as $g) : ?>
                                             <tr>
                                                 <td><?= $g->id_gtk ?></td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
-                                                <td><a type="button" href="<?= base_url() ?>Gtk/detailGtk" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                <td><?= $g->nip_gtk ?></td>
+                                                <td><?= $g->nama_gtk ?></td>
+                                                <td><?= $g->tempat_lahir_gtk ?></td>
+                                                <td><?= $g->jenis_kelamin_gtk ?></td>
+                                                <td><?= $g->posisi_gtk ?></td>
+                                                <td><a type="button" href="<?= base_url('Gtk/detailGtk/'. $g->id_gtk);  ?>" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                             </tr>
                                             <?php endforeach; ?>
                                         </tbody>
