@@ -67,64 +67,64 @@
                                             <h5 class="">A. IDENTITAS PESERTA DIDIK</h5><br>
                                             <div class="" style="margin-left: 15px">
                                                 <div class="form-group row">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5 control-label col-form-label">1. Nomor Induk </label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-5 col-md-6 control-label col-form-label">1. Nomor Induk </label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">2. NISN</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Last Name Here">
+                                                    <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">2. NISN</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">3. Nama Peserta Didik</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">3. Nama Peserta Didik</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">4. Tempat / Tanggal Lahir</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">4. Tempat / Tanggal Lahir</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">5. Jenis Kelamin</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">5. Jenis Kelamin</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">6. Agama</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">6. Agama</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">7. Kewarganegaraan</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">7. Kewarganegaraan</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">8. Bahasa Sehari-hari</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">8. Bahasa Sehari-hari</label>
+                                                    <div class="col-sm-6 col-xs-4 col-md-6">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">9. Golongan Darah</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">9. Golongan Darah</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">10. Alamat Peserta Didik</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">10. Alamat Peserta Didik</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -202,90 +202,90 @@
                                                     <label for="fname" class="col-sm-6  control-label col-form-label">1. NAMA ORANG TUA </label>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5   control-label col-form-label">a. Ayah</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-5 col-md-6   control-label col-form-label">a. Ayah</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">b. Ibu </label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-md-6 col-xs-4  control-label col-form-label">b. Ibu </label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="fname" class="col-sm-6  control-label col-form-label">2. Pekerjaan Orang Tua </label>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">a. Ayah</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">a. Ayah</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5   control-label col-form-label">b. Ibu </label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">b. Ibu </label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="fname" class="col-sm-6  control-label col-form-label">3. Alamat Orang Tua </label>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5   control-label col-form-label">a. Jalan</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">a. Jalan</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5   control-label col-form-label">b. Desa / Kelurahan </label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">b. Desa / Kelurahan </label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5   control-label col-form-label">c. Kecamatan</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">c. Kecamatan</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5   control-label col-form-label">d. Kabupaten </label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">d. Kabupaten </label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5   control-label col-form-label">e. Provinsi </label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">e. Provinsi </label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="fname" class="col-sm-6  control-label col-form-label">4. Wali Peserta Didik </label>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5   control-label col-form-label">a. Nama</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">a. Nama</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">b. Pekerjaan </label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">b. Pekerjaan </label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">c. Alamat</label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">c. Alamat</label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
-                                                    <label for="fname" class="col-sm-5 col-xs-5 col-md-5   control-label col-form-label">d. Hubungan Keluarga </label>
-                                                    <div class="col-sm-7 col-xs-4">
-                                                        <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">d. Hubungan Keluarga </label>
+                                                    <div class="col-sm-6 col-md-6 col-xs-4">
+                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
                                                     </div>
                                                 </div>
                                             </div>
