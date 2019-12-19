@@ -85,13 +85,12 @@ class M_Gtk extends CI_Model
     function deleteGtk($id_gtk)
     {
         $this->_deleteImage($id_gtk);
-        $this->db->where('id_gtk', $id_gtk);
-        $this->db->delete('tb_gtk');
+        return $this->db->delete($this->_table, array("id_gtk" => $id_gtk));
     }
 
     public function getById($id_gtk)
     {
-        return $this->db->get_where(('tb_gtk'), ["id_gtk" => $id_gtk])->row_array();
+        return $this->db->get_where($this->_table, ["id_gtk" => $id_gtk])->row();
     }
 
     private function _deleteImage($id_gtk)
@@ -99,28 +98,26 @@ class M_Gtk extends CI_Model
         $gtk = $this->getById($id_gtk);
         if ($gtk->image != "camera.png") {
             $filename = explode(".", $gtk->foto_gtk)[0];
-            return array_map('unlink', glob(FCPATH . ".vendor/assets/images/$filename.*"));
+            return array_map('unlink', glob(FCPATH . "./vendor/assets/images/$filename.*"));
         }
     }
 
     private function _uploadImage()
     {
-        $config['upload_path']          =  '.vendor/assets/images/';
+        $config['upload_path']          =  './vendor/assets/images/';
         $config['allowed_types']        = 'gif|jpg|png|JPG';
         $config['max_size']             = 9048;
         $config['overwrite']            = true;
-        $config['file_name']            = $_FILES['foto_gtk']['foto_gtk'];
-
+        $config['file_name']            = $_FILES['foto_gtk']['name'];
         // 1MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
-
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('foto_gtk')) {
             return $this->upload->data("file_name");
         }
 
-        return "camera.jpg";
+        return "camera.png";
     }
 }

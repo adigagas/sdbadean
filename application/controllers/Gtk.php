@@ -36,9 +36,8 @@ class Gtk extends CI_Controller
         redirect('Gtk/index');
     }
 
-    
 
-    public function hapusGtk($id_gtk){
+    public function hapusGtk($id_gtk=null){
         if ($id_gtk) {
             $this->M_Gtk->deleteGtk($id_gtk);
             $this->session->set_flashdata('message', 'GTK telah dihapus');

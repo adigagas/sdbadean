@@ -266,13 +266,13 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten/Kota</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kab_gtk" class="form-control" id="kabupaten_gtk" placeholder="Kabupaten/Kota" required>
+                                                    <input type="text" style="border-radius: 10px;" name="kab_gtk" class="form-control" id="kab_gtk" placeholder="Kabupaten/Kota" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="prov_gtk" class="form-control" id="provinsi_gtk" placeholder="Provinsi" required>
+                                                    <input type="text" style="border-radius: 10px;" name="prov_gtk" class="form-control" id="prov_gtk" placeholder="Provinsi" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -285,9 +285,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Foto GTK</label>
+                                                <label for="lname" class="col-sm-4  control-label col-form-label" for="image">Foto GTK</label>
                                                 <div class="col-sm-8">
-                                                <input type="file" style="border-radius: 10px;" name="foto_gtk" class="form-control" id="foto_gtk">
+                                                <input type="file" style="border-radius: 10px;" name="foto_gtk" class="form-control" id="foto_gtk" multiple>
                                                 </div>
                                             </div>
                                             
@@ -301,7 +301,7 @@
 
                                 </section>
                             </div>
-                        <?php form_close(); ?>
+                        </form>
                     </div>
                 </div>
                 <!-- ============================================================== -->

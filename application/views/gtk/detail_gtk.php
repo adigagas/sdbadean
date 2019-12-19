@@ -59,7 +59,7 @@
                     <div class="col-md-12">
                         <div class="text-right">
                             <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a> &nbsp;
-                            <a href="<?= base_url('Gtk/hapusGtk/') . $detailgtk['id_gtk']; ?>" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Mutasi GTK</a> &nbsp;
+                            <a onclick="deleteConfirm('<?php echo base_url('Gtk/hapusGtk/' . $detailgtk['id_gtk']); ?>')" href="#!" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Mutasi GTK</a> &nbsp;
                             <a href="" type="button" class="btn btn-success " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-print"></i> Print</a>
                         </div><br>
                         <div class="card">
@@ -78,7 +78,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">NIK</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID" ><?= $detailgtk['nik_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['nik_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -159,7 +159,7 @@
                                                 <div class="col-sm-6">
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="form-group row">
                                                 <label style="margin-left: 40px" for="fname" class="col-sm-1  control-label col-form-label">a.</label>
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Tanggal Masuk</label>
@@ -198,6 +198,26 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- Logout Delete Confirmation-->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Akan Menghapus Data GTK?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- ============================================================== -->
             <!-- End PAge Content -->
             <!-- ============================================================== -->
@@ -232,6 +252,12 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    <script>
+        function deleteConfirm(url) {
+            $('#btn-delete').attr('href', url);
+            $('#deleteModal').modal();
+        }
+    </script>
     <script src="<?= base_url() ?>vendor/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?= base_url() ?>vendor/assets/libs/popper.js/dist/umd/popper.min.js"></script>
