@@ -9,13 +9,11 @@ class Gtk extends CI_Controller
 
         $this->load->model('M_Gtk');
     }
-
     public function index()
     {
         $data['gtk'] = $this->M_Gtk->getAllGtk();
         $this->load->view('gtk/gtk', $data);
     }
-
     public function detailGtk($id_gtk)
     {
         $data['detailgtk'] = $this->db->get_where( 'tb_gtk', ['id_gtk' => $id_gtk])->row_array();

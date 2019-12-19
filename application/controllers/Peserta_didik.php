@@ -52,6 +52,11 @@ class Peserta_didik extends CI_Controller
         $this->load->view('peserta_didik/mutasi_keluar_pd');
     }
 
+    public function rombonganBelajar()
+    {
+        $this->load->view('peserta_didik/rombongan_belajar');
+    }
+
     public function simpanSiswa()
     {
         $this->M_peserta_didik->addSiswa();
