@@ -64,6 +64,12 @@ class M_Gtk extends CI_Model
         $this->db->where('id_gtk', $id_gtk);
         $this->db->delete('tb_gtk');
     }
+
+    public function getById($id_gtk)
+    {
+        return $this->db->get_where(('tb_gtk'), ["id_gtk" => $id_gtk])->row_array();
+    }
+
     private function _deleteImage($id_gtk)
     {
         $gtk = $this->getById($id_gtk);
