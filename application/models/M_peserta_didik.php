@@ -8,8 +8,9 @@ class M_peserta_didik extends CI_Model
 
 
     public $id_siswa;
-    public $nis;
-    public $nisn;
+    public $nomor_induk;
+    public $nomor_induk_sn;
+    public $nama_siswa;
     public $tempat_lahir_siswa;
     public $tanggal_lahir_siswa;
     public $jenis_kelamin_siswa;
@@ -17,34 +18,33 @@ class M_peserta_didik extends CI_Model
     public $kewarganegaraan_siswa;
     public $bahasa_siswa;
     public $golongan_siswa;
-    public $alamat_siswa;
-    public $foto_satu;
-    public $foto_empat;
+    public $alamat_siswa = "1.jpg";
+    public $foto_satu = "1.jpg";
+    public $foto_empat = "1.jpg";
 
 
     function __construct()
     {
         parent::__construct();
     }
-
     public function rules()
     {
         return [
             [
-                'field' => 'nama_depan',
+                'field' => 'nomor_induk_sn',
                 'label' => 'Name',
-                'rules' => 'required'
-            ],
-
-            [
-                'field' => 'id_buku',
-                'label' => 'Halaman',
                 'rules' => 'required'
             ]
         ];
     }
 
+
     public function getAllSiswa()
+    {
+        return $this->db->get($this->_table)->result();
+    }
+
+    public function getNisnSiswa()
     {
         return $this->db->get($this->_table)->result();
     }
@@ -52,8 +52,10 @@ class M_peserta_didik extends CI_Model
     public function addSiswa()
     {
         $post = $this->input->post();
-        $this->nis = $post['nis'];
-        $this->nisn = $post['nisn'];
+        $this->id_siswa = $post['id_siswa'];
+        $this->nomor_induk = $post['nomor_induk'];
+        $this->nomor_induk_sn = $post['nomor_induk_sn'];
+        $this->nama_siswa = $post['nama_siswa'];
         $this->tempat_lahir_siswa = $post['tempat_lahir_siswa'];
         $this->tanggal_lahir_siswa = $post['tanggal_lahir_siswa'];
         $this->jenis_kelamin_siswa = $post['jenis_kelamin_siswa'];
@@ -61,9 +63,6 @@ class M_peserta_didik extends CI_Model
         $this->kewarganegaraan_siswa = $post['kewarganegaraan_siswa'];
         $this->bahasa_siswa = $post['bahasa_siswa'];
         $this->golongan_siswa = $post['golongan_siswa'];
-        $this->alamat_siswa = $post['alamat_siswa'];
-        $this->foto_satu = $post['foto_satu'];
-        $this->foto_empat = $post['foto_empat'];
         $this->db->insert($this->_table, $this);
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Des 2019 pada 03.05
+-- Waktu pembuatan: 19 Des 2019 pada 05.27
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -63,7 +63,7 @@ CREATE TABLE `tb_alamat_ortu` (
   `desa_ortu` varchar(50) NOT NULL,
   `kec_ortu` varchar(50) NOT NULL,
   `kab_ortu` varchar(50) NOT NULL,
-  `prov__ortu` varchar(50) NOT NULL
+  `prov_ortu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -111,7 +111,11 @@ CREATE TABLE `tb_gtk` (
   `gelar_gtk` varchar(15) NOT NULL,
   `posisi_gtk` varchar(20) NOT NULL,
   `agama_gtk` varchar(20) NOT NULL,
-  `alamat_gtk` varchar(100) NOT NULL,
+  `jalan_gtk` varchar(100) NOT NULL,
+  `desa_gtk` varchar(100) NOT NULL,
+  `kec_gtk` varchar(100) NOT NULL,
+  `kab_gtk` varchar(100) NOT NULL,
+  `prov_gtk` varchar(100) NOT NULL,
   `tgl_masuk_gtk` varchar(10) NOT NULL,
   `tgl_keluar_gtk` varchar(10) NOT NULL,
   `foto_gtk` varchar(255) NOT NULL
@@ -227,8 +231,8 @@ CREATE TABLE `tb_rombel` (
 
 CREATE TABLE `tb_siswa` (
   `id_siswa` varchar(35) NOT NULL,
-  `nis` varchar(10) NOT NULL,
-  `nisn` varchar(10) NOT NULL,
+  `nomor_induk` varchar(10) NOT NULL,
+  `nomor_induk_sn` varchar(10) NOT NULL,
   `tempat_lahir_siswa` varchar(50) NOT NULL,
   `tanggal_lahir_siswa` varchar(10) NOT NULL,
   `jenis_kelamin_siswa` varchar(15) NOT NULL,
@@ -281,6 +285,13 @@ CREATE TABLE `users` (
   `password` varchar(50) NOT NULL,
   `jabatan` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id_login`, `id_gtk`, `username`, `password`, `jabatan`) VALUES
+('87hasd', 'ahjsdh', 'uuuu', '1234567', 1);
 
 --
 -- Indexes for dumped tables

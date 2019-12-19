@@ -61,7 +61,7 @@
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
                                 <div class="text-right">
-                                    <a type="button" href="<?= base_url() ?>peserta_didik/tambahPeserta" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                                    <a type="button" href="<?= base_url() ?>peserta_didik/tambahPeserta2" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
                                 </div><br>
                                 <div class="table-responsive">
 
@@ -81,13 +81,13 @@
                                         <tbody>
                                             <?php foreach ($siswa as $s) : ?>
                                                 <tr>
-                                                    <td><?= $s->nis ?></td>
-                                                    <td><?= $s->nisn ?></td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
+                                                    <td><?= $s->nomor_induk ?></td>
+                                                    <td><?= $s->nomor_induk_sn ?></td>
+                                                    <td><?= $s->nama_siswa ?></td>
+                                                    <td><?= $s->tempat_lahir_siswa ?>,<?= $s->tanggal_lahir_siswa ?></td>
+                                                    <td><?= $s->jenis_kelamin_siswa ?></td>
+                                                    <td><?= $s->agama_siswa ?></td>
+                                                    <td><?= $s->nomor_induk ?></td>
                                                     <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                                 </tr>
                                             <?php endforeach; ?>

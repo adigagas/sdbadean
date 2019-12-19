@@ -1,5 +1,24 @@
-<?php $this->load->view('templates/header'); ?>
-
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>vendor/assets/images/favicon.png">
+    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <!-- Custom CSS -->
+    <link href="<?= base_url() ?>vendor/assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
+    <link href="<?= base_url() ?>vendor/assets/libs/jquery-steps/steps.css" rel="stylesheet">
+    <link href="<?= base_url() ?>vendor/dist/css/style.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
 
 <body>
     <!-- ============================================================== -->
@@ -34,7 +53,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Form Basic</h4>
+                        <h4 class="page-title">Form Wizard</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -56,42 +75,51 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <form class="form-horizontal">
-                                <div class="card-body">
-                                    <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah Peserta Didik</h4> <br>
+                <div class="card">
+                    <div class="card-body wizard-content">
+                        <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah Peserta Didik</h4> <br>
+                        <h6 class="card-subtitle"></h6>
+                        <form id="example-form" action="<?php echo base_url('peserta_didik/simpanSiswa'); ?>" method="post" enctype="multipart/form-data" class="m-t-40">
+                            <div>
+                                <?php $yahoo = md5(uniqid(rand(), true)) ?>
+                                <?php $ibu = md5(uniqid(rand(), true)) ?>
+                                <?php $ayah = md5(uniqid(rand(), true)) ?>
+                                <?php $alamat_ortu = md5(uniqid(rand(), true)) ?>
+                                <?php $alamat_wali = md5(uniqid(rand(), true)) ?>
+                                <?php $wali = md5(uniqid(rand(), true)) ?>
+
+                                <h3>Peserta Didik</h3>
+                                <section>
                                     <div class="row">
-                                        <div class="col-md-5" style="margin-left: 10px;">
-                                            <h5 class="">DATA DIRI PESERTA DIDIK</h5><br>
+                                        <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">NIS</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Ketik disini">
+                                                    <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_siswa" class="form-control" id="lname" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk" class="form-control" id="lname" placeholder="NISN" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">NISN</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk_sn" class="form-control" id="lname" placeholder="NISN" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Nama Peserta Didik</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="nama_siswa" class="form-control" id="lname" placeholder="Nama Peserta Didik" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="email1" class="col-sm-4  control-label col-form-label">Tempat / Tanggal Lahir</label>
                                                 <div class="col-sm-8">
                                                     <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <input type="text" style="border-radius: 10px;" class="form-control" id="email1" placeholder="Ketik disini">
+                                                        <div class="col-sm-6 col-xs-4">
+                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_siswa" class="form-control" id="lname" placeholder="Tempat Lahir" required>
                                                         </div>
-                                                        <div class="col-sm-6">
-                                                            <input type="date" style="border-radius: 10px;" class="form-control" id="email1" placeholder="Company Name Here">
+                                                        <div class="col-sm-6 col-xs 4">
+                                                            <input type="date" style="border-radius: 10px;" name="tanggal_lahir_siswa" class="form-control" id="lname" placeholder="Tanggal Lahir" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -101,20 +129,22 @@
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" required>
+                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="jenis_kelamin_siswa" value="Laki-laki">
                                                             <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
                                                         </div>
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="jenis_kelamin_siswa" value="Perempuan">
                                                             <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label for="cono1" class="col-sm-4  control-label col-form-label">Agama</label>
                                                 <div class="col-sm-8">
-                                                    <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                                    <select class="select2 form-control custom-select" name="agama_siswa" style="width: 100%; height:36px;">
                                                         <option value="-">Pilih Agama</option>
                                                         <option value="Islam">Islam</option>
                                                         <option value="Kristen">Kristen</option>
@@ -128,20 +158,20 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kewarganegaraan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="kewarganegaraan_siswa" class="form-control" id="lname" placeholder="Kewarganegaraan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Bahasa Sehari-hari</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="bahasa_siswa" class="form-control" id="lname" placeholder="Bahasa Sehari-hari">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Golongan Darah</label>
                                                 <div class="col-sm-8">
-                                                    <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
-                                                        <option>Pilih Golongan Darah</option>
+                                                    <select class="select2 form-control custom-select" name="golongan_siswa" style="width: 100%; height:36px;">
+                                                        <option value="-">Pilih Golongan Darah</option>
                                                         <option value="AB">AB</option>
                                                         <option value="A">A</option>
                                                         <option value="B">B</option>
@@ -149,8 +179,13 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <br>
-                                            <h5 class="">Masuk Menjadi Murid Baru Pada</h5>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- <h3>Masuk Menjadi Murid</h3>
+                                <section>
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Tanggal</label>
                                                 <div class="col-sm-8">
@@ -166,144 +201,161 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Asal Sekolah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="lname" class="col-sm-4  control-label col-form-label">Foto Baru</label>
+                                                <div class="col-sm-8">
+                                                    <input type="file" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
                                                 </div>
                                             </div>
 
-                                            <div class="card" style="width: 18rem;">
-                                                <img src="<?= base_url() ?>vendor/assets/images/camera.png" class=" card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
-                                            </div>
                                         </div>
-                                        <div class="col-md-1">
-
+                                        <div class="col-md-6 text-right">
+                                            <label for="name">Foto Sebelumnya</label><br>
+                                            <img ame="name" src="" width="150px" height="200px">
                                         </div>
-                                        <div class="col-md-5">
-                                            <h5 class="">KETERANGAN ORANG TUA / WALI MURID</h5><br>
+                                    </div>
+                                </section>-->
+                                <h3>Keterangan Orang Tua</h3>
+                                <section>
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <h5 class="">Ayah</h5>
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ayah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Ketik disini">
+                                                    <input type="hidden" value="<?php echo $ayah ?>" style="border-radius: 10px;" name="id_ayah" class="form-control" id="lname" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nama_ayah" class="form-control" id="fname" placeholder="Nama Ayah">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Ayah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ayah" class="form-control" id="lname" placeholder="Pekerjaan Ayah">
                                                 </div>
                                             </div><br>
                                             <h5 class="">Ibu</h5>
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ibu</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Ketik disini">
+                                                    <input type="hidden" value="<?php echo $ibu ?>" style="border-radius: 10px;" name="id_ibu" class="form-control" id="lname" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nama_ibu" class="form-control" id="fname" placeholder="First Name Here">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Ibu</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ibu" class="form-control" id="lname" placeholder="Last Name Here">
                                                 </div>
-                                            </div><br>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <h5 class="">Alamat Orang Tua</h5>
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Jalan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Ketik disini">
+                                                    <input type="hidden" value="<?php echo $alamat_ortu ?>" style="border-radius: 10px;" name="id_alamat_ortu" class="form-control" id="lname" required>
+                                                    <input type="text" style="border-radius: 10px;" name="jalan_ortu" class="form-control" id="fname" placeholder="Masukkan Jalan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Desa / Kelurahan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="desa_ortu" class="form-control" id="lname" placeholder="Masukkan Desa">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="kec_ortu" class="form-control" id="fname" placeholder="Masukkan Kecamatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten / Kota</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="kab_ortu" class="form-control" id="lname" placeholder="Masukkan Kabupaten">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="prov_ortu" class="form-control" id="lname" placeholder="Masukkan Provinsi">
                                                 </div>
-                                            </div><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <h3>Wali Peserta Didik</h3>
+                                <section>
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <h5 class="">Wali Peserta Didik</h5>
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Wali</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Ketik disini">
+                                                    <input type="hidden" value="<?php echo $wali ?>" style="border-radius: 10px;" name="id_wali" class="form-control" id="lname" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nama_wali" class="form-control" id="fname" placeholder="Nama Wali">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Wali</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_wali" class="form-control" id="lname" placeholder="Pekerjaan Wali">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Hubungan Keluarga</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="hubungan_kel_wali" class="form-control" id="fname" placeholder="Hubungan Keluarga">
                                                 </div>
-                                            </div><br>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <h5 class="">Alamat Wali</h5>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Jalan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="hidden" value="<?php echo $alamat_wali ?>" style="border-radius: 10px;" name="id_alamat_wali" class="form-control" id="lname" required>
+                                                    <input type="text" style="border-radius: 10px;" name="jalan_wali" class="form-control" id="lname" placeholder="Jalan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Desa / Kelurahan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="desa_wali" class="form-control" id="lname" placeholder="Desa">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="kec_wali" class="form-control" id="lname" placeholder="Kecamatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten / Kota</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="kab_wali" class="form-control" id="lname" placeholder="Kabupaten">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Ketik disini">
+                                                    <input type="text" style="border-radius: 10px;" name="prov_wali" class="form-control" id="lname" placeholder="Provinsi">
                                                 </div>
                                             </div>
-
-                                        </div><br>
-                                    </div>
-                                    <div class="border-top">
-                                        <div class="card-body ">
-                                            <div class="text-right">
-                                                <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Batal</a>
-                                                <a href="" type="button" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-save"></i> Simpan</a>
-                                            </div>
                                         </div>
+
                                     </div>
-                            </form>
-                        </div>
+                                </section>
+                                <h3>Finish</h3>
+                                <section>
+                                    <input id="acceptTerms" name="acceptTerms" type="submit" class="btn btn-success required">
+
+                                </section>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -353,57 +405,37 @@
     <script src="<?= base_url() ?>vendor/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="<?= base_url() ?>vendor/dist/js/custom.min.js"></script>
-    <!-- This Page JS -->
-    <script src="<?= base_url() ?>vendor/assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-    <script src="<?= base_url() ?>vendor/dist/js/pages/mask/mask.init.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/libs/select2/dist/js/select2.full.min.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/libs/select2/dist/js/select2.min.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/libs/quill/dist/quill.min.js"></script>
+    <!-- this page js -->
+    <script src="<?= base_url() ?>vendor/assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
+    <script src="<?= base_url() ?>vendor/assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
     <script>
-        //***********************************//
-        // For select 2
-        //***********************************//
-        $(".select2").select2();
-
-        /*colorpicker*/
-        $('.demo').each(function() {
-            //
-            // Dear reader, it's actually very easy to initialize MiniColors. For example:
-            //
-            //  $(selector).minicolors();
-            //
-            // The way I've done it below is just for the demo, so don't get confused
-            // by it. Also, data- attributes aren't supported at this time...they're
-            // only used for this demo.
-            //
-            $(this).minicolors({
-                control: $(this).attr('data-control') || 'hue',
-                position: $(this).attr('data-position') || 'bottom left',
-
-                change: function(value, opacity) {
-                    if (!value) return;
-                    if (opacity) value += ', ' + opacity;
-                    if (typeof console === 'object') {
-                        console.log(value);
-                    }
-                },
-                theme: 'bootstrap'
-            });
-
+        // Basic Example with form
+        var form = $("#example-form");
+        form.validate({
+            errorPlacement: function errorPlacement(error, element) {
+                element.before(error);
+            },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                }
+            }
         });
-        /*datwpicker*/
-        jQuery('.mydatepicker').datepicker();
-        jQuery('#datepicker-autoclose').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
-        var quill = new Quill('#editor', {
-            theme: 'snow'
+        form.children("div").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            onStepChanging: function(event, currentIndex, newIndex) {
+                form.validate().settings.ignore = ":disabled,:hidden";
+                return form.valid();
+            },
+            onFinishing: function(event, currentIndex) {
+                form.validate().settings.ignore = ":disabled";
+                return form.valid();
+            },
+            onFinished: function(event, currentIndex) {
+                alert("Lakukan Submit!");
+            }
         });
     </script>
 </body>
