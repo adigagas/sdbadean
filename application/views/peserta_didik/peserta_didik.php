@@ -88,7 +88,7 @@
                                                     <td><?= $s->jenis_kelamin_siswa ?></td>
                                                     <td><?= $s->agama_siswa ?></td>
                                                     <td><?= $s->nomor_induk ?></td>
-                                                    <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                    <td><a type="button" href="<?php echo base_url('peserta_didik/detailPeserta/' . $s->id_siswa) ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>

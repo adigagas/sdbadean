@@ -69,62 +69,62 @@
                                                 <div class="form-group row">
                                                     <label for="fname" class="col-sm-6 col-xs-5 col-md-6 control-label col-form-label">1. Nomor Induk </label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->nomor_induk ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">2. NISN</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->nomor_induk_sn ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">3. Nama Peserta Didik</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->nama_siswa ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">4. Tempat / Tanggal Lahir</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->tempat_lahir_siswa ?> / <?= $siswa->tanggal_lahir_siswa ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">5. Jenis Kelamin</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->jenis_kelamin_siswa ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">6. Agama</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->agama_siswa ?></label>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">7. Kewarganegaraan</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->kewarganegaraan_siswa ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">8. Bahasa Sehari-hari</label>
                                                     <div class="col-sm-6 col-xs-4 col-md-6">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->bahasa_siswa ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">9. Golongan Darah</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->golongan_siswa ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-6 col-xs-5 col-md-6  control-label col-form-label">10. Alamat Peserta Didik</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class=" control-label col-form-label">: 12345</label>
+                                                        <label for="fname" class=" control-label col-form-label">: <?= $siswa->jalan_ortu ?> / <?= $siswa->desa_ortu ?> / <?= $siswa->kec_ortu ?> / <?= $siswa->kab_ortu ?> / <?= $siswa->prov_ortu ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -204,13 +204,13 @@
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-5 col-md-6   control-label col-form-label">a. Ayah</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->nama_ayah ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-md-6 col-xs-4  control-label col-form-label">b. Ibu </label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->nama_ibu ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -219,13 +219,13 @@
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">a. Ayah</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->pekerjaan_ayah ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">b. Ibu </label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->pekerjaan_ibu ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -234,31 +234,31 @@
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">a. Jalan</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->jalan_ortu ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">b. Desa / Kelurahan </label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->desa_ortu ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">c. Kecamatan</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->kec_ortu ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">d. Kabupaten </label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->kab_ortu ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">e. Provinsi </label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->prov_ortu ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -267,25 +267,25 @@
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">a. Nama</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->nama_wali ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">b. Pekerjaan </label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->pekerjaan_wali ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">c. Alamat</label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->alamat_wali ?> </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label">d. Hubungan Keluarga </label>
                                                     <div class="col-sm-6 col-md-6 col-xs-4">
-                                                        <label for="fname" class="control-label col-form-label">: Adi Heru </label>
+                                                        <label for="fname" class="control-label col-form-label">: <?= $siswa->hubungan_kel_wali ?> </label>
                                                     </div>
                                                 </div>
                                             </div>
