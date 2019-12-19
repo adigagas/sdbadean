@@ -78,7 +78,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">ID</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">DA_91281928</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID" ><?= $detailgtk['id_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -86,7 +86,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">NIP</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">0921092819029</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['nip_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -94,7 +94,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Nama Tenaga Didik</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">Dwi Ayu</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['nama_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -102,7 +102,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Tempat/Tanggal Lahir</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">Bondowoso, 13-06-1999</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['tempat_lahir_gtk']; ?> , <?= $detailgtk['tanggal_lahir_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -110,7 +110,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Jenis Kelamin</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">Perempuan</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['jenis_kelamin_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -118,7 +118,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Pangkat/Jabatan/Golongan</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">Guru Seksi/III D</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['pajago_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -126,7 +126,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Gelar</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">M.Pd</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['gelar_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -134,7 +134,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Posisi di Sekolah</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">Kepala Sekolah</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['posisi_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -142,7 +142,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Agama</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">konghucu</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['agama_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -150,7 +150,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Alamat</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">Perumahan Nangkaan</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['jalan_gtk']; ?> <?= $detailgtk['desa_gtk']; ?> <?= $detailgtk['kecamatan_gtk']; ?> <?= $detailgtk['kabupaten_gtk']; ?> <?= $detailgtk['provinsi_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -159,19 +159,13 @@
                                                 <div class="col-sm-6">
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="fname" class="col-sm-1  control-label col-form-label">10.</label>
-                                                <label for="fname" class="col-sm-5  control-label col-form-label">Alamat</label>
-                                                <div class="col-sm-6">
-
-                                                </div>
-                                            </div>
+                                            
                                             <div class="form-group row">
                                                 <label style="margin-left: 40px" for="fname" class="col-sm-1  control-label col-form-label">a.</label>
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Tanggal Masuk</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">23/12/2010</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['tgl_masuk_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -180,7 +174,7 @@
 
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID">-</label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['tgl_keluar_gtk']; ?></label>
                                                 </div>
                                             </div>
                                         </div><br>
@@ -191,13 +185,13 @@
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-10 text-right">
-                                                    <img width="300px;" height="400px" src="<?= base_url() ?>vendor/assets/images/camera.png"  alt="...">
+                                                    <img width="300px;" height="400px" src="<?= base_url('vendor/assets/images/') . $detailgtk['foto_gtk']; ?>" alt="...">
                                                 </div>
                                             </div>
                                         </div><br>
                                     </div>
                                     <div class="border-top">
-                                        
+
                                     </div>
                             </form>
                         </div>

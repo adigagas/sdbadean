@@ -65,7 +65,7 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
                                 <h6 class="text-white">Jumlah Peserta Didik</h6>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-school"></i></h1>
                                 <h6 class="text-white">Jumlah Tenaga Didik</h6>
                             </div>
                         </div>
@@ -82,8 +82,8 @@
                     <!-- Column -->
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
-                            <div class="box bg-warning text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                            <div class="box bg-danger text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
                                 <h6 class="text-white">Jumlah Rombel</h6>
                             </div>
                         </div>

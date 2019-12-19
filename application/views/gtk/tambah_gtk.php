@@ -58,7 +58,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form class="form-horizontal">
+                        <?= $this->session->flashdata('tambahgtk'); ?>
+                           <?php echo form_open_multipart('Gtk/tambahGtk'); ?> 
                                 <div class="card-body">
                                     <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah GTK</h4> <br>
                                     <div class="row">
@@ -67,19 +68,25 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">ID</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="ID">
+                                                    <input type="text" style="border-radius: 10px;" name="id_gtk" class="form-control" id="id_gtk" placeholder="ID" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="lname" class="col-sm-4  control-label col-form-label">NIK</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" style="border-radius: 10px;" name="nik_gtk" class="form-control" id="nik_gtk" placeholder="NIK" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">NIP</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="NIP">
+                                                    <input type="text" style="border-radius: 10px;" name="nip_gtk" class="form-control" id="nip_gtk" placeholder="NIP" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Nama GTK</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Nama GTK">
+                                                    <input type="password" style="border-radius: 10px;" name="nama_gtk" class="form-control" id="nama_gtk" placeholder="Nama GTK" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -87,10 +94,10 @@
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="col-sm-6">
-                                                            <input type="text" style="border-radius: 10px;" class="form-control" id="email1" placeholder="Tempat">
+                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_gtk" class="form-control" id="tempat_lahir_gtk" placeholder="Tempat" required>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input type="date" style="border-radius: 10px;" class="form-control" id="email1">
+                                                            <input type="date" style="border-radius: 10px;" name="tanggal_lahir_gtk" class="form-control" id="tanggal_lahir_gtk" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -99,13 +106,13 @@
                                                 <label for="cono1" class="col-sm-4 control-label col-form-label">Pilih Jenis Kelamin</label>
                                                 <div class="col-sm-8">
                                                     <div class="row">
-                                                        <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" required>
-                                                            <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
+                                                        <div class="custom-radio col-md-4">
+                                                            <input type="radio"  name="jenis_kelamin_gtk" id="jenis_kelamin_gtk" value="L" required>
+                                                            <label class="-label" for="customControlValidation1">Laki-laki</label>
                                                         </div>
-                                                        <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-                                                            <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
+                                                        <div class="custom-radio col-md-4">
+                                                            <input type="radio"  name="jenis_kelamin_gtk" id="jenis_kelamin_gtk" value="P" required>
+                                                            <label class="-label" for="customControlValidation2">Perempuan</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,8 +120,8 @@
                                             <div class="form-group row">
                                                 <label for="cono1" class="col-sm-4  control-label col-form-label">Agama</label>
                                                 <div class="col-sm-8">
-                                                    <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
-                                                        <option>Pilih Agama</option>
+                                                    <select name="agama_gtk" id="agama_gtk" class="form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
+                                                        <option selected disabled>Pilih Agama</option>
                                                         <option value="Islam">Islam</option>
                                                         <option value="Kristen">Kristen</option>
                                                         <option value="Katolik">Katolik</option>
@@ -125,10 +132,16 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
+                                                <label for="cono1" class="col-sm-4  control-label col-form-label">Gelar GTK</label>
+                                                <div class="col-sm-8">
+                                                <input type="text" style="border-radius: 10px;" name="gelar_gtk" class="form-control" id="gelar_gtk" placeholder="Gelar" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pangkat/Golongan</label>
                                                 <div class="col-sm-8">
-                                                    <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
-                                                        <option>Pilih Pangkat</option>
+                                                    <select name="pajago_gtk" id="pajago_gtk" class="form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
+                                                        <option selected disabled>Pilih Pangkat</option>
                                                         <option value="1a">Gol. 1A</option>
                                                         <option value="1b">Gol. 1B</option>
                                                         <option value="2a">Gol. 2A</option>
@@ -143,8 +156,8 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Posisi di Sekolah</label>
                                                 <div class="col-sm-8">
-                                                    <select class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
-                                                        <option>Pilih Posisi</option>
+                                                    <select name="posisi_gtk" id="posisi_gtk" class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
+                                                        <option selected disabled>Pilih Posisi</option>
                                                         <option value="guru">Guru</option>
                                                         <option value="operator">Operator</option>
                                                         <option value="kepsek">Kepala Sekolah</option>
@@ -157,39 +170,40 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Jalan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="Jalan">
+                                                    <input type="text" style="border-radius: 10px;" name="jalan_gtk" id="jalan_gtk" class="form-control" placeholder="Jalan" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Desa/Kelurahan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Desa/Kelurahan">
+                                                    <input type="text" style="border-radius: 10px;" name="desa_gtk" id="desa_gtk" class="form-control" id="lname" placeholder="Desa/Kelurahan" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Kecamatan">
+                                                    <input type="text" style="border-radius: 10px;" name="kecamatan_gtk" class="form-control" id="kecamatan_gtk" placeholder="Kecamatan" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten/Kota</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Kabupaten/Kota">
+                                                    <input type="text" style="border-radius: 10px;" name="kabupaten_gtk" class="form-control" id="kabupaten_gtk" placeholder="Kabupaten/Kota" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Provinsi">
+                                                    <input type="text" style="border-radius: 10px;" name="provinsi_gtk" class="form-control" id="provinsi_gtk" placeholder="Provinsi" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Tanggal Masuk</label>
                                                 <div class="col-sm-8">
-                                                    <input type="date" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname">
+                                                    <input type="date" style="border-radius: 10px;" name="tgl_masuk_gtk" class="form-control" id="tgl_masuk_gtk" required>
                                                 </div>
                                             </div>
+                                            <input hidden type="text" name="tgl_keluar_gtk" class="form-control" id="tgl_keluar_gtk" value="-" placeholder="Kecamatan">
                                         </div><br>
                                         <div class="col-md-6">
                                             <br>
@@ -197,22 +211,23 @@
                                                 <h5 class="">Foto GTK</h5>
                                             </div>
                                             <div class="form-group row">
-                                                <div class="col-sm-8 text-left" style="margin-left: 8px">
+                                                <div class="col-sm-8 text-left" style="margin-left: 80px">
                                                     <img width="300px;" height="400px" src="<?= base_url() ?>vendor/assets/images/camera.png" alt="...">
-                                                    <input type="file" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Last Name Here">
+                                                    <input type="file" style="border-radius: 10px;" name="foto_gtk" class="form-control" id="foto_gtk" multiple>
                                                 </div>
                                             </div>
+                                            
                                         </div><br>
                                     </div>
                                     <div class="border-top">
                                         <div class="card-body ">
                                             <div class="text-right">
-                                                <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Batal</a> &nbsp;
-                                                <a href="" type="button" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-save"></i> Simpan</a>
+                                                <a href="<?= base_url('Gtk/gtk'); ?>" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Batal</a> &nbsp;
+                                                <button href="" type="submit" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-save"></i> Simpan</button>
                                             </div>
                                         </div>
                                     </div>
-                            </form>
+                            <?php form_close(); ?>
                         </div>
                     </div>
                 </div>

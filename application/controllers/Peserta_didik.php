@@ -30,7 +30,6 @@ class Peserta_didik extends CI_Controller
 
     public function tambahPeserta()
     {
-
         $this->load->view('peserta_didik/tambah_peserta_didik');
     }
 
@@ -62,5 +61,10 @@ class Peserta_didik extends CI_Controller
         $this->M_wali->addWali();
         $this->M_relasi_siswa->addRelasi();
         redirect('peserta_didik/index');
+    }
+    public function tambahPD()
+    {
+
+        $this->load->view('peserta_didik/tambah_pd');
     }
 }
