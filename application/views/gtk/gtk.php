@@ -71,7 +71,7 @@
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th><b>ID</b></th>
+                                                <th><b>NIK</b></th>
                                                 <th><b>NIP</b></th>
                                                 <th><b>Nama GTK</b></th>
                                                 <th><b>Tempat Tanggal Lahir</b></th>
@@ -83,7 +83,7 @@
                                         <tbody>
                                             <?php foreach($gtk as $g) : ?>
                                             <tr>
-                                                <td><?= $g->id_gtk ?></td>
+                                                <td><?= $g->nik_gtk ?></td>
                                                 <td><?= $g->nip_gtk ?></td>
                                                 <td><?= $g->nama_gtk ?></td>
                                                 <td><?= $g->tempat_lahir_gtk ?></td>

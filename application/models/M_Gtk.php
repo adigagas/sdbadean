@@ -15,7 +15,11 @@ class M_Gtk extends CI_Model
     public $gelar_gtk;
     public $posisi_gtk;
     public $agama_gtk;
-    public $alamat_gtk;
+    public $jalan_gtk;
+    public $desa_gtk;
+    public $kec_gtk;
+    public $kab_gtk;
+    public $prov_gtk;
     public $tgl_masuk_gtk;
     public $tgl_keluar_gtk;
     public $foto_gtk;
@@ -50,9 +54,29 @@ class M_Gtk extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
-    function addGtk($data)
+    function addGtk()
     {
-        $this->db->insert('tb_gtk', $data);
+        $post = $this->input->post();
+        $this->id_gtk = $post['id_gtk'];
+        $this->nik_gtk = $post['nik_gtk'];
+        $this->nip_gtk = $post['nip_gtk'];
+        $this->nama_gtk = $post['nama_gtk'];
+        $this->tempat_lahir_gtk = $post['tempat_lahir_gtk'];
+        $this->tanggal_lahir_gtk = $post['tanggal_lahir_gtk'];
+        $this->jenis_kelamin_gtk = $post['jenis_kelamin_gtk'];
+        $this->pajago_gtk = $post['pajago_gtk'];
+        $this->gelar_gtk = $post['gelar_gtk'];
+        $this->posisi_gtk = $post['posisi_gtk'];
+        $this->agama_gtk = $post['agama_gtk'];
+        $this->jalan_gtk = $post['jalan_gtk'];
+        $this->desa_gtk = $post['desa_gtk'];
+        $this->kec_gtk = $post['kec_gtk'];
+        $this->kab_gtk = $post['kab_gtk'];
+        $this->prov_gtk = $post['prov_gtk'];
+        $this->tgl_masuk_gtk = $post['tgl_masuk_gtk'];
+        $this->tgl_keluar_gtk = $post['tgl_keluar_gtk'];
+        $this->foto_gtk = $this->_uploadImage();
+        $this->db->insert($this->_table, $this);
     }
     function updateGtk()
     {
@@ -77,5 +101,26 @@ class M_Gtk extends CI_Model
             $filename = explode(".", $gtk->foto_gtk)[0];
             return array_map('unlink', glob(FCPATH . ".vendor/assets/images/$filename.*"));
         }
+    }
+
+    private function _uploadImage()
+    {
+        $config['upload_path']          =  '.vendor/assets/images/';
+        $config['allowed_types']        = 'gif|jpg|png|JPG';
+        $config['max_size']             = 9048;
+        $config['overwrite']            = true;
+        $config['file_name']            = $_FILES['foto_gtk']['foto_gtk'];
+
+        // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto_gtk')) {
+            return $this->upload->data("file_name");
+        }
+
+        return "camera.jpg";
     }
 }

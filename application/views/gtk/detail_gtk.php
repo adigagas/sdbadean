@@ -75,10 +75,10 @@
 
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-1  control-label col-form-label">1.</label>
-                                                <label for="fname" class="col-sm-5  control-label col-form-label">ID</label>
+                                                <label for="fname" class="col-sm-5  control-label col-form-label">NIK</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID" ><?= $detailgtk['id_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID" ><?= $detailgtk['nik_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -150,7 +150,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Alamat</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['jalan_gtk']; ?> <?= $detailgtk['desa_gtk']; ?> <?= $detailgtk['kecamatan_gtk']; ?> <?= $detailgtk['kabupaten_gtk']; ?> <?= $detailgtk['provinsi_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['jalan_gtk']; ?> <?= $detailgtk['desa_gtk']; ?> <?= $detailgtk['kec_gtk']; ?></label><br><label>&nbsp; &nbsp; &nbsp; <?= $detailgtk['kab_gtk']; ?> <?= $detailgtk['prov_gtk']; ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
