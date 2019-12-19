@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Des 2019 pada 05.27
+-- Waktu pembuatan: 19 Des 2019 pada 05.43
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -66,6 +66,14 @@ CREATE TABLE `tb_alamat_ortu` (
   `prov_ortu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_alamat_ortu`
+--
+
+INSERT INTO `tb_alamat_ortu` (`id_alamat_ortu`, `jalan_ortu`, `desa_ortu`, `kec_ortu`, `kab_ortu`, `prov_ortu`) VALUES
+('436bdbee076b0ca33bd9da6fff8494b1', 'jnajsdn', 'kjand', 'kjand', 'kjnakjn', 'asn'),
+('cc41bacb6739ca0d39ca6ba9ce19b1b3', 'jkhd', 'sabd', 'jsbdjd', 'jsd', 'sjc');
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +89,14 @@ CREATE TABLE `tb_alamat_wali` (
   `prov_wali` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_alamat_wali`
+--
+
+INSERT INTO `tb_alamat_wali` (`id_alamat_wali`, `jalan_wali`, `desa_wali`, `kec_wali`, `kab_wali`, `prov_wali`) VALUES
+('436bdbee076b0ca33bd9da6fff8494b1', 'akjd', 'ajdn', 'ajdn', 'jasd', 'aksjdd'),
+('5460e84a518c89ca2dbef1a1e3650f28', 'adn', 'ajsnd', 'asjdn', 'ajdn', 'ajsnx');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +108,14 @@ CREATE TABLE `tb_ayah` (
   `nama_ayah` varchar(50) NOT NULL,
   `pekerjaan_ayah` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_ayah`
+--
+
+INSERT INTO `tb_ayah` (`id_ayah`, `nama_ayah`, `pekerjaan_ayah`) VALUES
+('436bdbee076b0ca33bd9da6fff8494b1', 'Moh Ainun', 'Mayang'),
+('7870b794bd16deaf0d14c78b4a5212b3', 'ajndsj', 'akjsdn');
 
 -- --------------------------------------------------------
 
@@ -132,6 +156,14 @@ CREATE TABLE `tb_ibu` (
   `nama_ibu` varchar(50) NOT NULL,
   `pekerjaan_ibu` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_ibu`
+--
+
+INSERT INTO `tb_ibu` (`id_ibu`, `nama_ibu`, `pekerjaan_ibu`) VALUES
+('436bdbee076b0ca33bd9da6fff8494b1', 'Jnakjsnd', 'kajsnd'),
+('9610170fac4bdafdd2592cc9ba47676f', 'ajksbd', 'jasbd');
 
 -- --------------------------------------------------------
 
@@ -209,6 +241,14 @@ CREATE TABLE `tb_relasi_siswa` (
   `id_alamat_wali` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_relasi_siswa`
+--
+
+INSERT INTO `tb_relasi_siswa` (`id_relasi`, `id_siswa`, `id_ayah`, `id_ibu`, `id_alamat_ortu`, `id_wali`, `id_alamat_wali`) VALUES
+(1, '436bdbee076b0ca33bd9da6fff8494b1', '436bdbee076b0ca33bd9da6fff8494b1', '436bdbee076b0ca33bd9da6fff8494b1', '436bdbee076b0ca33bd9da6fff8494b1', '436bdbee076b0ca33bd9da6fff8494b1', '436bdbee076b0ca33bd9da6fff8494b1'),
+(2, 'ee98aa079b6f2f0afb19942c179b575e', '7870b794bd16deaf0d14c78b4a5212b3', '9610170fac4bdafdd2592cc9ba47676f', 'cc41bacb6739ca0d39ca6ba9ce19b1b3', '51a4ce13af0d2cdd311d0bf38a557311', '5460e84a518c89ca2dbef1a1e3650f28');
+
 -- --------------------------------------------------------
 
 --
@@ -233,6 +273,7 @@ CREATE TABLE `tb_siswa` (
   `id_siswa` varchar(35) NOT NULL,
   `nomor_induk` varchar(10) NOT NULL,
   `nomor_induk_sn` varchar(10) NOT NULL,
+  `nama_siswa` varchar(50) NOT NULL,
   `tempat_lahir_siswa` varchar(50) NOT NULL,
   `tanggal_lahir_siswa` varchar(10) NOT NULL,
   `jenis_kelamin_siswa` varchar(15) NOT NULL,
@@ -244,6 +285,14 @@ CREATE TABLE `tb_siswa` (
   `foto_satu` varchar(255) NOT NULL,
   `foto_empat` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_siswa`
+--
+
+INSERT INTO `tb_siswa` (`id_siswa`, `nomor_induk`, `nomor_induk_sn`, `nama_siswa`, `tempat_lahir_siswa`, `tanggal_lahir_siswa`, `jenis_kelamin_siswa`, `agama_siswa`, `kewarganegaraan_siswa`, `bahasa_siswa`, `golongan_siswa`, `alamat_siswa`, `foto_satu`, `foto_empat`) VALUES
+('436bdbee076b0ca33bd9da6fff8494b1', 'xxx', 'xxxx', 'xxxx', 'Jember', '12122-12-1', 'Laki-laki', 'Islam', 'Indonesia', 'Indonesia', 'AB', '1.jpg', '1.jpg', '1.jpg'),
+('ee98aa079b6f2f0afb19942c179b575e', '12323', '123123', '12313', '123', '11111-11-1', 'Perempuan', 'Islam', 'uygqehwq', 'kjahsd', 'AB', '1.jpg', '1.jpg', '1.jpg');
 
 -- --------------------------------------------------------
 
@@ -271,6 +320,14 @@ CREATE TABLE `tb_wali` (
   `alamat_wali` varchar(100) NOT NULL,
   `hubungan_kel_wali` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_wali`
+--
+
+INSERT INTO `tb_wali` (`id_wali`, `nama_wali`, `pekerjaan_wali`, `alamat_wali`, `hubungan_kel_wali`) VALUES
+('436bdbee076b0ca33bd9da6fff8494b1', 'asnd', 'ajknd', 'ajdn', 'a,dn'),
+('51a4ce13af0d2cdd311d0bf38a557311', 'jksd', 'sjdn', 'ajsnd', 'ajsdnj');
 
 -- --------------------------------------------------------
 
@@ -437,7 +494,7 @@ ALTER TABLE `tb_mutasi_masuk_siswa`
 -- AUTO_INCREMENT untuk tabel `tb_relasi_siswa`
 --
 ALTER TABLE `tb_relasi_siswa`
-  MODIFY `id_relasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_relasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_tamat_belajar`
