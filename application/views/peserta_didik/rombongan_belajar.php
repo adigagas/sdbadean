@@ -68,39 +68,37 @@
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th><b>NIS</b></th>
-                                                <th><b>NISN</b></th>
-                                                <th><b>Nama Peserta Didik</b></th>
-                                                <th><b>Tempat Tanggal Lahir</b></th>
-                                                <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Agama</b></th>
-                                                <th><b>Rombel</b></th>
+                                                <th><b>No</b></th>
+                                                <th><b>Kelas</b></th>
+                                                <th><b>Nama Rombel</b></th>
+                                                <th><b>Wali Kelas</b></th>
+                                                <th><b>Tahun Ajaran</b></th>
                                                 <th><b>Aksi</b></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($siswa as $s) : ?>
+                                            <?php
+                                            $i = 1;
+                                            foreach ($rombel as $s) : ?>
                                                 <tr>
-                                                    <td><?= $s->nomor_induk ?></td>
-                                                    <td><?= $s->nomor_induk_sn ?></td>
-                                                    <td><?= $s->nama_siswa ?></td>
-                                                    <td><?= $s->tempat_lahir_siswa ?>,<?= $s->tanggal_lahir_siswa ?></td>
-                                                    <td><?= $s->jenis_kelamin_siswa ?></td>
-                                                    <td><?= $s->agama_siswa ?></td>
-                                                    <td><?= $s->nomor_induk ?></td>
+                                                    <td><?= $i ?></td>
+                                                    <td><?= $s->kelas ?></td>
+                                                    <td><?= $s->nama_rombel ?></td>
+                                                    <td><?= $s->nama_gtk ?></td>
+                                                    <td><?= $s->tahun_ajaran ?></td>
                                                     <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                                 </tr>
-                                            <?php endforeach; ?>
+                                            <?php
+                                                $i++;
+                                            endforeach; ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th><b>NIS</b></th>
-                                                <th><b>NISN</b></th>
-                                                <th><b>Nama Peserta Didik</b></th>
-                                                <th><b>Tempat Tanggal Lahir</b></th>
-                                                <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Agama</b></th>
-                                                <th><b>Rombel</b></th>
+                                                <th><b>No</b></th>
+                                                <th><b>Kelas</b></th>
+                                                <th><b>Nama Rombel</b></th>
+                                                <th><b>Wali Kelas</b></th>
+                                                <th><b>Tahun Ajaran</b></th>
                                                 <th><b>Aksi</b></th>
                                             </tr>
                                         </tfoot>

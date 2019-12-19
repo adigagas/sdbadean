@@ -12,6 +12,8 @@ class Peserta_didik extends CI_Controller
         $this->load->model('M_alamat_ortu');
         $this->load->model('M_alamat_wali');
         $this->load->model('M_wali');
+        $this->load->model('M_rombel');
+
         $this->load->model('M_relasi_siswa');
 
 
@@ -53,7 +55,8 @@ class Peserta_didik extends CI_Controller
 
     public function rombonganBelajar()
     {
-        $this->load->view('peserta_didik/rombongan_belajar');
+        $data['rombel'] = $this->M_rombel->getAllRombel();
+        $this->load->view('peserta_didik/rombongan_belajar', $data);
     }
 
     public function simpanSiswa()
