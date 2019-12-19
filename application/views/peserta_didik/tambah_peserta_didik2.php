@@ -82,6 +82,11 @@
                         <form id="example-form" action="<?php echo base_url('peserta_didik/simpanSiswa'); ?>" method="post" enctype="multipart/form-data" class="m-t-40">
                             <div>
                                 <?php $yahoo = md5(uniqid(rand(), true)) ?>
+                                <?php $ibu = md5(uniqid(rand(), true)) ?>
+                                <?php $ayah = md5(uniqid(rand(), true)) ?>
+                                <?php $alamat_ortu = md5(uniqid(rand(), true)) ?>
+                                <?php $alamat_wali = md5(uniqid(rand(), true)) ?>
+                                <?php $wali = md5(uniqid(rand(), true)) ?>
 
                                 <h3>Peserta Didik</h3>
                                 <section>
@@ -221,7 +226,7 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ayah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_ayah" class="form-control" id="lname" required>
+                                                    <input type="hidden" value="<?php echo $ayah ?>" style="border-radius: 10px;" name="id_ayah" class="form-control" id="lname" required>
                                                     <input type="text" style="border-radius: 10px;" name="nama_ayah" class="form-control" id="fname" placeholder="Nama Ayah">
                                                 </div>
                                             </div>
@@ -235,7 +240,7 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ibu</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_ibu" class="form-control" id="lname" required>
+                                                    <input type="hidden" value="<?php echo $ibu ?>" style="border-radius: 10px;" name="id_ibu" class="form-control" id="lname" required>
                                                     <input type="text" style="border-radius: 10px;" name="nama_ibu" class="form-control" id="fname" placeholder="First Name Here">
                                                 </div>
                                             </div>
@@ -251,7 +256,7 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Jalan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_alamat_ortu" class="form-control" id="lname" required>
+                                                    <input type="hidden" value="<?php echo $alamat_ortu ?>" style="border-radius: 10px;" name="id_alamat_ortu" class="form-control" id="lname" required>
                                                     <input type="text" style="border-radius: 10px;" name="jalan_ortu" class="form-control" id="fname" placeholder="Masukkan Jalan">
                                                 </div>
                                             </div>
@@ -290,7 +295,7 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Wali</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_wali" class="form-control" id="lname" required>
+                                                    <input type="hidden" value="<?php echo $wali ?>" style="border-radius: 10px;" name="id_wali" class="form-control" id="lname" required>
                                                     <input type="text" style="border-radius: 10px;" name="nama_wali" class="form-control" id="fname" placeholder="Nama Wali">
                                                 </div>
                                             </div>
@@ -312,7 +317,7 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Jalan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_alamat_wali" class="form-control" id="lname" required>
+                                                    <input type="hidden" value="<?php echo $alamat_wali ?>" style="border-radius: 10px;" name="id_alamat_wali" class="form-control" id="lname" required>
                                                     <input type="text" style="border-radius: 10px;" name="jalan_wali" class="form-control" id="lname" placeholder="Jalan">
                                                 </div>
                                             </div>
