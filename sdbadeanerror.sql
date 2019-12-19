@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Des 2019 pada 04.28
+-- Waktu pembuatan: 19 Des 2019 pada 05.27
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -231,8 +231,8 @@ CREATE TABLE `tb_rombel` (
 
 CREATE TABLE `tb_siswa` (
   `id_siswa` varchar(35) NOT NULL,
-  `nis` varchar(10) NOT NULL,
-  `nisn` varchar(10) NOT NULL,
+  `nomor_induk` varchar(10) NOT NULL,
+  `nomor_induk_sn` varchar(10) NOT NULL,
   `tempat_lahir_siswa` varchar(50) NOT NULL,
   `tanggal_lahir_siswa` varchar(10) NOT NULL,
   `jenis_kelamin_siswa` varchar(15) NOT NULL,
