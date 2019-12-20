@@ -17,6 +17,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    
 <![endif]-->
 </head>
 
@@ -92,23 +93,23 @@
                                 <section>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group row">
+                                            <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_siswa" class="form-control" id="id_siswa" required>
+                                            <div class="form-group row" id="only-number">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">NIS</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_siswa" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk" class="form-control" id="lname" placeholder="NISN" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk" class="form-control" id="nomor_induk" placeholder="NIS" maxlength="6" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">NISN</label>
+                                                <label for="nomor_induk_sn" class="col-sm-4  control-label col-form-label">NISN</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk_sn" class="form-control" id="lname" placeholder="NISN" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk_sn" class="form-control" id="nomor_induk_sn" placeholder="NISN" maxlength="10" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Nama Peserta Didik</label>
+                                                <label for="nama_siswa" class="col-sm-4  control-label col-form-label">Nama Peserta Didik</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_siswa" class="form-control" id="lname" placeholder="Nama Peserta Didik" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nama_siswa" class="form-control" id="nama_siswa" placeholder="Nama Peserta Didik" maxlength="50" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -116,25 +117,25 @@
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="col-sm-6 col-xs-4">
-                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_siswa" class="form-control" id="lname" placeholder="Tempat Lahir" required>
+                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_siswa" class="form-control" id="tempat_lahir_siswa" placeholder="Tempat Lahir" maxlength="50" required>
                                                         </div>
                                                         <div class="col-sm-6 col-xs 4">
-                                                            <input type="date" style="border-radius: 10px;" name="tanggal_lahir_siswa" class="form-control" id="lname" placeholder="Tanggal Lahir" required>
+                                                            <input type="date" style="border-radius: 10px;" name="tanggal_lahir_siswa" class="form-control" id="tanggal_lahir_siswa" placeholder="Tanggal Lahir" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="cono1" class="col-sm-4 control-label col-form-label">Jenis Kelamin</label>
+                                                <label for="jenis_kelamin_siswa" class="col-sm-4 control-label col-form-label">Jenis Kelamin</label>
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="jenis_kelamin_siswa" value="Laki-laki">
-                                                            <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
+                                                            <input type="radio" class="custom-control-input" id="jenis_kelamin_siswa" name="jenis_kelamin_siswa" value="Laki-laki">
+                                                            <label class="custom-control-label" for="jenis_kelamin_siswa">Laki-laki</label>
                                                         </div>
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="jenis_kelamin_siswa" value="Perempuan">
-                                                            <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
+                                                            <input type="radio" class="custom-control-input" id="jenis_kelamin_siswa" name="jenis_kelamin_siswa" value="Perempuan">
+                                                            <label class="custom-control-label" for="jenis_kelamin_siswa">Perempuan</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -156,19 +157,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Kewarganegaraan</label>
+                                                <label for="kewarganegaraan_siswa" class="col-sm-4  control-label col-form-label">Kewarganegaraan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kewarganegaraan_siswa" class="form-control" id="lname" placeholder="Kewarganegaraan">
+                                                    <input type="text" style="border-radius: 10px;" name="kewarganegaraan_siswa" class="form-control" id="kewarganegaraan_siswa" placeholder="Kewarganegaraan" maxlength="20">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Bahasa Sehari-hari</label>
+                                                <label for="bahasa_siswa" class="col-sm-4  control-label col-form-label">Bahasa Sehari-hari</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="bahasa_siswa" class="form-control" id="lname" placeholder="Bahasa Sehari-hari">
+                                                    <input type="text" style="border-radius: 10px;" name="bahasa_siswa" class="form-control" id="bahasa_siswa" placeholder="Bahasa Sehari-hari" maxlength="20">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Golongan Darah</label>
+                                                <label for="golongan_siswa" class="col-sm-4  control-label col-form-label">Golongan Darah</label>
                                                 <div class="col-sm-8">
                                                     <select class="select2 form-control custom-select" name="golongan_siswa" style="width: 100%; height:36px;">
                                                         <option value="-">Pilih Golongan Darah</option>
@@ -227,13 +228,13 @@
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ayah</label>
                                                 <div class="col-sm-8">
                                                     <input type="hidden" value="<?php echo $ayah ?>" style="border-radius: 10px;" name="id_ayah" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nama_ayah" class="form-control" id="fname" placeholder="Nama Ayah">
+                                                    <input type="text" style="border-radius: 10px;" name="nama_ayah" class="form-control" id="fname" placeholder="Nama Ayah" maxlength="50">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Ayah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ayah" class="form-control" id="lname" placeholder="Pekerjaan Ayah">
+                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ayah" class="form-control" id="lname" placeholder="Pekerjaan Ayah" maxlength="30">
                                                 </div>
                                             </div><br>
                                             <h5 class="">Ibu</h5>
@@ -241,13 +242,13 @@
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ibu</label>
                                                 <div class="col-sm-8">
                                                     <input type="hidden" value="<?php echo $ibu ?>" style="border-radius: 10px;" name="id_ibu" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nama_ibu" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <input type="text" style="border-radius: 10px;" name="nama_ibu" class="form-control" id="fname" placeholder="First Name Here" maxlength="50">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Ibu</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ibu" class="form-control" id="lname" placeholder="Last Name Here">
+                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ibu" class="form-control" id="lname" placeholder="Last Name Here" maxlength="30">
                                                 </div>
                                             </div>
                                         </div>
@@ -438,6 +439,7 @@
             }
         });
     </script>
+    
 </body>
 
 </html>
