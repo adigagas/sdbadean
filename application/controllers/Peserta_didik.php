@@ -13,10 +13,7 @@ class Peserta_didik extends CI_Controller
         $this->load->model('M_alamat_wali');
         $this->load->model('M_wali');
         $this->load->model('M_rombel');
-
         $this->load->model('M_relasi_siswa');
-
-
         $this->load->helper('url');
         $this->load->helper('array');
         $this->load->library('form_validation');
@@ -25,7 +22,6 @@ class Peserta_didik extends CI_Controller
 
     public function index()
     {
-
         $data['siswa'] = $this->M_peserta_didik->getAllSiswa();
         $this->load->view('peserta_didik/peserta_didik', $data);
     }

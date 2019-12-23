@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="text-right">
-                            <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a> &nbsp;
+                            <a onclick="editConfirm('<?php echo base_url('Gtk/editGtk/' . $detailgtk['id_gtk']); ?>')" href="#!" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a> &nbsp;
                             <a onclick="deleteConfirm('<?php echo base_url('Gtk/hapusGtk/' . $detailgtk['id_gtk']); ?>')" href="#!" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Mutasi GTK</a> &nbsp;
                             <a href="" type="button" class="btn btn-success " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-print"></i> Print</a>
                         </div><br>
@@ -212,8 +212,25 @@
                         </div>
                         <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">BATAK</button>
+                            <a id="btn-delete" class="btn btn-danger" href="#">HAPUS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Akan Mengubah Data GTK?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Ubah data jika diperlukan atau pembaruan.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">BATAL</button>
+                            <a id="btn-edit" class="btn btn-warning" href="#">EDIT</a>
                         </div>
                     </div>
                 </div>
@@ -256,6 +273,11 @@
         function deleteConfirm(url) {
             $('#btn-delete').attr('href', url);
             $('#deleteModal').modal();
+        }
+
+        function editConfirm(url) {
+            $('#btn-edit').attr('href', url);
+            $('#editModal').modal();
         }
     </script>
     <script src="<?= base_url() ?>vendor/assets/libs/jquery/dist/jquery.min.js"></script>

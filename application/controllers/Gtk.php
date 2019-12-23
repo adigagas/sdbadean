@@ -7,7 +7,7 @@ class Gtk extends CI_Controller
     {
         parent::__construct();
 
-        
+
         $this->load->helper('url');
         $this->load->helper('array');
         $this->load->library('form_validation');
@@ -22,7 +22,7 @@ class Gtk extends CI_Controller
     }
     public function detailGtk($id_gtk)
     {
-        $data['detailgtk'] = $this->db->get_where( 'tb_gtk', ['id_gtk' => $id_gtk])->row_array();
+        $data['detailgtk'] = $this->db->get_where('tb_gtk', ['id_gtk' => $id_gtk])->row_array();
         $this->load->view('gtk/detail_gtk', $data);
     }
     public function inputGtk()
@@ -36,8 +36,20 @@ class Gtk extends CI_Controller
         redirect('Gtk/index');
     }
 
+    public function editGtk($id_gtk = null)
+    {
+        if (!isset($id_gtk)) redirect('Gtk/index');
+        $gtk = $this->M_Gtk;
+        $validation = $this->form_validation;
+        if ($validation->run()) {
+            $gtk->updateGtk();
+        }
+        $data["gtk"] = $gtk->getById($id_gtk);
+        $this->load->view("gtk/edit_gtk", $data);
+    }
 
-    public function hapusGtk($id_gtk=null){
+    public function hapusGtk($id_gtk = null)
+    {
         if ($id_gtk) {
             $this->M_Gtk->deleteGtk($id_gtk);
             $this->session->set_flashdata('message', 'GTK telah dihapus');
@@ -47,5 +59,4 @@ class Gtk extends CI_Controller
             redirect('Gtk/index');
         }
     }
-  
 }
