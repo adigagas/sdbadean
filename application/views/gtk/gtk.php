@@ -65,6 +65,7 @@
                                         <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
                                         <input> &nbsp; &nbsp; &nbsp; &nbsp;
                                         <a type="button" href="<?= base_url() ?>Gtk/inputGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                
                                     </div>
                                 </div><br>
                                 <div class="table-responsive">
@@ -93,17 +94,7 @@
                                             </tr>
                                             <?php endforeach; ?>
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                 <th><b>ID</b></th>
-                                                <th><b>NIP</b></th>
-                                                <th><b>Nama GTK</b></th>
-                                                <th><b>Tempat Tanggal Lahir</b></th>
-                                                <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Posisi di Sekolah</b></th>
-                                                <th><b>Aksi</b></th>
-                                            </tr>
-                                        </tfoot>
+                                        
                                     </table>
                                 </div>
 

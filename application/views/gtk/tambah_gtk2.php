@@ -91,30 +91,30 @@
                                 <h3>Tahap 1</h3>
                                 <section>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">NIK</label>
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-7">
                                                     <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_gtk" class="form-control" id="lname" required>
                                                     <input type="text" style="border-radius: 10px;" name="nik_gtk" class="form-control" id="lname" placeholder="NIK" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">NIP</label>
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-7">
                                                     <input type="text" style="border-radius: 10px;" name="nip_gtk" class="form-control" id="lname" placeholder="NIP" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Nama GTK</label>
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-7">
                                                     <input type="text" style="border-radius: 10px;" name="nama_gtk" class="form-control" id="lname" placeholder="Nama GTK" required>
                                                 </div>
                                             </div>
                                            
                                           
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                         <div class="form-group row">
                                                 <label for="email1" class="col-sm-4  control-label col-form-label">Tempat / Tanggal Lahir</label>
                                                 <div class="col-sm-8">
@@ -131,7 +131,7 @@
                                             <div class="form-group row">
                                                 <label for="cono1" class="col-sm-4 control-label col-form-label">Jenis Kelamin</label>
                                                 <div class="col-sm-8">
-                                                    <div class="row">
+                                                    <div class="row" style="margin-left: 2px">
                                                         <div class="custom-control custom-radio col-md-4">
                                                             <input type="radio" class="custom-control-input" id="customControlValidation1" name="jenis_kelamin_gtk" value="Laki-laki">
                                                             <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>

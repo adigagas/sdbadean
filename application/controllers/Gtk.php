@@ -68,4 +68,10 @@ class Gtk extends CI_Controller
             redirect('Gtk/index');
         }
     }
+
+    public function print($id_gtk)
+    {
+        $data['detailgtk'] =  $this->M_Gtk->getById($id_gtk);
+        $this->load->view('gtk/print_gtk', $data);
+    }
 }
