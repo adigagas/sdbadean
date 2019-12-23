@@ -79,7 +79,7 @@
                     <div class="card-body wizard-content">
                         <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah Peserta Didik</h4> <br>
                         <h6 class="card-subtitle"></h6>
-                        <form id="example-form" action="<?php echo base_url('Gtk/editGtk') ?>" method="post" enctype="multipart/form-data" class="m-t-40">
+                        <form id="example-form" action="<?php echo base_url('Gtk/editGtk/' . $gtk->id_gtk ); ?>" method="post" enctype="multipart/form-data" class="m-t-40">
                             <div>
                                 <h3>Tahap 1</h3>
                                 <section>
@@ -101,7 +101,7 @@
                                             <div class="form-group row">
                                                 <label name="nama_gtk" for="lname" class="col-sm-4  control-label col-form-label">Nama GTK</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" value="<?php echo $gtk->nama_gtk ?>" style="border-radius: 10px;" name="nama_gtk" class="form-control" id="lname" placeholder="Nama GTK" required>
+                                                    <input type="text" value="<?php echo $gtk->nama_gtk ?>" style="border-radius: 10px;" name="nama_gtk" class="form-control" id="lname" placeholder="Nama GTK" >
                                                 </div>
                                             </div>
                                            
@@ -126,11 +126,11 @@
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="jenis_kelamin_gtk" checked=<?php if($gtk->jenis_kelamin_gtk = "Laki-laki") { echo "true"; }?> value="Laki-laki">
+                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="jenis_kelamin_gtk" value="Laki-laki" <?php if($gtk->jenis_kelamin_gtk=='Laki-laki'){ echo "checked=checked";}  ?>/>
                                                             <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
                                                         </div>
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="jenis_kelamin_gtk" checked=<?php if($gtk->jenis_kelamin_gtk = "Perempuan") { echo "true"; }?> value="Perempuan">
+                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="jenis_kelamin_gtk"  value="Perempuan" <?php if($gtk->jenis_kelamin_gtk=='Perempuan'){ echo "checked=checked";}  ?>/>
                                                             <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
                                                         </div>
                                                     </div>
@@ -281,6 +281,7 @@
                                                 <label name="foto_gtk" for="lname" class="col-sm-4  control-label col-form-label" for="image">Foto GTK</label>
                                                 <div class="col-sm-8">
                                                 <input type="file" style="border-radius: 10px;" name="foto_gtk" class="form-control" id="foto_gtk" multiple>
+                                                <input type="hidden" name="old_image" value="<?php echo $gtk->foto_gtk ?>" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -295,7 +296,7 @@
                                 </section>
                                 <h3>Finish</h3>
                                 <section>
-                                    <input id="acceptTerms" name="acceptTerms" type="submit" class="btn btn-success required">
+                                    <input id="acceptTerms" name="submit" type="submit" class="btn btn-success required">
 
                                 </section>
                             </div>

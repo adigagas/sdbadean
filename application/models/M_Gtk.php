@@ -22,7 +22,7 @@ class M_Gtk extends CI_Model
     public $prov_gtk;
     public $tgl_masuk_gtk;
     public $tgl_keluar_gtk;
-    public $foto_gtk = "camera.png";
+    public $foto_gtk = "camera.jpg";
 
 
     function __construct()
@@ -34,99 +34,18 @@ class M_Gtk extends CI_Model
     {
         return [
             [
-                'field' => 'id_gtk',
-                'label' => 'id_gtk',
-                'rules' => 'required'
-            ],
-
-            [
-                'field' => 'nik_gtk',
-                'label' => 'nik_gtk',
-                'rules' => 'required'
+                'field' => 'nik',
+                'label' => 'NIK',
+                'rules' => 'required | numeric'
             ],
             [
-                'field' => 'nip_gtk',
-                'label' => 'nip_gtk',
-                'rules' => 'required'
+                'field' => 'nip',
+                'label' => 'NIP',
+                'rules' => 'required | numeric'
             ],
             [
-                'field' => 'nama_gtk',
-                'label' => 'nama_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'tempat_lahir_gtk',
-                'label' => 'tempat_lahir_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'tanggal_lahir_gtk',
-                'label' => 'tanggal_lahir_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'jenis_kelamin_gtk',
-                'label' => 'jenis_kelamin_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'pajago_gtk',
-                'label' => 'pajago_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'gelar_gtk',
-                'label' => 'gelar_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'posisi_gtk',
-                'label' => 'posisi_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'agama_gtk',
-                'label' => 'agama_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'jalan_gtk',
-                'label' => 'jalan_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'desa_gtk',
-                'label' => 'desa_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'kec_gtk',
-                'label' => 'kec_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'kab_gtk',
-                'label' => 'kab_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'prov_gtk',
-                'label' => 'prov_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'tgl_masuk_gtk',
-                'label' => 'tgl_masuk_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'tgl_keluar_gtk',
-                'label' => 'tgl_keluar_gtk',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'foto_gtk',
-                'label' => 'foto_gtk',
+                'field' => 'nama',
+                'label' => 'Nama',
                 'rules' => 'required'
             ]
         ];
@@ -163,7 +82,7 @@ class M_Gtk extends CI_Model
         $this->foto_gtk = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
-    
+
     function updateGtk($id_gtk)
     {
         $post = $this->input->post();
@@ -186,6 +105,9 @@ class M_Gtk extends CI_Model
         $this->tgl_masuk_gtk = $post['tgl_masuk_gtk'];
         $this->tgl_keluar_gtk = $post['tgl_keluar_gtk'];
         if (!empty($_FILES["foto_gtk"]["name"])) {
+            if ($post["old_image"] != 'camera.jpg') {
+                unlink(FCPATH . './vendor/assets/images/' . $post["old_image"]);
+            }
             $this->foto_gtk = $this->_uploadImage();
         } else {
             $this->foto_gtk = $post["old_image"];
@@ -207,7 +129,7 @@ class M_Gtk extends CI_Model
     private function _deleteImage($id_gtk)
     {
         $gtk = $this->getById($id_gtk);
-        if ($gtk->image != "camera.png") {
+        if ($gtk->image != "camera.jpg") {
             $filename = explode(".", $gtk->foto_gtk)[0];
             return array_map('unlink', glob(FCPATH . "./vendor/assets/images/$filename.*"));
         }
@@ -229,6 +151,6 @@ class M_Gtk extends CI_Model
             return $this->upload->data("file_name");
         }
 
-        return "camera.png";
+        return "camera.jpg";
     }
 }

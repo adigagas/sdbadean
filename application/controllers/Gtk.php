@@ -38,15 +38,24 @@ class Gtk extends CI_Controller
 
     public function editGtk($id_gtk = null)
     {
-        if (!isset($id_gtk)) redirect('Gtk/index');
-        $gtk = $this->M_Gtk;
-        $validation = $this->form_validation;
-        if ($validation->run()) {
-            $gtk->updateGtk();
+        if ($this->input->post('submit')) {
+            $this->M_Gtk->updateGtk($id_gtk);
+            redirect('Gtk/index');
         }
-        $data["gtk"] = $gtk->getById($id_gtk);
-        $this->load->view("gtk/edit_gtk", $data);
+        $data['gtk'] = $this->M_Gtk->getById($id_gtk);
+        $this->load->view('gtk/edit_gtk', $data);
     }
+    public function ubah($nis){
+        if($this->input->post('submit')){ // Jika user mengklik tombol submit yang ada di form
+          if($this->SiswaModel->validation("update")){ // Jika validasi sukses atau hasil validasi adalah TRUE
+            $this->SiswaModel->edit($nis); // Panggil fungsi edit() yang ada di SiswaModel.php
+            redirect('siswa');
+          }
+        }
+        
+        $data['siswa'] = $this->SiswaModel->view_by($nis);
+        $this->load->view('siswa/form_ubah', $data);
+    }    
 
     public function hapusGtk($id_gtk = null)
     {
