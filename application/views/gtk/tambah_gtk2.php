@@ -297,7 +297,7 @@
                                 </section>
                                 <h3>Finish</h3>
                                 <section>
-                                    <input id="acceptTerms" name="acceptTerms" type="submit" class="btn btn-success required">
+                                    <input id="acceptTerms" name="submit" type="submit" class="btn btn-success required">
 
                                 </section>
                             </div>

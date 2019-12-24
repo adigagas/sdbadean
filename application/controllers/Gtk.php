@@ -25,15 +25,14 @@ class Gtk extends CI_Controller
         $data['detailgtk'] = $this->db->get_where('tb_gtk', ['id_gtk' => $id_gtk])->row_array();
         $this->load->view('gtk/detail_gtk', $data);
     }
-    public function inputGtk()
-    {
-        $this->load->view('gtk/tambah_gtk2');
-    }
-
     public function tambahGtk()
     {
-        $this->M_Gtk->addGtk();
-        redirect('Gtk/index');
+        if($this->input->post('submit')){       
+            $this->M_Gtk->addGtk();
+            redirect('Gtk/index');
+        }
+
+        $this->load->view('gtk/tambah_gtk2');
     }
 
     public function editGtk($id_gtk = null)
@@ -45,18 +44,7 @@ class Gtk extends CI_Controller
         $data['gtk'] = $this->M_Gtk->getById($id_gtk);
         $this->load->view('gtk/edit_gtk', $data);
     }
-    public function ubah($nis){
-        if($this->input->post('submit')){ // Jika user mengklik tombol submit yang ada di form
-          if($this->SiswaModel->validation("update")){ // Jika validasi sukses atau hasil validasi adalah TRUE
-            $this->SiswaModel->edit($nis); // Panggil fungsi edit() yang ada di SiswaModel.php
-            redirect('siswa');
-          }
-        }
-        
-        $data['siswa'] = $this->SiswaModel->view_by($nis);
-        $this->load->view('siswa/form_ubah', $data);
-    }    
-
+     
     public function hapusGtk($id_gtk = null)
     {
         if ($id_gtk) {
