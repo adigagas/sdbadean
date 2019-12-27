@@ -87,7 +87,7 @@
                                                 <td><?= $g->nik_gtk ?></td>
                                                 <td><?= $g->nip_gtk ?></td>
                                                 <td><?= $g->nama_gtk ?></td>
-                                                <td><?= $g->tempat_lahir_gtk ?></td>
+                                                <td><?= $g->tempat_lahir_gtk ?>, <?= date('d-m-Y', strtotime($g->tanggal_lahir_gtk)); ?></td>
                                                 <td><?= $g->jenis_kelamin_gtk ?></td>
                                                 <td><?= $g->posisi_gtk ?></td>
                                                 <td><a type="button" href="<?= base_url('Gtk/detailGtk/'. $g->id_gtk);  ?>" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
