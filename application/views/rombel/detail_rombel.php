@@ -61,10 +61,13 @@
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
                                 <div class="text-right">
-                                    <a type="button" href="<?= base_url() ?>peserta_didik/tambahPeserta2" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                                    <!-- Button to Open the Modal -->
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                                        <i class="fa fa-user"></i> Tambah Siswa
+                                    </button>
                                 </div><br>
-                                <div class="table-responsive">
 
+                                <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
@@ -83,14 +86,14 @@
                                             $i = 1;
                                             foreach ($rombel as $s) : ?>
                                                 <tr>
-                                                    <td><input type="checkbox" name="Days" value="Daily"><br></td>
+                                                    <td><input type="checkbox" name="Id_siswa[]" value=<?= $s->id_siswa ?>><br></td>
                                                     <td><?= $s->nomor_induk ?></td>
                                                     <td><?= $s->nomor_induk_sn ?></td>
                                                     <td><?= $s->nama_siswa ?></td>
                                                     <td><?= $s->tempat_lahir_siswa . ', ' . $s->tanggal_lahir_siswa ?></td>
                                                     <td><?= $s->jenis_kelamin_siswa ?></td>
                                                     <td><?= $s->agama_siswa ?></td>
-                                                    <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                    <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class="btn btn-info btn-sm">Detail</a></td>
                                                 </tr>
                                             <?php
                                                 $i++;
@@ -110,7 +113,65 @@
                                         </tfoot>
                                     </table>
                                 </div>
+                                <input type="checkbox" onClick="toggle(this)" /> Pilih Semua<br />
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Modal Heading</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <script>
+                                    $(document).ready(function() {
+                                        $('#dataTable').DataTable();
+                                    });
+                                </script>
+                                <div class="table-responsive">
+                                    <table id="dataTable" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th><b>NIS</b></th>
+                                                <th><b>NISN</b></th>
+                                                <th><b>Nama Peserta Didik</b></th>
+                                                <th><b>Aksi</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $i = 1;
+                                            foreach ($siswafree as $s) : ?>
+                                                <tr>
+                                                    <td><input type="checkbox" name="Id_siswa[]" value=<?= $s->id_siswa ?>><br></td>
+                                                    <td><?= $s->nomor_induk ?></td>
+                                                    <td><?= $s->nomor_induk_sn ?></td>
+                                                    <td><?= $s->nama_siswa ?></td>
+                                                    <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class="btn btn-info btn-sm">Detail</a></td>
+                                                </tr>
+                                            <?php
+                                                $i++;
+                                            endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -143,6 +204,14 @@
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
+    <script language="JavaScript">
+        function toggle(source) {
+            checkboxes = document.getElementsByName('Id_siswa[]');
+            for (var i = 0, n = checkboxes.length; i < n; i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+    </script>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->

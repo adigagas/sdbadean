@@ -86,7 +86,7 @@
                                                     <td><?= $s->nama_rombel ?></td>
                                                     <td><?= $s->nama_gtk ?></td>
                                                     <td><?= $s->tahun_ajaran ?></td>
-                                                    <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                    <td><a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                                 </tr>
                                             <?php
                                                 $i++;
