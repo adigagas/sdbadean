@@ -38,8 +38,9 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a>
+                                    <a href="" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-arrow-alt-circle-left"></i> Mutasi Keluar</a>
+                                    <a href="" type="button" class="btn btn-info " style="border-radius: 10px;"><i class="fa fa-print"></i> Print</a>
                                 </ol>
                             </nav>
                         </div>
@@ -63,7 +64,7 @@
                                 <div class="card-body">
                                     <h3 class="card-header text-center" style="background:#fff; color:black;"><b>IDENTITAS PESERTA DIDIK</b></h3> <br>
                                     <div class="row">
-                                        <div class="col-md-5" style="margin-left: 10px;">
+                                        <div class="col-md-5 col-xs-12" style="margin-left: 10px;">
                                             <h5 class="">A. IDENTITAS PESERTA DIDIK</h5><br>
                                             <div class="" style="margin-left: 15px">
                                                 <div class="form-group row">
@@ -148,21 +149,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">12. Meninggalkan Sekolah</label>
+                                                    <label for="lname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">12. Meninggalkan Sekolah</label>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-sm-12 col-xs-12" style="margin-left:15px ">
                                                         <label for="lname" class="col-sm-12 col-xs-12 col-md-12  control-label col-form-label">a. Tamat Belajar</label>
-                                                        <div class="row" style="margin-left:10px ">
-                                                            <label for="lname" style="margin-left:15px " class="col-sm-5 col-xs-6 col-md-5  control-label col-form-label">a.1 Tanggal / Tahun </label>
+                                                        <div class="row">
+                                                            <label for="lname" style="margin-left:30px " class="col-sm-5 col-xs-6 col-md-5  control-label col-form-label">a.1 Tanggal / Tahun </label>
                                                             <label for="lname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">: - </label>
                                                         </div>
-                                                        <div class="row" style="margin-left:10px ">
-                                                            <label for="lname" style="margin-left:15px " class="col-sm-5 col-xs-6 col-md-5  control-label col-form-label">a.2 Nomor STB </label>
+                                                        <div class="row">
+                                                            <label for="lname" style="margin-left:30px " class="col-sm-5 col-xs-6 col-md-5  control-label col-form-label">a.2 Nomor STB </label>
                                                             <label for="lname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">: - </label>
                                                         </div>
-                                                        <div class="row" style="margin-left:10px ">
-                                                            <label for="lname" style="margin-left:15px " class="col-sm-5 col-xs-6 col-md-5  control-label col-form-label">a.2 Melanjutkan Sekolah </label>
+                                                        <div class="row">
+                                                            <label for="lname" style="margin-left:30px " class="col-sm-5 col-xs-6 col-md-5  control-label col-form-label">a.2 Melanjutkan Sekolah </label>
                                                             <label for="lname" class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">: - </label>
                                                         </div>
                                                     </div>
@@ -199,7 +200,7 @@
                                             <h5 class="">B. KETERANGAN ORANG TUA / WALI MURID</h5>
                                             <div class="" style="margin-left: 15px">
                                                 <div class="form-group row">
-                                                    <label for="fname" class="col-sm-6  control-label col-form-label">1. NAMA ORANG TUA </label>
+                                                    <label for="fname" class="col-sm-6 col-xs-12  control-label col-form-label">1. NAMA ORANG TUA </label>
                                                 </div>
                                                 <div class="form-group row" style="margin-left: 15px">
                                                     <label for="fname" class="col-sm-6 col-xs-5 col-md-6   control-label col-form-label">a. Ayah</label>
@@ -296,11 +297,11 @@
                                         </div>
                                         <div class="col-md-5">
                                             <div class="text-right">
-                                                <img src="" width="300px" height="400px">
+                                                <img src="" width="300px !important" height="400px">
                                             </div>
                                             <br>
                                             <div class="text-right">
-                                                <img src="" width="300px" height="400px">
+                                                <img src="" width="300px !important" height="400px">
                                             </div>
                                         </div><br>
 
