@@ -17,7 +17,6 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    
 <![endif]-->
 </head>
 
@@ -80,106 +79,64 @@
                     <div class="card-body wizard-content">
                         <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah Peserta Didik</h4> <br>
                         <h6 class="card-subtitle"></h6>
-                        <form id="example-form" action="<?php echo base_url('peserta_didik/simpanSiswa'); ?>" method="post" enctype="multipart/form-data" class="m-t-40">
+                        <form id="example-form" action="<?php echo base_url('Gtk/editGtk/' . $gtk->id_gtk ); ?>" method="post" enctype="multipart/form-data" class="m-t-40">
                             <div>
-                                <?php $yahoo = md5(uniqid(rand(), true)) ?>
-                                <?php $ibu = md5(uniqid(rand(), true)) ?>
-                                <?php $ayah = md5(uniqid(rand(), true)) ?>
-                                <?php $alamat_ortu = md5(uniqid(rand(), true)) ?>
-                                <?php $alamat_wali = md5(uniqid(rand(), true)) ?>
-                                <?php $wali = md5(uniqid(rand(), true)) ?>
-
-                                <h3>Peserta Didik</h3>
+                                <h3>Tahap 1</h3>
                                 <section>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_siswa" class="form-control" id="id_siswa" required>
-                                            <div class="form-group row" id="only-number">
-                                                <label for="fname" class="col-sm-4  control-label col-form-label">NIS</label>
+                                            <div class="form-group row">
+                                                <label name="nik_gtk" for="fname" class="col-sm-4  control-label col-form-label">NIK</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk" class="form-control" id="nomor_induk" placeholder="NIS" maxlength="6" required>
+                                                    <input type="hidden" value="<?php echo $gtk->id_gtk ?>" style="border-radius: 10px;" name="id_gtk" class="form-control" id="lname" required>
+                                                    <input type="text" value="<?php echo $gtk->nik_gtk ?>" style="border-radius: 10px;" name="nik_gtk" class="form-control" id="lname" placeholder="NIK" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="nomor_induk_sn" class="col-sm-4  control-label col-form-label">NISN</label>
+                                                <label name="nip_gtk" for="lname" class="col-sm-4  control-label col-form-label">NIP</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk_sn" class="form-control" id="nomor_induk_sn" placeholder="NISN" maxlength="10" required>
+                                                    <input type="text" value="<?php echo $gtk->nip_gtk ?>" style="border-radius: 10px;" name="nip_gtk" class="form-control" id="lname" placeholder="NIP" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="nama_siswa" class="col-sm-4  control-label col-form-label">Nama Peserta Didik</label>
+                                                <label name="nama_gtk" for="lname" class="col-sm-4  control-label col-form-label">Nama GTK</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_siswa" class="form-control" id="nama_siswa" placeholder="Nama Peserta Didik" maxlength="50" required>
+                                                    <input type="text" value="<?php echo $gtk->nama_gtk ?>" style="border-radius: 10px;" name="nama_gtk" class="form-control" id="lname" placeholder="Nama GTK" >
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="email1" class="col-sm-4  control-label col-form-label">Tempat / Tanggal Lahir</label>
+                                           
+                                          
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-group row">
+                                                <label name="tempattanggal_lahir_gtk" for="email1" class="col-sm-4  control-label col-form-label">Tempat / Tanggal Lahir</label>
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="col-sm-6 col-xs-4">
-                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_siswa" class="form-control" id="tempat_lahir_siswa" placeholder="Tempat Lahir" maxlength="50" required>
+                                                            <input type="text" value="<?php echo $gtk->tempat_lahir_gtk ?>" style="border-radius: 10px;" name="tempat_lahir_gtk" class="form-control" id="lname" placeholder="Tempat Lahir" required>
                                                         </div>
                                                         <div class="col-sm-6 col-xs 4">
-                                                            <input type="date" style="border-radius: 10px;" name="tanggal_lahir_siswa" class="form-control" id="tanggal_lahir_siswa" placeholder="Tanggal Lahir" required>
+                                                            <input type="date" value="<?php echo $gtk->tanggal_lahir_gtk ?>" style="border-radius: 10px;" name="tanggal_lahir_gtk" class="form-control" id="lname" placeholder="Tanggal Lahir" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="jenis_kelamin_siswa" class="col-sm-4 control-label col-form-label">Jenis Kelamin</label>
+                                                <label name="jenis_kelamin_gtk" for="cono1" class="col-sm-4 control-label col-form-label">Jenis Kelamin</label>
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="jenis_kelamin_siswa" name="jenis_kelamin_siswa" value="Laki-laki">
-                                                            <label class="custom-control-label" for="jenis_kelamin_siswa">Laki-laki</label>
+                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="jenis_kelamin_gtk" value="Laki-laki" <?php if($gtk->jenis_kelamin_gtk=='Laki-laki'){ echo "checked=checked";}  ?>/>
+                                                            <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
                                                         </div>
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="jenis_kelamin_siswa" name="jenis_kelamin_siswa" value="Perempuan">
-                                                            <label class="custom-control-label" for="jenis_kelamin_siswa">Perempuan</label>
+                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="jenis_kelamin_gtk"  value="Perempuan" <?php if($gtk->jenis_kelamin_gtk=='Perempuan'){ echo "checked=checked";}  ?>/>
+                                                            <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label for="cono1" class="col-sm-4  control-label col-form-label">Agama</label>
-                                                <div class="col-sm-8">
-                                                    <select class="select2 form-control custom-select" name="agama_siswa" style="width: 100%; height:36px;">
-                                                        <option value="-">Pilih Agama</option>
-                                                        <option value="Islam">Islam</option>
-                                                        <option value="Kristen">Kristen</option>
-                                                        <option value="Katolik">Katolik</option>
-                                                        <option value="Hindu">Hindu</option>
-                                                        <option value="Buddha">Buddha</option>
-                                                        <option value="Konghucu">Konghucu</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="kewarganegaraan_siswa" class="col-sm-4  control-label col-form-label">Kewarganegaraan</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kewarganegaraan_siswa" class="form-control" id="kewarganegaraan_siswa" placeholder="Kewarganegaraan" maxlength="20">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="bahasa_siswa" class="col-sm-4  control-label col-form-label">Bahasa Sehari-hari</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="bahasa_siswa" class="form-control" id="bahasa_siswa" placeholder="Bahasa Sehari-hari" maxlength="20">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="golongan_siswa" class="col-sm-4  control-label col-form-label">Golongan Darah</label>
-                                                <div class="col-sm-8">
-                                                    <select class="select2 form-control custom-select" name="golongan_siswa" style="width: 100%; height:36px;">
-                                                        <option value="-">Pilih Golongan Darah</option>
-                                                        <option value="AB">AB</option>
-                                                        <option value="A">A</option>
-                                                        <option value="B">B</option>
-                                                        <option value="O">O</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                        
                                         </div>
                                     </div>
                                 </section>
@@ -219,140 +176,127 @@
                                         </div>
                                     </div>
                                 </section>-->
-                                <h3>Keterangan Orang Tua</h3>
+                                <h3>Tahap 2</h3>
                                 <section>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h5 class="">Ayah</h5>
-                                            <div class="form-group row">
-                                                <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ayah</label>
+                                        <div class="form-group row">
+                                                <label name="pajago_gtk" for="lname" class="col-sm-4  control-label col-form-label">Pangkat/Golongan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $ayah ?>" style="border-radius: 10px;" name="id_ayah" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nama_ayah" class="form-control" id="fname" placeholder="Nama Ayah" maxlength="50">
+                                                    <select name="pajago_gtk" id="pajago_gtk" class="form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
+                                                        <option disabled>Pilih Pangkat</option>
+                                                        <option <?php if ($gtk->pajago_gtk == '1a') echo "selected" ?> value="1a">Gol. 1A</option>
+                                                        <option <?php if ($gtk->pajago_gtk == '1b') echo "selected" ?> value="1b">Gol. 1B</option>
+                                                        <option <?php if ($gtk->pajago_gtk == '2a') echo "selected" ?> value="2a">Gol. 2A</option>
+                                                        <option <?php if ($gtk->pajago_gtk == '2b') echo "selected" ?> value="2b">Gol. 2B</option>
+                                                        <option <?php if ($gtk->pajago_gtk == '3a') echo "selected" ?> value="3a">Gol. 3A</option>
+                                                        <option <?php if ($gtk->pajago_gtk == '3b') echo "selected" ?> value="3b">Gol. 3B</option>
+                                                        <option <?php if ($gtk->pajago_gtk == '4a') echo "selected" ?> value="4a">Gol. 4A</option>
+                                                        <option <?php if ($gtk->pajago_gtk == '4b') echo "selected" ?> value="4b">Gol. 4B</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Ayah</label>
+                                                <label name="gelar_gtk" for="cono1" class="col-sm-4  control-label col-form-label">Gelar GTK</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ayah" class="form-control" id="lname" placeholder="Pekerjaan Ayah" maxlength="30">
-                                                </div>
-                                            </div><br>
-                                            <h5 class="">Ibu</h5>
-                                            <div class="form-group row">
-                                                <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ibu</label>
-                                                <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $ibu ?>" style="border-radius: 10px;" name="id_ibu" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nama_ibu" class="form-control" id="fname" placeholder="First Name Here" maxlength="50">
+                                                <input type="text" value="<?php echo $gtk->gelar_gtk ?>" style="border-radius: 10px;" name="gelar_gtk" class="form-control" id="gelar_gtk" placeholder="Gelar" required>
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Ibu</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ibu" class="form-control" id="lname" placeholder="Last Name Here" maxlength="30">
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                         <div class="col-md-6">
-                                            <h5 class="">Alamat Orang Tua</h5>
-                                            <div class="form-group row">
-                                                <label for="fname" class="col-sm-4  control-label col-form-label">Jalan</label>
+                                        <div class="form-group row">
+                                                <label  name="posisi_gtk" for="lname" class="col-sm-4  control-label col-form-label">Posisi di Sekolah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $alamat_ortu ?>" style="border-radius: 10px;" name="id_alamat_ortu" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="jalan_ortu" class="form-control" id="fname" placeholder="Masukkan Jalan">
+                                                    <select name="posisi_gtk" id="posisi_gtk" class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
+                                                        <option disabled>Pilih Posisi</option>
+                                                        <option <?php if ($gtk->posisi_gtk == 'guru') echo "selected" ?> value="guru">Guru</option>
+                                                        <option <?php if ($gtk->posisi_gtk == 'operator') echo "selected" ?> value="operator">Operator</option>
+                                                        <option <?php if ($gtk->posisi_gtk == 'kepsek') echo "selected" ?> value="kepsek">Kepala Sekolah</option>
+                                                        <option <?php if ($gtk->posisi_gtk == 'tu') echo "selected" ?> value="tu">Administator/TU</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Desa / Kelurahan</label>
+                                                <label name="agama_gtk" for="cono1" class="col-sm-4  control-label col-form-label">Agama</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="desa_ortu" class="form-control" id="lname" placeholder="Masukkan Desa">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="fname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kec_ortu" class="form-control" id="fname" placeholder="Masukkan Kecamatan">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten / Kota</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kab_ortu" class="form-control" id="lname" placeholder="Masukkan Kabupaten">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="prov_ortu" class="form-control" id="lname" placeholder="Masukkan Provinsi">
+                                                    <select name="agama_gtk" id="agama_gtk" class="form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
+                                                        <option disabled>Pilih Agama</option>
+                                                        <option <?php if ($gtk->agama_gtk == 'Islam') echo "selected" ?> value="Islam">Islam</option>
+                                                        <option <?php if ($gtk->agama_gtk == 'Kristen') echo "selected" ?> value="Kristen">Kristen</option>
+                                                        <option <?php if ($gtk->agama_gtk == 'Katolik') echo "selected" ?> value="Katolik">Katolik</option>
+                                                        <option <?php if ($gtk->agama_gtk == 'Hindu') echo "selected" ?> value="Hindu">Hindu</option>
+                                                        <option <?php if ($gtk->agama_gtk == 'Budha') echo "selected" ?> value="Budha">Buddha</option>
+                                                        <option <?php if ($gtk->agama_gtk == 'Konghucu') echo "selected" ?> value="Konghucu">Konghucu</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </section>
-                                <h3>Wali Peserta Didik</h3>
+                                <h3>Tahap 3</h3>
                                 <section>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h5 class="">Wali Peserta Didik</h5>
                                             <div class="form-group row">
-                                                <label for="fname" class="col-sm-4  control-label col-form-label">Nama Wali</label>
+                                                <label name="jalan_gtk" for="fname" class="col-sm-4  control-label col-form-label">Jalan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $wali ?>" style="border-radius: 10px;" name="id_wali" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nama_wali" class="form-control" id="fname" placeholder="Nama Wali">
+                                                    <input type="text" value="<?php echo $gtk->jalan_gtk ?>" style="border-radius: 10px;" name="jalan_gtk" id="jalan_gtk" class="form-control" placeholder="Jalan" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Wali</label>
+                                                <label name="desa_gtk" for="lname" class="col-sm-4  control-label col-form-label">Desa/Kelurahan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_wali" class="form-control" id="lname" placeholder="Pekerjaan Wali">
+                                                    <input type="text" value="<?php echo $gtk->desa_gtk ?>" style="border-radius: 10px;" name="desa_gtk" id="desa_gtk" class="form-control" id="lname" placeholder="Desa/Kelurahan" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="fname" class="col-sm-4  control-label col-form-label">Hubungan Keluarga</label>
+                                                <label name="kec_gtk" for="lname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="hubungan_kel_wali" class="form-control" id="fname" placeholder="Hubungan Keluarga">
+                                                    <input type="text" value="<?php echo $gtk->kec_gtk ?>" style="border-radius: 10px;" name="kec_gtk" class="form-control" id="kecamatan_gtk" placeholder="Kecamatan" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label name="kab_gtk" for="lname" class="col-sm-4  control-label col-form-label">Kabupaten/Kota</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" value="<?php echo $gtk->kab_gtk ?>" style="border-radius: 10px;" name="kab_gtk" class="form-control" id="kab_gtk" placeholder="Kabupaten/Kota" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label name="prov_gtk" for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" value="<?php echo $gtk->prov_gtk ?>" style="border-radius: 10px;" name="prov_gtk" class="form-control" id="prov_gtk" placeholder="Provinsi" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h5 class="">Alamat Wali</h5>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Jalan</label>
+                                                <label name="tgl_masuk_gtk" for="lname" class="col-sm-4  control-label col-form-label">Tanggal Masuk GTK</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $alamat_wali ?>" style="border-radius: 10px;" name="id_alamat_wali" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="jalan_wali" class="form-control" id="lname" placeholder="Jalan">
+                                                    <input type="text" value="<?php echo $gtk->tgl_masuk_gtk ?>" style="border-radius: 10px;" name="tgl_masuk_gtk" class="form-control" id="lname" placeholder="Jalan">
+                                                    <input type="hidden" value="-" style="border-radius: 10px;" name="tgl_keluar_gtk" class="form-control" id="lname" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Desa / Kelurahan</label>
+                                                <label name="foto_gtk" for="lname" class="col-sm-4  control-label col-form-label" for="image">Foto GTK</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="desa_wali" class="form-control" id="lname" placeholder="Desa">
+                                                <input type="file" style="border-radius: 10px;" name="foto_gtk" class="form-control" id="foto_gtk" multiple>
+                                                <input type="hidden" name="old_image" value="<?php echo $gtk->foto_gtk ?>" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kec_wali" class="form-control" id="lname" placeholder="Kecamatan">
+                                                <img style="margin-left: 170px" width="150px;" height="200px" src="<?= base_url('vendor/assets/images/') . $gtk->foto_gtk ?>" alt="...">
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten / Kota</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kab_wali" class="form-control" id="lname" placeholder="Kabupaten">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="prov_wali" class="form-control" id="lname" placeholder="Provinsi">
-                                                </div>
-                                            </div>
+                                            
                                         </div>
 
                                     </div>
                                 </section>
                                 <h3>Finish</h3>
                                 <section>
-                                    <input id="acceptTerms" name="acceptTerms" type="submit" class="btn btn-success required">
+                                    <input id="acceptTerms" name="submit" type="submit" class="btn btn-success required">
 
                                 </section>
                             </div>
@@ -439,7 +383,6 @@
             }
         });
     </script>
-    
 </body>
 
 </html>

@@ -64,14 +64,15 @@
                                     <div class="text-right">
                                         <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
                                         <input> &nbsp; &nbsp; &nbsp; &nbsp;
-                                        <a type="button" href="<?= base_url() ?>Gtk/inputGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                                        <a type="button" href="<?= base_url() ?>Gtk/tambahGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                
                                     </div>
                                 </div><br>
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th><b>ID</b></th>
+                                                <th><b>NIK</b></th>
                                                 <th><b>NIP</b></th>
                                                 <th><b>Nama GTK</b></th>
                                                 <th><b>Tempat Tanggal Lahir</b></th>
@@ -83,27 +84,17 @@
                                         <tbody>
                                             <?php foreach($gtk as $g) : ?>
                                             <tr>
-                                                <td><?= $g->id_gtk ?></td>
+                                                <td><?= $g->nik_gtk ?></td>
                                                 <td><?= $g->nip_gtk ?></td>
                                                 <td><?= $g->nama_gtk ?></td>
-                                                <td><?= $g->tempat_lahir_gtk ?></td>
+                                                <td><?= $g->tempat_lahir_gtk ?>, <?= date('d-m-Y', strtotime($g->tanggal_lahir_gtk)); ?></td>
                                                 <td><?= $g->jenis_kelamin_gtk ?></td>
                                                 <td><?= $g->posisi_gtk ?></td>
                                                 <td><a type="button" href="<?= base_url('Gtk/detailGtk/'. $g->id_gtk);  ?>" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                             </tr>
                                             <?php endforeach; ?>
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                 <th><b>ID</b></th>
-                                                <th><b>NIP</b></th>
-                                                <th><b>Nama GTK</b></th>
-                                                <th><b>Tempat Tanggal Lahir</b></th>
-                                                <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Posisi di Sekolah</b></th>
-                                                <th><b>Aksi</b></th>
-                                            </tr>
-                                        </tfoot>
+                                        
                                     </table>
                                 </div>
 

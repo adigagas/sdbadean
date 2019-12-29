@@ -7,6 +7,12 @@ class Gtk extends CI_Controller
     {
         parent::__construct();
 
+
+        $this->load->helper('url');
+        $this->load->helper('array');
+        $this->load->library('form_validation');
+        $this->load->helper(array('form', 'url'));
+
         $this->load->model('M_Gtk');
     }
     public function index()
@@ -16,68 +22,31 @@ class Gtk extends CI_Controller
     }
     public function detailGtk($id_gtk)
     {
-        $data['detailgtk'] = $this->db->get_where( 'tb_gtk', ['id_gtk' => $id_gtk])->row_array();
+        $data['detailgtk'] = $this->db->get_where('tb_gtk', ['id_gtk' => $id_gtk])->row_array();
         $this->load->view('gtk/detail_gtk', $data);
     }
-    public function inputGtk()
-    {
-        $this->load->view('gtk/tambah_gtk');
-    }
-
     public function tambahGtk()
     {
-        $data = [
-            'id_gtk' => $this->input->post('id_gtk'),
-            'nik_gtk' => $this->input->post('nik_gtk'),
-            'nip_gtk' => $this->input->post('nip_gtk'),
-            'nama_gtk' => $this->input->post('nama_gtk'),
-            'tempat_lahir_gtk' => $this->input->post('tempat_lahir_gtk'),
-            'tanggal_lahir_gtk' => $this->input->post('tanggal_lahir_gtk'),
-            'jenis_kelamin_gtk' => $this->input->post('jenis_kelamin_gtk'),
-            'pajago_gtk' => $this->input->post('pajago_gtk'),
-            'gelar_gtk' => $this->input->post('gelar_gtk'),
-            'posisi_gtk' => $this->input->post('posisi_gtk'),
-            'agama_gtk' => $this->input->post('agama_gtk'),
-            'jalan_gtk' => $this->input->post('jalan_gtk'),
-            'desa_gtk' => $this->input->post('desa_gtk'),
-            'kecamatan_gtk' => $this->input->post('kecamatan_gtk'),
-            'kabupaten_gtk' => $this->input->post('kabupaten_gtk'),
-            'provinsi_gtk' => $this->input->post('provinsi_gtk'),
-            'tgl_masuk_gtk' => $this->input->post('tgl_masuk_gtk'),
-            'tgl_keluar_gtk' => $this->input->post('tgl_keluar_gtk'),
-            'foto_gtk' => $this->_uploadImage()
-        ];
-
-
-        $this->M_Gtk->addGtk($data);
-        $this->session->set_flashdata('tambahgtk', '<div class="alert alert-success" role="alert">
-                GTK ditambahkan
-              </div>');
-        redirect('Gtk/index');
-    }
-
-    private function _uploadImage()
-    {
-        $config['upload_path']          =  '.vendor/assets/images/';
-        $config['allowed_types']        = 'gif|jpg|png|JPG';
-        $config['max_size']             = 9048;
-        $config['overwrite']            = true;
-        $config['file_name']            = $_FILES['foto_gtk']['name'];
-
-        // 1MB
-        // $config['max_width']            = 1024;
-        // $config['max_height']           = 768;
-
-        $this->load->library('upload', $config);
-
-        if ($this->upload->do_upload('foto_gtk')) {
-            return $this->upload->data("file_name");
+        if($this->input->post('submit')){       
+            $this->M_Gtk->addGtk();
+            redirect('Gtk/index');
         }
 
-        return "default.jpg";
+        $this->load->view('gtk/tambah_gtk2');
     }
 
-    public function hapusGtk($id_gtk){
+    public function editGtk($id_gtk = null)
+    {
+        if ($this->input->post('submit')) {
+            $this->M_Gtk->updateGtk($id_gtk);
+            redirect('Gtk/index');
+        }
+        $data['gtk'] = $this->M_Gtk->getById($id_gtk);
+        $this->load->view('gtk/edit_gtk', $data);
+    }
+     
+    public function hapusGtk($id_gtk = null)
+    {
         if ($id_gtk) {
             $this->M_Gtk->deleteGtk($id_gtk);
             $this->session->set_flashdata('message', 'GTK telah dihapus');
@@ -87,5 +56,10 @@ class Gtk extends CI_Controller
             redirect('Gtk/index');
         }
     }
-  
+
+    public function print($id_gtk)
+    {
+        $data['detailgtk'] =  $this->M_Gtk->getById($id_gtk);
+        $this->load->view('gtk/print_gtk', $data);
+    }
 }

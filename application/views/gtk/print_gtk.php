@@ -1,74 +1,19 @@
-<?php $this->load->view('templates/header'); ?>
-
-<body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <?php
-        $this->load->view('templates/navbar');
-        ?>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Form Basic</h4>
-                        <div class="ml-auto text-right">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="text-right">
-                            <a onclick="editConfirm('<?php echo base_url('Gtk/editGtk/' . $detailgtk['id_gtk']); ?>')" href="#!" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a> &nbsp;
-                            <a onclick="deleteConfirm('<?php echo base_url('Gtk/hapusGtk/' . $detailgtk['id_gtk']); ?>')" href="#!" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Mutasi GTK</a> &nbsp;
-                            <a href="<?= base_url('Gtk/print/' . $detailgtk['id_gtk']);   ?>" target="_blank" type="button" class="btn btn-success " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-print"></i> Print</a>
-                        </div><br>
-                        <div class="card">
-                            <form class="form-horizontal">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="<?= base_url() ?>vendor/assets/extra-libs/multicheck/multicheck.css">
+    <link href="<?= base_url() ?>vendor/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="<?= base_url() ?>vendor/assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
+    <link href="<?= base_url() ?>vendor/assets/libs/jquery-steps/steps.css" rel="stylesheet">
+    <link href="<?= base_url() ?>vendor/dist/css/style.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+    <form class="form-horizontal">
                                 <div class="card-body">
                                     <h2 class="text-center">INDENTITAS GTK</h2>
-                                    <div class="text-right">
-                                        <input style="border-radius: 10px;">
-                                    </div>
+                                   
                                     <br>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -78,7 +23,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">NIK</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['nik_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->nik_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -86,7 +31,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">NIP</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['nip_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->nip_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -94,7 +39,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Nama Tenaga Didik</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['nama_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->nama_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -102,7 +47,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Tempat/Tanggal Lahir</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['tempat_lahir_gtk']; ?> , <?= date('d-m-Y', strtotime($detailgtk['tanggal_lahir_gtk'])); ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->tempat_lahir_gtk ?> , <?= $detailgtk->tanggal_lahir_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -110,7 +55,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Jenis Kelamin</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['jenis_kelamin_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->jenis_kelamin_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -118,7 +63,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Pangkat/Jabatan/Golongan</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['pajago_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->pajago_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -126,7 +71,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Gelar</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['gelar_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->gelar_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -134,7 +79,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Posisi di Sekolah</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['posisi_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->posisi_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -142,7 +87,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Agama</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['agama_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->agama_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -150,7 +95,7 @@
                                                 <label for="fname" class="col-sm-5  control-label col-form-label">Alamat</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['jalan_gtk']; ?> <?= $detailgtk['desa_gtk']; ?> <?= $detailgtk['kec_gtk']; ?></label><br><label>&nbsp; &nbsp; &nbsp; <?= $detailgtk['kab_gtk']; ?> <?= $detailgtk['prov_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->jalan_gtk ?> <?= $detailgtk->desa_gtk ?> <?= $detailgtk->kec_gtk ?></label><br><label>&nbsp; &nbsp; &nbsp; <?= $detailgtk->kab_gtk ?> <?= $detailgtk->prov_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -165,7 +110,7 @@
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Tanggal Masuk</label>
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= date('d-m-Y', strtotime($detailgtk['tgl_masuk_gtk'])); ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->tgl_masuk_gtk ?></label>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -174,7 +119,7 @@
 
                                                 <div class="col-sm-6">
                                                     <label>:</label> &nbsp; &nbsp;
-                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk['tgl_keluar_gtk']; ?></label>
+                                                    <label type="text" name="nis" id="fname" placeholder="ID"><?= $detailgtk->tgl_keluar_gtk ?></label>
                                                 </div>
                                             </div>
                                         </div><br>
@@ -185,7 +130,7 @@
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-10 text-right">
-                                                    <img width="300px;" height="400px" src="<?= base_url('vendor/assets/images/') . $detailgtk['foto_gtk']; ?>" alt="...">
+                                                    <img width="300px;" height="400px" src="<?= base_url('vendor/assets/images/') . $detailgtk->foto_gtk ?>" alt="...">
                                                 </div>
                                             </div>
                                         </div><br>
@@ -194,91 +139,8 @@
 
                                     </div>
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Logout Delete Confirmation-->
-            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Akan Menghapus Data GTK?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">BATAK</button>
-                            <a id="btn-delete" class="btn btn-danger" href="#">HAPUS</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Akan Mengubah Data GTK?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Ubah data jika diperlukan atau pembaruan.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">BATAL</button>
-                            <a id="btn-edit" class="btn btn-warning" href="#">EDIT</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End PAge Content -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Right sidebar -->
-            <!-- ============================================================== -->
-            <!-- .right-sidebar -->
-            <!-- ============================================================== -->
-            <!-- End Right sidebar -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="footer text-center">
-            All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-        </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script>
-        function deleteConfirm(url) {
-            $('#btn-delete').attr('href', url);
-            $('#deleteModal').modal();
-        }
-
-        function editConfirm(url) {
-            $('#btn-edit').attr('href', url);
-            $('#editModal').modal();
-        }
+    <script type="text/javascript">
+    window.print();
     </script>
     <script src="<?= base_url() ?>vendor/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
@@ -346,6 +208,5 @@
             theme: 'snow'
         });
     </script>
-</body>
 
 </html>
