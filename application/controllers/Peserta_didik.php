@@ -37,6 +37,14 @@ class Peserta_didik extends CI_Controller
         $this->load->view('peserta_didik/tambah_peserta_didik2');
     }
 
+    public function cetakDetail($id_siswa = null)
+
+    {
+        $siswa = $this->M_relasi_siswa;
+        $data["siswa"] = $siswa->getDetailSiswa($id_siswa);
+        $this->load->view('peserta_didik/cetak_peserta_didik', $data);
+    }
+
     public function detailPeserta($id_siswa = null)
     {
         $siswa = $this->M_relasi_siswa;

@@ -39,7 +39,7 @@
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <?php
-        $this->load->view('templates/navbar');
+                                                            $this->load->view('templates/navbar');
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -183,7 +183,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <!-- <h3>Masuk Menjadi Murid</h3>
+                                <h3>Masuk Menjadi Murid</h3>
                                 <section>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -218,7 +218,7 @@
                                             <img ame="name" src="" width="150px" height="200px">
                                         </div>
                                     </div>
-                                </section>-->
+                                </section>
                                 <h3>Keterangan Orang Tua</h3>
                                 <section>
                                     <div class="row">
@@ -439,7 +439,7 @@
             }
         });
     </script>
-    
+
 </body>
 
 </html>

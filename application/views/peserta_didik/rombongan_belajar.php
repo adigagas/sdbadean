@@ -78,8 +78,8 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $i = 1;
-                                            foreach ($rombel as $s) : ?>
+                                                            $i = 1;
+                                                            foreach ($rombel as $s) : ?>
                                                 <tr>
                                                     <td><?= $i ?></td>
                                                     <td><?= $s->kelas ?></td>
@@ -89,8 +89,8 @@
                                                     <td><a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                                 </tr>
                                             <?php
-                                                $i++;
-                                            endforeach; ?>
+                                                                                                                        $i++;
+                                                                                                                    endforeach; ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
