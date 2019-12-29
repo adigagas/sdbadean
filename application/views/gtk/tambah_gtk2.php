@@ -96,19 +96,19 @@
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">NIK</label>
                                                 <div class="col-sm-7">
                                                     <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_gtk" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nik_gtk" class="form-control" id="lname" placeholder="NIK" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nik_gtk" class="form-control" id="lname" placeholder="NIK" maxlength="16" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">NIP</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" style="border-radius: 10px;" name="nip_gtk" class="form-control" id="lname" placeholder="NIP" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nip_gtk" class="form-control" id="lname" placeholder="NIP" maxlength="18">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Nama GTK</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_gtk" class="form-control" id="lname" placeholder="Nama GTK" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nama_gtk" class="form-control" id="lname" placeholder="Nama GTK" maxlength="50" required>
                                                 </div>
                                             </div>
                                            
@@ -120,7 +120,7 @@
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="col-sm-6 col-xs-4">
-                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_gtk" class="form-control" id="lname" placeholder="Tempat Lahir" required>
+                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_gtk" class="form-control" id="lname" placeholder="Tempat Lahir" maxlength="50" required>
                                                         </div>
                                                         <div class="col-sm-6 col-xs 4">
                                                             <input type="date" style="border-radius: 10px;" name="tanggal_lahir_gtk" class="form-control" id="lname" placeholder="Tanggal Lahir" required>
