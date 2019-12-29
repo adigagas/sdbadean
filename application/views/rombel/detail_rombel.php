@@ -97,6 +97,7 @@
                                                 </tr>
                                             <?php
                                                 $i++;
+                                                $id_rombel = $s->id_rombel;
                                             endforeach; ?>
                                         </tbody>
                                         <tfoot>
@@ -126,7 +127,7 @@
 
                             <!-- Modal Header -->
                             <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
+                                <h4 class="modal-title">Tambah Siswa Di Rombel <?= $id_rombel ?></h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
 
@@ -153,11 +154,17 @@
                                             $i = 1;
                                             foreach ($siswafree as $s) : ?>
                                                 <tr>
-                                                    <td><input type="checkbox" name="Id_siswa[]" value=<?= $s->id_siswa ?>><br></td>
+                                                    <td><input type="checkbox" name="Id_siswaRombel[]" value=<?= $s->id_siswa ?>><br></td>
                                                     <td><?= $s->nomor_induk ?></td>
                                                     <td><?= $s->nomor_induk_sn ?></td>
                                                     <td><?= $s->nama_siswa ?></td>
-                                                    <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class="btn btn-info btn-sm">Detail</a></td>
+                                                    <td>
+                                                        <form action="<?= base_url() ?>rombel/addsiswa" method="POST">
+                                                            <input type="text" hidden name="id_rombel" value="<?= $id_rombel ?>">
+                                                            <input type="text" hidden name="id_siswa" value="<?= $s->id_siswa ?>">
+                                                            <input id="acceptTerms" name="acceptTerms" type="submit" class="btn btn-info btn-sm" value="Tambahkan">
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             <?php
                                                 $i++;

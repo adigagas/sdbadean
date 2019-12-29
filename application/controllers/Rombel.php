@@ -27,4 +27,18 @@ class Rombel extends CI_Controller
         $data['siswafree'] = $this->M_rombel->getSiswaIsFree();
         $this->load->view('rombel/detail_rombel', $data);
     }
+
+    public function addsiswa()
+    {
+        $id_rombel = $this->input->post('id_rombel');
+        $id_siswa = $this->input->post('id_siswa');
+
+        $data = array(
+            'id_relasi_rombel_siswa' => md5(uniqid(rand(), true)),
+            'id_rombel' => $id_rombel,
+            'id_siswa' => $id_siswa,
+        );
+        $this->M_rombel->input_data($data, 'tb_relasi_rombel_siswa');
+        redirect('rombel/detail_rombel/' . $id_rombel);
+    }
 }

@@ -53,10 +53,14 @@ class M_rombel extends CI_Model
 
     public function getSiswaIsFree()
     {
-        $this->db->select('*');
-        $this->db->from("tb_siswa");
-        $this->db->join('tb_relasi_rombel_siswa', 'tb_relasi_rombel_siswa.id_siswa != tb_siswa.id_siswa');
-        $query = $this->db->get();
+        $query = $this->db->query("SELECT * FROM tb_relasi_rombel_siswa RIGHT OUTER JOIN tb_siswa
+        ON tb_relasi_rombel_siswa.id_siswa = tb_siswa.id_siswa
+        WHERE tb_relasi_rombel_siswa.id_siswa IS NULL");
         return $query->result();
+    }
+
+    function input_data($data, $table)
+    {
+        $this->db->insert($table, $data);
     }
 }
