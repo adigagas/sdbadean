@@ -215,7 +215,7 @@
                                         </div>
                                         <div class="col-md-6 text-right">
                                             <label for="name">Foto Sebelumnya</label><br>
-                                            <img ame="name" src="" width="150px" height="200px">
+                                            <img name="name" src="<?= base_url() ?>vendor/assets/images/profil.png" width="150px" height="200px">
                                         </div>
                                     </div>
                                 </section>

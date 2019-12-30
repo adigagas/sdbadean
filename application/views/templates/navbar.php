@@ -11,7 +11,7 @@
                 <b class="logo-icon p-l-10">
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="<?= base_url() ?>vendor/assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                    <img src="<?= base_url() ?>vendor/assets/images/logo_sd.png" width="40px" height="40px" alt="homepage" class="light-logo" />
 
                 </b>
                 <!--End Logo icon -->
