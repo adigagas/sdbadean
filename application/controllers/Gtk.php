@@ -49,8 +49,13 @@ class Gtk extends CI_Controller
             $this->M_Gtk->updateGtk($id_gtk);
             redirect('Gtk/index');
         }
-        $data['gtk'] = $this->M_Gtk->getById($id_gtk);
-        $this->load->view('gtk/edit_gtk', $data);
+        
+        if(is_null($id_gtk)) {
+            redirect(base_url(gtk));
+        } else {
+            $data['gtk'] = $this->M_Gtk->getById($id_gtk);
+            $this->load->view('gtk/edit_gtk', $data);
+        }
     }
      
     public function hapusGtk($id_gtk = null)
