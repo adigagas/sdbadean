@@ -49,7 +49,12 @@ class Peserta_didik extends CI_Controller
     {
         $siswa = $this->M_relasi_siswa;
         $data["siswa"] = $siswa->getDetailSiswa($id_siswa);
-        $this->load->view('peserta_didik/detail_peserta_didik', $data);
+        
+        if(is_null($id_siswa)) {
+            redirect(base_url(peserta_didik));
+        } else {
+            $this->load->view('peserta_didik/detail_peserta_didik', $data);
+        }
     }
 
     public function mutasiKeluarPeserta()
