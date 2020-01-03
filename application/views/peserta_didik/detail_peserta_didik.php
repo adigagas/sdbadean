@@ -39,7 +39,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a>
-                                    <a href="" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-arrow-alt-circle-left"></i> Mutasi Keluar</a>
+                                    <a href="<?= base_url('peserta_didik/mutasiKeluar/' . $siswa->id_siswa) ?>" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-arrow-alt-circle-left"></i> Mutasi Keluar</a>
                                     <a href="<?= base_url('peserta_didik/cetakDetail/' . $siswa->id_siswa) ?>" target="_blank" type="button" class="btn btn-info " style="border-radius: 10px;"><i class="fa fa-print"></i> Print</a>
                                 </ol>
                             </nav>
