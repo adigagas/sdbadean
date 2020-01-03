@@ -242,11 +242,11 @@
         </div>
         <div class="col-md-5">
             <div class="text-right">
-                <img src="" width="300px !important" height="400px">
+                <img src="<?= base_url() ?>vendor/assets/images/profil.png" width=" 300px !important" height="400px">
             </div>
             <br>
             <div class="text-right">
-                <img src="" width="300px !important" height="400px">
+                <img src="<?= base_url('vendor/assets/images/' . $siswa->foto_satu) ?>" width="300px !important" height="400px">
             </div>
         </div><br>
 

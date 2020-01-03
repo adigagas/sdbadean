@@ -1,0 +1,32 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class M_mutasi extends CI_Model
+{
+
+    function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function rules()
+    {
+        return [
+            [
+                'field' => 'tanggal',
+                'label' => 'Name',
+                'rules' => 'required'
+            ]
+        ];
+    }
+
+
+    public function keluarSekolah()
+    {
+        $post = $this->input->post();
+        $this->id_siswa = $post['id_siswa'];
+        $this->tanggal = $post['tanggal'];
+        $this->alasan = $post['alasan'];
+        $this->db->insert('tb_keluar_sekolah', $this);
+    }
+}

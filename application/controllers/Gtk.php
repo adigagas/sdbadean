@@ -24,8 +24,8 @@ class Gtk extends CI_Controller
     {
         // $data['detailgtk'] = $this->db->get_where('tb_gtk', ['id_gtk' => $id_gtk])->row_array();
         // $this->load->view('gtk/detail_gtk', $data);
-        
-        if(is_null($id_gtk)) {
+
+        if (is_null($id_gtk)) {
             redirect(base_url(gtk));
         } else {
             // $this->load->view('peserta_didik/detail_peserta_didik', $data);
@@ -35,7 +35,7 @@ class Gtk extends CI_Controller
     }
     public function tambahGtk()
     {
-        if($this->input->post('submit')){       
+        if ($this->input->post('submit')) {
             $this->M_Gtk->addGtk();
             redirect('Gtk/index');
         }
@@ -49,15 +49,15 @@ class Gtk extends CI_Controller
             $this->M_Gtk->updateGtk($id_gtk);
             redirect('Gtk/index');
         }
-        
-        if(is_null($id_gtk)) {
+
+        if (is_null($id_gtk)) {
             redirect(base_url(gtk));
         } else {
             $data['gtk'] = $this->M_Gtk->getById($id_gtk);
             $this->load->view('gtk/edit_gtk', $data);
         }
     }
-     
+
     public function hapusGtk($id_gtk = null)
     {
         if ($id_gtk) {

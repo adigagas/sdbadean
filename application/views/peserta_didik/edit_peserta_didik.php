@@ -78,9 +78,9 @@
                 <!-- ============================================================== -->
                 <div class="card">
                     <div class="card-body wizard-content">
-                        <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah Peserta Didik</h4> <br>
+                        <h4 class="card-header" style="background:#16a085; color:#fff;">Edit Peserta Didik</h4> <br>
                         <h6 class="card-subtitle"></h6>
-                        <form id="example-form" action="<?php echo base_url('peserta_didik/simpanSiswa'); ?>" method="post" enctype="multipart/form-data" class="m-t-40">
+                        <form id="example-form" action="<?php echo base_url('peserta_didik/'); ?>" method="post" enctype="multipart/form-data" class="m-t-40">
                             <div>
                                 <?php $yahoo = md5(uniqid(rand(), true)) ?>
                                 <?php $ibu = md5(uniqid(rand(), true)) ?>
@@ -93,23 +93,23 @@
                                 <section>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="hidden" value="<?php echo $yahoo ?>" style="border-radius: 10px;" name="id_siswa" class="form-control" id="id_siswa" required>
+                                            <input type="hidden" value="<?= $siswa->id_siswa ?>" style="border-radius: 10px;" name="id_siswa" class="form-control" id="id_siswa" required>
                                             <div class="form-group row" id="only-number">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">NIS</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk" class="form-control" id="nomor_induk" placeholder="NIS" maxlength="6" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk" class="form-control" id="nomor_induk" placeholder="NIS" maxlength="6" value="<?= $siswa->nomor_induk ?>" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="nomor_induk_sn" class="col-sm-4  control-label col-form-label">NISN</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk_sn" class="form-control" id="nomor_induk_sn" placeholder="NISN" maxlength="10" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk_sn" class="form-control" value="<?= $siswa->nomor_induk ?>" id="nomor_induk_sn" placeholder="NISN" maxlength="10" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="nama_siswa" class="col-sm-4  control-label col-form-label">Nama Peserta Didik</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_siswa" class="form-control" id="nama_siswa" placeholder="Nama Peserta Didik" maxlength="50" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nama_siswa" class="form-control" id="nama_siswa" placeholder="Nama Peserta Didik" maxlength="50" required value="<?= $siswa->nama_siswa ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -117,10 +117,10 @@
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="col-sm-6 col-xs-4">
-                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_siswa" class="form-control" id="tempat_lahir_siswa" placeholder="Tempat Lahir" maxlength="50" required>
+                                                            <input type="text" style="border-radius: 10px;" name="tempat_lahir_siswa" class="form-control" id="tempat_lahir_siswa" placeholder="Tempat Lahir" maxlength="50" required value="<?= $siswa->tempat_lahir_siswa ?>">
                                                         </div>
                                                         <div class="col-sm-6 col-xs 4">
-                                                            <input type="date" style="border-radius: 10px;" name="tanggal_lahir_siswa" class="form-control" id="tanggal_lahir_siswa" placeholder="Tanggal Lahir" required>
+                                                            <input type="date" style="border-radius: 10px;" name="tanggal_lahir_siswa" class="form-control" id="tanggal_lahir_siswa" placeholder="Tanggal Lahir" required value="<?= $siswa->tanggal_lahir_siswa ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -159,19 +159,19 @@
                                             <div class="form-group row">
                                                 <label for="kewarganegaraan_siswa" class="col-sm-4  control-label col-form-label">Kewarganegaraan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kewarganegaraan_siswa" class="form-control" id="kewarganegaraan_siswa" placeholder="Kewarganegaraan" maxlength="20">
+                                                    <input type="text" valuee="<?= $siswa->kewarganegaraan_siswa ?>" style="border-radius: 10px;" name="kewarganegaraan_siswa" class="form-control" id="kewarganegaraan_siswa" placeholder="Kewarganegaraan" maxlength="20">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="bahasa_siswa" class="col-sm-4  control-label col-form-label">Bahasa Sehari-hari</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="bahasa_siswa" class="form-control" id="bahasa_siswa" placeholder="Bahasa Sehari-hari" maxlength="20">
+                                                    <input type="text" style="border-radius: 10px;" name="bahasa_siswa" class="form-control" id="bahasa_siswa" value="<?= $siswa->bahasa_siswa ?>" placeholder="Bahasa Sehari-hari" maxlength="20">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="golongan_siswa" class="col-sm-4  control-label col-form-label">Golongan Darah</label>
                                                 <div class="col-sm-8">
-                                                    <select class="select2 form-control custom-select" name="golongan_siswa" style="width: 100%; height:36px;">
+                                                    <select class="select2 form-control custom-select" value="" name="golongan_siswa" style="width: 100%; height:36px;">
                                                         <option value="-">Pilih Golongan Darah</option>
                                                         <option value="AB">AB</option>
                                                         <option value="A">A</option>
@@ -190,32 +190,32 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Tanggal</label>
                                                 <div class="col-sm-8">
-                                                    <input type="date" style="border-radius: 10px;" name="nis" class="form-control" id="fname" placeholder="First Name Here">
+                                                    <input type="date" style="border-radius: 10px;" name="tanggal_masuk" class="form-control" id="fname" placeholder="First Name Here">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Di Kelas</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nisn" class="form-control" id="lname" placeholder="Kelas">
+                                                    <input type="text" style="border-radius: 10px;" name="id_kelas" class="form-control" id="lname" placeholder="Kelas">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Asal Sekolah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Asal Sekolah">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Foto Baru</label>
                                                 <div class="col-sm-8">
-                                                    <input type="file" style="border-radius: 10px;" name="foto_satu" class="form-control" id="lname" placeholder="Password Here">
+                                                    <input type="file" style="border-radius: 10px;" value="" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
                                                 </div>
                                             </div>
 
                                         </div>
                                         <div class="col-md-6 text-right">
                                             <label for="name">Foto Sebelumnya</label><br>
-                                            <img name="name" src="<?= base_url() ?>vendor/assets/images/profil.png" width="150px" height="200px">
+                                            <img name="name" src="<?= base_url('vendor/assets/images/' . $siswa->foto_satu) ?>" width="150px" height="200px">
                                         </div>
                                     </div>
                                 </section>
@@ -227,28 +227,28 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ayah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $ayah ?>" style="border-radius: 10px;" name="id_ayah" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nama_ayah" class="form-control" id="fname" placeholder="Nama Ayah" maxlength="50">
+                                                    <input type="hidden" value="<?= $siswa->id_ayah ?>" style="border-radius: 10px;" name="id_ayah" class="form-control" id="lname" required value="">
+                                                    <input type="text" style="border-radius: 10px;" value="<?= $siswa->nama_ayah ?>" name="nama_ayah" class="form-control" id="fname" placeholder="Nama Ayah" maxlength="50">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Ayah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ayah" class="form-control" id="lname" placeholder="Pekerjaan Ayah" maxlength="30">
+                                                    <input type="text" style="border-radius: 10px;" value="<?= $siswa->pekerjaan_ayah ?>" name="pekerjaan_ayah" class="form-control" id="lname" placeholder="Pekerjaan Ayah" maxlength="30">
                                                 </div>
                                             </div><br>
                                             <h5 class="">Ibu</h5>
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ibu</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $ibu ?>" style="border-radius: 10px;" name="id_ibu" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nama_ibu" class="form-control" id="fname" placeholder="First Name Here" maxlength="50">
+                                                    <input type="hidden" value="<?= $siswa->id_ibu ?>" style="border-radius: 10px;" name="id_ibu" class="form-control" id="lname" required value="">
+                                                    <input type="text" style="border-radius: 10px;" value="<?= $siswa->nama_ibu ?>" name="nama_ibu" class="form-control" id="fname" placeholder="First Name Here" maxlength="50">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Ibu</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ibu" class="form-control" id="lname" placeholder="Last Name Here" maxlength="30">
+                                                    <input type="text" style="border-radius: 10px;" value="<?= $siswa->pekerjaan_ibu ?>" name="pekerjaan_ibu" class="form-control" id="lname" placeholder="Last Name Here" maxlength="30">
                                                 </div>
                                             </div>
                                         </div>
@@ -257,32 +257,32 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Jalan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $alamat_ortu ?>" style="border-radius: 10px;" name="id_alamat_ortu" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="jalan_ortu" class="form-control" id="fname" placeholder="Masukkan Jalan">
+                                                    <input type="hidden" value="<?php echo $siswa->id_alamat_ortu ?>" style="border-radius: 10px;" name="id_alamat_ortu" class="form-control" id="lname" required>
+                                                    <input type="text" style="border-radius: 10px;" value="<?= $siswa->jalan_ortu ?>" name="jalan_ortu" class="form-control" id="fname" placeholder="Masukkan Jalan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Desa / Kelurahan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="desa_ortu" class="form-control" id="lname" placeholder="Masukkan Desa">
+                                                    <input type="text" style="border-radius: 10px;" value="<?= $siswa->desa_ortu ?>" name="desa_ortu" class="form-control" id="lname" placeholder="Masukkan Desa">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kec_ortu" class="form-control" id="fname" placeholder="Masukkan Kecamatan">
+                                                    <input type="text" style="border-radius: 10px;" name="kec_ortu" value="<?= $siswa->kec_ortu ?>" class="form-control" id="fname" placeholder="Masukkan Kecamatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten / Kota</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kab_ortu" class="form-control" id="lname" placeholder="Masukkan Kabupaten">
+                                                    <input type="text" style="border-radius: 10px;" name="kab_ortu" value="<?= $siswa->kab_ortu ?>" class="form-control" id="lname" placeholder="Masukkan Kabupaten">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="prov_ortu" class="form-control" id="lname" placeholder="Masukkan Provinsi">
+                                                    <input type="text" style="border-radius: 10px;" name="prov_ortu" value="<?= $siswa->prov_ortu ?>" class="form-control" id="lname" placeholder="Masukkan Provinsi">
                                                 </div>
                                             </div>
                                         </div>
@@ -296,20 +296,20 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Wali</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $wali ?>" style="border-radius: 10px;" name="id_wali" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nama_wali" class="form-control" id="fname" placeholder="Nama Wali">
+                                                    <input type="hidden" value="<?php echo $siswa->id_wali ?>" style="border-radius: 10px;" name="id_wali" class="form-control" id="lname" required>
+                                                    <input type="text" style="border-radius: 10px;" name="nama_wali" value="<?= $siswa->nama_wali ?> " class="form-control" id="fname" placeholder="Nama Wali">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Wali</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_wali" class="form-control" id="lname" placeholder="Pekerjaan Wali">
+                                                    <input type="text" style="border-radius: 10px;" value="<?= $siswa->pekerjaan_wali ?> " name="pekerjaan_wali" class="form-control" id="lname" placeholder="Pekerjaan Wali">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Hubungan Keluarga</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="hubungan_kel_wali" class="form-control" id="fname" placeholder="Hubungan Keluarga">
+                                                    <input type="text" style="border-radius: 10px;" <?= $siswa->hubungan_kel_wali ?> name="hubungan_kel_wali" class="form-control" id="fname" placeholder="Hubungan Keluarga">
                                                 </div>
                                             </div>
                                         </div>
@@ -318,32 +318,32 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Jalan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="hidden" value="<?php echo $alamat_wali ?>" style="border-radius: 10px;" name="id_alamat_wali" class="form-control" id="lname" required>
+                                                    <input type="hidden" value="<?php echo $alamat_wali ?>" style="border-radius: 10px;" name="id_alamat_wali" class="form-control" id="lname" required value="">
                                                     <input type="text" style="border-radius: 10px;" name="jalan_wali" class="form-control" id="lname" placeholder="Jalan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Desa / Kelurahan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="desa_wali" class="form-control" id="lname" placeholder="Desa">
+                                                    <input type="text" style="border-radius: 10px;" value=" <?= $siswa->desa_wali ?>" name="desa_wali" class="form-control" id="lname" placeholder="Desa">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kecamatan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kec_wali" class="form-control" id="lname" placeholder="Kecamatan">
+                                                    <input type="text" style="border-radius: 10px;" value=" <?= $siswa->kec_wali ?>" name="kec_wali" class="form-control" id="lname" placeholder="Kecamatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Kabupaten / Kota</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kab_wali" class="form-control" id="lname" placeholder="Kabupaten">
+                                                    <input type="text" style="border-radius: 10px;" value=" <?= $siswa->kab_wali ?>" name="kab_wali" class="form-control" id="lname" placeholder="Kabupaten">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="prov_wali" class="form-control" id="lname" placeholder="Provinsi">
+                                                    <input type="text" style="border-radius: 10px;" name="prov_wali" value=" <?= $siswa->kab_wali ?>" class="form-control" id="lname" placeholder="Provinsi">
                                                 </div>
                                             </div>
                                         </div>

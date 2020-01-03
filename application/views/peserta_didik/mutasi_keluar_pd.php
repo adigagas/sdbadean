@@ -106,7 +106,7 @@
                                             <div class="form-group row">
                                                 <label for="tanggal_pindah" class="col-sm-4  control-label col-form-label">Tanggal Pindah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="date" style="border-radius: 10px;" name="tanggal_pindah" class="form-control" id="tanggal_pindah" >
+                                                    <input type="date" style="border-radius: 10px;" name="tanggal_pindah" class="form-control" id="tanggal_pindah">
                                                 </div>
                                             </div>
                                             <br>
