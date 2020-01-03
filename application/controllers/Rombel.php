@@ -24,6 +24,7 @@ class Rombel extends CI_Controller
     public function detail_rombel($id_rombel)
     {
         $data['rombel'] = $this->M_rombel->getDetailRombel($id_rombel);
+        $data['rombel_detail'] = $this->M_rombel->getRombel($id_rombel);
         $data['siswafree'] = $this->M_rombel->getSiswaIsFree();
         $this->load->view('rombel/detail_rombel', $data);
     }

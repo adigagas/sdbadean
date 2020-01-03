@@ -51,6 +51,16 @@ class M_rombel extends CI_Model
         return $query->result();
     }
 
+    public function getRombel($id_rombel)
+    {
+        $this->db->select('*');
+        $this->db->from("tb_rombel");
+        $this->db->join('tb_gtk', 'tb_gtk.id_gtk = tb_rombel.id_gtk');
+        $this->db->where('tb_rombel.id_rombel', $id_rombel);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function getSiswaIsFree()
     {
         $query = $this->db->query("SELECT * FROM tb_relasi_rombel_siswa RIGHT OUTER JOIN tb_siswa
