@@ -37,6 +37,13 @@ class Peserta_didik extends CI_Controller
         $this->load->view('peserta_didik/tambah_peserta_didik2');
     }
 
+    public function mutasiKeluar($id_siswa = null)
+    {
+        $siswa = $this->M_relasi_siswa;
+        $data["siswa"] = $siswa->getDetailSiswa($id_siswa);
+        $this->load->view('peserta_didik/mutasi_keluar', $data);
+    }
+
     public function cetakDetail($id_siswa = null)
 
     {
@@ -49,9 +56,9 @@ class Peserta_didik extends CI_Controller
     {
         $siswa = $this->M_relasi_siswa;
         $data["siswa"] = $siswa->getDetailSiswa($id_siswa);
-        
-        if(is_null($id_siswa)) {
-            redirect(base_url(peserta_didik));
+
+        if (is_null($id_siswa)) {
+            redirect(base_url('peserta_didik'));
         } else {
             $this->load->view('peserta_didik/detail_peserta_didik', $data);
         }
