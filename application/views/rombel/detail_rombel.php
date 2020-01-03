@@ -94,71 +94,111 @@
                                             <i class="fa fa-user"></i> Tambah Siswa
                                         </button>
                                     </div>
-                                    <div class="text-left">
+                                    <form action="<?= base_url('rombel/naikkelas') ?>" method="post">
                                         <div class="row">
-                                            <div class="col-2">
+                                            <div class="col-sm-2 text-center">
                                                 <input type="checkbox" onClick="toggle(this)" /> Pilih Semua<br />
                                             </div>
-                                            <div class="col-6">
-                                                <button id="myBtn" class="delete btn btn-success btn-sm" type="button" disabled="disabled" data-toggle="modal" data-target="#myModal">
-                                                    <i class="fa fa-user"></i> Tambah Siswa
+                                            <div class="col-sm-2">
+                                                <div class="input-group">
+                                                    <select required class="custom-select" id="id_kelas" name="id_kelas">
+                                                        <?php
+                                                        foreach ($rombel_show as $rombel_select) : ?>
+                                                            <option value="<?= $rombel_select->id_rombel ?>"><?= $rombel_select->nama_rombel ?></option>
+                                                        <?php
+                                                        endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <button id="myBtn" class="delete btn btn-success" type="submit" disabled="disabled" name="remove_levels" value="delete">
+                                                    <i class="fa fa-user"></i> Naikkan Kelas
                                                 </button>
                                             </div>
                                         </div>
-                                    </div><br>
-
-                                    <div class="table-responsive">
-                                        <table id="zero_config" class="table table-striped table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th><b>NIS</b></th>
-                                                    <th><b>NISN</b></th>
-                                                    <th><b>Nama Peserta Didik</b></th>
-                                                    <th><b>Tempat Tanggal Lahir</b></th>
-                                                    <th><b>Jenis Kelamin</b></th>
-                                                    <th><b>Agama</b></th>
-                                                    <th><b>Aksi</b></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $i = 1;
-                                                foreach ($rombel as $s) : ?>
+                                        <br>
+                                        <div class="table-responsive">
+                                            <table id="zero_config" class="table table-striped table-bordered">
+                                                <thead>
                                                     <tr>
-                                                        <td><input class="checkbox" type="checkbox" name="Id_siswa[]" value=<?= $s->id_siswa ?>><br></td>
-                                                        <td><?= $s->nomor_induk ?></td>
-                                                        <td><?= $s->nomor_induk_sn ?></td>
-                                                        <td><?= $s->nama_siswa ?></td>
-                                                        <td><?= $s->tempat_lahir_siswa . ', ' . $s->tanggal_lahir_siswa ?></td>
-                                                        <td><?= $s->jenis_kelamin_siswa ?></td>
-                                                        <td><?= $s->agama_siswa ?></td>
-                                                        <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class="btn btn-info btn-sm">Detail</a></td>
+                                                        <th></th>
+                                                        <th><b>NIS</b></th>
+                                                        <th><b>NISN</b></th>
+                                                        <th><b>Nama Peserta Didik</b></th>
+                                                        <th><b>Tempat Tanggal Lahir</b></th>
+                                                        <th><b>Jenis Kelamin</b></th>
+                                                        <th><b>Agama</b></th>
+                                                        <th><b>Aksi</b></th>
                                                     </tr>
-                                                <?php
-                                                    $i++;
-                                                    $id_rombel = $s->id_rombel;
-                                                endforeach; ?>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th></th>
-                                                    <th><b>NIS</b></th>
-                                                    <th><b>NISN</b></th>
-                                                    <th><b>Nama Peserta Didik</b></th>
-                                                    <th><b>Tempat Tanggal Lahir</b></th>
-                                                    <th><b>Jenis Kelamin</b></th>
-                                                    <th><b>Agama</b></th>
-                                                    <th><b>Aksi</b></th>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $i = 1;
+                                                    foreach ($rombel as $s) : ?>
+                                                        <tr>
+                                                            <td><input class="checkbox" type="checkbox" name="Id_siswa[]" value=<?= $s->id_siswa ?>><br></td>
+                                                            <input name="id_class" hidden value="<?= $s->id_rombel ?>">
+                                                            <td><?= $s->nomor_induk ?></td>
+                                                            <td><?= $s->nomor_induk_sn ?></td>
+                                                            <td><?= $s->nama_siswa ?></td>
+                                                            <td><?= $s->tempat_lahir_siswa . ', ' . $s->tanggal_lahir_siswa ?></td>
+                                                            <td><?= $s->jenis_kelamin_siswa ?></td>
+                                                            <td><?= $s->agama_siswa ?></td>
+                                                            <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class="btn btn-info btn-sm">Detail</a></td>
+                                                        </tr>
+                                                    <?php
+                                                        $i++;
+                                                    endforeach; ?>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th><b>NIS</b></th>
+                                                        <th><b>NISN</b></th>
+                                                        <th><b>Nama Peserta Didik</b></th>
+                                                        <th><b>Tempat Tanggal Lahir</b></th>
+                                                        <th><b>Jenis Kelamin</b></th>
+                                                        <th><b>Agama</b></th>
+                                                        <th><b>Aksi</b></th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <div id="confirm" class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Konfirmasi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Apakah anda yakin ingin menaikkan murid tersebut ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Yakin</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div id="confirm" class="modal hide fade">
+                        <div class="modal-body">
+                            Are you sure?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+                            <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+                        </div>
+                    </div> -->
                     <!-- The Modal -->
                     <div class="modal fade" id="myModal">
                         <div class="modal-dialog modal-lg">
@@ -166,7 +206,7 @@
 
                                 <!-- Modal Header -->
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Tambah Siswa Di Rombel <?= $id_rombel ?></h4>
+                                    <h4 class="modal-title">Tambah Siswa</h4>
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
 
@@ -265,6 +305,20 @@
                 $(".checkbox").click(function() {
                     $('.delete').prop('disabled', $('input.checkbox:checked').length == 0);
                 });
+            });
+        </script>
+
+        <script>
+            $('button[name="remove_levels"]').on('click', function(e) {
+                var $form = $(this).closest('form');
+                e.preventDefault();
+                $('#confirm').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    })
+                    .on('click', '#delete', function(e) {
+                        $form.trigger('submit');
+                    });
             });
         </script>
         <!-- ============================================================== -->

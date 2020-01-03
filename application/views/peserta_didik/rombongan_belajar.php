@@ -61,8 +61,73 @@
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
                                 <div class="text-right">
-                                    <a type="button" href="<?= base_url() ?>peserta_didik/tambahPeserta2" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                                        Tambah Rombongan Belajar
+                                    </button>
                                 </div><br>
+
+                                <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Tambahkan Rombongan Belajar</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <form action="<?= base_url() ?>rombel/addRombel" method="POST">
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Kelas</label>
+                                                        <div class="input-group mb-3">
+                                                            <select required class="custom-select" id="id_kelas" name="id_kelas">
+                                                                <option selected value="">Choose...</option>
+                                                                <?php
+                                                                foreach ($kelas as $kelasdata) : ?>
+                                                                    <option value="<?= $kelasdata->id_kelas ?>"><?= $kelasdata->kelas ?></option>
+                                                                <?php
+                                                                endforeach; ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Nama Rombongan Belajar</label>
+                                                        <input required type="text" class="form-control" name="nama_rombel" id="nama_rombel" placeholder="Cth : IPA 5">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Wali Kelas</label>
+                                                        <div class="input-group mb-3">
+                                                            <select required class="custom-select" id="id_gtk" name="id_gtk">
+                                                                <option selected value="">Choose...</option>
+                                                                <?php
+                                                                foreach ($wali as $walimurid) : ?>
+                                                                    <option value="<?= $walimurid->id_gtk ?>"><?= $walimurid->nama_gtk ?></option>
+                                                                <?php
+                                                                endforeach; ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Tahun Ajaran</label>
+                                                        <div class="input-group mb-3">
+                                                            <select required class="custom-select" id="tahun_ajaran" name="tahun_ajaran">
+                                                                <option selected value="">Choose...</option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Tambahkan</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="table-responsive">
 
                                     <table id="zero_config" class="table table-striped table-bordered">
@@ -78,8 +143,8 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                                            $i = 1;
-                                                            foreach ($rombel as $s) : ?>
+                                            $i = 1;
+                                            foreach ($rombel as $s) : ?>
                                                 <tr>
                                                     <td><?= $i ?></td>
                                                     <td><?= $s->kelas ?></td>
@@ -89,8 +154,8 @@
                                                     <td><a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                                 </tr>
                                             <?php
-                                                                                                                        $i++;
-                                                                                                                    endforeach; ?>
+                                                $i++;
+                                            endforeach; ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>

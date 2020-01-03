@@ -38,6 +38,22 @@ class M_rombel extends CI_Model
         return $query->result();
     }
 
+    public function getKelas()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_kelas');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getWali()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_gtk');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function getDetailRombel($id_rombel)
     {
         $this->db->select('*');
@@ -57,6 +73,15 @@ class M_rombel extends CI_Model
         $this->db->from("tb_rombel");
         $this->db->join('tb_gtk', 'tb_gtk.id_gtk = tb_rombel.id_gtk');
         $this->db->where('tb_rombel.id_rombel', $id_rombel);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getRombelSelect($id_rombel)
+    {
+        $this->db->select('*');
+        $this->db->from("tb_rombel");
+        $this->db->where("id_rombel !=", $id_rombel);
         $query = $this->db->get();
         return $query->result();
     }
