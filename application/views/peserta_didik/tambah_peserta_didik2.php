@@ -202,7 +202,7 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Asal Sekolah</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Asal sekolah">
+                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
