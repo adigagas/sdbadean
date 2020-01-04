@@ -87,7 +87,6 @@
                                                 <th><b>Jenis Kelamin</b></th>
                                                 <th><b>Tanggal</b></th>
                                                 <th><b>Keterangan</b></th>
-                                                <th><b>Aksi</b></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -102,7 +101,6 @@
                                                     <td><?= $row->jenis_kelamin_siswa ?></td>
                                                     <td><?= $row->tanggal ?></td>
                                                     <td><?= $row->kehadiran ?></td>
-                                                    <td><a type="button" data-toggle="modal" data-target="#myModal<?php echo $row->id_siswa ?>" href="" class=" btn btn-info" style="border-radius: 10px;"> Absensi</a></td>
                                                 </tr>
                                             <?php endforeach ?>
                                         </tbody>

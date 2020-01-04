@@ -40,7 +40,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" id="password" name="password" placeholder="Masukan Password..." value="<?= set_value('password'); ?>">
+                                    <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Masukan Password..." value="<?= set_value('password'); ?>">
                                 </div>
                             </div>
                         </div>
