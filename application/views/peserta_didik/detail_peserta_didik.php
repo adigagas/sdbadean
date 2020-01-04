@@ -38,7 +38,7 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <a href="" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a>
+                                    <a href="<?= base_url('peserta_didik/editSiswa/' . $siswa->id_siswa) ?>" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a>
                                     <a href="<?= base_url('peserta_didik/mutasiKeluar/' . $siswa->id_siswa) ?>" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-arrow-alt-circle-left"></i> Mutasi Keluar</a>
                                     <a href="<?= base_url('peserta_didik/cetakDetail/' . $siswa->id_siswa) ?>" target="_blank" type="button" class="btn btn-info " style="border-radius: 10px;"><i class="fa fa-print"></i> Print</a>
                                 </ol>
@@ -297,11 +297,11 @@
                                         </div>
                                         <div class="col-md-5">
                                             <div class="text-right">
-                                                <img src="" width="300px !important" height="400px">
+                                                <img src="<?= base_url() ?>vendor/assets/images/profil.png" width=" 300px !important" height="400px">
                                             </div>
                                             <br>
                                             <div class="text-right">
-                                                <img src="" width="300px !important" height="400px">
+                                                <img src="<?= base_url('vendor/assets/images/' . $siswa->foto_satu) ?>" width="300px !important" height="400px">
                                             </div>
                                         </div><br>
 
