@@ -53,7 +53,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Form Wizard</h4>
+                        <h4 class="page-title">Form GTK</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -77,7 +77,7 @@
                 <!-- ============================================================== -->
                 <div class="card">
                     <div class="card-body wizard-content">
-                        <h4 class="card-header" style="background:#16a085; color:#fff;">Tambah Peserta Didik</h4> <br>
+                        <h4 class="card-header" style="background:#16a085; color:#fff;">Merubah GTK</h4> <br>
                         <h6 class="card-subtitle"></h6>
                         <form id="example-form" action="<?php echo base_url('Gtk/editGtk/' . $gtk->id_gtk ); ?>" method="post" enctype="multipart/form-data" class="m-t-40">
                             <div>

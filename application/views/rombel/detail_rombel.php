@@ -33,7 +33,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Data Peserta Didik</h4>
+                        <h4 class="page-title">Form Rombel</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -150,18 +150,7 @@
                                                         $i++;
                                                     endforeach; ?>
                                                 </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th></th>
-                                                        <th><b>NIS</b></th>
-                                                        <th><b>NISN</b></th>
-                                                        <th><b>Nama Peserta Didik</b></th>
-                                                        <th><b>Tempat Tanggal Lahir</b></th>
-                                                        <th><b>Jenis Kelamin</b></th>
-                                                        <th><b>Agama</b></th>
-                                                        <th><b>Aksi</b></th>
-                                                    </tr>
-                                                </tfoot>
+                                            
                                             </table>
                                         </div>
                                     </form>
