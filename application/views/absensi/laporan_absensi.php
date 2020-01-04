@@ -59,12 +59,12 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
+                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Absensi Peserta Didik</h5> <br>
                                 <div class="">
                                     <div class="text-left col-md-12">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h5 class="card-header" style="background:#fff;">Data Peserta Didik Kelas</h5>
+                                                <h5 class="card-header" style="background:#fff;">Absensi Peserta Didik </h5>
                                             </div>
                                             <div class="text-right col-md-6">
                                                 <?= date('l, d-m-Y'); ?>
@@ -86,6 +86,7 @@
                                                 <th><b>Nama Peserta Didik</b></th>
                                                 <th><b>Jenis Kelamin</b></th>
                                                 <th><b>Tanggal</b></th>
+                                                <th><b>Keterangan</b></th>
                                                 <th><b>Aksi</b></th>
                                             </tr>
                                         </thead>
@@ -100,6 +101,7 @@
                                                     <td><?= $row->nama_siswa ?></td>
                                                     <td><?= $row->jenis_kelamin_siswa ?></td>
                                                     <td><?= $row->tanggal ?></td>
+                                                    <td><?= $row->kehadiran ?></td>
                                                     <td><a type="button" data-toggle="modal" data-target="#myModal<?php echo $row->id_siswa ?>" href="" class=" btn btn-info" style="border-radius: 10px;"> Absensi</a></td>
                                                 </tr>
                                             <?php endforeach ?>

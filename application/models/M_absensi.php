@@ -42,7 +42,7 @@ class M_absensi extends CI_Model
     public function getAbsensiSiswa()
     {
         $tgl = date('d-m-Y');
-        $this->db->select('tb_siswa.*,tanggal');
+        $this->db->select('tb_siswa.*,tb_absensi_siswa.*');
         $this->db->from('tb_absensi_siswa');
         $this->db->join('tb_siswa', 'tb_absensi_siswa.id_siswa=tb_siswa.id_siswa');
         $this->db->where('tanggal', $tgl);
