@@ -33,7 +33,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Data Peserta Didik</h4>
+                        <h4 class="page-title">Form Peserta Didik</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -61,7 +61,7 @@
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
                                 <div class="text-right">
-                                    <a type="button" href="<?= base_url() ?>peserta_didik/tambahPeserta2" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                                    <a type="button" href="<?= base_url() ?>peserta_didik/tambahPeserta2" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah Siswa</a>
                                 </div><br>
                                 <div class="table-responsive">
 
@@ -92,18 +92,6 @@
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th><b>NIS</b></th>
-                                                <th><b>NISN</b></th>
-                                                <th><b>Nama Peserta Didik</b></th>
-                                                <th><b>Tempat Tanggal Lahir</b></th>
-                                                <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Agama</b></th>
-                                                <th><b>Rombel</b></th>
-                                                <th><b>Aksi</b></th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
