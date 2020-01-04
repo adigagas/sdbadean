@@ -64,59 +64,104 @@
                                     <div class="text-left col-md-12">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <select id="state" class="form-control custom-select col-md-5" style=" border-radius: 10px;">
-                                                    <option value="0">Pilih Kelas</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                </select>
+                                                <h5 class="card-header" style="background:#fff;">Data Peserta Didik Kelas <?= $kelas->id_kelas ?></h5>
                                             </div>
                                             <div class="text-right col-md-6">
                                                 <?= date('l, d-m-Y'); ?>
                                             </div>
                                         </div>
-
+                                        <?php echo $this->session->flashdata('absensi'); ?>
 
                                     </div>
 
                                 </div><br>
 
-                                <div id="kls_1" style="display:none;">
-                                    <h5 class="card-header" style="background:#fff; ">Pilih Mapel</h5> <br>
-                                    <form action="<?php echo base_url('absensi_siswa/absenSiswa/1'); ?>" method="post">
-                                        <!--<input name="id_kelas" value="1" type="hidden">-->
-                                        <select id="mapel" class="form-control custom-select col-md-3" style=" border-radius: 10px;">
-                                            <option value="0">Pilih Mapel</option>
-                                            <option value="IPA">IPA</option>
-                                            <option value="IPS">IPS</option>
-                                            <option value="MTK">MTK</option>
-                                        </select>
-                                        <input type="submit" value="Absen" class="btn btn-success required">
-                                    </form>
-                                </div>
+                                <div class="table-responsive">
 
+                                    <table id="zero_config" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><b>No</b></th>
+                                                <th><b>NIS</b></th>
+                                                <th><b>Nama Peserta Didik</b></th>
+                                                <th><b>Jenis Kelamin</b></th>
+                                                <th><b>Aksi</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($siswa as $row) : ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $row->nomor_induk ?></td>
 
-                                <div id="kls_2" style="display:none;">
-                                    <h5 class="card-header" style="background:#fff; ">Pilih Mapel</h5> <br>
-                                    <form action="<?php echo base_url('absensi_siswa/absenSiswa/2'); ?>" method="post">
-                                        <!--<input name="id_kelas" value="1" type="hidden">-->
-                                        <select id="mapel" class="form-control custom-select col-md-3" style=" border-radius: 10px;">
-                                            <option value="0">Pilih Mapel</option>
-                                            <option value="IPA">IPA</option>
-                                            <option value="IPS">IPS</option>
-                                            <option value="MTK">MTK</option>
-                                        </select>
-                                        <input type="submit" value="Absen" class="btn btn-success required">
-                                    </form>
-                                </div>
-                                <div id="kls_3" style="display:none;">
-
+                                                    <td><?= $row->nama_siswa ?></td>
+                                                    <td><?= $row->jenis_kelamin_siswa ?></td>
+                                                    <td><a type="button" data-toggle="modal" data-target="#myModal<?php echo $row->id_siswa ?>" href="" class=" btn btn-info" style="border-radius: 10px;"> Absensi</a></td>
+                                                </tr>
+                                            <?php endforeach ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php
+                foreach ($modal as $b) :   ?>
+                    <div id="myModal<?php echo $b->id_siswa ?>" class="modal fade" role="dialog">
 
+                        <div class="modal-dialog">
+                            <!-- konten modal-->
+                            <div class="modal-content">
+                                <!-- heading modal -->
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Absen ke <?php echo $b->nama_siswa ?> ?</h5>
+                                </div>
+                                <!-- body modal -->
+                                <div class="modal-body" style="text-align: center;">
+                                    <div style="padding: 50px">
+                                        <form action="<?php echo base_url('absensi_siswa/absenData'); ?>" method="post" enctype="multipart/form-data">
+                                            <input type="hidden" name="id_siswa" value="<?php echo $b->id_siswa ?>">
+                                            <input type="hidden" name="nama_siswa" value="<?php echo $b->nama_siswa ?>">
+                                            <input type="hidden" name="id_kelas" value="<?php echo $b->id_kelas ?>">
+                                            <input type="hidden" name="tanggal" value="<?= date('d-m-Y'); ?>">
+
+                                            <div style="text-align: center;">
+
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio1" value="Hadir">
+                                                    <label class="form-check-label" for="inlineRadio1">Hadir</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio2" value="Sakit">
+                                                    <label class="form-check-label" for="inlineRadio2">Sakit</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio3" value="Ijin">
+                                                    <label class="form-check-label" for="inlineRadio3">Ijin</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio3" value="Alpa">
+                                                    <label class="form-check-label" for="inlineRadio3">Alpa</label>
+                                                </div>
+
+                                            </div><br>
+                                            <!--<input type="hidden" name="nama_depan" value="<//?php echo $this->session->userdata('nama_depan') ?>">-->
+                                            <button class="btn btn-success" style="text-transform: capitalize; border-radius: 20px;" type="input">Absen</button>
+                                            <a data-dismiss="modal" class="btn btn-info" style="text-transform: capitalize; border-radius: 20px; color:#fff;"> Tidak</a>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- footer modal -->
+                                <div class="modal-footer">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -186,31 +231,6 @@
          *       Basic Table                   *
          ****************************************/
         $('#zero_config3').DataTable();
-    </script>
-    <script>
-        $(document).ready(function() {
-
-            $("#state").change(function() {
-                // foo is the id of the other select box 
-                if ($(this).val() == "1") {
-                    $("#kls_1").show();
-                    $("#kls_2").hide();
-                    $("#kls_3").hide();
-                } else if ($(this).val() == "2") {
-                    $("#kls_2").show();
-                    $("#kls_1").hide();
-                    $("#kls_3").hide();
-                } else if ($(this).val() == "3") {
-                    $("#kls_1").hide();
-                    $("#kls_2").hide();
-                    $("#kls_3").show();
-                } else {
-                    $("#kls_1").hide();
-                    $("#kls_2").hide();
-                    $("#kls_3").hide();
-                }
-            });
-        });
     </script>
 
 </body>

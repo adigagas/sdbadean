@@ -64,12 +64,7 @@
                                     <div class="text-left col-md-12">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <select id="state" class="form-control custom-select col-md-5" style=" border-radius: 10px;">
-                                                    <option value="0">Pilih Kelas</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                </select>
+                                                <h5 class="card-header" style="background:#fff;">Data Peserta Didik Kelas</h5>
                                             </div>
                                             <div class="text-right col-md-6">
                                                 <?= date('l, d-m-Y'); ?>
@@ -81,42 +76,40 @@
 
                                 </div><br>
 
-                                <div id="kls_1" style="display:none;">
-                                    <h5 class="card-header" style="background:#fff; ">Pilih Mapel</h5> <br>
-                                    <form action="<?php echo base_url('absensi_siswa/absenSiswa/1'); ?>" method="post">
-                                        <!--<input name="id_kelas" value="1" type="hidden">-->
-                                        <select id="mapel" class="form-control custom-select col-md-3" style=" border-radius: 10px;">
-                                            <option value="0">Pilih Mapel</option>
-                                            <option value="IPA">IPA</option>
-                                            <option value="IPS">IPS</option>
-                                            <option value="MTK">MTK</option>
-                                        </select>
-                                        <input type="submit" value="Absen" class="btn btn-success required">
-                                    </form>
-                                </div>
+                                <div class="table-responsive">
 
+                                    <table id="zero_config" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><b>No</b></th>
+                                                <th><b>NIS</b></th>
+                                                <th><b>Nama Peserta Didik</b></th>
+                                                <th><b>Jenis Kelamin</b></th>
+                                                <th><b>Tanggal</b></th>
+                                                <th><b>Aksi</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($laporan as $row) : ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $row->nomor_induk ?></td>
 
-                                <div id="kls_2" style="display:none;">
-                                    <h5 class="card-header" style="background:#fff; ">Pilih Mapel</h5> <br>
-                                    <form action="<?php echo base_url('absensi_siswa/absenSiswa/2'); ?>" method="post">
-                                        <!--<input name="id_kelas" value="1" type="hidden">-->
-                                        <select id="mapel" class="form-control custom-select col-md-3" style=" border-radius: 10px;">
-                                            <option value="0">Pilih Mapel</option>
-                                            <option value="IPA">IPA</option>
-                                            <option value="IPS">IPS</option>
-                                            <option value="MTK">MTK</option>
-                                        </select>
-                                        <input type="submit" value="Absen" class="btn btn-success required">
-                                    </form>
-                                </div>
-                                <div id="kls_3" style="display:none;">
-
+                                                    <td><?= $row->nama_siswa ?></td>
+                                                    <td><?= $row->jenis_kelamin_siswa ?></td>
+                                                    <td><?= $row->tanggal ?></td>
+                                                    <td><a type="button" data-toggle="modal" data-target="#myModal<?php echo $row->id_siswa ?>" href="" class=" btn btn-info" style="border-radius: 10px;"> Absensi</a></td>
+                                                </tr>
+                                            <?php endforeach ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -186,31 +179,6 @@
          *       Basic Table                   *
          ****************************************/
         $('#zero_config3').DataTable();
-    </script>
-    <script>
-        $(document).ready(function() {
-
-            $("#state").change(function() {
-                // foo is the id of the other select box 
-                if ($(this).val() == "1") {
-                    $("#kls_1").show();
-                    $("#kls_2").hide();
-                    $("#kls_3").hide();
-                } else if ($(this).val() == "2") {
-                    $("#kls_2").show();
-                    $("#kls_1").hide();
-                    $("#kls_3").hide();
-                } else if ($(this).val() == "3") {
-                    $("#kls_1").hide();
-                    $("#kls_2").hide();
-                    $("#kls_3").show();
-                } else {
-                    $("#kls_1").hide();
-                    $("#kls_2").hide();
-                    $("#kls_3").hide();
-                }
-            });
-        });
     </script>
 
 </body>
