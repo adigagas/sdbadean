@@ -33,7 +33,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Form Basic</h4>
+                        <h4 class="page-title">Form GTK</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -212,7 +212,7 @@
                         </div>
                         <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">BATAK</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">BATAL</button>
                             <a id="btn-delete" class="btn btn-danger" href="#">HAPUS</a>
                         </div>
                     </div>

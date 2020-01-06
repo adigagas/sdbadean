@@ -33,7 +33,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Data Peserta Didik</h4>
+                        <h4 class="page-title">Form Rombel</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -59,10 +59,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
+                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Rombongan Belajar (Rombel)</h5> <br>
                                 <div class="text-right">
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                                        Tambah Rombongan Belajar
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah Rombel</a>
                                     </button>
                                 </div><br>
 
@@ -82,7 +81,13 @@
                                                         <label for="exampleInputPassword1">Kelas</label>
                                                         <div class="input-group mb-3">
                                                             <select required class="custom-select" id="id_kelas" name="id_kelas">
-                                                                <option selected value="">Choose...</option>
+                                                                <option selected value="">Pilih Kelas</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
                                                                 <?php
                                                                 foreach ($kelas as $kelasdata) : ?>
                                                                     <option value="<?= $kelasdata->id_kelas ?>"><?= $kelasdata->kelas ?></option>
@@ -93,13 +98,13 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">Nama Rombongan Belajar</label>
-                                                        <input required type="text" class="form-control" name="nama_rombel" id="nama_rombel" placeholder="Cth : IPA 5">
+                                                        <input required type="text" class="form-control" name="nama_rombel" id="nama_rombel" placeholder="Cth : 1 A">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">Wali Kelas</label>
                                                         <div class="input-group mb-3">
                                                             <select required class="custom-select" id="id_gtk" name="id_gtk">
-                                                                <option selected value="">Choose...</option>
+                                                                <option selected value="">Pilih Wali Kelas</option>
                                                                 <?php
                                                                 foreach ($wali as $walimurid) : ?>
                                                                     <option value="<?= $walimurid->id_gtk ?>"><?= $walimurid->nama_gtk ?></option>
@@ -112,10 +117,20 @@
                                                         <label for="exampleInputPassword1">Tahun Ajaran</label>
                                                         <div class="input-group mb-3">
                                                             <select required class="custom-select" id="tahun_ajaran" name="tahun_ajaran">
-                                                                <option selected value="">Choose...</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
+                                                                <option selected value="">Pilih Tahun Ajaran</option>
+                                                                <option value="1">2019/2020</option>
+                                                                <option value="2">2020/2021</option>
+                                                                <option value="3">......</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Semester</label>
+                                                        <div class="input-group mb-3">
+                                                            <select required class="custom-select" id="tahun_ajaran" name="tahun_ajaran">
+                                                                <option selected value="">Pilih Semester</option>
+                                                                <option value="1">Ganjil</option>
+                                                                <option value="2">Genap</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -157,16 +172,7 @@
                                                 $i++;
                                             endforeach; ?>
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th><b>No</b></th>
-                                                <th><b>Kelas</b></th>
-                                                <th><b>Nama Rombel</b></th>
-                                                <th><b>Wali Kelas</b></th>
-                                                <th><b>Tahun Ajaran</b></th>
-                                                <th><b>Aksi</b></th>
-                                            </tr>
-                                        </tfoot>
+                                       
                                     </table>
                                 </div>
                             </div>

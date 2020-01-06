@@ -33,7 +33,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Data GTK</h4>
+                        <h4 class="page-title">Form GTK</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -59,12 +59,12 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Data GTK</h5><br>
+                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Guru & Tenaga Kependidikan (GTK)</h5><br>
                                 <div class="form-gruop">
                                     <div class="text-right">
                                         <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
                                         <input> &nbsp; &nbsp; &nbsp; &nbsp;
-                                        <a type="button" href="<?= base_url() ?>Gtk/tambahGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah</a>
+                                        <a type="button" href="<?= base_url() ?>Gtk/tambahGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah GTK</a>
                 
                                     </div>
                                 </div><br>

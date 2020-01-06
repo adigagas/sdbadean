@@ -80,123 +80,43 @@
                                     </div>
 
                                 </div><br>
-                                <div id="kls_1" style="display:none;">
 
-                                    <div class="table-responsive">
-                                        <h5 class="card-header" style="background:#fff;">Data Peserta Didik Kelas 1</h5> <br>
-                                        <table id="zero_config" class="table table-striped table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th><b>No</b></th>
-                                                    <th><b>NIS</b></th>
-                                                    <th><b>NISN</b></th>
-                                                    <th><b>Nama Peserta Didik</b></th>
-                                                    <th><b>Tempat Tanggal Lahir</b></th>
-                                                    <th><b>Jenis Kelamin</b></th>
-                                                    <th><b>Agama</b></th>
-                                                    <th><b>Rombel</b></th>
-                                                    <th><b>Aksi</b></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $no = 1;
-                                                foreach ($siswa as $row) : ?>
-                                                    <tr>
-                                                        <td><?= $no++ ?></td>
-                                                        <td><?= $row->nomor_induk ?></td>
-                                                        <td><?= $row->nomor_induk_sn ?></td>
-                                                        <td><?= $row->nama_siswa ?></td>
-                                                        <td><?= $row->tempat_lahir_siswa ?>,<?= $row->tanggal_lahir_siswa ?></td>
-                                                        <td><?= $row->jenis_kelamin_siswa ?></td>
-                                                        <td><?= $row->agama_siswa ?></td>
-                                                        <td><?= $row->nomor_induk ?></td>
-                                                        <td><a type="button" href="<?php echo base_url('peserta_didik/detailPeserta/' . $row->id_siswa) ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
-                                                    </tr>
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div id="kls_1" style="display:none;">
+                                    <h5 class="card-header" style="background:#fff; ">Pilih Mapel</h5> <br>
+                                    <form action="<?php echo base_url('absensi_siswa/absenSiswa/1'); ?>" method="post">
+                                        <!--<input name="id_kelas" value="1" type="hidden">-->
+                                        <select id="mapel" class="form-control custom-select col-md-3" style=" border-radius: 10px;">
+                                            <option value="0">Pilih Mapel</option>
+                                            <option value="IPA">IPA</option>
+                                            <option value="IPS">IPS</option>
+                                            <option value="MTK">MTK</option>
+                                        </select>
+                                        <input type="submit" value="Absen" class="btn btn-success required">
+                                    </form>
                                 </div>
+
 
                                 <div id="kls_2" style="display:none;">
-                                    <div class="table-responsive">
-                                        <h5 class="card-header" style="background:#fff;">Data Peserta Didik Kelas 2</h5> <br>
-                                        <table id="zero_config2" class="table table-striped table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th><b>No</b></th>
-                                                    <th><b>NIS</b></th>
-                                                    <th><b>NISN</b></th>
-                                                    <th><b>Nama Peserta Didik</b></th>
-                                                    <th><b>Tempat Tanggal Lahir</b></th>
-                                                    <th><b>Jenis Kelamin</b></th>
-                                                    <th><b>Agama</b></th>
-                                                    <th><b>Rombel</b></th>
-                                                    <th><b>Aksi</b></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $no = 1;
-                                                foreach ($siswa as $row) : ?>
-                                                    <tr>
-                                                        <td><?= $no++ ?></td>
-                                                        <td><?= $row->nomor_induk ?></td>
-                                                        <td><?= $row->nomor_induk_sn ?></td>
-                                                        <td><?= $row->nama_siswa ?></td>
-                                                        <td><?= $row->tempat_lahir_siswa ?>,<?= $row->tanggal_lahir_siswa ?></td>
-                                                        <td><?= $row->jenis_kelamin_siswa ?></td>
-                                                        <td><?= $row->agama_siswa ?></td>
-                                                        <td><?= $row->nomor_induk ?></td>
-                                                        <td><a type="button" href="<?php echo base_url('peserta_didik/detailPeserta/' . $row->id_siswa) ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
-                                                    </tr>
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <h5 class="card-header" style="background:#fff; ">Pilih Mapel</h5> <br>
+                                    <form action="<?php echo base_url('absensi_siswa/absenSiswa/2'); ?>" method="post">
+                                        <!--<input name="id_kelas" value="1" type="hidden">-->
+                                        <select id="mapel" class="form-control custom-select col-md-3" style=" border-radius: 10px;">
+                                            <option value="0">Pilih Mapel</option>
+                                            <option value="IPA">IPA</option>
+                                            <option value="IPS">IPS</option>
+                                            <option value="MTK">MTK</option>
+                                        </select>
+                                        <input type="submit" value="Absen" class="btn btn-success required">
+                                    </form>
                                 </div>
                                 <div id="kls_3" style="display:none;">
-                                    <div class="table-responsive">
-                                        <h5 class="card-header" style="background:#fff;">Data Peserta Didik Kelas 3</h5> <br>
-                                        <table id="zero_config3" class="table table-striped table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th><b>No</b></th>
-                                                    <th><b>NIS</b></th>
-                                                    <th><b>NISN</b></th>
-                                                    <th><b>Nama Peserta Didik</b></th>
-                                                    <th><b>Tempat Tanggal Lahir</b></th>
-                                                    <th><b>Jenis Kelamin</b></th>
-                                                    <th><b>Agama</b></th>
-                                                    <th><b>Rombel</b></th>
-                                                    <th><b>Aksi</b></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $no = 1;
-                                                foreach ($siswa as $row) : ?>
-                                                    <tr>
-                                                        <td><?= $no++ ?></td>
-                                                        <td><?= $row->nomor_induk ?></td>
-                                                        <td><?= $row->nomor_induk_sn ?></td>
-                                                        <td><?= $row->nama_siswa ?></td>
-                                                        <td><?= $row->tempat_lahir_siswa ?>,<?= $row->tanggal_lahir_siswa ?></td>
-                                                        <td><?= $row->jenis_kelamin_siswa ?></td>
-                                                        <td><?= $row->agama_siswa ?></td>
-                                                        <td><?= $row->nomor_induk ?></td>
-                                                        <td><a type="button" href="<?php echo base_url('peserta_didik/detailPeserta/' . $row->id_siswa) ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
-                                                    </tr>
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -269,6 +189,7 @@
     </script>
     <script>
         $(document).ready(function() {
+
             $("#state").change(function() {
                 // foo is the id of the other select box 
                 if ($(this).val() == "1") {

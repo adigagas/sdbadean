@@ -192,7 +192,7 @@
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-printer"></i><span class="hide-menu">Cetak </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="<?= base_url() ?>absensi_siswa/absensi_siswa" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Absensi Peserta Didik </span></a></li>
+                        <li class="sidebar-item"><a href="<?= base_url() ?>Absensi_siswa/laporanAbsen" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Absensi Peserta Didik </span></a></li>
                         <li class="sidebar-item"><a href="pages-calendar.html" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Absen GTK </span></a></li>
                         <li class="sidebar-item"><a href="pages-invoice.html" class="sidebar-link"><i class="mdi mdi-bulletin-board"></i><span class="hide-menu"> Raport Pserta Didik </span></a></li>
                     </ul>

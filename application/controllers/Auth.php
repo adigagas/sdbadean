@@ -33,9 +33,20 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('users', ['username' => $username])->row_array();
+        if ($user > 0) {
+            $data_session = array(
+                'nama' => $username,
+                'status' => "login"
+            );
+            $this->session->set_userdata($data_session);
+            redirect('admin');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password anda salah!</div>');
+            redirect('auth');
+        }
 
         // jika usernya ada
-        if ($user) {
+        /*  if ($user) {
 
             if (password_verify($password, $user['username'])) {
                 $data = [
@@ -55,7 +66,7 @@ class Auth extends CI_Controller
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username tidak terdaftar</div>');
             redirect('auth');
-        }
+        }*/
     }
 
 

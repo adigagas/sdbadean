@@ -33,7 +33,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Form Peserta Didik</h4>
+                        <h4 class="page-title">Data Peserta Didik</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -59,38 +59,50 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
-                                <div class="text-right">
-                                    <a type="button" href="<?= base_url() ?>peserta_didik/tambahPeserta2" class="btn btn-success " style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah Siswa</a>
+                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Absensi Peserta Didik</h5> <br>
+                                <div class="">
+                                    <div class="text-left col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5 class="card-header" style="background:#fff;">Absensi Peserta Didik </h5>
+                                            </div>
+                                            <div class="text-right col-md-6">
+                                                <?= date('l, d-m-Y'); ?>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
                                 </div><br>
+
                                 <div class="table-responsive">
 
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
+                                                <th><b>No</b></th>
                                                 <th><b>NIS</b></th>
-                                                <th><b>NISN</b></th>
                                                 <th><b>Nama Peserta Didik</b></th>
-                                                <th><b>Tempat Tanggal Lahir</b></th>
                                                 <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Agama</b></th>
-                                                <th><b>Rombel</b></th>
-                                                <th><b>Aksi</b></th>
+                                                <th><b>Tanggal</b></th>
+                                                <th><b>Keterangan</b></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($siswa as $s) : ?>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($laporan as $row) : ?>
                                                 <tr>
-                                                    <td><?= $s->nomor_induk ?></td>
-                                                    <td><?= $s->nomor_induk_sn ?></td>
-                                                    <td><?= $s->nama_siswa ?></td>
-                                                    <td><?= $s->tempat_lahir_siswa ?>,<?= $s->tanggal_lahir_siswa ?></td>
-                                                    <td><?= $s->jenis_kelamin_siswa ?></td>
-                                                    <td><?= $s->agama_siswa ?></td>
-                                                    <td><?= $s->nomor_induk ?></td>
-                                                    <td><a type="button" href="<?php echo base_url('peserta_didik/detailPeserta/' . $s->id_siswa) ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $row->nomor_induk ?></td>
+
+                                                    <td><?= $row->nama_siswa ?></td>
+                                                    <td><?= $row->jenis_kelamin_siswa ?></td>
+                                                    <td><?= $row->tanggal ?></td>
+                                                    <td><?= $row->kehadiran ?></td>
                                                 </tr>
-                                            <?php endforeach; ?>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -155,6 +167,18 @@
          *       Basic Table                   *
          ****************************************/
         $('#zero_config').DataTable();
+    </script>
+    <script>
+        /****************************************
+         *       Basic Table                   *
+         ****************************************/
+        $('#zero_config2').DataTable();
+    </script>
+    <script>
+        /****************************************
+         *       Basic Table                   *
+         ****************************************/
+        $('#zero_config3').DataTable();
     </script>
 
 </body>
