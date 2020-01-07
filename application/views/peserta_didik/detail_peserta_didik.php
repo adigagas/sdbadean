@@ -144,7 +144,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-xs-12" style="margin-left:15px ">
-                                                        <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">b. Asal Sekolah </label>
+                                                        <label for="lname" class="col-sm-5 col-xs-5 col-md-5  control-label col-form-label">b. Asal Sekolah Sebelumnya</label>
                                                         <label for="lname" style="margin-left:21px " class="col-sm-6 col-xs-6 col-md-6  control-label col-form-label">: - </label>
                                                     </div>
                                                 </div>

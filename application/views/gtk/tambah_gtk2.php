@@ -217,9 +217,9 @@
                                                 <div class="col-sm-8">
                                                     <select name="posisi_gtk" id="posisi_gtk" class=" form-control custom-select" style="width: 100%; height:36px; border-radius: 10px;">
                                                         <option selected disabled>Pilih Posisi</option>
+                                                        <option value="kepsek">Kepala Sekolah</option>
                                                         <option value="guru">Guru</option>
                                                         <option value="operator">Operator</option>
-                                                        <option value="kepsek">Kepala Sekolah</option>
                                                         <option value="tu">Administator/TU</option>
                                                     </select>
                                                 </div>
