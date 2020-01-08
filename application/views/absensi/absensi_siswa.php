@@ -66,9 +66,9 @@
                                             <div class="col-md-6">
                                                 <select id="state" class="form-control custom-select col-md-5" style=" border-radius: 10px;">
                                                     <option value="0">Pilih Kelas</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
+                                                    <option value="1">Kelas 1</option>
+                                                    <option value="2">Kelas 2</option>
+                                                    <option value="3">Kelas 3</option>
                                                 </select>
                                             </div>
                                             <div class="text-right col-md-6">

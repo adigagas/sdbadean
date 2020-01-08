@@ -97,13 +97,13 @@
                                             <div class="form-group row" id="only-number">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">NIS</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk" class="form-control" id="nomor_induk" placeholder="NIS" maxlength="6" required>
+                                                    <input type="text" style="border-radius: 10px;"  onkeypress="return hanyaAngka(event)" name="nomor_induk" class="form-control" id="nomor_induk" placeholder="NIS" maxlength="4" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="nomor_induk_sn" class="col-sm-4  control-label col-form-label">NISN</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nomor_induk_sn" class="form-control" id="nomor_induk_sn" placeholder="NISN" maxlength="10" required>
+                                                    <input type="text" style="border-radius: 10px;"  onkeypress="return hanyaAngka(event)" name="nomor_induk_sn" class="form-control" id="nomor_induk_sn" placeholder="NISN" maxlength="10" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -159,7 +159,12 @@
                                             <div class="form-group row">
                                                 <label for="kewarganegaraan_siswa" class="col-sm-4  control-label col-form-label">Kewarganegaraan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="kewarganegaraan_siswa" class="form-control" id="kewarganegaraan_siswa" placeholder="Kewarganegaraan" maxlength="20">
+                                                    <select class="select2 form-control custom-select" name="kewarganegaraan_siswa" style="width: 100%; height:36px;">
+                                                        <option value="-">Pilih Kewarganegaraan</option>
+                                                        <option value="WNI">WNI</option>
+                                                        <option value="WNA">WNA</option>
+                                            
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -202,7 +207,7 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Asal Sekolah Sebelumnya</label>
                                                 <div class="col-sm-8">
-                                                    <input type="password" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -409,6 +414,15 @@
     <!-- this page js -->
     <script src="<?= base_url() ?>vendor/assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="<?= base_url() ?>vendor/assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+		    return false;
+		  return true;
+		}
+	</script>
     <script>
         // Basic Example with form
         var form = $("#example-form");

@@ -293,16 +293,21 @@
                                         </div>
 
                                         <div class="col-md-1">
-
+                                            
                                         </div>
                                         <div class="col-md-5">
                                             <div class="text-right">
+                                            
                                                 <img src="<?= base_url() ?>vendor/assets/images/profil.png" width=" 300px !important" height="400px">
                                             </div>
                                             <br>
                                             <div class="text-right">
                                                 <img src="<?= base_url('vendor/assets/images/' . $siswa->foto_satu) ?>" width="300px !important" height="400px">
                                             </div>
+                                            <div class="text-right" style="font-size:20px;">
+                                            <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label"><b>Status</b></label>
+                                            <label for="fname" class="control-label col-form-label"><b>: <?= $siswa->status ?> </b></label>
+</div>
                                         </div><br>
 
                                     </div>
