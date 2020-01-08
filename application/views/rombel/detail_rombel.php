@@ -91,7 +91,7 @@
                                     <div class="text-right">
                                         <!-- Button to Open the Modal -->
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" style=" Border-radius: 5px;">
-                                            <i class="fa fa-user" ></i> Tambah Siswa
+                                            <i class="fa fa-user"></i> Tambah Siswa
                                         </button>
                                     </div>
                                     <form action="<?= base_url('rombel/naikkelas') ?>" method="post">
@@ -281,11 +281,15 @@
         </div>
         <script language="JavaScript">
             function toggle(source) {
-                checkboxes = document.getElementsByName('Id_siswa[]');
-                document.getElementById('myBtn').disabled = !source.checked;
-                for (var i = 0, n = checkboxes.length; i < n; i++) {
-                    checkboxes[i].checked = source.checked;
+                var chet = <?php echo $count ?>;
+                if (chet > 0) {
+                    checkboxes = document.getElementsByName('Id_siswa[]');
+                    document.getElementById('myBtn').disabled = !source.checked;
+                    for (var i = 0, n = checkboxes.length; i < n; i++) {
+                        checkboxes[i].checked = source.checked;
+                    }
                 }
+
             }
         </script>
 
