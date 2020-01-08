@@ -71,6 +71,7 @@
                     </form>
                 </li>
             </ul>
+            <h5 class="card-header" style="color:#fff;">SDN BADEAN 1 BONDOWOSO</h5>
             <!-- ============================================================== -->
             <!-- Right side toggle and nav items -->
             <!-- ============================================================== -->

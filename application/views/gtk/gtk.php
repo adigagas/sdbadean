@@ -65,7 +65,6 @@
                                         <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
                                         <input> &nbsp; &nbsp; &nbsp; &nbsp;
                                         <a type="button" href="<?= base_url() ?>Gtk/tambahGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah GTK</a>
-                
                                     </div>
                                 </div><br>
                                 <div class="table-responsive">

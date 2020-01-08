@@ -60,6 +60,38 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Rombongan Belajar (Rombel)</h5> <br>
+                                    <div class="text-left col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <select id="state" class="form-control custom-select col-md-5" style=" border-radius: 5px;">
+                                                    <option value="0">Pilih Kelas</option>
+                                                    <option value="1">Kelas 1</option>
+                                                    <option value="2">Kelas 2</option>
+                                                    <option value="3">Kelas 3</option>
+                                                    <option value="4">Kelas 4</option>
+                                                    <option value="5">Kelas 5</option>
+                                                    <option value="6">Kelas 6</option>
+                                                </select> 
+                                                
+                                                <select id="state" class="form-control custom-select col-md-5" style=" border-radius: 5px;">
+                                                    <option value="0">Pilih Rombel</option>
+                                                    <option value="1a">Kelas 1A</option>
+                                                    <option value="1b">Kelas 1B</option>
+                                                    <option value="2a">Kelas 2A</option>
+                                                    <option value="2b">Kelas 2B</option>
+                                                    <option value="3a">Kelas 3A</option>
+                                                    <option value="3b">Kelas 3B</option>
+                                                    <option value="4a">Kelas 4A</option>
+                                                    <option value="4b">Kelas 4B</option>
+                                                    <option value="5a">Kelas 5A</option>
+                                                    <option value="5b">Kelas 5B</option>
+                                                    <option value="6a">Kelas 6A</option>
+                                                    <option value="6b">Kelas 6B</option>
+                                                </select>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
                                 <div class="text-right">
                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah Rombel</a>
                                     </button>

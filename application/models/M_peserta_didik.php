@@ -21,6 +21,7 @@ class M_peserta_didik extends CI_Model
     public $alamat_siswa = "1.jpg";
     public $foto_satu = "1.jpg";
     public $foto_empat = "1.jpg";
+    public $id_kelas = "1";
 
 
     function __construct()

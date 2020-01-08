@@ -64,34 +64,34 @@
                                     <div class="row">
                                         <?php foreach ($rombel_detail as $detail_rombel) : ?>
                                             <div class="col-2">
-                                                <h6><b>Nama Rombel</b></h6>
+                                                <h6>Nama Rombel</h6>
                                             </div>
                                             <div class="col-6">
-                                                <h6>: <?= $detail_rombel->nama_rombel ?></h6>
+                                                <h6>: <b><?= $detail_rombel->nama_rombel ?><b></h6>
                                             </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-2">
-                                            <h6><b>Nama Wali Kelas</b></h6>
+                                            <h6>Nama Wali Kelas</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6>: <?= $detail_rombel->nama_gtk ?></h6>
+                                            <h6>: <b><?= $detail_rombel->nama_gtk ?><b></h6>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-2">
-                                            <h6><b>NIP</b></h6>
+                                            <h6>NIP</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6>: <?= $detail_rombel->nip_gtk ?></h6>
+                                            <h6>: <b><?= $detail_rombel->nip_gtk ?><b></h6>
                                         </div>
                                     <?php endforeach; ?>
 
                                     </div>
                                     <div class="text-right">
                                         <!-- Button to Open the Modal -->
-                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                                            <i class="fa fa-user"></i> Tambah Siswa
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" style=" Border-radius: 5px;">
+                                            <i class="fa fa-user" ></i> Tambah Siswa
                                         </button>
                                     </div>
                                     <form action="<?= base_url('rombel/naikkelas') ?>" method="post">
@@ -111,7 +111,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-2">
-                                                <button id="myBtn" class="delete btn btn-success" type="submit" disabled="disabled" name="remove_levels" value="delete">
+                                                <button id="myBtn" class="delete btn btn-success" type="submit" disabled="disabled" style=" Border-radius: 5px;" name="remove_levels" value="delete">
                                                     <i class="fa fa-user"></i> Naikkan Kelas
                                                 </button>
                                             </div>
