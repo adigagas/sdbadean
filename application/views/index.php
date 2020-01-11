@@ -1,4 +1,16 @@
-<?php $this->load->view('templates/header'); ?>
+<?php $this->load->view('templates/header');
+if ($this->session->userdata('username') == null) {
+    redirect('auth');
+} else {
+    if ($this->session->userdata('jabatan') == 2) {
+        redirect('asdasd');
+    } else if ($this->session->userdata('jabatan') == 3) {
+        redirect('asdasd');
+    } else if ($this->session->userdata('jabatan') == 4) {
+        redirect('asdasd');
+    }
+}
+?>
 
 <body>
     <!-- ============================================================== -->
@@ -17,7 +29,7 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <?php $this->load->view('templates/navbar'); ?>
+        <?php $this->load->view('templates/navbar', $jabatan); ?>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -167,7 +179,7 @@
                 <!-- ============================================================== -->
                 <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
-                
+
                 <!-- ============================================================== -->
                 <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
