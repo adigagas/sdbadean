@@ -15,14 +15,17 @@ class Admin extends CI_Controller
     }
     public function indexguru()
     {
-        $this->load->view('index');
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('index', $data);
     }
     public function indexoperator()
     {
-        $this->load->view('index');
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('index', $data);
     }
     public function indextu()
     {
-        $this->load->view('index');
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('index', $data);
     }
 }
