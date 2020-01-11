@@ -12,7 +12,15 @@ class Auth extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('username')) {
-            redirect('user');
+            if ($this->session->userdata('jabatan') == 1) {
+                redirect('admin/indexkepsek');
+            } else if ($this->session->userdata('jabatan') == 2) {
+                redirect('admin/indexguru');
+            } else if ($this->session->userdata('jabatan') == 3) {
+                redirect('admin/indexoperator');
+            } else if ($this->session->userdata('jabatan') == 4) {
+                redirect('admin/indextu');
+            }
         }
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -33,15 +41,49 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('users', ['username' => $username])->row_array();
+        $array = array('username' => $username, 'password' => $password);
+        $pass = $this->db->get_where('users', $array)->row_array();
         if ($user > 0) {
-            $data_session = array(
-                'nama' => $username,
-                'status' => "login"
-            );
-            $this->session->set_userdata($data_session);
-            redirect('admin');
+            if ($pass > 0) {
+                if ($pass['jabatan'] == 1) {
+                    $data_session = array(
+                        'username' => $username,
+                        'jabatan' => 1,
+                        'status' => "login"
+                    );
+                    $this->session->set_userdata($data_session);
+                    redirect('admin/indexkepsek');
+                } else if ($pass['jabatan'] == 2) {
+                    $data_session = array(
+                        'username' => $username,
+                        'jabatan' => 2,
+                        'status' => "login"
+                    );
+                    $this->session->set_userdata($data_session);
+                    redirect('admin/indexguru');
+                } else if ($pass['jabatan'] == 3) {
+                    $data_session = array(
+                        'username' => $username,
+                        'jabatan' => 3,
+                        'status' => "login"
+                    );
+                    $this->session->set_userdata($data_session);
+                    redirect('admin/indexoperator');
+                } else if ($pass['jabatan'] == 4) {
+                    $data_session = array(
+                        'username' => $username,
+                        'jabatan' => 4,
+                        'status' => "login"
+                    );
+                    $this->session->set_userdata($data_session);
+                    redirect('admin/indextu');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password anda salah!</div>');
+                redirect('auth');
+            }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password anda salah!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username anda salah!</div>');
             redirect('auth');
         }
 
@@ -197,8 +239,8 @@ class Auth extends CI_Controller
 
     public function logout()
     {
-        $this->session->unset_userdata('email');
-        $this->session->unset_userdata('role_id');
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('jabatan');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been logged out!</div>');
         redirect('auth');

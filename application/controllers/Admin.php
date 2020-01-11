@@ -8,9 +8,21 @@ class Admin extends CI_Controller
         parent::__construct();
     }
 
-    public function index()
+    public function indexkepsek()
     {
-
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('index', $data);
+    }
+    public function indexguru()
+    {
+        $this->load->view('index');
+    }
+    public function indexoperator()
+    {
+        $this->load->view('index');
+    }
+    public function indextu()
+    {
         $this->load->view('index');
     }
 }
