@@ -60,13 +60,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Guru & Tenaga Kependidikan (GTK)</h5><br>
-                                <div class="form-gruop">
-                                    <div class="text-right">
-                                        <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
-                                        <input> &nbsp; &nbsp; &nbsp; &nbsp;
-                                        <a type="button" href="<?= base_url() ?>Gtk/tambahGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah GTK</a>
-                                    </div>
-                                </div><br>
+                                <?php if ($jabatan == 2 || $jabatan == 3 || $jabatan == 4) {
+                                    print "<div class=\"form-gruop\">\n";
+                                    print "<div class=\"text-right\">\n";
+                                    print "<h7><strong> Posisi di sekolah </strong></h7>  \n";
+                                    print "<input>        \n";
+                                    print "<a type=\"button\" href=\"<?= base_url() ?>Gtk/tambahGtk\" class=\"btn btn-success\" style=\"border-radius: 10px;\"><i class=\"fa fa-user\"></i> Tambah GTK</a>\n";
+                                    print "</div>\n";
+                                    print "</div><br>";
+                                } ?>
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
@@ -81,19 +83,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach($gtk as $g) : ?>
-                                            <tr>
-                                                <td><?= $g->nik_gtk ?></td>
-                                                <td><?= $g->nip_gtk ?></td>
-                                                <td><?= $g->nama_gtk ?></td>
-                                                <td><?= $g->tempat_lahir_gtk ?>, <?= date('d-m-Y', strtotime($g->tanggal_lahir_gtk)); ?></td>
-                                                <td><?= $g->jenis_kelamin_gtk ?></td>
-                                                <td><?= $g->posisi_gtk ?></td>
-                                                <td><a type="button" href="<?= base_url('Gtk/detailGtk/'. $g->id_gtk);  ?>" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
-                                            </tr>
+                                            <?php foreach ($gtk as $g) : ?>
+                                                <tr>
+                                                    <td><?= $g->nik_gtk ?></td>
+                                                    <td><?= $g->nip_gtk ?></td>
+                                                    <td><?= $g->nama_gtk ?></td>
+                                                    <td><?= $g->tempat_lahir_gtk ?>, <?= date('d-m-Y', strtotime($g->tanggal_lahir_gtk)); ?></td>
+                                                    <td><?= $g->jenis_kelamin_gtk ?></td>
+                                                    <td><?= $g->posisi_gtk ?></td>
+                                                    <td><a type="button" href="<?= base_url('Gtk/detailGtk/' . $g->id_gtk);  ?>" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                </tr>
                                             <?php endforeach; ?>
                                         </tbody>
-                                        
+
                                     </table>
                                 </div>
 
