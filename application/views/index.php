@@ -2,13 +2,13 @@
 if ($this->session->userdata('username') == null) {
     redirect('auth');
 } else {
-    if ($this->session->userdata('jabatan') == 2) {
-        redirect('admin/indexoperator');
-    } else if ($this->session->userdata('jabatan') == 3) {
-        redirect('admin/indexguru');
-    } else if ($this->session->userdata('jabatan') == 4) {
-        redirect('admin/indextu');
-    }
+    // if ($this->session->userdata('jabatan') == 2) {
+    //     redirect('admin/indexoperator');
+    // } else if ($this->session->userdata('jabatan') == 3) {
+    //     redirect('admin/indexguru');
+    // } else if ($this->session->userdata('jabatan') == 4) {
+    //     redirect('admin/indextu');
+    // }
 }
 ?>
 
