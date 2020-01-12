@@ -62,7 +62,7 @@
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
                                 <?php if ($jabatan == 2 || $jabatan == 3 || $jabatan == 4) {
                                     print "<div class=\"text-right\">\n";
-                                    print "<a type=\"button\" href=\"<?= base_url() ?>peserta_didik/tambahPeserta2\" class=\"btn btn-success \" style=\"border-radius: 10px;\"><i class=\"fa fa-user\"></i> Tambah Siswa</a>\n";
+                                    print "<a type=\"button\" href=\"" . base_url() . "peserta_didik/tambahPeserta2\" class=\"btn btn-success \" style=\"border-radius: 10px;\"><i class=\"fa fa-user\"></i> Tambah Siswa</a>\n";
                                     print "</div><br>";
                                 } ?>
                                 <div class="table-responsive">

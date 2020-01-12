@@ -1,4 +1,7 @@
-<?php $this->load->view('templates/header'); ?>
+<?php $this->load->view('templates/header');
+if ($this->session->userdata('username') == null) {
+    redirect('auth');
+} ?>
 
 <body>
     <!-- ============================================================== -->
@@ -65,7 +68,7 @@
                                     print "<div class=\"text-right\">\n";
                                     print "<h7><strong> Posisi di sekolah </strong></h7>  \n";
                                     print "<input>        \n";
-                                    print "<a type=\"button\" href=\"<?= base_url() ?>Gtk/tambahGtk\" class=\"btn btn-success\" style=\"border-radius: 10px;\"><i class=\"fa fa-user\"></i> Tambah GTK</a>\n";
+                                    print "<a type=\"button\" href=\"" . base_url() . "gtk/tambahgtk\" class=\"btn btn-success\" style=\"border-radius: 10px;\"><i class=\"fa fa-user\"></i> Tambah GTK</a>\n";
                                     print "</div>\n";
                                     print "</div><br>";
                                 } ?>
