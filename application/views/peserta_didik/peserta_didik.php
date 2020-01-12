@@ -74,7 +74,7 @@
                                                 <th><b>Tempat Tanggal Lahir</b></th>
                                                 <th><b>Jenis Kelamin</b></th>
                                                 <th><b>Agama</b></th>
-                                                <th><b>Rombel</b></th>
+                                                <!--<th><b>Rombel</b></th>-->
                                                 <th><b>Aksi</b></th>
                                             </tr>
                                         </thead>
@@ -87,7 +87,7 @@
                                                     <td><?= $s->tempat_lahir_siswa ?>,<?= $s->tanggal_lahir_siswa ?></td>
                                                     <td><?= $s->jenis_kelamin_siswa ?></td>
                                                     <td><?= $s->agama_siswa ?></td>
-                                                    <td><?= $s->nomor_induk ?></td>
+                                                    <!--<td></?= $s->nomor_induk ?></td>-->
                                                     <td><a type="button" href="<?php echo base_url('peserta_didik/detailPeserta/' . $s->id_siswa) ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
                                                 </tr>
                                             <?php endforeach; ?>

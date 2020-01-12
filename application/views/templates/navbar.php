@@ -185,7 +185,8 @@
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-library"></i><span class="hide-menu">Akademik </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="<?= base_url() ?>rombel/" class="sidebar-link"><i class="mdi mdi-account-multiple"></i><span class="hide-menu"> Rombongan Belajar </span></a></li>
-                        <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu"> Mata Pelajaran </span></a></li>
+                        <li class="sidebar-item"><a href="<?= base_url() ?>mapel/mapel" class="sidebar-link"><i class="mdi mdi-library"></i><span class="hide-menu"> List Mapel</span></a></li>
+                        <li class="sidebar-item"> <a href="<?= base_url() ?>mapel/" class="sidebar-link"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu"> Jadwal Mapel</span></a></li>
                         <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Ekskul </span></a></li>
                         <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Penilaian Siswa </span></a></li>
                         <li class="sidebar-item"><a href="<?= base_url() ?>Absensi_siswa/index" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Absensi Peserta Didik </span></a></li>
