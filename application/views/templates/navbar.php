@@ -11,14 +11,14 @@
                 <b class="logo-icon p-l-10">
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="<?= base_url() ?>vendor/assets/images/logo_sd.png" width="40px" height="40px" alt="homepage" class="light-logo" />
+                    <img src="<?= base_url() ?>vendor/assets/images/logos.png" width="40px" height="40px" alt="homepage" class="light-logo" />
 
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text -->
                 <span class="logo-text">
                     <!-- dark Logo text -->
-                    <img src="<?= base_url() ?>vendor/assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                    <img src="<?= base_url() ?>vendor/assets/images/SDN Badean 1.png" alt="homepage" class="light-logo" />
 
                 </span>
                 <!-- Logo icon -->
@@ -180,6 +180,7 @@
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="<?= base_url() ?>peserta_didik" class="sidebar-link"><i class="mdi mdi-account"></i><span class="hide-menu"> Peserta Didik</span></a></li>
                         <li class="sidebar-item"><a href="<?= base_url() ?>gtk" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> GTK </span></a></li>
+                        <li class="sidebar-item"><a href="<?= base_url() ?>Akun" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> Akun </span></a></li>
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-library"></i><span class="hide-menu">Akademik </span></a>

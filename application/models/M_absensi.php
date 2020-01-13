@@ -33,6 +33,16 @@ class M_absensi extends CI_Model
         ];
     }
 
+    public function getCount($id_rombel)
+    {
+        $this->db->select('*');
+        $this->db->from("tb_relasi_rombel_siswa");
+        $this->db->join('tb_rombel', 'tb_rombel.id_rombel = tb_relasi_rombel_siswa.id_rombel');
+        $this->db->join('tb_siswa', 'tb_siswa.id_siswa = tb_relasi_rombel_siswa.id_siswa');
+        $this->db->where('tb_relasi_rombel_siswa.id_rombel', $id_rombel);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
 
     public function getMapel($id_rombel)
     {

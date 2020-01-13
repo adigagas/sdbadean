@@ -58,8 +58,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="text-right">
-                            <a onclick="editConfirm('<?php echo base_url('Gtk/editGtk/' . $detailgtk['id_gtk']); ?>')" href="#!" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a> &nbsp;
-                            <a onclick="deleteConfirm('<?php echo base_url('Gtk/hapusGtk/' . $detailgtk['id_gtk']); ?>')" href="#!" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Mutasi GTK</a> &nbsp;
+                            <?php if ($jabatan == 2 || $jabatan == 4) {
+                            ?>
+                                <a onclick="editConfirm('<?php echo base_url('Gtk/editGtk/' . $detailgtk['id_gtk']); ?>')" href="#!" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a> &nbsp;
+                                <a onclick="deleteConfirm('<?php echo base_url('Gtk/hapusGtk/' . $detailgtk['id_gtk']); ?>')" href="#!" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-window-close"></i> Mutasi GTK</a> &nbsp;
+                            <?php } ?>
                             <a href="<?= base_url('Gtk/print/' . $detailgtk['id_gtk']);   ?>" target="_blank" type="button" class="btn btn-success " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-print"></i> Print</a>
                         </div><br>
                         <div class="card">
