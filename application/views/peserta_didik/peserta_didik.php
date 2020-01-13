@@ -61,7 +61,7 @@
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
                                 <form method="post" action="<?php echo base_url('Excel_import2/import'); ?>" enctype="multipart/form-data">
-                                            <p><label>Select Excel File</label>
+                                            
                                                 <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
                                             <input type="submit" name="import" value="Import" class="btn btn-info" />
                                             <a class="btn btn-info"  href="<?php echo base_url(); ?>Excel_import2/export2">Export</a>
