@@ -229,7 +229,7 @@
                                                         <td><?= $s->nama_siswa ?></td>
                                                         <td>
                                                             <form action="<?= base_url() ?>rombel/addsiswa" method="POST">
-                                                                <input type="text" hidden name="id_rombel" value="<?= $id_rombel ?>">
+                                                                <input type="text" hidden name="id_rombel" value="<?php echo $this->uri->segment(3); ?>">
                                                                 <input type="text" hidden name="id_siswa" value="<?= $s->id_siswa ?>">
                                                                 <input id="acceptTerms" name="acceptTerms" type="submit" class="btn btn-info btn-sm" value="Tambahkan">
                                                             </form>
@@ -270,7 +270,7 @@
                 <!-- footer -->
                 <!-- ============================================================== -->
                 <footer class="footer text-center">
-                    All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+                    All Rights<?= $count ?> Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
                 </footer>
                 <!-- ============================================================== -->
                 <!-- End footer -->
