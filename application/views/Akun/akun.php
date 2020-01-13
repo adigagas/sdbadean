@@ -113,7 +113,7 @@
                                                             <div class="form-group row">
                                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Jabatan</label>
                                                                 <div class="col-sm-8">
-                                                                <select required class="custom-select" id="jabatan" name="jabatan">
+                                                                    <select required class="custom-select" id="jabatan" name="jabatan">
                                                                         <?php
                                                                         foreach ($jabatan as $jabatan_select) : ?>
                                                                             <option if value="<?= $jabatan_select->id_jabatan ?>"><?= $jabatan_select->jabatan ?></option>
@@ -156,8 +156,10 @@
                                                     <td><?= $g->username ?></td>
                                                     <td><?= $g->password ?></td>
                                                     <td><?= $g->jabatan ?></td>
-                                                    <td><a data-toggle="modal" data-target="#modal-edit<?= $g->id_login; ?>" class="btn btn-warning" data-popup="tooltip" data-placement="top" title="Edit Data">Edit</a>
-                                                        <a type="button" href="<?= base_url('Ekskul/hapusEkskul/' . $g->id_login);   ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data  ?');" class="btn btn-danger" style="border-radius: 10px;"> Hapus</a></td>
+                                                    <td>
+                                                        <a data-toggle="modal" data-target="#modal-edit<?= $g->id_login; ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" class="mdi mdi-24px mdi-account-edit"></a>
+                                                        <a type="button" href="<?= base_url('Akun/hapusAkun/' . $g->id_login);   ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data  ?');" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus" class="mdi mdi-24px mdi-delete"></a>
+                                                    </td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
@@ -169,6 +171,55 @@
                         </div>
                     </div>
                 </div>
+                <?php $no=0; foreach($akun as $row): $no++; ?>
+                <div class="row">
+  <div id="modal-edit<?=$row->id_login;?>" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Ekskul</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                           
+                            <div class="modal-body">
+                                <form action="<?php echo base_url('Akun/editAkun/'.$row->id_login); ?>" method="post" enctype="multipart/form-data">
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-4  control-label col-form-label">Nama GTK</label>
+                                        <div class="col-sm-8">
+                                            <input type="hidden" style="border-radius: 10px;" name="id_login" class="form-control" id="id_login" value="<?php echo $row->id_login  ?>" placeholder="Nama Ekskul" required>
+                                            <input type="text" style="border-radius: 10px;" name="username" class="form-control" id="username" value="<?php echo $row->username  ?>" placeholder="Nama Ekskul" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-4  control-label col-form-label">Username</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" style="border-radius: 10px;" name="username" class="form-control" id="username" value="<?php echo $row->username  ?>" placeholder="Nama Penanggung Jawab" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-4  control-label col-form-label">Password</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" style="border-radius: 10px;" name="password" class="form-control" id="password" value="<?php echo $row->password  ?>" placeholder="Nama Penanggung Jawab" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-4  control-label col-form-label">Jabatan</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" style="border-radius: 10px;" name="jabatan" class="form-control" id="jabatan" value="<?php echo $row->jabatan  ?>" placeholder="Nama Penanggung Jawab" required>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+</div>
+                <?php endforeach; ?>
                 <!-- Modal -->
 
                 <!-- ============================================================== -->
@@ -189,7 +240,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-            COPYRIGHT © BIKEA TECHNOCRAFT 2019 
+                COPYRIGHT © BIKEA TECHNOCRAFT 2019
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

@@ -103,7 +103,8 @@ if ($this->session->userdata('username') == null) {
                                                     <td><?= $g->tempat_lahir_gtk ?>, <?= date('d-m-Y', strtotime($g->tanggal_lahir_gtk)); ?></td>
                                                     <td><?= $g->jenis_kelamin_gtk ?></td>
                                                     <td><?= $g->posisi_gtk ?></td>
-                                                    <td><a type="button" href="<?= base_url('Gtk/detailGtk/' . $g->id_gtk);  ?>" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                    
+                                                    <td><a type="button" href="<?= base_url('Gtk/detailGtk/' . $g->id_gtk);  ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="mdi mdi-24px mdi-account-card-details"></a></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>

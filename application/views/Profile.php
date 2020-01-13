@@ -98,12 +98,12 @@ if ($this->session->userdata('username') == null) {
                                 <div class="col mb-4">
                                     <div class="card">
 
-                                        <div class="card-body">
-                                            <h5 class="card-title">SDN Badean 01 Bondowoso</h5>
-                                            <p class="card-text">	Jl. Letjend S Parman No 10 Badean Bondowoso</p>
-                                            <p class="card-text">	0332 - 420292</p>
-                                            <p class="card-text">	Akreditasi B</p>
-                                            <p class="card-text">	NSS 101052201010</p>
+                                        <div class="card-body text-info">
+                                            <h5 class="card-title"><i class="fas fa-arrow-alt-circle-right"></i>    SDN Badean 01 Bondowoso</h5>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>     Jl. Letjend S Parman No 10 Badean Bondowoso</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	0332 - 420292</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Akreditasi B</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	NSS 101052201010</p>
 
                                         </div>
                                     </div>
@@ -111,25 +111,25 @@ if ($this->session->userdata('username') == null) {
                                 <div class="col mb-4">
                                     <div class="card">
 
-                                        <div class="card-body">
-                                            <h5 class="card-title">Visi</h5>
-                                            <p class="card-text">	Mewujudkan generasi beriman dan bertaqwa.</p>
-                                            <p class="card-text">	Mewujudkan generasi yang cerdas serta berprestasi baik dibidang akademik maupun non akademik..</p>
-                                            <p class="card-text">	Mewujudkan generasi yang terampil.</p>
-                                            <p class="card-text">	Mewujudkan generasi yang berbudi pekerti luhur.</p>
+                                        <div class="card-body text-info">
+                                            <h5 class="card-title"><i class="fas fa-arrow-alt-circle-right"></i>    Visi</h5>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Mewujudkan generasi beriman dan bertaqwa.</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Mewujudkan generasi yang cerdas serta berprestasi baik dibidang akademik maupun non akademik..</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Mewujudkan generasi yang terampil.</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Mewujudkan generasi yang berbudi pekerti luhur.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col mb-4">
                                     <div class="card">
 
-                                        <div class="card-body">
-                                            <h5 class="card-title">Misi Sekolah</h5>
-                                            <p class="card-text">	Menanamkan keimanan dan ketaqwaan melalui pengamalan ajaran agama.</p>
-                                            <p class="card-text">	Melaksanakan program akademik seiring dengan perkembangan teknologi.</p>
-                                            <p class="card-text">	Mengasah bakat dan minat melalui kegiatan ekstrakurikuler.</p>
-                                            <p class="card-text">	Membangun mentalitas moral / etika karakter peserta didik, melatih diri untuk berbuat berdasarkan budi pekerti.</p>
-                                            <p class="card-text">	Mengembangkan daya kreatifitas dan kompetensi dasar melalui kegiatan pembelajaran yang bersifat akademik muun non akademik.</p>
+                                        <div class="card-body text-info">
+                                            <h5 class="card-title"><i class="fas fa-arrow-alt-circle-right"></i>    Misi Sekolah</h5>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Menanamkan keimanan dan ketaqwaan melalui pengamalan ajaran agama.</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Melaksanakan program akademik seiring dengan perkembangan teknologi.</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Mengasah bakat dan minat melalui kegiatan ekstrakurikuler.</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Membangun mentalitas moral / etika karakter peserta didik, melatih diri untuk berbuat berdasarkan budi pekerti.</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Mengembangkan daya kreatifitas dan kompetensi dasar melalui kegiatan pembelajaran yang bersifat akademik muun non akademik.</p>
                                   
                                         </div>
                                     </div>
@@ -137,11 +137,11 @@ if ($this->session->userdata('username') == null) {
                                 <div class="col mb-4">
                                     <div class="card">
 
-                                        <div class="card-body">
-                                            <h5 class="card-title">Strategi sekolah</h5>
-                                            <p class="card-text">	Menjalankan nilai – nilai ajaran agama dan berperilaku akhlakul karimah dalam kehidupan sehari – hari.</p>
-                                            <p class="card-text">	Melaksanakan program akademik melalui pembelajaran yang inovatif.</p>
-                                            <p class="card-text">	Mengadakan program kelas unggulan serta menyediakan sarana prasarana pembelajaran yang memadai serta ikut serta dalam berbagai kompetisi.</p>
+                                        <div class="card-body text-info">
+                                            <h5 class="card-title"><i class="fas fa-arrow-alt-circle-right"></i>    Strategi sekolah</h5>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Menjalankan nilai – nilai ajaran agama dan berperilaku akhlakul karimah dalam kehidupan sehari – hari.</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Melaksanakan program akademik melalui pembelajaran yang inovatif.</p>
+                                            <p class="card-text"><i class="fas fa-angle-right"></i>  	Mengadakan program kelas unggulan serta menyediakan sarana prasarana pembelajaran yang memadai serta ikut serta dalam berbagai kompetisi.</p>
                                         </div>
                                     </div>
                                 </div>

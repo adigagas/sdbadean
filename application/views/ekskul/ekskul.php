@@ -125,8 +125,10 @@
                                                     <td><?= $no++; ?></td>
                                                     <td><?= $g->nama_ekskul ?></td>
                                                     <td><?= $g->pj_ekskul ?></td>
-                                                    <td><a data-toggle="modal" data-target="#modal-edit<?= $g->id_ekskul; ?>" class="btn btn-warning" data-popup="tooltip" data-placement="top" title="Edit Data">Edit</a>
-                                                        <a type="button" href="<?= base_url('Ekskul/hapusEkskul/' . $g->id_ekskul);   ?>"  onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$g->nama_ekskul;?> ?');" class="btn btn-danger" style="border-radius: 10px;"> Hapus</a></td>
+                                                    <td>
+                                                    <a data-toggle="modal" data-target="#modal-edit<?= $g->id_ekskul; ?>"  data-placement="top" title="Edit Data" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" class="mdi mdi-24px mdi-account-edit"></a>
+                                                        <a type="button" href="<?= base_url('Ekskul/hapusEkskul/' . $g->id_ekskul);   ?>"  onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$g->nama_ekskul;?> ?');" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus" class="mdi mdi-24px mdi-delete"></a>
+
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
