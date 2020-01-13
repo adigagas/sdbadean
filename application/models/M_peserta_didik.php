@@ -39,6 +39,19 @@ class M_peserta_didik extends CI_Model
         ];
     }
 
+    public function getCountSiswaAktif()
+    {
+        $this->db->from('tb_siswa');
+        $this->db->where('status', 'Aktif');
+        return $this->db->count_all_results();
+    }
+
+    public function getCountSiswaNonAktif()
+    {
+        $this->db->from('tb_siswa');
+        $this->db->where('status', 'Aktif');
+        return $this->db->count_all_results();
+    }
 
     public function getAllSiswa()
     {
