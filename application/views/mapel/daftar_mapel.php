@@ -76,7 +76,7 @@
                                             </div>
 
                                             <div class="text-right col-md-6">
-                                                <?= date('l, d-m-Y'); ?>
+                                                <?= $waktu; ?>
 
                                             </div>
                                         </div>
@@ -320,7 +320,7 @@
                                                 <select style="border-radius: 10px" class="form-control" name="id_gtk">
                                                     <option value="">--Pilih GTK--</option>
                                                     <?php foreach ($gtk as $r) : ?>
-                                                        <option value="<?= $r->nik_gtk ?>"><?= $r->nama_gtk ?></option>
+                                                        <option value="<?= $r->id_gtk ?>"><?= $r->nama_gtk ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>

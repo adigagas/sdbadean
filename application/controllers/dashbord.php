@@ -6,12 +6,11 @@ class dashbord extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-	
 	}
 
 	public function index()
 	{
-	
+
 		$this->load->view('user/dashbord');
 	}
 	function add_event()
@@ -21,14 +20,14 @@ class dashbord extends CI_Controller
 		$alamat = $this->input->post('alamat');
 		$agama = $this->input->post('longlat');
 		$keperluan = $this->input->post('keperluan');
-	
+
 		$data = array(
 			'nik' => $nik,
 			'nama' => $nama,
 			'alamat' => $alamat,
 			'agama' => $agama,
 			'keperluan' => $keperluan,
-			
+
 		);
 		$this->m_data->add_event($data, 'akta');
 		echo "<script>

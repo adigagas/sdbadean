@@ -63,7 +63,7 @@ class Mapel extends CI_Controller
     public function index()
     {
 
-
+        $this->load->helper('tgl_indo');
 
         $data['pelajaran'] = $this->db->get('tb_pelajaran')->result();
         $data['rombel'] = $this->db->get('tb_rombel')->result();
@@ -77,6 +77,9 @@ class Mapel extends CI_Controller
         //---------------------//
         $data['gtk'] = $this->db->get('tb_gtk')->result();
         $data['hari'] = $this->db->get('tb_hari')->result();
+
+        $waktu = date('Y-m-d');
+        $data['waktu'] = formatHariTanggal($waktu);
         $this->load->view('mapel/daftar_mapel', $data);
     }
     //-------------------------------------------------Hari Senin-------------------------------------//

@@ -34,9 +34,14 @@ class M_absensi extends CI_Model
     }
 
 
-    public function getIdKelas($id_kelas)
+    public function getMapel($id_rombel)
     {
-        return $this->db->get_where('tb_siswa', ['id_kelas' => $id_kelas]);
+
+        $this->db->select('tb_siswa.*');
+        $this->db->from('tb_relasi_rombel_siswa');
+        $this->db->join('tb_siswa', 'tb_siswa.id_siswa=tb_relasi_rombel_siswa.id_siswa');
+        $this->db->where('tb_relasi_rombel_siswa.id_rombel', $id_rombel);
+        return $this->db->get();
     }
 
     public function getAbsensiSiswa()

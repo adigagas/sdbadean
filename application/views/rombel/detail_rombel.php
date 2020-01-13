@@ -106,7 +106,7 @@
                                                         foreach ($rombel_show as $rombel_select) : ?>
                                                             <option value="<?= $rombel_select->id_rombel ?>"><?= $rombel_select->nama_rombel ?></option>
                                                         <?php
-                                                        $id_rombel = $rombel_select->id_rombel;
+                                                            $id_rombel = $rombel_select->id_rombel;
                                                         endforeach; ?>
                                                     </select>
                                                 </div>
