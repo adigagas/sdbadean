@@ -60,7 +60,8 @@ class M_rombel extends CI_Model
         $this->db->from('tb_relasi_rombel_siswa');
         $this->db->join('tb_rombel', 'tb_rombel.id_rombel = tb_relasi_rombel_siswa.id_rombel');
         $this->db->join('tb_siswa', 'tb_siswa.id_siswa = tb_relasi_rombel_siswa.id_siswa');
-        $this->db->where('tb_relasi_rombel_siswa.id_rombel', $id_rombel);
+        $array = array('tb_relasi_rombel_siswa.id_rombel' => $id_rombel, 'tb_siswa.status' => 'Aktif');
+        $this->db->where($array);
         $query = $this->db->get();
         return $query->result();
     }
@@ -71,7 +72,8 @@ class M_rombel extends CI_Model
         $this->db->from("tb_relasi_rombel_siswa");
         $this->db->join('tb_rombel', 'tb_rombel.id_rombel = tb_relasi_rombel_siswa.id_rombel');
         $this->db->join('tb_siswa', 'tb_siswa.id_siswa = tb_relasi_rombel_siswa.id_siswa');
-        $this->db->where('tb_relasi_rombel_siswa.id_rombel', $id_rombel);
+        $array = array('tb_relasi_rombel_siswa.id_rombel' => $id_rombel, 'tb_siswa.status' => 'Aktif');
+        $this->db->where($array);
         $query = $this->db->get();
         return $query->num_rows();
     }
