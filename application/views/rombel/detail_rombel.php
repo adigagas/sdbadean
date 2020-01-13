@@ -88,35 +88,40 @@
                                     <?php endforeach; ?>
 
                                     </div>
-                                    <div class="text-right">
-                                        <!-- Button to Open the Modal -->
-                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" style=" Border-radius: 5px;">
-                                            <i class="fa fa-user"></i> Tambah Siswa
-                                        </button>
-                                    </div>
-                                    <form action="<?= base_url('rombel/naikkelas') ?>" method="post">
-                                        <div class="row">
-                                            <div class="col-sm-2 text-center">
-                                                <input type="checkbox" onClick="toggle(this)" /> Pilih Semua<br />
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <div class="input-group">
-                                                    <select required class="custom-select" id="id_kelas" name="id_kelas">
-                                                        <?php
-                                                        foreach ($rombel_show as $rombel_select) : ?>
-                                                            <option value="<?= $rombel_select->id_rombel ?>"><?= $rombel_select->nama_rombel ?></option>
-                                                        <?php
-                                                            $id_rombel = $rombel_select->id_rombel;
-                                                        endforeach; ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <button id="myBtn" class="delete btn btn-success" type="submit" disabled="disabled" style=" Border-radius: 5px;" name="remove_levels" value="delete">
-                                                    <i class="fa fa-user"></i> Naikkan Kelas
-                                                </button>
-                                            </div>
+                                    <?php if ($jabatan == 2 || $jabatan == 3) {
+                                    ?>
+                                        <div class="text-right">
+                                            <!-- Button to Open the Modal -->
+                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" style=" Border-radius: 5px;">
+                                                <i class="fa fa-user"></i> Tambah Siswa
+                                            </button>
                                         </div>
+                                    <?php } ?>
+                                    <form action="<?= base_url('rombel/naikkelas') ?>" method="post">
+                                        <?php if ($jabatan == 2 || $jabatan == 3) {
+                                        ?>
+                                            <div class="row">
+                                                <div class="col-sm-2 text-center">
+                                                    <input type="checkbox" onClick="toggle(this)" /> Pilih Semua<br />
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="input-group">
+                                                        <select required class="custom-select" id="id_kelas" name="id_kelas">
+                                                            <?php
+                                                            foreach ($rombel_show as $rombel_select) : ?>
+                                                                <option value="<?= $rombel_select->id_rombel ?>"><?= $rombel_select->nama_rombel ?></option>
+                                                            <?php
+                                                                $id_rombel = $rombel_select->id_rombel;
+                                                            endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <button id="myBtn" class="delete btn btn-success" type="submit" disabled="disabled" style=" Border-radius: 5px;" name="remove_levels" value="delete">
+                                                        <i class="fa fa-user"></i> Naikkan Kelas
+                                                    </button>
+                                                </div>
+                                            </div> <?php } ?>
                                         <br>
                                         <div class="table-responsive">
                                             <table id="zero_config" class="table table-striped table-bordered">
@@ -145,7 +150,7 @@
                                                             <td><?= $s->tempat_lahir_siswa . ', ' . $s->tanggal_lahir_siswa ?></td>
                                                             <td><?= $s->jenis_kelamin_siswa ?></td>
                                                             <td><?= $s->agama_siswa ?></td>
-                                                            <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta" class="btn btn-info btn-sm">Detail</a></td>
+                                                            <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta/<?= $s->id_siswa ?>" class="btn btn-info btn-sm">Detail</a></td>
                                                         </tr>
                                                     <?php
                                                         $i++;
