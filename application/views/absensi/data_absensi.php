@@ -103,6 +103,9 @@
                                                         <input type="hidden" name="id_siswa[]" value=<?= $row->id_siswa ?>>
                                                         <input type="hidden" name="id_mapel" value="<?= $jadwal_mapel ?>">
                                                         <input type="hidden" name="tanggal_absensi" value="<?= $waktu ?>">
+                                                        <input type="hidden" name="id_gtk" value="<?= $id_gtk ?>">
+                                                        <input type="hidden" name="id_pelajaran" value="<?= $id_pelajaran ?>">
+                                                        <input type="" name="id_rombel" value="<?= $id_rombel ?>">
                                                         <td> <?= $urut++; ?></td>
                                                         <td><?= $row->nomor_induk ?></td>
                                                         <td><?= $row->nama_siswa ?></td>

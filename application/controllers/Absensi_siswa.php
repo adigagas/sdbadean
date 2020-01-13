@@ -24,8 +24,9 @@ class Absensi_siswa extends CI_Controller
 
     public function index()
     {
-
-        $this->load->view('absensi/absensi_siswa');
+        $id_gtk = $this->session->userdata('id_gtk');
+        $data['laporan'] = $this->M_absensi->reportAbsensi($id_gtk);
+        $this->load->view('absensi/absensi_siswa', $data);
     }
 
     public function absenSiswa()
@@ -37,19 +38,24 @@ class Absensi_siswa extends CI_Controller
         $nama_pelajaran = $this->input->post('nama_pelajaran');
         $id_pelajaran = $this->input->post('id_pelajaran');
         $id_rombel = $this->input->post('id_rombel');
+        $id_gtk = $this->input->post('id_gtk');
         $data['rombel'] = $this->M_absensi->getMapel($id_rombel)->result();
-        $data['pelajaran'] = $id_pelajaran;
+        $data['id_pelajaran'] = $id_pelajaran;
         $data['nama_mapel'] = $nama_pelajaran;
         $data['nama_rombel'] = $nama_rombel;
         $data['jadwal_mapel'] = $id_jadwal_mapel;
+        $data['id_gtk'] = $id_gtk;
+        $data['id_rombel'] = $id_rombel;
         $this->load->view('absensi/data_absensi', $data);
     }
 
     public function absensData()
     {
-
+        $id_pelajaran = $this->input->post('id_pelajaran');
+        $id_gtk = $this->input->post('id_gtk');
         $id_siswa = $this->input->post('id_siswa');
         $id_mapel = $this->input->post('id_mapel');
+        $id_rombel = $this->input->post('id_rombel');
         $tanggal_absensi = $this->input->post('tanggal_absensi');
 
         for ($i = 0; $i < sizeof($id_siswa); $i++) {
@@ -58,33 +64,20 @@ class Absensi_siswa extends CI_Controller
                 'id_siswa' => $id_siswa[$i],
                 'id_mapel' => $id_mapel,
                 'tanggal_absensi' => $tanggal_absensi,
-                'keterangan' => $keterangan
+                'keterangan' => $keterangan,
+                'id_gtk' => $id_gtk,
+                'id_pelajaran' => $id_pelajaran,
+                'id_rombel' => $id_rombel
             );
             $this->db->insert('tb_absensi', $data);
         }
         redirect('Admin/indexguru');
     }
 
-    /* public function absenData()
+    public function absenData()
     {
-
-        $id_kelas = $this->input->post('id_kelas');
-        $nama_siswa = $this->input->post('nama_siswa');
-        if (!isset($id_kelas)) show_404();
-        if ($this->M_absensi->addSiswa()) {
-
-            $this->session->set_flashdata(
-                'absensi',
-                '
-                <div class="container" style="margin:10px;">
-                <p class="alert alert-success col-md-12 col-xs-12">' .  $nama_siswa .  ' telah di absen !</p>
-                </div>
-            '
-            );
-            redirect('absensi_siswa/absenSiswa/' . $id_kelas);
-        }
     }
-    */
+
     public function laporanAbsen()
     {
         $data['laporan'] = $this->M_absensi->getAbsensiSiswa()->result();

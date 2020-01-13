@@ -58,16 +58,19 @@ class M_absensi extends CI_Model
     {
         return $this->db->insert($table, $data);
     }
-    /*
-    public function addSiswa()
-    {
-        $post = $this->input->post();
-        $this->id_siswa = $post['id_siswa'];
-        $this->tanggal = $post['tanggal'];
-        $this->kehadiran = $post['kehadiran'];
 
-        return $this->db->insert($this->_table, $this);
-    }*/
+    public function reportAbsensi($id_gtk)
+    {
+
+        $this->db->select('*');
+        $this->db->from('tb_absensi');
+        $this->db->join('tb_pelajaran', 'tb_pelajaran.id_pelajaran=tb_absensi.id_pelajaran');
+        $this->db->join('tb_rombel', 'tb_rombel.id_rombel=tb_absensi.id_rombel');
+        $this->db->group_by('tb_absensi.id_gtk');
+        $this->db->where('tb_absensi.id_gtk', $id_gtk);
+
+        return $this->db->get()->result();
+    }
 
     public function updateSiswa($id_siswa)
     {

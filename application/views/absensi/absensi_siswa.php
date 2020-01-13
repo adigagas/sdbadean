@@ -59,21 +59,27 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Absensi Peserta Didik</h5> <br>
+                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Laporan Absensi</h5> <br>
                                 <div class="">
                                     <div class="text-left col-md-12">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <select id="state" class="form-control custom-select col-md-5" style=" border-radius: 10px;">
-                                                    <option value="0">Pilih Kelas</option>
-                                                    <option value="1">Kelas 1</option>
-                                                    <option value="2">Kelas 2</option>
-                                                    <option value="3">Kelas 3</option>
-                                                </select>
-                                            </div>
-                                            <div class="text-right col-md-6">
-                                                <?= date('l, d-m-Y'); ?>
-                                            </div>
+                                            <?php foreach ($laporan as $l) : ?>
+                                                <div class="col-md-4">
+                                                    <div class="card text-center">
+                                                        <div class="card-header">
+                                                            <?= $l->nama_rombel ?>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title"><?= $l->nama_pelajaran ?></h5>
+                                                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                        </div>
+                                                        <div class="card-footer text-muted">
+                                                            2 days ago
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
                                         </div>
 
 

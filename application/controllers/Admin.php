@@ -22,7 +22,7 @@ class Admin extends CI_Controller
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);
         $date = formatHariTanggal($waktu);
-        $data['cek'] = $this->db->get('tb_absensi')->row();
+        // $data['cek'] = $this->db->get('tb_absensi')->row();
         /*-----------------Apa Ini-----------------*/
 
         list($hari) = mb_split('[,]', $date);
