@@ -109,6 +109,7 @@ class Absensi_siswa extends CI_Controller
     public function laporanAbsen()
     {
 
+        $data['tanggal'] = $this->db->query("SELECT DISTINCT tanggal_absensi FROM  tb_absensi")->result();
         $data['laporan'] = $this->M_absensi->getAbsensiSiswa()->result();
         $this->load->view('absensi/laporan_absensi', $data);
     }

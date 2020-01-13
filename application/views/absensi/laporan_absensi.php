@@ -64,7 +64,20 @@
                                     <div class="text-left col-md-12">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h5 class="card-header" style="background:#fff;">Absensi Peserta Didik </h5>
+                                                <select class="form-control">
+                                                    <option value="Januari"> Januari </option>
+                                                    <option value="Februari"> Februari </option>
+                                                    <option value="Maret"> Maret </option>
+                                                    <option value="April"> April </option>
+                                                    <option value="Mei"> Mei </option>
+                                                    <option value="Juni"> Juni </option>
+                                                    <option value="Juli"> Juli </option>
+                                                    <option value="Agustus"> Agustus </option>
+                                                    <option value="September"> September </option>
+                                                    <option value="Oktober"> Oktober </option>
+                                                    <option value="November"> November </option>
+                                                    <option value="Desember"> Desember </option>
+                                                </select>
                                             </div>
                                             <div class="text-right col-md-6">
                                                 <?= date('l, d-m-Y'); ?>
@@ -80,29 +93,20 @@
 
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
-                                            <tr>
-                                                <th><b>No</b></th>
-                                                <th><b>NIS</b></th>
-                                                <th><b>Nama Peserta Didik</b></th>
-                                                <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Tanggal</b></th>
-                                                <th><b>Keterangan</b></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
                                             <?php
                                             $no = 1;
-                                            foreach ($laporan as $row) : ?>
+                                            foreach ($tanggal as $row) : ?>
                                                 <tr>
-                                                    <td><?= $no++ ?></td>
-                                                    <td><?= $row->nomor_induk ?></td>
+                                                    <th><b>No</b></th>
+                                                    <th><?= $row->tanggal_absensi ?></th>
 
-                                                    <td><?= $row->nama_siswa ?></td>
-                                                    <td><?= $row->jenis_kelamin_siswa ?></td>
-                                                    <td><?= $row->tanggal ?></td>
-                                                    <td><?= $row->kehadiran ?></td>
                                                 </tr>
                                             <?php endforeach ?>
+                                        </thead>
+                                        <tbody>
+
+
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -129,7 +133,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-            COPYRIGHT © BIKEA TECHNOCRAFT 2019 
+                COPYRIGHT © BIKEA TECHNOCRAFT 2019
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
