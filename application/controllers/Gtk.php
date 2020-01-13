@@ -25,6 +25,7 @@ class Gtk extends CI_Controller
     {
         // $data['detailgtk'] = $this->db->get_where('tb_gtk', ['id_gtk' => $id_gtk])->row_array();
         // $this->load->view('gtk/detail_gtk', $data);
+        $data['jabatan'] = $this->session->userdata('jabatan');
 
         if (is_null($id_gtk)) {
             redirect(base_url('gtk'));

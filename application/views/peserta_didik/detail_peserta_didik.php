@@ -38,9 +38,13 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <a href="<?= base_url('peserta_didik/editSiswa/' . $siswa->id_siswa) ?>" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a>
-                                    <a href="<?= base_url('peserta_didik/mutasiKeluar/' . $siswa->id_siswa) ?>" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-arrow-alt-circle-left"></i> Mutasi Keluar</a>
+                                    <?php if ($jabatan == 2 || $jabatan == 3) {
+                                    ?>
+                                        <a href="<?= base_url('peserta_didik/editSiswa/' . $siswa->id_siswa) ?>" type="button" class="btn btn-warning " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-edit"></i> Edit</a>
+                                        <a href="<?= base_url('peserta_didik/mutasiKeluar/' . $siswa->id_siswa) ?>" type="button" class="btn btn-danger " style="border-radius: 10px; margin-right:10px;"><i class="fa fa-arrow-alt-circle-left"></i> Mutasi Keluar</a>
+                                    <?php } ?>
                                     <a href="<?= base_url('peserta_didik/cetakDetail/' . $siswa->id_siswa) ?>" target="_blank" type="button" class="btn btn-info " style="border-radius: 10px;"><i class="fa fa-print"></i> Print</a>
+
                                 </ol>
                             </nav>
                         </div>
@@ -293,11 +297,11 @@
                                         </div>
 
                                         <div class="col-md-1">
-                                            
+
                                         </div>
                                         <div class="col-md-5">
                                             <div class="text-right">
-                                            
+
                                                 <img src="<?= base_url() ?>vendor/assets/images/profil.png" width=" 300px !important" height="400px">
                                             </div>
                                             <br>
@@ -305,9 +309,9 @@
                                                 <img src="<?= base_url('vendor/assets/images/' . $siswa->foto_satu) ?>" width="300px !important" height="400px">
                                             </div>
                                             <div class="text-right" style="font-size:20px;">
-                                            <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label"><b>Status</b></label>
-                                            <label for="fname" class="control-label col-form-label"><b>: <?= $siswa->status ?> </b></label>
-</div>
+                                                <label for="fname" class="col-sm-6 col-xs-6 col-md-6   control-label col-form-label"><b>Status</b></label>
+                                                <label for="fname" class="control-label col-form-label"><b>: <?= $siswa->status ?> </b></label>
+                                            </div>
                                         </div><br>
 
                                     </div>
