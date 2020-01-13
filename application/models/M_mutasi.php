@@ -24,7 +24,7 @@ class M_mutasi extends CI_Model
     public function keluarSekolah()
     {
         $post = $this->input->post();
-        $status = "nonaktif";
+        $status = "Nonaktif";
         $this->id_siswa = $post['id_siswa'];
         $this->tanggal = $post['tanggal'];
         $this->alasan = $post['alasan'];
