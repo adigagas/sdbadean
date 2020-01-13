@@ -57,11 +57,9 @@ class M_rombel extends CI_Model
     public function getDetailRombel($id_rombel)
     {
         $this->db->select('*');
-        $this->db->from("tb_relasi_rombel_siswa");
+        $this->db->from('tb_relasi_rombel_siswa');
         $this->db->join('tb_rombel', 'tb_rombel.id_rombel = tb_relasi_rombel_siswa.id_rombel');
         $this->db->join('tb_siswa', 'tb_siswa.id_siswa = tb_relasi_rombel_siswa.id_siswa');
-        $this->db->join('tb_kelas', 'tb_kelas.id_kelas = tb_rombel.id_kelas');
-        $this->db->join('tb_gtk', 'tb_gtk.id_gtk = tb_rombel.id_gtk');
         $this->db->where('tb_relasi_rombel_siswa.id_rombel', $id_rombel);
         $query = $this->db->get();
         return $query->result();
@@ -73,8 +71,6 @@ class M_rombel extends CI_Model
         $this->db->from("tb_relasi_rombel_siswa");
         $this->db->join('tb_rombel', 'tb_rombel.id_rombel = tb_relasi_rombel_siswa.id_rombel');
         $this->db->join('tb_siswa', 'tb_siswa.id_siswa = tb_relasi_rombel_siswa.id_siswa');
-        $this->db->join('tb_kelas', 'tb_kelas.id_kelas = tb_rombel.id_kelas');
-        $this->db->join('tb_gtk', 'tb_gtk.id_gtk = tb_rombel.id_gtk');
         $this->db->where('tb_relasi_rombel_siswa.id_rombel', $id_rombel);
         $query = $this->db->get();
         return $query->num_rows();
