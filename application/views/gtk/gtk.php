@@ -61,9 +61,16 @@
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Guru & Tenaga Kependidikan (GTK)</h5><br>
                                 <div class="form-gruop">
+                                <form method="post" action="<?php echo base_url('Excel_import/import'); ?>" enctype="multipart/form-data">
+                                            <p><label>Select Excel File</label>
+                                                <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
+                                            <input type="submit" name="import" value="Import" class="btn btn-info" />
+                                            <a class="btn btn-info"  href="<?php echo base_url(); ?>excel_import/export">Export</a>
+                                        </form>
                                     <div class="text-right">
-                                        <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
-                                        <input> &nbsp; &nbsp; &nbsp; &nbsp;
+                                       
+                                        <!-- <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
+                                        <input> &nbsp; &nbsp; &nbsp; &nbsp; -->
                                         <a type="button" href="<?= base_url() ?>Gtk/tambahGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah GTK</a>
                                     </div>
                                 </div><br>
@@ -81,19 +88,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach($gtk as $g) : ?>
-                                            <tr>
-                                                <td><?= $g->nik_gtk ?></td>
-                                                <td><?= $g->nip_gtk ?></td>
-                                                <td><?= $g->nama_gtk ?></td>
-                                                <td><?= $g->tempat_lahir_gtk ?>, <?= date('d-m-Y', strtotime($g->tanggal_lahir_gtk)); ?></td>
-                                                <td><?= $g->jenis_kelamin_gtk ?></td>
-                                                <td><?= $g->posisi_gtk ?></td>
-                                                <td><a type="button" href="<?= base_url('Gtk/detailGtk/'. $g->id_gtk);  ?>" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
-                                            </tr>
+                                            <?php foreach ($gtk as $g) : ?>
+                                                <tr>
+                                                    <td><?= $g->nik_gtk ?></td>
+                                                    <td><?= $g->nip_gtk ?></td>
+                                                    <td><?= $g->nama_gtk ?></td>
+                                                    <td><?= $g->tempat_lahir_gtk ?>, <?= date('d-m-Y', strtotime($g->tanggal_lahir_gtk)); ?></td>
+                                                    <td><?= $g->jenis_kelamin_gtk ?></td>
+                                                    <td><?= $g->posisi_gtk ?></td>
+                                                    <td><a type="button" href="<?= base_url('Gtk/detailGtk/' . $g->id_gtk);  ?>" class="btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                </tr>
                                             <?php endforeach; ?>
                                         </tbody>
-                                        
+
                                     </table>
                                 </div>
 

@@ -126,11 +126,11 @@
                                                 <div class="col-sm-8">
                                                     <div class="row">
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="jenis_kelamin_gtk" value="Laki-laki" <?php if($gtk->jenis_kelamin_gtk=='Laki-laki'){ echo "checked=checked";}  ?>/>
+                                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="jenis_kelamin_gtk" value="L" <?php if($gtk->jenis_kelamin_gtk=='L'){ echo "checked=checked";}  ?>/>
                                                             <label class="custom-control-label" for="customControlValidation1">Laki-laki</label>
                                                         </div>
                                                         <div class="custom-control custom-radio col-md-4">
-                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="jenis_kelamin_gtk"  value="Perempuan" <?php if($gtk->jenis_kelamin_gtk=='Perempuan'){ echo "checked=checked";}  ?>/>
+                                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="jenis_kelamin_gtk"  value="P" <?php if($gtk->jenis_kelamin_gtk=='P'){ echo "checked=checked";}  ?>/>
                                                             <label class="custom-control-label" for="customControlValidation2">Perempuan</label>
                                                         </div>
                                                     </div>

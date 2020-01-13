@@ -51,7 +51,7 @@ class Gtk extends CI_Controller
         }
 
         if (is_null($id_gtk)) {
-            redirect(base_url(gtk));
+            redirect(base_url('gtk'));
         } else {
             $data['gtk'] = $this->M_Gtk->getById($id_gtk);
             $this->load->view('gtk/edit_gtk', $data);
