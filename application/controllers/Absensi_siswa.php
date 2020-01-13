@@ -38,7 +38,7 @@ class Absensi_siswa extends CI_Controller
         $nama_pelajaran = $this->input->post('nama_pelajaran');
         $id_pelajaran = $this->input->post('id_pelajaran');
         $id_rombel = $this->input->post('id_rombel');
-        $id_gtk = $this->input->post('id_gtk');
+        $id_gtk =  $this->session->userdata('id_gtk');
         $data['rombel'] = $this->M_absensi->getMapel($id_rombel)->result();
         $data['id_pelajaran'] = $id_pelajaran;
         $data['nama_mapel'] = $nama_pelajaran;
@@ -52,7 +52,7 @@ class Absensi_siswa extends CI_Controller
     public function absensData()
     {
         $id_pelajaran = $this->input->post('id_pelajaran');
-        $id_gtk = $this->input->post('id_gtk');
+        $id_gtk =  $this->session->userdata('id_gtk');
         $id_siswa = $this->input->post('id_siswa');
         $id_mapel = $this->input->post('id_mapel');
         $id_rombel = $this->input->post('id_rombel');
