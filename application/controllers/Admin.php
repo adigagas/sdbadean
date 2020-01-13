@@ -23,7 +23,7 @@ class Admin extends CI_Controller
     public function indexguru()
     {
         $data['count'] = $this->M_peserta_didik->getCountSiswaAktif();
-
+        $data['countnon'] = $this->M_peserta_didik->getCountSiswaNonAktif();
         $data['gtk'] = $this->session->userdata('id_gtk');
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);

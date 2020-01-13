@@ -76,7 +76,7 @@ if ($this->session->userdata('username') == null) {
                             <div style="height: 150px;" class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
                                 <h6 class="text-white">Jumlah Peserta Didik : Non-Aktif</h6>
-                                <h2 class="text-white">46</h2>
+                                <h2 class="text-white"><?= $countnon ?></h2>
 
                             </div>
                         </div>
