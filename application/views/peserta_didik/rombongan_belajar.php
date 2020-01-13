@@ -191,9 +191,15 @@
                                                     <td><?= $s->nama_rombel ?></td>
                                                     <td><?= $s->nama_gtk ?></td>
                                                     <td><?= $s->tahun_ajaran ?></td>
-                                                    <td><a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="mdi mdi-24px mdi-account-card-details"></a>
-                                                        <a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" class="mdi mdi-24px mdi-account-edit"></a>
-                                                        <a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus" class="mdi mdi-24px mdi-delete"></a>
+                                                    <td>
+                                                        <a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="mdi mdi-24px mdi-account-card-details"></a>
+                                                        <?php
+                                                        if ($jabatan == 2) {
+
+                                                        ?>
+                                                            <a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" class="mdi mdi-24px mdi-account-edit"></a>
+                                                            <a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus" class="mdi mdi-24px mdi-delete"></a>
+                                                        <?php } ?>
                                                     </td>
                                                 </tr>
                                             <?php
