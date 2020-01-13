@@ -89,101 +89,113 @@
 
                                 </div><br>
 
-                                <div class="table-responsive">
-
-                                    <table id="zero_config" class="table table-striped table-bordered">
+                                <div class="table-grid">
+                                    <table class="timesheet-table">
                                         <thead>
-                                            <?php
-                                            $no = 1;
-                                            foreach ($tanggal as $row) : ?>
-                                                <tr>
-                                                    <th><b>No</b></th>
-                                                    <th><?= $row->tanggal_absensi ?></th>
-
-                                                </tr>
-                                            <?php endforeach ?>
+                                            <tr>
+                                                <!-- Load month days columns -->
+                                                <!-- record month_days is a n-upla like (week_day_name, day, month_name) -->
+                                                <t t-foreach="month_days" t-as="day">
+                                                    <th t-att-height="th_height">
+                                                        <h5>
+                                                            <div>
+                                                                <t t-esc="day[0]"></t>
+                                                            </div>
+                                                        </h5>
+                                                        <h6>
+                                                            <t t-esc="day[2]" />
+                                                            <t t-esc="day[1]" />
+                                                        </h6>
+                                                    </th>
+                                                </t>
+                                            </tr>
                                         </thead>
                                         <tbody>
-
-
-
+                                            <t t-foreach="range(projects_num)" t-as="project">
+                                                <tr>
+                                                    <t t-foreach="month_days" t-as="day">
+                                                        <td>
+                                                            00:00
+                                                        </td>
+                                                    </t>
+                                                </tr>
+                                            </t>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Right sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- .right-sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- End Right sidebar -->
+                    <!-- ============================================================== -->
                 </div>
+
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- End Container fluid  -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Right sidebar -->
+                <!-- footer -->
                 <!-- ============================================================== -->
-                <!-- .right-sidebar -->
+                <footer class="footer text-center">
+                    COPYRIGHT © BIKEA TECHNOCRAFT 2019
+                </footer>
                 <!-- ============================================================== -->
-                <!-- End Right sidebar -->
+                <!-- End footer -->
                 <!-- ============================================================== -->
             </div>
-
             <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                COPYRIGHT © BIKEA TECHNOCRAFT 2019
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
+            <!-- End Page wrapper  -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End Wrapper -->
         <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="<?= base_url() ?>vendor/assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?= base_url() ?>vendor/assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?= base_url() ?>vendor/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="<?= base_url() ?>vendor/dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="<?= base_url() ?>vendor/dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="<?= base_url() ?>vendor/dist/js/custom.min.js"></script>
-    <!-- this page js -->
-    <script src="<?= base_url() ?>vendor/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/extra-libs/DataTables/datatables.min.js"></script>
-    <script>
-        /****************************************
-         *       Basic Table                   *
-         ****************************************/
-        $('#zero_config').DataTable();
-    </script>
-    <script>
-        /****************************************
-         *       Basic Table                   *
-         ****************************************/
-        $('#zero_config2').DataTable();
-    </script>
-    <script>
-        /****************************************
-         *       Basic Table                   *
-         ****************************************/
-        $('#zero_config3').DataTable();
-    </script>
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="<?= base_url() ?>vendor/assets/libs/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="<?= base_url() ?>vendor/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+        <script src="<?= base_url() ?>vendor/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="<?= base_url() ?>vendor/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+        <script src="<?= base_url() ?>vendor/assets/extra-libs/sparkline/sparkline.js"></script>
+        <!--Wave Effects -->
+        <script src="<?= base_url() ?>vendor/dist/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="<?= base_url() ?>vendor/dist/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="<?= base_url() ?>vendor/dist/js/custom.min.js"></script>
+        <!-- this page js -->
+        <script src="<?= base_url() ?>vendor/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+        <script src="<?= base_url() ?>vendor/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+        <script src="<?= base_url() ?>vendor/assets/extra-libs/DataTables/datatables.min.js"></script>
+        <script>
+            /****************************************
+             *       Basic Table                   *
+             ****************************************/
+            $('#zero_config').DataTable();
+        </script>
+        <script>
+            /****************************************
+             *       Basic Table                   *
+             ****************************************/
+            $('#zero_config2').DataTable();
+        </script>
+        <script>
+            /****************************************
+             *       Basic Table                   *
+             ****************************************/
+            $('#zero_config3').DataTable();
+        </script>
 
 </body>
 
