@@ -201,7 +201,7 @@
                     </ul>
                 </li>
                 <br>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-contacts"></i><span class="hide-menu">Profil Sekolah</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('Profile'); ?>" aria-expanded="false"><i class="mdi mdi-contacts"></i><span class="hide-menu">Profil Sekolah</span></a></li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
