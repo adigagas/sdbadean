@@ -54,6 +54,11 @@ class M_absensi extends CI_Model
         return $this->db->get();
     }
 
+    function addSiswa($data, $table)
+    {
+        return $this->db->insert($table, $data);
+    }
+    /*
     public function addSiswa()
     {
         $post = $this->input->post();
@@ -62,7 +67,7 @@ class M_absensi extends CI_Model
         $this->kehadiran = $post['kehadiran'];
 
         return $this->db->insert($this->_table, $this);
-    }
+    }*/
 
     public function updateSiswa($id_siswa)
     {
