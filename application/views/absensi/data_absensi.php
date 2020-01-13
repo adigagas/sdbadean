@@ -59,12 +59,19 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
+                                <div class="row card-header" style="background:#2980b9;">
+                                    <div class="col-md-6">
+                                        <h5 class="" style=" color:#fff;">Rombel : <?= $nama_rombel ?></h5>
+                                    </div>
+                                    <div class="text-right col-md-6">
+                                        <h5 class="text-right" style=" color:#fff;">Mapel : <?= $nama_mapel ?></h5>
+                                    </div>
+                                </div><br>
                                 <div class="">
                                     <div class="text-left col-md-12">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h5 class="card-header" style="background:#fff;">Data Peserta Didik Kelas <?= $kelas->id_kelas ?></h5>
+
                                             </div>
                                             <div class="text-right col-md-6">
                                                 <?= date('l, d-m-Y'); ?>
@@ -91,14 +98,14 @@
                                         <tbody>
                                             <?php
                                             $no = 1;
-                                            foreach ($siswa as $row) : ?>
+                                            foreach ($rombel as $row) : ?>
                                                 <tr>
                                                     <td><?= $no++ ?></td>
                                                     <td><?= $row->nomor_induk ?></td>
 
                                                     <td><?= $row->nama_siswa ?></td>
-                                                    <td><?= $row->jenis_kelamin_siswa ?></td>
-                                                    <td><a type="button" data-toggle="modal" data-target="#myModal<?php echo $row->id_siswa ?>" href="" class=" btn btn-info" style="border-radius: 10px;"> Absensi</a></td>
+                                                    <td><?= $pelajaran ?></td>
+                                                    <td><a type="button" data-toggle="modal" data-target="#myModal" href="" class=" btn btn-info" style="border-radius: 10px;"> Absensi</a></td>
                                                 </tr>
                                             <?php endforeach ?>
                                         </tbody>
@@ -108,60 +115,59 @@
                         </div>
                     </div>
                 </div>
-                <?php
-                foreach ($modal as $b) :   ?>
-                    <div id="myModal<?php echo $b->id_siswa ?>" class="modal fade" role="dialog">
 
-                        <div class="modal-dialog">
-                            <!-- konten modal-->
-                            <div class="modal-content">
-                                <!-- heading modal -->
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Absen ke <?php echo $b->nama_siswa ?> ?</h5>
+                <div id="myModal" class="modal fade" role="dialog">
+
+                    <div class="modal-dialog">
+                        <!-- konten modal-->
+                        <div class="modal-content">
+                            <!-- heading modal -->
+                            <div class="modal-header">
+                                <h5 class="modal-title">Absen ke?</h5>
+                            </div>
+                            <!-- body modal -->
+                            <div class="modal-body" style="text-align: center;">
+                                <div style="padding: 50px">
+                                    <form action="</?php echo base_url('absensi_siswa/absenData'); ?>" method="post" enctype="multipart/form-data">
+                                        <!--   <input type="hidden" name="id_siswa" value="</?php echo $b->id_siswa ?>">
+                                            <input type="hidden" name="nama_siswa" value="</?php echo $b->nama_siswa ?>">
+                                            <input type="hidden" name="id_kelas" value="</?php echo $b->id_kelas ?>">
+                                            <input type="hidden" name="tanggal" value="</?= date('d-m-Y'); ?>">-->
+
+                                        <div style="text-align: center;">
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio1" value="Hadir">
+                                                <label class="form-check-label" for="inlineRadio1">Hadir</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio2" value="Sakit">
+                                                <label class="form-check-label" for="inlineRadio2">Sakit</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio3" value="Ijin">
+                                                <label class="form-check-label" for="inlineRadio3">Ijin</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio3" value="Alpa">
+                                                <label class="form-check-label" for="inlineRadio3">Alpa</label>
+                                            </div>
+
+                                        </div><br>
+                                        <!--<input type="hidden" name="nama_depan" value="<//?php echo $this->session->userdata('nama_depan') ?>">-->
+                                        <button class="btn btn-success" style="text-transform: capitalize; border-radius: 20px;" type="input">Absen</button>
+                                        <a data-dismiss="modal" class="btn btn-info" style="text-transform: capitalize; border-radius: 20px; color:#fff;"> Tidak</a>
+                                    </form>
                                 </div>
-                                <!-- body modal -->
-                                <div class="modal-body" style="text-align: center;">
-                                    <div style="padding: 50px">
-                                        <form action="<?php echo base_url('absensi_siswa/absenData'); ?>" method="post" enctype="multipart/form-data">
-                                            <input type="hidden" name="id_siswa" value="<?php echo $b->id_siswa ?>">
-                                            <input type="hidden" name="nama_siswa" value="<?php echo $b->nama_siswa ?>">
-                                            <input type="hidden" name="id_kelas" value="<?php echo $b->id_kelas ?>">
-                                            <input type="hidden" name="tanggal" value="<?= date('d-m-Y'); ?>">
+                            </div>
+                            <!-- footer modal -->
+                            <div class="modal-footer">
 
-                                            <div style="text-align: center;">
-
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio1" value="Hadir">
-                                                    <label class="form-check-label" for="inlineRadio1">Hadir</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio2" value="Sakit">
-                                                    <label class="form-check-label" for="inlineRadio2">Sakit</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio3" value="Ijin">
-                                                    <label class="form-check-label" for="inlineRadio3">Ijin</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="kehadiran" id="inlineRadio3" value="Alpa">
-                                                    <label class="form-check-label" for="inlineRadio3">Alpa</label>
-                                                </div>
-
-                                            </div><br>
-                                            <!--<input type="hidden" name="nama_depan" value="<//?php echo $this->session->userdata('nama_depan') ?>">-->
-                                            <button class="btn btn-success" style="text-transform: capitalize; border-radius: 20px;" type="input">Absen</button>
-                                            <a data-dismiss="modal" class="btn btn-info" style="text-transform: capitalize; border-radius: 20px; color:#fff;"> Tidak</a>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- footer modal -->
-                                <div class="modal-footer">
-
-                                </div>
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                </div>
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->

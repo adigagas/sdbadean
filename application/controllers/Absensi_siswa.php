@@ -28,11 +28,16 @@ class Absensi_siswa extends CI_Controller
         $this->load->view('absensi/absensi_siswa');
     }
 
-    public function absenSiswa($id_kelas)
+    public function absenSiswa()
     {
-        $data['modal'] = $this->M_absensi->getIdKelas($id_kelas)->result();
-        $data['kelas'] = $this->M_absensi->getIdKelas($id_kelas)->row();
-        $data['siswa'] = $this->M_absensi->getIdKelas($id_kelas)->result();
+        $nama_rombel = $this->input->post('nama_rombel');
+        $nama_pelajaran = $this->input->post('nama_pelajaran');
+        $id_pelajaran = $this->input->post('id_pelajaran');
+        $id_rombel = $this->input->post('id_rombel');
+        $data['rombel'] = $this->M_absensi->getMapel($id_rombel)->result();
+        $data['pelajaran'] = $id_pelajaran;
+        $data['nama_mapel'] = $nama_pelajaran;
+        $data['nama_rombel'] = $nama_rombel;
         $this->load->view('absensi/data_absensi', $data);
     }
 

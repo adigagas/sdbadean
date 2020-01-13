@@ -44,12 +44,7 @@ if ($this->session->userdata('username') == null) {
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">Dashboard</h4>
                         <div class="ml-auto text-right">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
+                            <?= $waktu; ?>
                         </div>
                     </div>
                 </div>
@@ -102,15 +97,43 @@ if ($this->session->userdata('username') == null) {
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
                                     <div>
-                                        <h4 class="card-title">Site Analysis</h4>
+                                        <h4 class="card-title">Jadwal Mengajar</h4>
                                         <h5 class="card-subtitle">Overview of Latest Month</h5>
                                     </div>
+
+
                                 </div>
                                 <div class="row">
                                     <!-- column -->
                                     <div class="col-lg-9">
-                                        <div class="flot-chart">
-                                            <div class="flot-chart-content" id="flot-line-chart"></div>
+                                        <?php echo $this->session->flashdata('kosong'); ?>
+
+                                        <div class="row">
+                                            <?php foreach ($jadwal as $a) : ?>
+                                                <div class="col-md-6">
+                                                    <div class="flot-chart">
+                                                        <div class="card text-center">
+                                                            <div class="card-header">
+                                                                Kelas <?= $a->nama_rombel ?>
+                                                            </div>
+                                                            <form action="<?php echo base_url('Absensi_siswa/absenSiswa'); ?>" method="post" enctype="multipart/form-data">
+                                                                <div class="card-body">
+                                                                    <h5 class="card-title"><?= $a->nama_pelajaran ?></h5>
+                                                                    <p class="card-text"><?= $a->waktu_mulai ?>-<?= $a->waktu_selesai ?> WIB</p>
+                                                                    <input type="hidden" value="<?= $a->id_rombel ?>" name="id_rombel">
+                                                                    <input type="hidden" value="<?= $a->nama_rombel ?>" name="nama_rombel">
+                                                                    <input type="hidden" value="<?= $a->nama_pelajaran ?>" name="nama_pelajaran">
+                                                                    <input type="hidden" value="<?= $a->id_pelajaran ?>" name="id_pelajaran">
+                                                                    <button class="btn btn-success" type="submit">Absensi Sekarang</button>
+                                                                </div>
+                                                            </form>
+                                                            <div class="card-footer text-muted">
+                                                                <?= $a->nama_gtk ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
