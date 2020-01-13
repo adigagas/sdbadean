@@ -133,7 +133,7 @@
                                         <div id="keluar" style="display:none;">
                                             <h5 class="">Dengan keterangan</h5><br>
                                             <form id="example-form" action="<?php echo base_url('peserta_didik/keluarSekolah'); ?>" method="post" enctype="multipart/form-data">
-                                                <input type="hidden" name="id_siswa" value="<?= $siswa->nomor_induk ?> ">
+                                                <input type="hidden" name="id_siswa" value="<?= $this->uri->segment('3'); ?>">
                                                 <div class="form-group row">
                                                     <label for="lname" class="col-sm-4  control-label col-form-label">Tanggal</label>
                                                     <div class="col-sm-8">
