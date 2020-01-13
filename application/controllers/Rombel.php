@@ -15,11 +15,7 @@ class Rombel extends CI_Controller
         $this->load->helper(array('form', 'url'));
     }
 
-    public function getCountRombel()
-    {
-        $this->db->from('tb_relasi_rombel_siswa');
-        return $this->db->count_all_results();
-    }
+
 
     public function index()
     {

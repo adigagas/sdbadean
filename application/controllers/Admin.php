@@ -14,6 +14,10 @@ class Admin extends CI_Controller
 
     public function indexkepsek()
     {
+        $data['count'] = $this->M_peserta_didik->getCountSiswaAktif();
+        $data['countnon'] = $this->M_peserta_didik->getCountSiswaNonAktif();
+        $data['countgtk'] = $this->M_Gtk->getCountGTK();
+        $data['countrombel'] = $this->M_rombel->getCountRombel();
 
         $this->load->helper('tgl_indo');
         $waktu = date('Y-m-d');
@@ -54,6 +58,10 @@ class Admin extends CI_Controller
     }
     public function indexoperator()
     {
+        $data['count'] = $this->M_peserta_didik->getCountSiswaAktif();
+        $data['countnon'] = $this->M_peserta_didik->getCountSiswaNonAktif();
+        $data['countgtk'] = $this->M_Gtk->getCountGTK();
+        $data['countrombel'] = $this->M_rombel->getCountRombel();
         $this->load->helper('tgl_indo');
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);
@@ -62,6 +70,10 @@ class Admin extends CI_Controller
     }
     public function indextu()
     {
+        $data['count'] = $this->M_peserta_didik->getCountSiswaAktif();
+        $data['countnon'] = $this->M_peserta_didik->getCountSiswaNonAktif();
+        $data['countgtk'] = $this->M_Gtk->getCountGTK();
+        $data['countrombel'] = $this->M_rombel->getCountRombel();
         $this->load->helper('tgl_indo');
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);
