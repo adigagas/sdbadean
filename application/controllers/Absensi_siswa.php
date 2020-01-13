@@ -74,12 +74,36 @@ class Absensi_siswa extends CI_Controller
         redirect('Admin/indexguru');
     }
 
-    public function absenData()
+    public function absenDataHarian($id_mapel)
     {
+        $waktu = date('Y-m-d');
+        $data['waktu'] = formatHariTanggal($waktu);
+        $data['laporan'] = $this->M_absensi->getAbsensiHarian($id_mapel)->result();
+        $data['modal'] = $this->M_absensi->getAbsensiHarian($id_mapel)->result();
+        $data['kelas'] = $this->M_absensi->getAbsensiHarian($id_mapel)->row();
+        $this->load->view('absensi/laporan_absensi_hari', $data);
+    }
+
+    public function updateKehadiran()
+    {
+        $id_siswa = $this->input->post('id_siswa');
+        $kehadiran = $this->input->post('kehadiran');
+        $id_mapel = $this->input->post('id_mapel');
+        $this->db->set('keterangan', $kehadiran);
+        $this->db->where('id_siswa', $id_siswa);
+        $this->db->update('tb_absensi');
+        $this->session->set_flashdata(
+            'brhsl',
+            '<div class="alert alert-success">
+            <p>Keterangan berhasil di rubah!</p>
+            </div>'
+        );
+        redirect(base_url('Absensi_siswa/absenDataHarian/' . $id_mapel));
     }
 
     public function laporanAbsen()
     {
+
         $data['laporan'] = $this->M_absensi->getAbsensiSiswa()->result();
         $this->load->view('absensi/laporan_absensi', $data);
     }

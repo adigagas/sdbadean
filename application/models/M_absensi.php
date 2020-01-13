@@ -54,6 +54,21 @@ class M_absensi extends CI_Model
         return $this->db->get();
     }
 
+    public function getAbsensiHarian($id_mapel)
+    {
+        $id_gtk = $this->session->userdata('id_gtk');
+        $waktu = date('Y-m-d');
+        $now = formatHariTanggal($waktu);
+        $this->db->select('*');
+        $this->db->from('tb_absensi');
+        $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
+        $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
+        $this->db->where('tanggal_absensi', $now);
+        $this->db->where('tb_absensi.id_gtk', $id_gtk);
+        $this->db->where('tb_absensi.id_mapel', $id_mapel);
+        return $this->db->get();
+    }
+
     function addSiswa($data, $table)
     {
         return $this->db->insert($table, $data);
@@ -61,13 +76,17 @@ class M_absensi extends CI_Model
 
     public function reportAbsensi($id_gtk)
     {
-
+        $waktu = date('Y-m-d');
+        $now = formatHariTanggal($waktu);
         $this->db->select('*');
         $this->db->from('tb_absensi');
         $this->db->join('tb_pelajaran', 'tb_pelajaran.id_pelajaran=tb_absensi.id_pelajaran');
         $this->db->join('tb_rombel', 'tb_rombel.id_rombel=tb_absensi.id_rombel');
+        $this->db->join('tb_mapel', 'tb_mapel.id_jadwal_mapel=tb_absensi.id_mapel');
+        $this->db->join('tb_gtk', 'tb_gtk.id_gtk=tb_absensi.id_gtk');
         $this->db->group_by(array("tb_absensi.id_mapel", "tb_absensi.id_gtk"));
         $this->db->where('tb_absensi.id_gtk', $id_gtk);
+        $this->db->where('tb_absensi.tanggal_absensi', $now);
 
         return $this->db->get()->result();
     }
