@@ -33,7 +33,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Form Ekstrakulikuler</h4>
+                        <h4 class="page-title">Form Akun</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -59,7 +59,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Akun</h5><br>
+                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Akun Pengguna</h5><br>
                                 <div class="form-gruop">
 
                                     <div class="text-right">
@@ -68,7 +68,7 @@
                                         <input> &nbsp; &nbsp; &nbsp; &nbsp; -->
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-                                            Tambah Akun
+                                            Tambah Pengguna
                                         </button>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
