@@ -125,7 +125,21 @@ if ($this->session->userdata('username') == null) {
                                                                     <input type="hidden" value="<?= $a->id_pelajaran ?>" name="id_pelajaran">
                                                                     <input type="hidden" value="<?= $a->id_gtk ?>" name="id_gtk">
                                                                     <input type="hidden" value="<?= $a->id_jadwal_mapel ?>" name="id_jadwal_mapel">
-                                                                    <button class="btn btn-success" type="submit">Absensi Sekarang</button>
+                                                                    <button class="btn btn-success" type="submit" <?php
+                                                                                                                    $sql = "SELECT COUNT(id_siswa)
+                                                                                                                    FROM tb_absensi WHERE tanggal_absensi='" . $waktu . "' AND id_mapel='" . $a->id_jadwal_mapel . "'";
+                                                                                                                    $query = $this->db->query($sql);
+                                                                                                                    $result = $query->row_array();
+                                                                                                                    $count = $result['COUNT(id_siswa)'];
+                                                                                                                    if ($count <= 0) {
+                                                                                                                        echo "";
+                                                                                                                    } else {
+                                                                                                                        echo "disabled";
+                                                                                                                    } ?>> <?php if ($count <= 0) {
+                                                                                                                                echo "Absensi Sekarang";
+                                                                                                                            } else {
+                                                                                                                                echo "Sudah Diabsen";
+                                                                                                                            } ?></button>
                                                                 </div>
                                                             </form>
                                                             <div class="card-footer text-muted">
