@@ -64,7 +64,7 @@
                                             <p><label>Select Excel File</label>
                                                 <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
                                             <input type="submit" name="import" value="Import" class="btn btn-info" />
-                                            <a class="btn btn-info"  href="<?php echo base_url(); ?>excel_import2/export">Export</a>
+                                            <a class="btn btn-info"  href="<?php echo base_url(); ?>Excel_import2/export2">Export</a>
                                         </form>
                                 <?php if ($jabatan == 2 || $jabatan == 3 || $jabatan == 4) {
                                     print "<div class=\"text-right\">\n";
