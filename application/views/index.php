@@ -61,29 +61,46 @@ if ($this->session->userdata('username') == null) {
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="col-md-6 col-lg-3 col-xlg-3">
                         <div class="card card-hover">
-                            <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
-                                <h6 class="text-white">Jumlah Peserta Didik</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-success text-center">
+                            <div style="height: 150px;" class="box bg-success text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-school"></i></h1>
-                                <h6 class="text-white">Jumlah Tenaga Didik</h6>
+                                <h6 class="text-white">Jumlah Peserta Didik : Aktif </h6>
+                                <h2 class="text-white"><?= $count ?></h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="card card-hover">
+                            <div style="height: 150px;" class="box bg-danger text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
+                                <h6 class="text-white">Jumlah Peserta Didik : Non-Aktif</h6>
+                                <h2 class="text-white"><?= $countnon ?></h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="card card-hover">
+                            <div style="height: 150px;" class="box bg-cyan text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
+                                <h6 class="text-white">Jumlah GTK</h6>
+                                <h2 class="text-white">46</h2>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
+
+                    <!-- Column -->
+
+                    <div class="col-md-6 col-lg-3 col-xlg-3">
                         <div class="card card-hover">
-                            <div class="box bg-danger text-center">
+                            <div style="height: 150px;" class="box bg-warning text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
                                 <h6 class="text-white">Jumlah Rombel</h6>
+                                <h2 class="text-white">46</h2>
+
                             </div>
                         </div>
                     </div>

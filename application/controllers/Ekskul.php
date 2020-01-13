@@ -18,6 +18,8 @@ class Ekskul extends CI_Controller
 
     public function index()
     {
+        $data['jabatan'] = $this->session->userdata('jabatan');
+
         $data['ekskul'] = $this->M_Ekskul->getAllEkskul();
         $this->load->view('ekskul/ekskul', $data);
     }

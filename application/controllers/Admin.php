@@ -7,18 +7,23 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_mapel');
+        $this->load->model('M_peserta_didik');
     }
 
     public function indexkepsek()
     {
+
         $this->load->helper('tgl_indo');
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);
         $data['jabatan'] = $this->session->userdata('jabatan');
+        $data['count'] = $this->M_peserta_didik->getCountSiswaAktif();
         $this->load->view('index', $data);
     }
     public function indexguru()
     {
+        $data['count'] = $this->M_peserta_didik->getCountSiswaAktif();
+        $data['countnon'] = $this->M_peserta_didik->getCountSiswaNonAktif();
         $data['gtk'] = $this->session->userdata('id_gtk');
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);
