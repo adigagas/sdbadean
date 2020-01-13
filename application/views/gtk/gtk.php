@@ -1,4 +1,7 @@
-<?php $this->load->view('templates/header'); ?>
+<?php $this->load->view('templates/header');
+if ($this->session->userdata('username') == null) {
+    redirect('auth');
+} ?>
 
 <body>
     <!-- ============================================================== -->
@@ -60,20 +63,23 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Guru & Tenaga Kependidikan (GTK)</h5><br>
-                                <div class="form-gruop">
+
                                 <form method="post" action="<?php echo base_url('Excel_import/import'); ?>" enctype="multipart/form-data">
                                             <p><label>Select Excel File</label>
                                                 <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
                                             <input type="submit" name="import" value="Import" class="btn btn-info" />
                                             <a class="btn btn-info"  href="<?php echo base_url(); ?>excel_import/export">Export</a>
                                         </form>
-                                    <div class="text-right">
-                                       
-                                        <!-- <h7><strong> Posisi di sekolah </strong></h7> &nbsp;
-                                        <input> &nbsp; &nbsp; &nbsp; &nbsp; -->
-                                        <a type="button" href="<?= base_url() ?>Gtk/tambahGtk" class="btn btn-success" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah GTK</a>
-                                    </div>
-                                </div><br>
+                                <?php if ($jabatan == 2 || $jabatan == 3 || $jabatan == 4) {
+                                    print "<div class=\"form-gruop\">\n";
+                                    print "<div class=\"text-right\">\n";
+                                    print "<h7><strong> Posisi di sekolah </strong></h7>  \n";
+                                    print "<input>        \n";
+                                    print "<a type=\"button\" href=\"" . base_url() . "gtk/tambahgtk\" class=\"btn btn-success\" style=\"border-radius: 10px;\"><i class=\"fa fa-user\"></i> Tambah GTK</a>\n";
+                                    print "</div>\n";
+                                    print "</div><br>";
+                                } ?>
+
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>

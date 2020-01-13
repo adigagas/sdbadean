@@ -44,7 +44,7 @@ class M_peserta_didik extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_siswa');
-        $this->db->join('tb_relasi_siswa','tb_siswa.id_siswa=tb_relasi_siswa.id_siswa');
+        //$this->db->join('tb_relasi_siswa','tb_siswa.id_siswa=tb_relasi_siswa.id_siswa');
         return $this->db->get()->result();
     }
 

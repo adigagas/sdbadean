@@ -30,6 +30,7 @@ class Peserta_didik extends CI_Controller
 
     public function index()
     {
+        $data['jabatan'] = $this->session->userdata('jabatan');
         $data['siswa'] = $this->M_peserta_didik->getAllSiswa();
         $this->load->view('peserta_didik/peserta_didik', $data);
     }

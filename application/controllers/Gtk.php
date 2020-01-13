@@ -17,6 +17,7 @@ class Gtk extends CI_Controller
     }
     public function index()
     {
+        $data['jabatan'] = $this->session->userdata('jabatan');
         $data['gtk'] = $this->M_Gtk->getAllGtk();
         $this->load->view('gtk/gtk', $data);
     }
