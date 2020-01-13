@@ -98,13 +98,14 @@ if ($this->session->userdata('username') == null) {
                                 <div class="d-md-flex align-items-center">
                                     <div>
                                         <h4 class="card-title">Jadwal Mengajar</h4>
-                                        <h5 class="card-subtitle">Overview of Latest Month</h5>
+
                                     </div>
                                 </div>
                                 <div class="row">
                                     <!-- column -->
                                     <div class="col-lg-9">
                                         <?php echo $this->session->flashdata('kosong'); ?>
+
 
                                         <div class="row">
                                             <?php foreach ($jadwal as $a) : ?>

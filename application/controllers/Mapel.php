@@ -72,8 +72,8 @@ class Mapel extends CI_Controller
         //$data['selasa'] = $this->M_mapel->getMapelSelasa();
         // $data['rabu'] = $this->M_mapel->getMapelRabu();
         //$data['kamis'] = $this->M_mapel->getMapelKamis();
-        $data['jumat'] = $this->M_mapel->getMapelJumat();
-        $data['sabtu'] = $this->M_mapel->getMapelSabtu();
+        //$data['jumat'] = $this->M_mapel->getMapelJumat();
+        //$data['sabtu'] = $this->M_mapel->getMapelSabtu();
         //---------------------//
         $data['gtk'] = $this->db->get('tb_gtk')->result();
         $data['hari'] = $this->db->get('tb_hari')->result();
@@ -90,10 +90,10 @@ class Mapel extends CI_Controller
         foreach ($test as $m) : ?>
             <tr>
 
-                <td><?= $m->nama_pelajaran ?></td>
-                <td><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
-                <td><?= $m->nama_gtk ?></td>
-                <td> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
+                <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
+                <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
 
             </tr>
         <?php endforeach; ?> <?php
@@ -107,10 +107,10 @@ class Mapel extends CI_Controller
                                 foreach ($a as $b) : ?>
             <tr>
 
-                <td><?= $b->nama_pelajaran ?></td>
-                <td><?= $b->waktu_mulai ?> - <?= $b->waktu_selesai ?></td>
-                <td><?= $b->nama_gtk ?></td>
-                <td> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"><?= $b->nama_pelajaran ?></td>
+                <td style="font-size: 12px"><?= $b->waktu_mulai ?> - <?= $b->waktu_selesai ?></td>
+                <td style="font-size: 12px"><?= $b->nama_gtk ?></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
 
             </tr>
         <?php endforeach; ?> <?php
@@ -123,10 +123,10 @@ class Mapel extends CI_Controller
                                 foreach ($test as $m) : ?>
             <tr>
 
-                <td><?= $m->nama_pelajaran ?></td>
-                <td><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
-                <td><?= $m->nama_gtk ?></td>
-                <td> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
+                <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
+                <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
 
             </tr>
         <?php endforeach; ?> <?php
@@ -141,10 +141,46 @@ class Mapel extends CI_Controller
                                 foreach ($test as $m) : ?>
             <tr>
 
-                <td><?= $m->nama_pelajaran ?></td>
-                <td><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
-                <td><?= $m->nama_gtk ?></td>
-                <td> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
+                <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
+                <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+
+            </tr>
+        <?php endforeach; ?> <?php
+
+                            }
+
+
+                            //-------------------------------------------------Hari Kamins-------------------------------------//
+                            public function load5()
+                            {
+                                $angkatan = $_GET['angkatan'];
+                                $test = $this->M_mapel->getMapelJumat($angkatan);
+                                foreach ($test as $m) : ?>
+            <tr>
+
+                <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
+                <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
+                <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+
+            </tr>
+        <?php endforeach; ?> <?php
+
+                            }
+                            //-------------------------------------------------Hari Sabtu-------------------------------------//
+                            public function load6()
+                            {
+                                $angkatan = $_GET['angkatan'];
+                                $test = $this->M_mapel->getMapelSabtu($angkatan);
+                                foreach ($test as $m) : ?>
+            <tr>
+
+                <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
+                <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
+                <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
 
             </tr>
         <?php endforeach; ?> <?php

@@ -19,6 +19,7 @@ class Admin extends CI_Controller
     }
     public function indexguru()
     {
+        $data['gtk'] = $this->session->userdata('id_gtk');
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);
         $date = formatHariTanggal($waktu);
