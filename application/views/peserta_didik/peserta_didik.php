@@ -60,6 +60,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Peserta Didik</h5> <br>
+                                <form method="post" action="<?php echo base_url('Excel_import2/import'); ?>" enctype="multipart/form-data">
+                                            <p><label>Select Excel File</label>
+                                                <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
+                                            <input type="submit" name="import" value="Import" class="btn btn-info" />
+                                            <a class="btn btn-info"  href="<?php echo base_url(); ?>excel_import2/export">Export</a>
+                                        </form>
                                 <?php if ($jabatan == 2 || $jabatan == 3 || $jabatan == 4) {
                                     print "<div class=\"text-right\">\n";
                                     print "<a type=\"button\" href=\"" . base_url() . "peserta_didik/tambahPeserta2\" class=\"btn btn-success \" style=\"border-radius: 10px;\"><i class=\"fa fa-user\"></i> Tambah Siswa</a>\n";
