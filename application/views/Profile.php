@@ -167,7 +167,7 @@ if ($this->session->userdata('username') == null) {
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            COPYRIGHT © BIKEA TECHNOCRAFT 2019 
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

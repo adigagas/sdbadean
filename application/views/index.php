@@ -86,7 +86,7 @@ if ($this->session->userdata('username') == null) {
                             <div style="height: 150px;" class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
                                 <h6 class="text-white">Jumlah GTK</h6>
-                                <h2 class="text-white">46</h2>
+                                <h2 class="text-white"><?= $countgtk ?></h2>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ if ($this->session->userdata('username') == null) {
                             <div style="height: 150px;" class="box bg-warning text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
                                 <h6 class="text-white">Jumlah Rombel</h6>
-                                <h2 class="text-white">46</h2>
+                                <h2 class="text-white"><?= $countrombel ?></h2>
 
                             </div>
                         </div>
@@ -235,7 +235,7 @@ if ($this->session->userdata('username') == null) {
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            COPYRIGHT © BIKEA TECHNOCRAFT 2019 
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
