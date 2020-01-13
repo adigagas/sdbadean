@@ -66,7 +66,7 @@ class M_absensi extends CI_Model
         $this->db->from('tb_absensi');
         $this->db->join('tb_pelajaran', 'tb_pelajaran.id_pelajaran=tb_absensi.id_pelajaran');
         $this->db->join('tb_rombel', 'tb_rombel.id_rombel=tb_absensi.id_rombel');
-        $this->db->group_by('tb_absensi.id_gtk');
+        $this->db->group_by(array("tb_absensi.id_mapel", "tb_absensi.id_gtk"));
         $this->db->where('tb_absensi.id_gtk', $id_gtk);
 
         return $this->db->get()->result();
