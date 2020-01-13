@@ -18,7 +18,7 @@
                 <!-- Logo text -->
                 <span class="logo-text">
                     <!-- dark Logo text -->
-                    <img src="<?= base_url() ?>vendor/assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                    <img src="<?= base_url() ?>vendor/assets/images/SDN Badean 1.png" alt="homepage" class="light-logo" />
 
                 </span>
                 <!-- Logo icon -->
