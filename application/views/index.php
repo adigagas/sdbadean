@@ -98,7 +98,7 @@ if ($this->session->userdata('username') == null) {
                                 <div class="d-md-flex align-items-center">
                                     <div>
                                         <h4 class="card-title">Jadwal Mengajar</h4>
-                                        <h5 class="card-subtitle">Overview of Latest Month</h5>
+
                                     </div>
                                 </div>
                                 <div class="row">
@@ -106,13 +106,6 @@ if ($this->session->userdata('username') == null) {
                                     <div class="col-lg-9">
                                         <?php echo $this->session->flashdata('kosong'); ?>
 
-                                        <?php
-                                        $ab = $cek->tanggal_absensi;
-                                        if ($ab = $waktu) {
-                                            print '<button class="btn btn-success" style="display:none;" type="submit">Absensi Sekarang</button>';
-                                        } else {
-                                            print '<button class="btn btn-success" type="submit">Absensi Sekarang</button>';
-                                        } ?>
 
                                         <div class="row">
                                             <?php foreach ($jadwal as $a) : ?>

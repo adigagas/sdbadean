@@ -129,7 +129,6 @@ class Excel_import2 extends CI_Controller
                         'alamat_siswa'            =>    $alamat_siswa,
                         'foto_satu'            =>    $foto_satu,
                         'foto_empat'            =>    $foto_empat,
-                        'id_kelas'            =>    $id_kelas,
                         'status'            =>    $status,
 
                     );

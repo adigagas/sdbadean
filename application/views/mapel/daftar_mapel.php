@@ -182,65 +182,54 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <div style="display: none">
-                                            <div class="col-md-4">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <h5 style="text-align: center" class="card-title m-b-0">
-                                                            <td>Jum'at</td>
-                                                        </h5>
-                                                    </div>
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col"><b> Mapel</b></th>
-                                                                <th scope="col"><b>Waktu</b></th>
-                                                                <th scope="col"><b>Guru</b></th>
 
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <?php foreach ($jumat as $m) : ?>
-                                                                <tr>
-                                                                    <td><?= $m->nama_pelajaran ?></td>
-                                                                    <td><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
-                                                                    <td><?= $m->nama_gtk ?></td>
-
-                                                                </tr>
-                                                            <?php endforeach; ?>
-                                                        </tbody>
-                                                    </table>
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 style="text-align: center" class="card-title m-b-0">
+                                                        <td>Jum'at</td>
+                                                    </h5>
                                                 </div>
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col"><b> Mapel</b></th>
+                                                            <th scope="col"><b>Waktu</b></th>
+                                                            <th scope="col"><b>Guru</b></th>
+                                                            <th scope="col"><b>Aksi</b></th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="kelas5">
+
+                                                    </tbody>
+                                                </table>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <h5 style="text-align: center" class="card-title m-b-0">
-                                                            <td>Sabtu</td>
-                                                        </h5>
-                                                    </div>
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col"><b> Mapel</b></th>
-                                                                <th scope="col"><b>Waktu</b></th>
-                                                                <th scope="col"><b>Guru</b></th>
+                                        </div>
 
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <?php foreach ($sabtu as $m) : ?>
-                                                                <tr>
-                                                                    <td><?= $m->nama_pelajaran ?></td>
-                                                                    <td><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
-                                                                    <td><?= $m->nama_gtk ?></td>
-
-                                                                </tr>
-                                                            <?php endforeach; ?>
-                                                        </tbody>
-                                                    </table>
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 style="text-align: center" class="card-title m-b-0">
+                                                        <td>Sabtu</td>
+                                                    </h5>
                                                 </div>
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col"><b> Mapel</b></th>
+                                                            <th scope="col"><b>Waktu</b></th>
+                                                            <th scope="col"><b>Guru</b></th>
+                                                            <th scope="col"><b>Aksi</b></th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="kelas6">
+
+                                                    </tbody>
+                                                </table>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -455,6 +444,8 @@
                 kelas2();
                 kelas3();
                 kelas4();
+                kelas5();
+                kelas6();
             });
         });
 
@@ -502,6 +493,30 @@
                 success: function(data) {
                     console.log(data)
                     $("#kelas4").html(data);
+                }
+            });
+        }
+
+        function kelas5() {
+            var angkatan = $("#angkatan").val();
+            $.ajax({
+                url: "<?= base_url('Mapel/load5') ?>",
+                data: "angkatan=" + angkatan,
+                success: function(data) {
+                    console.log(data)
+                    $("#kelas5").html(data);
+                }
+            });
+        }
+
+        function kelas6() {
+            var angkatan = $("#angkatan").val();
+            $.ajax({
+                url: "<?= base_url('Mapel/load6') ?>",
+                data: "angkatan=" + angkatan,
+                success: function(data) {
+                    console.log(data)
+                    $("#kelas6").html(data);
                 }
             });
         }

@@ -103,13 +103,15 @@
                                                         <input type="hidden" name="id_siswa[]" value=<?= $row->id_siswa ?>>
                                                         <input type="hidden" name="id_mapel" value="<?= $jadwal_mapel ?>">
                                                         <input type="hidden" name="tanggal_absensi" value="<?= $waktu ?>">
+                                                        <input type="hidden" name="id_pelajaran" value="<?= $id_pelajaran ?>">
+                                                        <input type="hidden" name="id_rombel" value="<?= $id_rombel ?>">
                                                         <td> <?= $urut++; ?></td>
                                                         <td><?= $row->nomor_induk ?></td>
                                                         <td><?= $row->nama_siswa ?></td>
                                                         <td><?= $row->jenis_kelamin_siswa ?></td>
                                                         <td align="center">
                                                             <label class="form-check-label">H</label>&nbsp;&nbsp;<label class="form-check-label">S</label>&nbsp;&nbsp;<label class="form-check-label">I</label>&nbsp;&nbsp;<label class="form-check-label">A</label><br>
-                                                            <input type="radio" name="keterangan<?php echo $no; ?>" value="H" />
+                                                            <input required type="radio" name="keterangan<?php echo $no; ?>" value="H" />
                                                             <input type="radio" name="keterangan<?php echo $no; ?>" value="S" />
                                                             <input type="radio" name="keterangan<?php echo $no; ?>" value="I" />
                                                             <input type="radio" name="keterangan<?php echo $no; ?>" value="A" /></td>
@@ -235,7 +237,7 @@
     <!-- this page js -->
     <script src="<?= base_url() ?>vendor/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
     <script src="<?= base_url() ?>vendor/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-    <script src="<?= base_url() ?>vendor/assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script src="<?= base_url() ?>vendor/assets/extra-libs/DataTables/datatables.js"></script>
     <script>
         /****************************************
          *       Basic Table                   *
