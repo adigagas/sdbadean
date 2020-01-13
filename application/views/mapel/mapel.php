@@ -62,16 +62,20 @@
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Absensi Peserta Didik</h5> <br>
                                 <div class="">
                                     <div class="text-left col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <select id="state" class="form-control custom-select col-md-5" style=" border-radius: 10px;">
+                                        <div class="row">\
+                                            <?php if ($jabatan == 2 || $jabatan == 3) {
+                                            ?>
+
+                                                <div class="col-md-6">
+                                                    <!-- <select id="state" class="form-control custom-select col-md-5" style=" border-radius: 10px;">
                                                     <option value="0">Pilih Kelas</option>
                                                     <option value="1">Kelas 1</option>
                                                     <option value="2">Kelas 2</option>
                                                     <option value="3">Kelas 3</option>
-                                                </select>&nbsp;&nbsp;
-                                                <a type="button" href="" class="btn btn-success " data-toggle="modal" data-target="#myModal" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah Mapel</a>
-                                            </div>
+                                                </select>&nbsp;&nbsp; -->
+                                                    <a type="button" href="" class="btn btn-success " data-toggle="modal" data-target="#myModal" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah Mapel</a>
+                                                </div>
+                                            <?php } ?>
 
                                             <div class="text-right col-md-6">
                                                 <?= date('l, d-m-Y'); ?>
@@ -114,7 +118,8 @@
                                                     <td><?= $i ?></td>
                                                     <td><?= $s->id_pelajaran ?></td>
                                                     <td><?= $s->nama_pelajaran ?></td>
-                                                    <td><a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_pelajaran ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                    <td><a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_pelajaran ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="mdi mdi-24px mdi-account-card-details"></a></td>
+                                                   
                                                 </tr>
                                             <?php
                                                 $i++;
@@ -188,7 +193,7 @@
                 <!-- footer -->
                 <!-- ============================================================== -->
                 <footer class="footer text-center">
-                COPYRIGHT © BIKEA TECHNOCRAFT 2019 
+                    COPYRIGHT © BIKEA TECHNOCRAFT 2019
                 </footer>
                 <!-- ============================================================== -->
                 <!-- End footer -->

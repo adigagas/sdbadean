@@ -54,77 +54,84 @@
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Laporan Kepesek</h5> <br>
-                                <div class="">
-                                    <div class="text-left col-md-12">
-                                        <div class="row">
-                                            <?php foreach ($kepsek as $l) : ?>
-                                                <div class="col-md-4">
-                                                    <div class="card text-center">
-                                                        <div class="card-header">
-                                                            Kelas <?= $l->nama_rombel ?>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <h5 class="card-title"><?= $l->nama_pelajaran ?></h5>
-                                                            <p class="card-text"> <?= $l->waktu_mulai ?>-<?= $l->waktu_selesai ?> WIB</p>
-                                                            <a href="<?= base_url('Absensi_siswa/absenDataHarian/' . $l->id_mapel) ?>" class="btn btn-primary">Lihat</a>
-                                                        </div>
-                                                        <div class="card-footer text-muted">
-                                                            <?= $l->nama_gtk ?>
+                <?php if ($jabatan == 1) {
+                ?>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-header" style="background:#2980b9; color:#fff;">Laporan Kepesek</h5> <br>
+                                    <div class="">
+                                        <div class="text-left col-md-12">
+                                            <div class="row">
+                                                <?php foreach ($kepsek as $l) : ?>
+                                                    <div class="col-md-4">
+                                                        <div class="card text-center">
+                                                            <div class="card-header">
+                                                                Kelas <?= $l->nama_rombel ?>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title"><?= $l->nama_pelajaran ?></h5>
+                                                                <p class="card-text"> <?= $l->waktu_mulai ?>-<?= $l->waktu_selesai ?> WIB</p>
+                                                                <a href="<?= base_url('Absensi_siswa/absenDataHarian/' . $l->id_mapel) ?>" class="btn btn-primary">Lihat</a>
+                                                            </div>
+                                                            <div class="card-footer text-muted">
+                                                                <?= $l->nama_gtk ?>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            <?php endforeach; ?>
+                                                <?php endforeach; ?>
+                                            </div>
+
+
                                         </div>
 
-
-                                    </div>
-
-                                </div><br>
+                                    </div><br>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Laporan Absensi</h5> <br>
-                                <div class="">
-                                    <div class="text-left col-md-12">
-                                        <div class="row">
-                                            <?php foreach ($laporan as $l) : ?>
-                                                <div class="col-md-4">
-                                                    <div class="card text-center">
-                                                        <div class="card-header">
-                                                            Kelas <?= $l->nama_rombel ?>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <h5 class="card-title"><?= $l->nama_pelajaran ?></h5>
-                                                            <p class="card-text"> <?= $l->waktu_mulai ?>-<?= $l->waktu_selesai ?> WIB</p>
-                                                            <a href="<?= base_url('Absensi_siswa/absenDataHarian/' . $l->id_mapel) ?>" class="btn btn-primary">Lihat</a>
-                                                        </div>
-                                                        <div class="card-footer text-muted">
-                                                            <?= $l->nama_gtk ?>
+
+                <?php if ($jabatan == 2) {
+                ?>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-header" style="background:#2980b9; color:#fff;">Laporan Absensi</h5> <br>
+                                    <div class="">
+                                        <div class="text-left col-md-12">
+                                            <div class="row">
+                                                <?php foreach ($laporan as $l) : ?>
+                                                    <div class="col-md-4">
+                                                        <div class="card text-center">
+                                                            <div class="card-header">
+                                                                Kelas <?= $l->nama_rombel ?>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title"><?= $l->nama_pelajaran ?></h5>
+                                                                <p class="card-text"> <?= $l->waktu_mulai ?>-<?= $l->waktu_selesai ?> WIB</p>
+                                                                <a href="<?= base_url('Absensi_siswa/absenDataHarian/' . $l->id_mapel) ?>" class="btn btn-primary">Lihat</a>
+                                                            </div>
+                                                            <div class="card-footer text-muted">
+                                                                <?= $l->nama_gtk ?>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            <?php endforeach; ?>
+                                                <?php endforeach; ?>
+                                            </div>
+
+
                                         </div>
 
-
-                                    </div>
-
-                                </div><br>
+                                    </div><br>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
 
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
@@ -145,7 +152,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-            COPYRIGHT © BIKEA TECHNOCRAFT 2019 
+                COPYRIGHT © BIKEA TECHNOCRAFT 2019
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
