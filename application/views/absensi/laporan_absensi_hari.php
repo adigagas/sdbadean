@@ -64,7 +64,7 @@
                                     <div class="text-left col-md-12">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h5 class="card-header" style="background:#fff;">Kelas <?= $kelas->nama_rombel ?> </h5>
+                                                <h5 class="card-header" style="background:#fff;">Kelas <?= $kelas->nama_rombel ?> ( <?= $kelas->nama_pelajaran ?> ) </h5>
                                             </div>
                                             <div class="text-right col-md-6">
                                                 <?= $waktu ?>

@@ -73,6 +73,7 @@ class M_absensi extends CI_Model
         $this->db->from('tb_absensi');
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
+        $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $this->db->where('tanggal_absensi', $now);
         $this->db->where('tb_absensi.id_gtk', $id_gtk);
         $this->db->where('tb_absensi.id_mapel', $id_mapel);
