@@ -63,22 +63,25 @@
                                 <div class="">
                                     <div class="text-left col-md-12">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <select id="angkatan" class="form-control custom-select col-md-5" style=" border-radius: 10px;">
+                                            <?php if ($jabatan == 2 || $jabatan == 3) {
+                                            ?>
+                                                <div class="col-md-6">
+                                                    <select id="angkatan" class="form-control custom-select col-md-5" style=" border-radius: 10px;">
 
-                                                    <option value="0">--Pilih Rombel--</option>
-                                                    <?php foreach ($rombel as $r) : ?>
-                                                        <option value="<?= $r->id_rombel ?>"><?= $r->nama_rombel ?></option>
-                                                    <?php endforeach; ?>
+                                                        <option value="0">--Pilih Rombel--</option>
+                                                        <?php foreach ($rombel as $r) : ?>
+                                                            <option value="<?= $r->id_rombel ?>"><?= $r->nama_rombel ?></option>
+                                                        <?php endforeach; ?>
 
-                                                </select>&nbsp;&nbsp;
-                                                <a type="button" href="" class="btn btn-success " data-toggle="modal" data-target="#myModal" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah Mapel</a>
-                                            </div>
+                                                    </select>&nbsp;&nbsp;
+                                                    <a type="button" href="" class="btn btn-success " data-toggle="modal" data-target="#myModal" style="border-radius: 10px;"><i class="fa fa-user"></i> Tambah Mapel</a>
+                                                </div>
 
-                                            <div class="text-right col-md-6">
-                                                <?= $waktu; ?>
+                                                <div class="text-right col-md-6">
+                                                    <?= $waktu; ?>
 
-                                            </div>
+                                                </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
 
@@ -358,7 +361,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-            COPYRIGHT © BIKEA TECHNOCRAFT 2019 
+                COPYRIGHT © BIKEA TECHNOCRAFT 2019
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

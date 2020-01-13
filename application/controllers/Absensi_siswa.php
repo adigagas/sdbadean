@@ -25,7 +25,6 @@ class Absensi_siswa extends CI_Controller
     public function index()
     {
         $data['jabatan'] = $this->session->userdata('jabatan');
-
         $id_gtk = $this->session->userdata('id_gtk');
         $data['kepsek'] = $this->M_absensi->reportAbsensiKepsek();
         $data['laporan'] = $this->M_absensi->reportAbsensi($id_gtk);
@@ -109,6 +108,7 @@ class Absensi_siswa extends CI_Controller
     public function laporanAbsen()
     {
 
+        $data['tanggal'] = $this->db->query("SELECT DISTINCT tanggal_absensi FROM  tb_absensi")->result();
         $data['laporan'] = $this->M_absensi->getAbsensiSiswa()->result();
         $this->load->view('absensi/laporan_absensi', $data);
     }
