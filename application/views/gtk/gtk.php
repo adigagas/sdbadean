@@ -63,6 +63,13 @@ if ($this->session->userdata('username') == null) {
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Guru & Tenaga Kependidikan (GTK)</h5><br>
+
+                                <form method="post" action="<?php echo base_url('Excel_import/import'); ?>" enctype="multipart/form-data">
+                                            <p><label>Select Excel File</label>
+                                                <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
+                                            <input type="submit" name="import" value="Import" class="btn btn-info" />
+                                        </form>
+                                        <a class="btn btn-info"  href="<?php echo base_url(); ?>excel_import/export">Export</a>
                                 <?php if ($jabatan == 2 || $jabatan == 3 || $jabatan == 4) {
                                     print "<div class=\"form-gruop\">\n";
                                     print "<div class=\"text-right\">\n";
@@ -72,6 +79,7 @@ if ($this->session->userdata('username') == null) {
                                     print "</div>\n";
                                     print "</div><br>";
                                 } ?>
+
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
