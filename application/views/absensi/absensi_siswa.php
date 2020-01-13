@@ -67,15 +67,15 @@
                                                 <div class="col-md-4">
                                                     <div class="card text-center">
                                                         <div class="card-header">
-                                                            <?= $l->nama_rombel ?>
+                                                            Kelas <?= $l->nama_rombel ?>
                                                         </div>
                                                         <div class="card-body">
                                                             <h5 class="card-title"><?= $l->nama_pelajaran ?></h5>
-                                                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                            <p class="card-text"> <?= $l->waktu_mulai ?>-<?= $l->waktu_selesai ?> WIB</p>
+                                                            <a href="<?= base_url('Absensi_siswa/absenDataHarian/' . $l->id_mapel) ?>" class="btn btn-primary">Lihat</a>
                                                         </div>
                                                         <div class="card-footer text-muted">
-                                                            2 days ago
+                                                            <?= $l->nama_gtk ?>
                                                         </div>
                                                     </div>
                                                 </div>
