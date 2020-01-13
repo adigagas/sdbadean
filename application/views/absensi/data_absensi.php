@@ -82,35 +82,45 @@
                                     </div>
 
                                 </div><br>
-
-                                <div class="table-responsive">
-
-                                    <table id="zero_config" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th><b>No</b></th>
-                                                <th><b>NIS</b></th>
-                                                <th><b>Nama Peserta Didik</b></th>
-                                                <th><b>Jenis Kelamin</b></th>
-                                                <th><b>Aksi</b></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $no = 1;
-                                            foreach ($rombel as $row) : ?>
+                                <form action="<?= base_url('absensi_siswa/absensData') ?>" method="post">
+                                    <div class="table-responsive">
+                                        <table id="zero_config" class="table table-striped table-bordered">
+                                            <thead>
                                                 <tr>
-                                                    <td><?= $no++ ?></td>
-                                                    <td><?= $row->nomor_induk ?></td>
-
-                                                    <td><?= $row->nama_siswa ?></td>
-                                                    <td><?= $pelajaran ?></td>
-                                                    <td><a type="button" data-toggle="modal" data-target="#myModal" href="" class=" btn btn-info" style="border-radius: 10px;"> Absensi</a></td>
+                                                    <th><b>No</b></th>
+                                                    <th><b>NIS</b></th>
+                                                    <th><b>Nama Peserta Didik</b></th>
+                                                    <th><b>Jenis Kelamin</b></th>
+                                                    <th><b>Aksi</b></th>
                                                 </tr>
-                                            <?php endforeach ?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $no = 0;
+                                                foreach ($rombel as $row) : ?>
+                                                    <tr>
+                                                        <td><input type="hidden" name="id_siswa[]" value=<?= $row->id_siswa ?>><br></td>
+                                                        <input name="id_mapel" value="<?= $jadwal_mapel ?>">
+                                                        <input name="tanggal_absensi" value="<?= $waktu ?>">
+                                                        <td> <?= $no; ?></td>
+                                                        <td><?= $row->nomor_induk ?></td>
+                                                        <td><?= $row->nama_siswa ?></td>
+                                                        <td><?= $pelajaran ?></td>
+                                                        <td align="center">
+                                                            <label class="form-check-label">H</label>&nbsp;&nbsp;<label class="form-check-label">S</label>&nbsp;&nbsp;<label class="form-check-label">I</label>&nbsp;&nbsp;<label class="form-check-label">A</label><br>
+                                                            <input type="radio" name="keterangan<?php echo $no; ?>" value="H" />
+                                                            <input type="radio" name="keterangan<?php echo $no; ?>" value="S" />
+                                                            <input type="radio" name="keterangan<?php echo $no; ?>" value="I" />
+                                                            <input type="radio" name="keterangan<?php echo $no; ?>" value="A" /></td>
+                                                    </tr>
+                                                <?php
+                                                    $no++;
+                                                endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <button class="delete btn btn-success" type="submit" style=" Border-radius: 5px;">Selesai Absensi</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -237,6 +247,19 @@
          *       Basic Table                   *
          ****************************************/
         $('#zero_config3').DataTable();
+    </script>
+    <script language="JavaScript">
+        function toggle(source) {
+            var chet = <?php echo $count ?>;
+            if (chet > 0) {
+                checkboxes = document.getElementsByName('Id_siswa[]');
+                document.getElementById('myBtn').disabled = !source.checked;
+                for (var i = 0, n = checkboxes.length; i < n; i++) {
+                    checkboxes[i].checked = source.checked;
+                }
+            }
+
+        }
     </script>
 
 </body>

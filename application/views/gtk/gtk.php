@@ -68,8 +68,8 @@ if ($this->session->userdata('username') == null) {
                                             <p><label>Pilih File Excel</label>
                                                 <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
                                             <input type="submit" name="import" value="Import" class="btn btn-info" />
-                                            <a class="btn btn-info"  href="<?php echo base_url(); ?>excel_import/export">Export</a>
                                         </form>
+                                        <a class="btn btn-info"  href="<?php echo base_url(); ?>excel_import/export">Export</a>
                                 <?php if ($jabatan == 2 || $jabatan == 3 || $jabatan == 4) {
                                     print "<div class=\"form-gruop\">\n";
                                     print "<div class=\"text-right\">\n";

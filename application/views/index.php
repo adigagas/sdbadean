@@ -124,6 +124,8 @@ if ($this->session->userdata('username') == null) {
                                                                     <input type="hidden" value="<?= $a->nama_rombel ?>" name="nama_rombel">
                                                                     <input type="hidden" value="<?= $a->nama_pelajaran ?>" name="nama_pelajaran">
                                                                     <input type="hidden" value="<?= $a->id_pelajaran ?>" name="id_pelajaran">
+                                                                    <input type="" value="<?= $a->id_gtk ?>" name="id_gtk">
+                                                                    <input type="" value="<?= $a->id_jadwal_mapel ?>" name="id_jadwal_mapel">
                                                                     <button class="btn btn-success" type="submit">Absensi Sekarang</button>
                                                                 </div>
                                                             </form>
