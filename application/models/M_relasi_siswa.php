@@ -61,4 +61,18 @@ class M_relasi_siswa extends CI_Model
         $query = $this->db->get()->row();
         return $query;
     }
+
+    public function getexportSiswa()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_relasi_siswa');
+        $this->db->join('tb_siswa', 'tb_siswa.id_siswa =tb_relasi_siswa.id_siswa');
+        $this->db->join('tb_wali', 'tb_wali.id_wali=tb_relasi_siswa.id_wali');
+        $this->db->join('tb_alamat_wali', 'tb_alamat_wali.id_alamat_wali=tb_relasi_siswa.id_alamat_wali');
+        $this->db->join('tb_alamat_ortu', 'tb_alamat_ortu.id_alamat_ortu=tb_relasi_siswa.id_alamat_ortu');
+        $this->db->join('tb_ayah', 'tb_ayah.id_ayah=tb_relasi_siswa.id_ayah');
+        $this->db->join('tb_ibu', 'tb_ibu.id_ibu=tb_relasi_siswa.id_ibu');
+        $query = $this->db->get();
+        return $query;
+    }
 }

@@ -65,7 +65,7 @@ if ($this->session->userdata('username') == null) {
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Data Guru & Tenaga Kependidikan (GTK)</h5><br>
 
                                 <form method="post" action="<?php echo base_url('Excel_import/import'); ?>" enctype="multipart/form-data">
-                                            <p><label>Select Excel File</label>
+                                            <p><label>Pilih File Excel</label>
                                                 <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
                                             <input type="submit" name="import" value="Import" class="btn btn-info" />
                                         </form>

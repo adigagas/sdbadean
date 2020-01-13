@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Excel_import extends CI_Controller
+class Excel_import2 extends CI_Controller
 {
     public function __construct()
     {
@@ -89,28 +89,29 @@ class Excel_import extends CI_Controller
                     $id_kelas = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
                     $status = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
                     $id_ayah = md5(uniqid(rand(), true));
-                    $nama_ayah = $worksheet->getCellByColumnAndRow(16, $row)->getValue();
+                    $nama_ayah = $worksheet->getCellByColumnAndRow(15, $row)->getValue();
                     $pekerjaan_ayah = $worksheet->getCellByColumnAndRow(16, $row)->getValue();
                     $id_ibu = md5(uniqid(rand(), true));
                     $nama_ibu = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $pekerjaan_ibu = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
+                    $pekerjaan_ibu = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
                     $id_alamat_ortu = md5(uniqid(rand(), true));
-                    $jalan_ortu = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $desa_ortu = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $kec_ortu = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $kab_ortu = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $prov_ortu = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $id_alamat_wali = md5(uniqid(rand(), true));
-                    $jalan_wali = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $desa_wali = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $kec_wali = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $kab_wali = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $prov_wali = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
+                    $jalan_ortu = $worksheet->getCellByColumnAndRow(19, $row)->getValue();
+                    $desa_ortu = $worksheet->getCellByColumnAndRow(20, $row)->getValue();
+                    $kec_ortu = $worksheet->getCellByColumnAndRow(21, $row)->getValue();
+                    $kab_ortu = $worksheet->getCellByColumnAndRow(22, $row)->getValue();
+                    $prov_ortu = $worksheet->getCellByColumnAndRow(23, $row)->getValue();
                     $id_wali = md5(uniqid(rand(), true));
-                    $nama_wali = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $pekerjaan_wali = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $alamat_wali = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
-                    $hubungan_kel_wali = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
+                    $nama_wali = $worksheet->getCellByColumnAndRow(24, $row)->getValue();
+                    $pekerjaan_wali = $worksheet->getCellByColumnAndRow(25, $row)->getValue();
+                    $alamat_wali = $worksheet->getCellByColumnAndRow(26, $row)->getValue();
+                    $hubungan_kel_wali = $worksheet->getCellByColumnAndRow(27, $row)->getValue();
+                    $id_alamat_wali = md5(uniqid(rand(), true));
+                    $jalan_wali = $worksheet->getCellByColumnAndRow(28, $row)->getValue();
+                    $desa_wali = $worksheet->getCellByColumnAndRow(29, $row)->getValue();
+                    $kec_wali = $worksheet->getCellByColumnAndRow(30, $row)->getValue();
+                    $kab_wali = $worksheet->getCellByColumnAndRow(31, $row)->getValue();
+                    $prov_wali = $worksheet->getCellByColumnAndRow(32, $row)->getValue();
+
 
 
                     $datasiswa[] = array(
@@ -121,7 +122,7 @@ class Excel_import extends CI_Controller
                         'tempat_lahir_siswa'            =>    $tempat_lahir_siswa,
                         'tanggal_lahir_siswa'            =>    $tanggal_lahir_siswa,
                         'jenis_kelamin_siswa'            =>    $jenis_kelamin_siswa,
-                        'agama_gtk'            =>    $agama_siswa,
+                        'agama_siswa'            =>    $agama_siswa,
                         'kewarganegaraan_siswa'            =>    $kewarganegaraan_siswa,
                         'bahasa_siswa'            =>    $bahasa_siswa,
                         'golongan_siswa'            =>    $golongan_siswa,
@@ -193,10 +194,10 @@ class Excel_import extends CI_Controller
         }
     }
 
-    public function export()
+    public function export2()
     {
 
-        $data['siswa'] = $this->M_peserta_didik->getAllSiswa();
+        $data['siswa'] = $this->M_relasi_siswa->getexportSiswa()->result();
 
 
         // require(APPPATH. 'libraries/PHPExcel.php');
@@ -206,60 +207,80 @@ class Excel_import extends CI_Controller
 
         $object->getProperties()->setCreator("Bikea");
         $object->getProperties()->setLastModifiedBy("SDN BADEAN 1 BONDOWOSO");
-        $object->getProperties()->setTitle("Daftar GTK");
+        $object->getProperties()->setTitle("Daftar Siswa");
 
         $object->setActiveSheetIndex(0);
 
         $object->getActiveSheet()->setCellValue('A1', 'DAFTAR GURU DAN TENAGA KERJA');
         $object->getActiveSheet()->setCellValue('A2', 'No');
-        $object->getActiveSheet()->setCellValue('B2', 'NIK');
-        $object->getActiveSheet()->setCellValue('C2', 'NIP');
+        $object->getActiveSheet()->setCellValue('B2', 'NIPD');
+        $object->getActiveSheet()->setCellValue('C2', 'NISN');
         $object->getActiveSheet()->setCellValue('D2', 'Nama');
         $object->getActiveSheet()->setCellValue('E2', 'Tempat Lahir');
         $object->getActiveSheet()->setCellValue('F2', 'Tanggal Lahir');
         $object->getActiveSheet()->setCellValue('G2', 'JK');
-        $object->getActiveSheet()->setCellValue('H2', 'Pangkat Golongan');
-        $object->getActiveSheet()->setCellValue('I2', 'Gelar');
-        $object->getActiveSheet()->setCellValue('J2', 'Jenis PTK');
-        $object->getActiveSheet()->setCellValue('k2', 'Agama');
-        $object->getActiveSheet()->setCellValue('L2', 'Jalan');
-        $object->getActiveSheet()->setCellValue('M2', 'Desa');
-        $object->getActiveSheet()->setCellValue('N2', 'Kecamatan');
-        $object->getActiveSheet()->setCellValue('O2', 'Kabupaten');
-        $object->getActiveSheet()->setCellValue('P2', 'Provinsi');
-        $object->getActiveSheet()->setCellValue('Q2', 'Tanggal Masuk');
-        $object->getActiveSheet()->setCellValue('R2', 'Tanggal Keluar');
-        $object->getActiveSheet()->setCellValue('S2', 'Foto GTK');
+        $object->getActiveSheet()->setCellValue('H2', 'Agama');
+        $object->getActiveSheet()->setCellValue('I2', 'Kewarganegaraan');
+        $object->getActiveSheet()->setCellValue('J2', 'Bahasa sehari-hari');
+        $object->getActiveSheet()->setCellValue('k2', 'Golongan Darah');
+        $object->getActiveSheet()->setCellValue('L2', 'Kelas');
+        $object->getActiveSheet()->setCellValue('M2', 'Status');
+        $object->getActiveSheet()->setCellValue('N2', 'Nama Ayah');
+        $object->getActiveSheet()->setCellValue('O2', 'Pekerjaan Ayah');
+        $object->getActiveSheet()->setCellValue('P2', 'Nama Ibu');
+        $object->getActiveSheet()->setCellValue('Q2', 'Pekerjaan Ibu');
+        $object->getActiveSheet()->setCellValue('R2', 'Jalan');
+        $object->getActiveSheet()->setCellValue('S2', 'Desa');
+        $object->getActiveSheet()->setCellValue('T2', 'Kecamatan');
+        $object->getActiveSheet()->setCellValue('U2', 'Kabupaten');
+        $object->getActiveSheet()->setCellValue('V2', 'Provinsi');
+        $object->getActiveSheet()->setCellValue('W2', 'Nama Wali');
+        $object->getActiveSheet()->setCellValue('X2', 'Pekerjaan Wali');
+        $object->getActiveSheet()->setCellValue('Y2', 'Jalan');
+        $object->getActiveSheet()->setCellValue('Z2', 'Desa');
+        $object->getActiveSheet()->setCellValue('AA2', 'Kecamatan');
+        $object->getActiveSheet()->setCellValue('AB2', 'Kabupaten');
+        $object->getActiveSheet()->setCellValue('AC2', 'Provinsi');
 
         $baris = 3;
         $no = 1;
 
-        foreach ($data['siswa'] as $gtk) {
+        foreach ($data['siswa'] as $siswa) {
             $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
-            $object->getActiveSheet()->setCellValue('B' . $baris, $gtk->nik_gtk);
-            $object->getActiveSheet()->setCellValue('C' . $baris, $gtk->nip_gtk);
-            $object->getActiveSheet()->setCellValue('D' . $baris, $gtk->nama_gtk);
-            $object->getActiveSheet()->setCellValue('E' . $baris, $gtk->tempat_lahir_gtk);
-            $object->getActiveSheet()->setCellValue('F' . $baris, $gtk->tanggal_lahir_gtk);
-            $object->getActiveSheet()->setCellValue('G' . $baris, $gtk->jenis_kelamin_gtk);
-            $object->getActiveSheet()->setCellValue('H' . $baris, $gtk->pajago_gtk);
-            $object->getActiveSheet()->setCellValue('I' . $baris, $gtk->gelar_gtk);
-            $object->getActiveSheet()->setCellValue('J' . $baris, $gtk->posisi_gtk);
-            $object->getActiveSheet()->setCellValue('K' . $baris, $gtk->agama_gtk);
-            $object->getActiveSheet()->setCellValue('L' . $baris, $gtk->jalan_gtk);
-            $object->getActiveSheet()->setCellValue('M' . $baris, $gtk->desa_gtk);
-            $object->getActiveSheet()->setCellValue('N' . $baris, $gtk->kec_gtk);
-            $object->getActiveSheet()->setCellValue('O' . $baris, $gtk->kab_gtk);
-            $object->getActiveSheet()->setCellValue('P' . $baris, $gtk->prov_gtk);
-            $object->getActiveSheet()->setCellValue('Q' . $baris, $gtk->tgl_masuk_gtk);
-            $object->getActiveSheet()->setCellValue('R' . $baris, $gtk->tgl_keluar_gtk);
-            $object->getActiveSheet()->setCellValue('S' . $baris, $gtk->foto_gtk);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $siswa->nomor_induk);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $siswa->nomor_induk_sn);
+            $object->getActiveSheet()->setCellValue('D' . $baris, $siswa->tempat_lahir_siswa);
+            $object->getActiveSheet()->setCellValue('E' . $baris, $siswa->tanggal_lahir_siswa);
+            $object->getActiveSheet()->setCellValue('F' . $baris, $siswa->jenis_kelamin_siswa);
+            $object->getActiveSheet()->setCellValue('G' . $baris, $siswa->agama_siswa);
+            $object->getActiveSheet()->setCellValue('H' . $baris, $siswa->kewarganegaraan_siswa);
+            $object->getActiveSheet()->setCellValue('I' . $baris, $siswa->bahasa_siswa);
+            $object->getActiveSheet()->setCellValue('J' . $baris, $siswa->golongan_siswa);
+            $object->getActiveSheet()->setCellValue('K' . $baris, $siswa->id_kelas);
+            $object->getActiveSheet()->setCellValue('L' . $baris, $siswa->status);
+            $object->getActiveSheet()->setCellValue('M' . $baris, $siswa->nama_ayah);
+            $object->getActiveSheet()->setCellValue('N' . $baris, $siswa->pekerjaan_ayah);
+            $object->getActiveSheet()->setCellValue('O' . $baris, $siswa->nama_ibu);
+            $object->getActiveSheet()->setCellValue('P' . $baris, $siswa->pekerjaan_ibu);
+            $object->getActiveSheet()->setCellValue('Q' . $baris, $siswa->jalan_ortu);
+            $object->getActiveSheet()->setCellValue('R' . $baris, $siswa->desa_ortu);
+            $object->getActiveSheet()->setCellValue('S' . $baris, $siswa->kec_ortu);
+            $object->getActiveSheet()->setCellValue('T' . $baris, $siswa->kab_ortu);
+            $object->getActiveSheet()->setCellValue('U' . $baris, $siswa->prov_ortu);
+            $object->getActiveSheet()->setCellValue('V' . $baris, $siswa->nama_wali);
+            $object->getActiveSheet()->setCellValue('W' . $baris, $siswa->pekerjaan_wali);
+            $object->getActiveSheet()->setCellValue('X' . $baris, $siswa->hubungan_kel_wali);
+            $object->getActiveSheet()->setCellValue('Y' . $baris, $siswa->jalan_wali);
+            $object->getActiveSheet()->setCellValue('Z' . $baris, $siswa->desa_wali);
+            $object->getActiveSheet()->setCellValue('AA' . $baris, $siswa->kec_wali);
+            $object->getActiveSheet()->setCellValue('AB' . $baris, $siswa->kab_wali);
+            $object->getActiveSheet()->setCellValue('AC' . $baris, $siswa->prov_wali);
 
 
             $baris++;
         }
 
-        $filename = "Data GTK" . '.xlsx';
+        $filename = "Data Siswa" . '.xlsx';
         $object->getActiveSheet()->setTitle("Data Gtk");
 
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
