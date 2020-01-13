@@ -337,7 +337,7 @@
         <!-- this page js -->
         <script src="<?= base_url() ?>vendor/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
         <script src="<?= base_url() ?>vendor/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-        <script src="<?= base_url() ?>vendor/assets/extra-libs/DataTables/datatables.min.js"></script>
+        <script src="<?= base_url() ?>vendor/assets/extra-libs/DataTables/datatables.js"></script>
         <script>
             /****************************************
              *       Basic Table                   *
