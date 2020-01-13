@@ -118,7 +118,8 @@
                                                     <td><?= $i ?></td>
                                                     <td><?= $s->id_pelajaran ?></td>
                                                     <td><?= $s->nama_pelajaran ?></td>
-                                                    <td><a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_pelajaran ?>" class=" btn btn-info" style="border-radius: 10px;"> Detail</a></td>
+                                                    <td><a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_pelajaran ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="mdi mdi-24px mdi-account-card-details"></a></td>
+                                                   
                                                 </tr>
                                             <?php
                                                 $i++;

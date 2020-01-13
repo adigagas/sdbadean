@@ -31,6 +31,23 @@ class Akun extends CI_Controller
         redirect('Akun');
     }
     
+    public function hapusAkun($id_login = null)
+    {
+        if ($id_login) {
+            $this->M_akun->deleteAkun($id_login);
+            $this->session->set_flashdata('message', 'GTK telah dihapus');
+            redirect('Akun');
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect('Akun');
+        }
+    }
+
+    public function editAkun($id_login = null)
+    {
+        $this->M_Akun->UpdateAkun($id_login);
+        redirect('Akun');
+    }
 
 
 }

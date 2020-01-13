@@ -71,17 +71,20 @@ class M_akun extends CI_Model
         return $query->result();
     }
 
-    public function getexportSiswa()
+    function updateAkun($id_login)
     {
-        $this->db->select('*');
-        $this->db->from('tb_relasi_siswa');
-        $this->db->join('tb_siswa', 'tb_siswa.id_siswa =tb_relasi_siswa.id_siswa');
-        $this->db->join('tb_wali', 'tb_wali.id_wali=tb_relasi_siswa.id_wali');
-        $this->db->join('tb_alamat_wali', 'tb_alamat_wali.id_alamat_wali=tb_relasi_siswa.id_alamat_wali');
-        $this->db->join('tb_alamat_ortu', 'tb_alamat_ortu.id_alamat_ortu=tb_relasi_siswa.id_alamat_ortu');
-        $this->db->join('tb_ayah', 'tb_ayah.id_ayah=tb_relasi_siswa.id_ayah');
-        $this->db->join('tb_ibu', 'tb_ibu.id_ibu=tb_relasi_siswa.id_ibu');
-        $query = $this->db->get();
-        return $query;
+        $post = $this->input->post();
+        $this->id_login = $post['id_login'];
+        $this->id_gtk = $post['id_gtk'];
+        $this->username = $post['username'];
+        $this->password = $post['password'];
+        $this->jabatan = $post['jabatan'];
+        $this->db->update($this->_table, $this, array("id_login" => $id_login));
     }
+
+    function deleteAkun($id_login)
+    {
+        return $this->db->delete($this->_table, array("id_login" => $id_login));
+    }
+
 }
