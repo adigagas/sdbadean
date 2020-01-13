@@ -54,6 +54,41 @@
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Laporan Kepesek</h5> <br>
+                                <div class="">
+                                    <div class="text-left col-md-12">
+                                        <div class="row">
+                                            <?php foreach ($kepsek as $l) : ?>
+                                                <div class="col-md-4">
+                                                    <div class="card text-center">
+                                                        <div class="card-header">
+                                                            Kelas <?= $l->nama_rombel ?>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title"><?= $l->nama_pelajaran ?></h5>
+                                                            <p class="card-text"> <?= $l->waktu_mulai ?>-<?= $l->waktu_selesai ?> WIB</p>
+                                                            <a href="<?= base_url('Absensi_siswa/absenDataHarian/' . $l->id_mapel) ?>" class="btn btn-primary">Lihat</a>
+                                                        </div>
+                                                        <div class="card-footer text-muted">
+                                                            <?= $l->nama_gtk ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+
+
+                                    </div>
+
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-12">
@@ -86,38 +121,6 @@
                                     </div>
 
                                 </div><br>
-
-                                <div id="kls_1" style="display:none;">
-                                    <h5 class="card-header" style="background:#fff; ">Pilih Mapel</h5> <br>
-                                    <form action="<?php echo base_url('absensi_siswa/absenSiswa/1'); ?>" method="post">
-                                        <!--<input name="id_kelas" value="1" type="hidden">-->
-                                        <select id="mapel" class="form-control custom-select col-md-3" style=" border-radius: 10px;">
-                                            <option value="0">Pilih Mapel</option>
-                                            <option value="IPA">IPA</option>
-                                            <option value="IPS">IPS</option>
-                                            <option value="MTK">MTK</option>
-                                        </select>
-                                        <input type="submit" value="Absen" class="btn btn-success required">
-                                    </form>
-                                </div>
-
-
-                                <div id="kls_2" style="display:none;">
-                                    <h5 class="card-header" style="background:#fff; ">Pilih Mapel</h5> <br>
-                                    <form action="<?php echo base_url('absensi_siswa/absenSiswa/2'); ?>" method="post">
-                                        <!--<input name="id_kelas" value="1" type="hidden">-->
-                                        <select id="mapel" class="form-control custom-select col-md-3" style=" border-radius: 10px;">
-                                            <option value="0">Pilih Mapel</option>
-                                            <option value="IPA">IPA</option>
-                                            <option value="IPS">IPS</option>
-                                            <option value="MTK">MTK</option>
-                                        </select>
-                                        <input type="submit" value="Absen" class="btn btn-success required">
-                                    </form>
-                                </div>
-                                <div id="kls_3" style="display:none;">
-
-                                </div>
                             </div>
                         </div>
                     </div>

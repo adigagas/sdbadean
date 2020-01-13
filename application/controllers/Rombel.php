@@ -15,6 +15,8 @@ class Rombel extends CI_Controller
         $this->load->helper(array('form', 'url'));
     }
 
+
+
     public function index()
     {
         $data['rombel'] = $this->M_rombel->getAllRombel();
