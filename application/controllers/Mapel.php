@@ -64,10 +64,7 @@ class Mapel extends CI_Controller
     public function index()
     {
         $data['jabatan'] = $this->session->userdata('jabatan');
-
-
         $this->load->helper('tgl_indo');
-
         $data['pelajaran'] = $this->db->get('tb_pelajaran')->result();
         $data['rombel'] = $this->db->get('tb_rombel')->result();
         //----------------------//

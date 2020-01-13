@@ -25,7 +25,6 @@ class Absensi_siswa extends CI_Controller
     public function index()
     {
         $data['jabatan'] = $this->session->userdata('jabatan');
-
         $id_gtk = $this->session->userdata('id_gtk');
         $data['kepsek'] = $this->M_absensi->reportAbsensiKepsek();
         $data['laporan'] = $this->M_absensi->reportAbsensi($id_gtk);
