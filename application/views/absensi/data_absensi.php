@@ -91,21 +91,22 @@
                                                     <th><b>NIS</b></th>
                                                     <th><b>Nama Peserta Didik</b></th>
                                                     <th><b>Jenis Kelamin</b></th>
-                                                    <th><b>Aksi</b></th>
+                                                    <th><b>Keterangan</b></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                 $no = 0;
+                                                $urut = 1;
                                                 foreach ($rombel as $row) : ?>
                                                     <tr>
-                                                        <td><input type="hidden" name="id_siswa[]" value=<?= $row->id_siswa ?>><br></td>
-                                                        <input name="id_mapel" value="<?= $jadwal_mapel ?>">
-                                                        <input name="tanggal_absensi" value="<?= $waktu ?>">
-                                                        <td> <?= $no; ?></td>
+                                                        <input type="hidden" name="id_siswa[]" value=<?= $row->id_siswa ?>>
+                                                        <input type="hidden" name="id_mapel" value="<?= $jadwal_mapel ?>">
+                                                        <input type="hidden" name="tanggal_absensi" value="<?= $waktu ?>">
+                                                        <td> <?= $urut++; ?></td>
                                                         <td><?= $row->nomor_induk ?></td>
                                                         <td><?= $row->nama_siswa ?></td>
-                                                        <td><?= $pelajaran ?></td>
+                                                        <td><?= $row->jenis_kelamin_siswa ?></td>
                                                         <td align="center">
                                                             <label class="form-check-label">H</label>&nbsp;&nbsp;<label class="form-check-label">S</label>&nbsp;&nbsp;<label class="form-check-label">I</label>&nbsp;&nbsp;<label class="form-check-label">A</label><br>
                                                             <input type="radio" name="keterangan<?php echo $no; ?>" value="H" />
@@ -115,11 +116,16 @@
                                                     </tr>
                                                 <?php
                                                     $no++;
+
                                                 endforeach ?>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <button class="delete btn btn-success" type="submit" style=" Border-radius: 5px;">Selesai Absensi</button>
+                                    <div style="text-align: center;">
+                                        <input type="checkbox" id="checkme" /> Sudah selesai absensi?<br>
+                                        <button class="btn btn-success" name="sendNewSms" id="sendNewSms" type="submit" disabled="disabled" style=" Border-radius: 5px;">Simpan</button>
+
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -248,19 +254,20 @@
          ****************************************/
         $('#zero_config3').DataTable();
     </script>
-    <script language="JavaScript">
-        function toggle(source) {
-            var chet = <?php echo $count ?>;
-            if (chet > 0) {
-                checkboxes = document.getElementsByName('Id_siswa[]');
-                document.getElementById('myBtn').disabled = !source.checked;
-                for (var i = 0, n = checkboxes.length; i < n; i++) {
-                    checkboxes[i].checked = source.checked;
-                }
+    <script>
+        var checker = document.getElementById('checkme');
+        var sendbtn = document.getElementById('sendNewSms');
+        // when unchecked or checked, run the function
+        checker.onchange = function() {
+            if (this.checked) {
+                sendbtn.disabled = false;
+            } else {
+                sendbtn.disabled = true;
             }
 
         }
     </script>
+
 
 </body>
 

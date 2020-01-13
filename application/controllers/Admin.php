@@ -19,12 +19,12 @@ class Admin extends CI_Controller
     }
     public function indexguru()
     {
-
-        $waktu = date('Y-m-d');
-        $data['waktu'] = formatHariTanggal($waktu);
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);
         $date = formatHariTanggal($waktu);
+        $data['cek'] = $this->db->get('tb_absensi')->row();
+        /*-----------------Apa Ini-----------------*/
+
         list($hari) = mb_split('[,]', $date);
         $id_gtk = $this->session->userdata('id_gtk');
         $this->load->helper('tgl_indo');

@@ -100,13 +100,19 @@ if ($this->session->userdata('username') == null) {
                                         <h4 class="card-title">Jadwal Mengajar</h4>
                                         <h5 class="card-subtitle">Overview of Latest Month</h5>
                                     </div>
-
-
                                 </div>
                                 <div class="row">
                                     <!-- column -->
                                     <div class="col-lg-9">
                                         <?php echo $this->session->flashdata('kosong'); ?>
+
+                                        <?php
+                                        $ab = $cek->tanggal_absensi;
+                                        if ($ab = $waktu) {
+                                            print '<button class="btn btn-success" style="display:none;" type="submit">Absensi Sekarang</button>';
+                                        } else {
+                                            print '<button class="btn btn-success" type="submit">Absensi Sekarang</button>';
+                                        } ?>
 
                                         <div class="row">
                                             <?php foreach ($jadwal as $a) : ?>
@@ -124,8 +130,8 @@ if ($this->session->userdata('username') == null) {
                                                                     <input type="hidden" value="<?= $a->nama_rombel ?>" name="nama_rombel">
                                                                     <input type="hidden" value="<?= $a->nama_pelajaran ?>" name="nama_pelajaran">
                                                                     <input type="hidden" value="<?= $a->id_pelajaran ?>" name="id_pelajaran">
-                                                                    <input type="" value="<?= $a->id_gtk ?>" name="id_gtk">
-                                                                    <input type="" value="<?= $a->id_jadwal_mapel ?>" name="id_jadwal_mapel">
+                                                                    <input type="hidden" value="<?= $a->id_gtk ?>" name="id_gtk">
+                                                                    <input type="hidden" value="<?= $a->id_jadwal_mapel ?>" name="id_jadwal_mapel">
                                                                     <button class="btn btn-success" type="submit">Absensi Sekarang</button>
                                                                 </div>
                                                             </form>
