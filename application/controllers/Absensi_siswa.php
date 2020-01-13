@@ -30,7 +30,10 @@ class Absensi_siswa extends CI_Controller
 
     public function absenSiswa()
     {
+        $waktu = date('Y-m-d');
+        $data['waktu'] = formatHariTanggal($waktu);
         $nama_rombel = $this->input->post('nama_rombel');
+        $id_jadwal_mapel = $this->input->post('id_jadwal_mapel');
         $nama_pelajaran = $this->input->post('nama_pelajaran');
         $id_pelajaran = $this->input->post('id_pelajaran');
         $id_rombel = $this->input->post('id_rombel');
@@ -38,10 +41,31 @@ class Absensi_siswa extends CI_Controller
         $data['pelajaran'] = $id_pelajaran;
         $data['nama_mapel'] = $nama_pelajaran;
         $data['nama_rombel'] = $nama_rombel;
+        $data['jadwal_mapel'] = $id_jadwal_mapel;
         $this->load->view('absensi/data_absensi', $data);
     }
 
-    public function absenData()
+    public function absensData()
+    {
+
+        $id_siswa = $this->input->post('id_siswa');
+        $id_mapel = $this->input->post('id_mapel');
+        $tanggal_absensi = $this->input->post('tanggal_absensi');
+
+        for ($i = 0; $i < sizeof($id_siswa); $i++) {
+            $keterangan = $_POST['keterangan' . $i];
+            $data = array(
+                'id_siswa' => $id_siswa[$i],
+                'id_mapel' => $id_mapel,
+                'tanggal_absensi' => $tanggal_absensi,
+                'keterangan' => $keterangan
+            );
+            $this->db->insert('tb_absensi', $data);
+        }
+        redirect('Admin/indexguru');
+    }
+
+    /* public function absenData()
     {
 
         $id_kelas = $this->input->post('id_kelas');
@@ -60,7 +84,7 @@ class Absensi_siswa extends CI_Controller
             redirect('absensi_siswa/absenSiswa/' . $id_kelas);
         }
     }
-
+    */
     public function laporanAbsen()
     {
         $data['laporan'] = $this->M_absensi->getAbsensiSiswa()->result();
