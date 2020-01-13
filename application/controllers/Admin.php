@@ -8,6 +8,8 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model('M_mapel');
         $this->load->model('M_peserta_didik');
+        $this->load->model('M_Gtk');
+        $this->load->model('M_rombel');
     }
 
     public function indexkepsek()
@@ -24,6 +26,8 @@ class Admin extends CI_Controller
     {
         $data['count'] = $this->M_peserta_didik->getCountSiswaAktif();
         $data['countnon'] = $this->M_peserta_didik->getCountSiswaNonAktif();
+        $data['countgtk'] = $this->M_Gtk->getCountGTK();
+        $data['countrombel'] = $this->M_rombel->getCountRombel();
         $data['gtk'] = $this->session->userdata('id_gtk');
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);

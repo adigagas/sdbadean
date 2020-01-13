@@ -46,6 +46,12 @@ class M_rombel extends CI_Model
         return $query->result();
     }
 
+    public function getCountRombel()
+    {
+        $this->db->from('tb_rombel');
+        return $this->db->count_all_results();
+    }
+
     public function getWali()
     {
         $this->db->select('*');

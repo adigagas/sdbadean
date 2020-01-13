@@ -58,6 +58,13 @@ class M_Gtk extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function getCountGTK()
+    {
+        $this->db->from('tb_gtk');
+        return $this->db->count_all_results();
+    }
+
+
     function addGtk()
     {
         $post = $this->input->post();
