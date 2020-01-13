@@ -24,6 +24,7 @@ class Mapel extends CI_Controller
 
     public function mapel()
     {
+        $data['jabatan'] = $this->session->userdata('jabatan');
         $data['list'] = $this->db->get('tb_pelajaran')->result();
         $this->load->view('mapel/mapel', $data);
     }
@@ -62,6 +63,8 @@ class Mapel extends CI_Controller
 
     public function index()
     {
+        $data['jabatan'] = $this->session->userdata('jabatan');
+
 
         $this->load->helper('tgl_indo');
 

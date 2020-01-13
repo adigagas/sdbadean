@@ -20,6 +20,8 @@ class Rombel extends CI_Controller
         $data['rombel'] = $this->M_rombel->getAllRombel();
         $data['kelas'] = $this->M_rombel->getKelas();
         $data['wali'] = $this->M_rombel->getWali();
+        $data['jabatan'] = $this->session->userdata('jabatan');
+
         $this->load->view('peserta_didik/rombongan_belajar', $data);
     }
 

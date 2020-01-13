@@ -180,7 +180,10 @@
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="<?= base_url() ?>peserta_didik" class="sidebar-link"><i class="mdi mdi-account"></i><span class="hide-menu"> Peserta Didik</span></a></li>
                         <li class="sidebar-item"><a href="<?= base_url() ?>gtk" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> GTK </span></a></li>
-                        <li class="sidebar-item"><a href="<?= base_url() ?>Akun" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> Akun </span></a></li>
+                        <?php if ($jabatan == 2) {
+                        ?>
+                            <li class="sidebar-item"><a href="<?= base_url() ?>Akun" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> Akun </span></a></li>
+                        <?php } ?>
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-library"></i><span class="hide-menu">Akademik </span></a>
