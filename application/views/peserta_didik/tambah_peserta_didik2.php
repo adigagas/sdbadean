@@ -97,13 +97,13 @@
                                             <div class="form-group row" id="only-number">
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">NIS</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;"  onkeypress="return hanyaAngka(event)" name="nomor_induk" class="form-control" id="nomor_induk" placeholder="NIS" maxlength="4" required>
+                                                    <input type="text" style="border-radius: 10px;" onkeypress="return hanyaAngka(event)" name="nomor_induk" class="form-control" id="nomor_induk" placeholder="NIS" maxlength="4" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="nomor_induk_sn" class="col-sm-4  control-label col-form-label">NISN</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;"  onkeypress="return hanyaAngka(event)" name="nomor_induk_sn" class="form-control" id="nomor_induk_sn" placeholder="NISN" maxlength="10" required>
+                                                    <input type="text" style="border-radius: 10px;" onkeypress="return hanyaAngka(event)" name="nomor_induk_sn" class="form-control" id="nomor_induk_sn" placeholder="NISN" maxlength="10" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -163,7 +163,7 @@
                                                         <option value="-">Pilih Kewarganegaraan</option>
                                                         <option value="WNI">WNI</option>
                                                         <option value="WNA">WNA</option>
-                                            
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -207,7 +207,7 @@
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Asal Sekolah Sebelumnya</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Password Here">
+                                                    <input type="text" style="border-radius: 10px;" name="nama_peserta" class="form-control" id="lname" placeholder="Asal Sekolah">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -247,13 +247,13 @@
                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Nama Ibu</label>
                                                 <div class="col-sm-8">
                                                     <input type="hidden" value="<?php echo $ibu ?>" style="border-radius: 10px;" name="id_ibu" class="form-control" id="lname" required>
-                                                    <input type="text" style="border-radius: 10px;" name="nama_ibu" class="form-control" id="fname" placeholder="First Name Here" maxlength="50">
+                                                    <input type="text" style="border-radius: 10px;" name="nama_ibu" class="form-control" id="fname" placeholder="Nama Ibu" maxlength="50">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Pekerjaan Ibu</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ibu" class="form-control" id="lname" placeholder="Last Name Here" maxlength="30">
+                                                    <input type="text" style="border-radius: 10px;" name="pekerjaan_ibu" class="form-control" id="lname" placeholder="Pekerjaan Ibu" maxlength="30">
                                                 </div>
                                             </div>
                                         </div>
@@ -415,14 +415,14 @@
     <script src="<?= base_url() ?>vendor/assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="<?= base_url() ?>vendor/assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
     <script>
-		function hanyaAngka(evt) {
-		  var charCode = (evt.which) ? evt.which : event.keyCode
-		   if (charCode > 31 && (charCode < 48 || charCode > 57))
- 
-		    return false;
-		  return true;
-		}
-	</script>
+        function hanyaAngka(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+                return false;
+            return true;
+        }
+    </script>
     <script>
         // Basic Example with form
         var form = $("#example-form");
