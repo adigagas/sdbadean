@@ -111,7 +111,7 @@
                                                         <td><?= $row->jenis_kelamin_siswa ?></td>
                                                         <td align="center">
                                                             <label class="form-check-label">H</label>&nbsp;&nbsp;<label class="form-check-label">S</label>&nbsp;&nbsp;<label class="form-check-label">I</label>&nbsp;&nbsp;<label class="form-check-label">A</label><br>
-                                                            <input type="radio" name="keterangan<?php echo $no; ?>" value="H" />
+                                                            <input required type="radio" name="keterangan<?php echo $no; ?>" value="H" />
                                                             <input type="radio" name="keterangan<?php echo $no; ?>" value="S" />
                                                             <input type="radio" name="keterangan<?php echo $no; ?>" value="I" />
                                                             <input type="radio" name="keterangan<?php echo $no; ?>" value="A" /></td>

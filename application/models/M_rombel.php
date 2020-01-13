@@ -91,6 +91,7 @@ class M_rombel extends CI_Model
         $this->db->select('*');
         $this->db->from("tb_rombel");
         $this->db->where("id_rombel !=", $id_rombel);
+        $this->db->order_by('nama_rombel', 'ASC');
         $query = $this->db->get();
         return $query->result();
     }
