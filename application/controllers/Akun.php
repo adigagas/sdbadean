@@ -45,7 +45,7 @@ class Akun extends CI_Controller
 
     public function editAkun($id_login = null)
     {
-        $this->M_Akun->UpdateAkun($id_login);
+        $this->M_akun->UpdateAkun($id_login);
         redirect('Akun');
     }
 

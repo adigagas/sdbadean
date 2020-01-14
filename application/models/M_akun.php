@@ -12,7 +12,7 @@ class M_akun extends CI_Model
     public $id_gtk;
     public $username;
     public $password;
-    public $jabatan;
+    public $id_jabatan;
 
 
 
@@ -41,7 +41,7 @@ class M_akun extends CI_Model
         $this->id_gtk = $post['id_gtk'];
         $this->username = $post['username'];
         $this->password = $post['password'];
-        $this->jabatan = $post['jabatan'];
+        $this->id_jabatan = $post['id_jabatan'];
         $this->db->insert($this->_table, $this);
     }
     public function getakun()
@@ -49,7 +49,7 @@ class M_akun extends CI_Model
         $this->db->select('*');
         $this->db->from('users');
         $this->db->join('tb_gtk', 'tb_gtk.id_gtk =users.id_gtk');
-        $this->db->join('jabatan', 'jabatan.id_jabatan=users.jabatan');
+        $this->db->join('jabatan', 'jabatan.id_jabatan=users.id_jabatan');
         $query = $this->db->get();
         return $query->result();
     }
@@ -78,7 +78,7 @@ class M_akun extends CI_Model
         $this->id_gtk = $post['id_gtk'];
         $this->username = $post['username'];
         $this->password = $post['password'];
-        $this->jabatan = $post['jabatan'];
+        $this->id_jabatan = $post['id_jabatan'];
         $this->db->update($this->_table, $this, array("id_login" => $id_login));
     }
 
