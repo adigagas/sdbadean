@@ -113,12 +113,12 @@
                                                             <div class="form-group row">
                                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Jabatan</label>
                                                                 <div class="col-sm-8">
-                                                                    <select required class="custom-select" id="id_jabatan" name="id_jabatan">
+                                                                    <select required class="custom-select" id="jabatan" name="jabatan">
                                                                         <?php
                                                                         foreach ($jabatan as $jabatan_select) : ?>
-                                                                            <option if value="<?= $jabatan_select->id_jabatan ?>"><?= $jabatan_select->jabatan ?></option>
+                                                                            <option if value="<?= $jabatan_select->jabatan ?>"><?= $jabatan_select->jabatan ?></option>
                                                                         <?php
-                                                                            $id_jabatan = $jabatan_select->id_jabatan;
+                                                                            $jabatan = $jabatan_select->jabatan;
                                                                         endforeach; ?>
                                                                     </select>
                                                                 </div>
@@ -189,8 +189,8 @@
                                     <div class="form-group row">
                                         <label for="fname" class="col-sm-4  control-label col-form-label">Username</label>
                                         <div class="col-sm-8">
-                                        <input type="hidden" style="border-radius: 10px;" name="id_login" class="form-control" id="id_login" value="<?php echo $row->id_login; ?>"  required>
-                                        <input type="hidden" style="border-radius: 10px;" name="id_gtk" class="form-control" id="id_gtk" value="<?php echo $row->id_gtk;  ?>"  required>
+                                        <input type="hidden" style="border-radius: 10px;" name="id_login" class="form-control" id="id_login" value="<?php echo $row->id_login; ?>" placeholder="Nama Penanggung Jawab" required>
+                                        <input type="hidden" style="border-radius: 10px;" name="id_gtk" class="form-control" id="id_gtk" value="<?php echo $row->id_gtk;  ?>" placeholder="Nama Penanggung Jawab" required>
                                             <input type="text" style="border-radius: 10px;" name="username" class="form-control" id="username" value="<?php echo $row->username;  ?>" placeholder="Nama Penanggung Jawab" required>
                                         </div>
                                     </div>
@@ -198,7 +198,7 @@
                                         <label for="fname" class="col-sm-4  control-label col-form-label">Password</label>
                                         <div class="col-sm-8">
                                             <input type="text" style="border-radius: 10px;" name="password" class="form-control" id="password" value="<?php echo $row->password  ?>" placeholder="Nama Penanggung Jawab" required>
-                                            <input type="hidden" style="border-radius: 10px;" name="id_jabatan" class="form-control" id="id_jabatan" value="<?php echo $row->id_jabatan  ?>" placeholder="Nama Penanggung Jawab" required>
+                                            <input type="hidden" style="border-radius: 10px;" name="jabatan" class="form-control" id="jabatan" value="<?php echo $row->jabatan  ?>" placeholder="Nama Penanggung Jawab" required>
                                         </div>
                                     </div>
                                    
