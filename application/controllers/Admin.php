@@ -35,7 +35,7 @@ class Admin extends CI_Controller
         $data['gtk'] = $this->session->userdata('id_gtk');
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);
-        $date = formatHariTanggal($waktu);
+        $date = "Senin, 02-Mei-2019";
         // $data['cek'] = $this->db->get('tb_absensi')->row();
         /*-----------------Apa Ini-----------------*/
 

@@ -9,6 +9,7 @@ class Absensi_siswa extends CI_Controller
         // Load model 
 
         $this->load->model('M_absensi');
+        $this->load->model('M_user');
         $this->load->model('M_peserta_didik');
 
         //
@@ -55,6 +56,9 @@ class Absensi_siswa extends CI_Controller
 
     public function absensData()
     {
+        $waktu = date('Y-m-d');
+        $hari = formatHariTanggal($waktu);
+
         $id_pelajaran = $this->input->post('id_pelajaran');
         $id_gtk =  $this->session->userdata('id_gtk');
         $id_siswa = $this->input->post('id_siswa');
@@ -73,7 +77,51 @@ class Absensi_siswa extends CI_Controller
                 'id_pelajaran' => $id_pelajaran,
                 'id_rombel' => $id_rombel
             );
-            $this->db->insert('tb_absensi', $data);
+            //---------------------
+            $mapel = $this->db->get_where('tb_pelajaran', ['id_pelajaran' => $data['id_pelajaran']])->row_array();
+            $pel = $mapel['nama_pelajaran'];
+            //--------------------
+            $siswa = $this->db->get_where('tb_siswa', ['id_siswa' => $data['id_siswa']])->row_array();
+            $nama = $siswa['nama_siswa'];
+            //--------------------
+            $insert = $this->db->insert('tb_absensi', $data);
+            if ($insert > 0) {
+                $this->db->where('nisn', $data['id_siswa']);
+                $datauser = $this->db->get('tb_device')->result();
+                foreach ($datauser as $user) {
+                    $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
+                    $msg = array(
+                        'body'  => $nama . ' pada hari ' . $hari . ' di mata pelajaran ' . $pel . ' keteranganya ' . $keterangan,
+                        'title' => "Pemberitahuan baru ",
+                        'sound' => 'default'
+                    );
+                    $dt = array(
+
+                        'jenis_notif'   => "surat masuk",
+                        'message'       => "No. Surat " . $keterangan,
+                        'title'         => "Surat Masuk Baru ",
+                        'sound'         => 'default'
+                    );
+                    $notification = [
+                        "to"            => $user->token,
+                        'notification'  => $msg,
+                        'data'          => $dt
+                    ];
+                    $headers = [
+                        'Authorization: key=AAAAvkADDYs:APA91bEwYrz9xAmyFth7bPn37xyDQEobkz5Rxl1rgcBM2LGCvzclxR61HY5qlLKraM3KWkHikOqTodaWt9Xz7BGO5wMKSxhVxJl2_VxRXuk6fb7ym2_wf20V92i9h-QMh4sMvRkc3wMH',
+                        'Content-Type: application/json'
+                    ];
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $fcmUrl);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($notification));
+                    $insert = curl_exec($ch);
+                    curl_close($ch);
+                }
+            }
         }
         redirect('Admin/indexguru');
     }
