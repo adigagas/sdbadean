@@ -16,6 +16,7 @@ class Peserta_didik extends CI_Controller
         $this->load->model('M_wali');
         $this->load->model('M_rombel');
         $this->load->model('M_relasi_siswa');
+        $this->load->model('M_device');
 
         //
         $this->load->library('form_validation');
@@ -154,6 +155,7 @@ class Peserta_didik extends CI_Controller
         $this->M_alamat_wali->addAlamatWali();
         $this->M_wali->addWali();
         $this->M_relasi_siswa->addRelasi();
+        $this->M_device->addDevice();
         redirect('peserta_didik/index');
     }
     public function tambahPD()

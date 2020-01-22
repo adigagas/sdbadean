@@ -349,7 +349,9 @@
                                                 <label for="lname" class="col-sm-4  control-label col-form-label">Provinsi</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" style="border-radius: 10px;" name="prov_wali" class="form-control" id="lname" placeholder="Provinsi">
-                                                </div>
+                                                    <input type="hidden" style="border-radius: 10px;" name="password" value="12345" class="form-control" id="lname" placeholder="Provinsi">
+                                                    <input type="hidden" style="border-radius: 10px;" name="token" value="0" class="form-control" id="lname" placeholder="Provinsi">
+                                                    </div>
                                             </div>
                                         </div>
 
