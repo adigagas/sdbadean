@@ -99,6 +99,7 @@
                         <?php if ($jabatan == 3) {
                         ?>
                             <li class="sidebar-item"><a href="<?= base_url() ?>Akun" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> Akun </span></a></li>
+                            <li class="sidebar-item"><a href="<?= base_url() ?>Info" class="sidebar-link"><i class="mdi mdi-presentation"></i><span class="hide-menu"> Info </span></a></li>
                         <?php } ?>
                     </ul>
                 </li>
