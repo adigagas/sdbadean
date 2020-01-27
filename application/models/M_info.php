@@ -12,7 +12,7 @@ class M_info extends CI_Model
     public $judul;
     public $description;
     public $tgl_publish;
-    public $gambar = "camera.jpg";
+    public $gambar = "logo.png";
 
 
 
@@ -75,13 +75,13 @@ class M_info extends CI_Model
         $info = $this->getById($id_info);
         if ($info->image != "camera.jpg") {
             $filename = explode(".", $info->gambar)[0];
-            return array_map('unlink', glob(FCPATH . "./vendor/assets/images/$filename.*"));
+            return array_map('unlink', glob(FCPATH . "./vendor/assets/images/info$filename.*"));
         }
     }
 
     private function _uploadImage()
     {
-        $config['upload_path']          =  './vendor/assets/images/';
+        $config['upload_path']          =  './vendor/assets/images/info';
         $config['allowed_types']        = 'gif|jpg|png|JPG';
         $config['max_size']             = 9048;
         $config['overwrite']            = true;

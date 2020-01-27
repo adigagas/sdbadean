@@ -79,6 +79,7 @@
                                                 <th><b>Judul</b></th>
                                                 <th><b>deskripsi</b></th>
                                                 <th><b>Tanggal publish</b></th>
+                                                <th><b>Gambar</b></th>
                                                 <th><b>Aksi</b></th>
                                             </tr>
                                         </thead>
@@ -91,6 +92,7 @@
                                                     <td><?= $g->judul ?></td>
                                                     <td><?= $g->description ?></td>
                                                     <td><?= $g->tgl_publish ?></td>
+                                                    <td> <img width="100px;" height="100px" src="<?= base_url('vendor/assets/images/info/') .  $g->gambar; ?>" alt="..."></td>
                                                     <td>
                                                         <a data-toggle="modal" data-target="#modal-edit<?= $g->id_info; ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" class="mdi mdi-24px mdi-account-edit"></a>
                                                         <a type="button" href="<?= base_url('Akun/hapusAkun/' . $g->id_info);   ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data  ?');" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus" class="mdi mdi-24px mdi-delete"></a>
