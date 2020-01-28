@@ -83,10 +83,11 @@ class Absensi_siswa extends CI_Controller
             //--------------------
             $siswa = $this->db->get_where('tb_siswa', ['id_siswa' => $data['id_siswa']])->row_array();
             $nama = $siswa['nama_siswa'];
+            $nisn = $siswa['nomor_induk_sn'];
             //--------------------
             $insert = $this->db->insert('tb_absensi', $data);
             if ($insert > 0) {
-                $this->db->where('nisn', $data['id_siswa']);
+                $this->db->where('nisn', $nisn);
                 $datauser = $this->db->get('tb_device')->result();
                 foreach ($datauser as $user) {
                     $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
@@ -108,7 +109,7 @@ class Absensi_siswa extends CI_Controller
                         'data'          => $dt
                     ];
                     $headers = [
-                        'Authorization: key=AAAAvkADDYs:APA91bEwYrz9xAmyFth7bPn37xyDQEobkz5Rxl1rgcBM2LGCvzclxR61HY5qlLKraM3KWkHikOqTodaWt9Xz7BGO5wMKSxhVxJl2_VxRXuk6fb7ym2_wf20V92i9h-QMh4sMvRkc3wMH',
+                        'Authorization: key=AAAAQFk2f0s:APA91bENLkT42_G8mqImNXBo-4GX0I63UYlu_WSAQPQwsFcUhAGGc0uJyOe5pt4-6vRxpF3FNFlEyyo6OupaAaV3UcIyOx28WBTUYMq_X6CHJ_V53pdsO1P17WURa1HcVkw5na8e9M9k',
                         'Content-Type: application/json'
                     ];
                     $ch = curl_init();
