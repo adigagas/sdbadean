@@ -144,12 +144,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="table-responsive">
+                                <select id="groupTahun" name="groupTahun" class="form-control">
+                                    <?php $first = true;
+                                    foreach ($tahun as $years) {
+                                        if ($first) {
+                                            $first = false;
+                                            $yearlast = $years->tahun_ajaran ?>
+                                            <option value="<?= $years->tahun_ajaran ?>"><?= $years->tahun_ajaran ?></option>
+                                        <?php } else { ?>
+                                            <option value="<?= $years->tahun_ajaran ?>"><?= $years->tahun_ajaran ?></option>
+                                    <?php }
+                                    } ?>
 
+                                </select>
+                                <br>
+                                <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th><b>No</b></th>
                                                 <th><b>Kelas</b></th>
                                                 <th><b>Nama Rombel</b></th>
                                                 <th><b>Wali Kelas</b></th>
@@ -162,7 +174,6 @@
                                             $i = 1;
                                             foreach ($rombel as $s) : ?>
                                                 <tr>
-                                                    <td><?= $i ?></td>
                                                     <td><?= $s->kelas ?></td>
                                                     <td><?= $s->nama_rombel ?></td>
                                                     <td><?= $s->nama_gtk ?></td>
@@ -208,7 +219,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-            COPYRIGHT © BIKEA TECHNOCRAFT 2019 
+                COPYRIGHT © BIKEA TECHNOCRAFT 2019
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -226,6 +237,17 @@
     <!-- ============================================================== -->
     <script src="<?= base_url() ?>vendor/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
+    <script>
+        $(document).ready(function() {
+            $('#zero_config').DataTable().column(3).search("<?= $yearlast ?>").draw();
+        });
+        $(document).ready(function() {
+            $('#groupTahun').change(function(e) {
+                e.preventDefault();
+                $('#zero_config').DataTable().column(3).search($(this).val()).draw();
+            })
+        });
+    </script>
     <script src="<?= base_url() ?>vendor/assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="<?= base_url() ?>vendor/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
