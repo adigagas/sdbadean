@@ -67,7 +67,10 @@
                                                 <h6>Nama Rombel</h6>
                                             </div>
                                             <div class="col-6">
-                                                <h6>: <b><?= $detail_rombel->nama_rombel ?><b></h6>
+                                                <h6>: <b><?= $detail_rombel->nama_rombel;
+                                                            $getKelas = $detail_rombel->id_kelas;
+                                                            $nama_rombel_nonaik = $detail_rombel->nama_rombel;
+                                                            $tahun_ajaran_nonaik = $detail_rombel->tahun_ajaran; ?><b></h6>
                                             </div>
                                     </div>
                                     <div class="row">
@@ -75,7 +78,9 @@
                                             <h6>Nama Wali Kelas</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6>: <b><?= $detail_rombel->nama_gtk ?><b></h6>
+                                            <h6>: <b><?= $detail_rombel->nama_gtk;
+                                                        $aboutgtk = $detail_rombel->id_gtk;
+                                                        $myvalue = $detail_rombel->tahun_ajaran ?><b></h6>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -97,31 +102,104 @@
                                             </button>
                                         </div>
                                     <?php } ?>
-                                    <form action="<?= base_url('rombel/naikkelas') ?>" method="post">
-                                        <?php if ($jabatan == 2 || $jabatan == 3) {
-                                        ?>
-                                            <div class="row">
-                                                <div class="col-sm-2 text-center">
-                                                    <input type="checkbox" onClick="toggle(this)" /> Pilih Semua<br />
+                                    <br>
+
+                                    <form action="<?= base_url('rombel/naikkelas') ?>" method="POST">
+                                        <div class="row">
+                                            <div class="col-sm-2 btn-align text-center">
+                                                <input type="checkbox" id="naikdata" onClick="toggle(this)" /> Pilih Semua<br />
+                                            </div>
+                                            <br>
+                                            <div class="col-sm-1">
+                                                <div class="input-group">
+                                                    <select required class="custom-select" id="nama_kelas" name="nama_kelas">
+                                                        <?php $option = md5(uniqid(rand(), true));
+                                                        if ($getKelas == 1 || $getKelas == 2 || $getKelas == 3 || $getKelas == 4 || $getKelas == 5) {
+                                                            $kelasnew = $getKelas + 1;
+                                                            echo "<option value=" . $kelasnew  . 'A' . ">" . $kelasnew  . "A" . "</option>";
+                                                            echo "<option value=" . $kelasnew  . 'B' . ">" . $kelasnew  . "B" . "</option>";
+                                                        } else {
+                                                            echo "<option value='LULUS'>LULUS</option>";
+                                                        } ?>
+                                                    </select>
+
                                                 </div>
-                                                <div class="col-sm-2">
-                                                    <div class="input-group">
-                                                        <select required class="custom-select" id="id_kelas" name="id_kelas">
-                                                            <?php
-                                                            foreach ($rombel_show as $rombel_select) : ?>
-                                                                <option value="<?= $rombel_select->id_rombel ?>"><?= $rombel_select->nama_rombel ?></option>
-                                                            <?php
-                                                                $id_rombel = $rombel_select->id_rombel;
-                                                            endforeach; ?>
-                                                        </select>
-                                                    </div>
+                                            </div>
+                                            <br>
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <select required class="custom-select" id="id_gtk" name="id_gtk">
+                                                        <?php $option = md5(uniqid(rand(), true));
+                                                        foreach ($wali as $showwali) :
+                                                            echo "<option value=" . $showwali->id_gtk . ">" . $showwali->nama_gtk . "</option>";
+                                                        endforeach;
+                                                        ?>
+                                                    </select>
+                                                    <input hidden id="class_id" name="class_id" type="text" value="<?= $getKelas + 1 ?>">
+                                                    <input hidden id="aboutgtk" name="aboutgtk" type="text" value="<?= $aboutgtk ?>">
                                                 </div>
-                                                <div class="col-sm-2">
-                                                    <button id="myBtn" class="delete btn btn-success" type="submit" disabled="disabled" style=" Border-radius: 5px;" name="remove_levels" value="delete">
-                                                        <i class="fa fa-user"></i> Naikkan Kelas
-                                                    </button>
+                                            </div>
+                                            <br>
+                                            <div class="col-sm-2">
+                                                <div class="input-group">
+                                                    <?php $arr = explode('/', trim($myvalue)); ?>
+                                                    <select id="years_ajaran" name="years_ajaran" required class="custom-select" d>
+                                                        <?php
+                                                        $years_nonaik = $arr[1];
+                                                        $yearsnext_nonaik = $arr[1] +  1;
+                                                        for ($i = 0; $i < 10; $i++) {
+                                                            $years = $arr[1] + $i;
+                                                            $plus = $i + 1;
+                                                            $yearsnext = $arr[1] + $plus;
+                                                            echo "<option value='" . $years . "/" . $yearsnext . "'>" . $years . "/" . $yearsnext . "</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                    <input hidden id="class_id" name="class_id" type="text" value="<?= $getKelas + 1 ?>">
+                                                    <input hidden id="aboutgtk" name="aboutgtk" type="text" value="<?= $aboutgtk ?>">
+                                                    <input hidden id="id_class_nonaik" name="id_class_nonaik" type="text" value="<?= $getKelas - 1 ?>">
+                                                    <input hidden id="nama_rombel_nonaik" name="nama_rombel_nonaik" type="text" value="<?= $nama_rombel_nonaik ?>">
+                                                    <input hidden id="tahun_ajaran_nonaik" name="tahun_ajaran_nonaik" type="text" value="<?= $years_nonaik . "/" . $yearsnext_nonaik  ?>"></div>
+                                            </div>
+                                            <br>
+                                            <div class="col-sm-2">
+                                                <input id="myBtn" class="delete btn btn-success" type="submit" disabled="disabled" style=" Border-radius: 5px;" name="remove_levels" value="Naikkan Kelas">
+                                                </input>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <style>
+                                                .btn-align {
+                                                    padding: 6px 12px;
+                                                    line-height: 1.42857143;
+                                                    vertical-align: middle;
+
+                                                }
+                                            </style>
+                                            <div class="col-sm-2 btn-align text-center">
+                                                <input type="checkbox" id="cekdata" class="cekdata" onClick="unclass(this)" /> Pilih Semua<br />
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <select required class="custom-select" id="id_gtk_nonaik" name="id_gtk_nonaik">
+                                                        <?php $option = md5(uniqid(rand(), true));
+                                                        foreach ($wali as $showwali) :
+                                                            echo "<option value=" . $showwali->id_gtk . ">" . $showwali->nama_gtk . "</option>";
+                                                        endforeach;
+                                                        ?>
+                                                    </select>
+                                                    <input hidden id="class_id" name="class_id" type="text" value="<?= $getKelas + 1 ?>">
+                                                    <input hidden id="aboutgtk" name="aboutgtk" type="text" value="<?= $aboutgtk ?>">
                                                 </div>
-                                            </div> <?php } ?>
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <input id="downClass" class="notclass btn btn-danger" type="submit" disabled="disabled" style=" Border-radius: 5px;" name="noclasstrue" value="Tidak Naik">
+                                                </input>
+                                            </div>
+                                        </div>
                                         <br>
                                         <div class="table-responsive">
                                             <table id="zero_config" class="table table-striped table-bordered">
@@ -176,6 +254,26 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Apakah anda yakin ingin menaikkan murid tersebut ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Yakin</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="noclass" class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Konfirmasi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Apakah anda yakin tidak menaikkan murid ini ?</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Yakin</button>
@@ -275,7 +373,7 @@
                 <!-- footer -->
                 <!-- ============================================================== -->
                 <footer class="footer text-center">
-                COPYRIGHT © BIKEA TECHNOCRAFT 2019 
+                    COPYRIGHT © BIKEA TECHNOCRAFT 2019
                 </footer>
                 <!-- ============================================================== -->
                 <!-- End footer -->
@@ -288,6 +386,15 @@
         <script language="JavaScript">
             function toggle(source) {
                 var chet = <?php echo $count ?>;
+                checkboxes = document.getElementsByName('Id_siswa[]');
+                if (checkboxes.length == 0) {
+                    document.getElementById("naikdata").checked = false;
+                    document.getElementById("cekdata").checked = false;
+                }
+                if (document.getElementById('naikdata').checked = source.checked) {
+                    document.getElementById('cekdata').checked = !source.checked;
+                    document.getElementById('downClass').disabled = source.checked;
+                };
                 if (chet > 0) {
                     checkboxes = document.getElementsByName('Id_siswa[]');
                     document.getElementById('myBtn').disabled = !source.checked;
@@ -299,10 +406,44 @@
             }
         </script>
 
-        <script>
+        <script language="JavaScript">
+            function unclass(source) {
+                var chet = <?php echo $count ?>;
+                checkboxes = document.getElementsByName('Id_siswa[]');
+                if (checkboxes.length == 0) {
+                    document.getElementById("naikdata").checked = false;
+                    document.getElementById("cekdata").checked = false;
+                }
+                if (document.getElementById('cekdata').checked = source.checked) {
+                    document.getElementById('naikdata').checked = !source.checked;
+                    document.getElementById('myBtn').disabled = source.checked;
+                };
+                if (chet > 0) {
+                    checkboxes = document.getElementsByName('Id_siswa[]');
+                    document.getElementById('downClass').disabled = !source.checked;
+                    for (var i = 0, n = checkboxes.length; i < n; i++) {
+                        checkboxes[i].checked = source.checked;
+                    }
+                }
+
+            }
+        </script>
+
+        <script language="JavaScript">
             $(function() {
                 $(".checkbox").click(function() {
+                    lengthchekboxes = $('[name="Id_siswa[]"]:checked').length;
+                    checkboxes = document.getElementsByName('Id_siswa[]');
+                    if (lengthchekboxes < checkboxes.length) {
+                        document.getElementById("naikdata").checked = false;
+                        document.getElementById("cekdata").checked = false;
+                    }
+                    if (lengthchekboxes == checkboxes.length) {
+                        document.getElementById("naikdata").checked = true;
+                        document.getElementById("cekdata").checked = true;
+                    }
                     $('.delete').prop('disabled', $('input.checkbox:checked').length == 0);
+                    $('.notclass').prop('disabled', $('input.checkbox:checked').length == 0);
                 });
             });
         </script>
@@ -312,6 +453,20 @@
                 var $form = $(this).closest('form');
                 e.preventDefault();
                 $('#confirm').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    })
+                    .on('click', '#delete', function(e) {
+                        $form.trigger('submit');
+                    });
+            });
+        </script>
+
+        <script>
+            $('button[name="noclasstrue"]').on('click', function(e) {
+                var $form = $(this).closest('form');
+                e.preventDefault();
+                $('#noclass').modal({
                         backdrop: 'static',
                         keyboard: false
                     })

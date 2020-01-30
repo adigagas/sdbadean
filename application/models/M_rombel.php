@@ -38,6 +38,15 @@ class M_rombel extends CI_Model
         return $query->result();
     }
 
+    public function getTahun()
+    {
+        $this->db->distinct();
+        $this->db->select('tahun_ajaran');
+        $this->db->order_by('tahun_ajaran', 'DESC');
+        $query = $this->db->get('tb_rombel');
+        return $query->result();
+    }
+
     public function getKelas()
     {
         $this->db->select('*');
