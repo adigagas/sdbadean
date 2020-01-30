@@ -103,10 +103,8 @@ class M_info extends CI_Model
     function info()
 	{
         //$data = $this->db->query("SELECT tb_device.*, tb_siswa.nama_siswa, tb_absensi.keterangan, tb_absensi.tanggal_absensi, tb_mapel.waktu_mulai, tb_mapel.waktu_selesai, tb_pelajaran.nama_pelajaran, tb_rombel.nama_rombel, tb_gtk.nama_gtk FROM tb_device JOIN tb_siswa ON tb_siswa.nomor_induk_sn=tb_device.nisn JOIN tb_absensi ON tb_absensi.id_siswa=tb_siswa.id_siswa JOIN tb_mapel ON tb_mapel.id_jadwal_mapel=tb_absensi.id_mapel JOIN tb_pelajaran ON tb_pelajaran.id_pelajaran=tb_absensi.id_pelajaran JOIN tb_rombel ON tb_rombel.id_rombel=tb_absensi.id_rombel JOIN tb_gtk ON tb_gtk.id_gtk=tb_absensi.id_gtk WHERE tb_device.nisn='$nisn' AND tb_device.password='$password'")->row_array();
-        $this->db->select('*');
-        $this->db->from('tb_info');
-        $this->db->order_by('tgl_publish DESC');
-        $data = $this->db->get();
+        $data = $this->db->query("SELECT `id_info`, `judul`,  DATE_FORMAT(tgl_publish, '%d-%m-%Y') as tgl_publish, `description` , `gambar` FROM `tb_info` ORDER BY `tgl_publish` DESC");
+     
 		return $data;
 	}
 
