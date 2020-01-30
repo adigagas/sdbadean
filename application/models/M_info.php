@@ -57,7 +57,14 @@ class M_info extends CI_Model
         $this->judul = $post['judul'];
         $this->description = $post['description'];
         $this->tgl_publish = $post['tgl_publish'];
-        $this->gambar = $this->_uploadImage();
+        if (!empty($_FILES["gambar"]["name"])) {
+            if ($post["old_image"] != 'logo.png') {
+                unlink(FCPATH . './vendor/assets/images/info/' . $post["old_image"]);
+            }
+            $this->gambar = $this->_uploadImage();
+        } else {
+            $this->gambar = $post["old_image"];
+        }
         $this->db->update($this->_table, $this, array("id_login" => $id_info));
     }
 
@@ -67,13 +74,14 @@ class M_info extends CI_Model
     }
     function deleteInfo($id_info)
     {
+        $this->_deleteImage($id_info);
         return $this->db->delete($this->_table, array("id_info" => $id_info));
     }
 
     private function _deleteImage($id_info)
     {
         $info = $this->getById($id_info);
-        if ($info->image != "camera.jpg") {
+        if ($info->image != "logo.png") {
             $filename = explode(".", $info->gambar)[0];
             return array_map('unlink', glob(FCPATH . "./vendor/assets/images/info$filename.*"));
         }
@@ -95,7 +103,7 @@ class M_info extends CI_Model
             return $this->upload->data("file_name");
         }
 
-        return "camera.jpg";
+        return "logo.png";
     }
 
 

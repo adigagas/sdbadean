@@ -69,14 +69,14 @@
                                         <div class="form-group row">
                                             <label for="fname" class="col-sm-2  control-label col-form-label">Judul</label>
                                             <div class="col-sm-8">
-                                                <input type="hidden" style="border-radius: 10px;" name="id_info" class="form-control" value="<?= $yahoo; ?>" id="id_info" placeholder="Judul" required>
-                                                <input type="text" style="border-radius: 10px;" name="judul" class="form-control" id="judul" placeholder="Judul" required>
+                                                <input type="hidden" style="border-radius: 10px;" name="id_info" class="form-control" value="<?= $info->id_info;  ?>" id="id_info" placeholder="Judul" required>
+                                                <input type="text" style="border-radius: 10px;" name="judul" class="form-control" id="judul" value="<?= $info->judul;  ?>" placeholder="Judul" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-2  control-label col-form-label">Tanggal Publis</label>
                                             <div class="col-sm-8">
-                                                <input type="date" style="border-radius: 10px;" name="tgl_publish" class="form-control" id="tgl_publish" required>
+                                                <input type="date" style="border-radius: 10px;" name="tgl_publish" class="form-control" value="<?= $info->tgl_publish;  ?>" id="tgl_publish" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -88,7 +88,7 @@
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-2  control-label col-form-label">Deskripsi</label>
                                             <div class="col-sm-8">
-                                                <textarea style="height: 300px;" name="description" class="ckeditor" id="ckeditor" required></textarea>
+                                                <textarea style="height: 300px;" name="description" class="ckeditor" id="ckeditor" required><?= $info->description  ?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -170,14 +170,7 @@
             CKEDITOR.disableAutoInLine = true;
             CKEDITOR.inline('edittable');
             
-            // this is the html with tags;
-            function stripHTML(text) {
-                var regex = /(<([^>]+)>)/ig;
-                return text.replace(regex, "");
-            }
-            var no_tags = stripHTML(ckeditor);
-            // no_tags contains the html without tags;
-            alert(no_tags);
+            
         </script>
 
         <script>
