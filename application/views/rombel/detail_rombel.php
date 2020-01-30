@@ -228,7 +228,8 @@
                                                             <td><?= $s->tempat_lahir_siswa . ', ' . $s->tanggal_lahir_siswa ?></td>
                                                             <td><?= $s->jenis_kelamin_siswa ?></td>
                                                             <td><?= $s->agama_siswa ?></td>
-                                                            <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta/<?= $s->id_siswa ?>" class="btn btn-info btn-sm">Detail</a></td>
+                                                            <td><a type="button" href="<?= base_url() ?>Peserta_didik/detailPeserta/<?= $s->id_siswa ?>" class="btn btn-info btn-sm">Detail</a>
+                                                                <a type="button" href="<?= base_url() ?>rombel/delete_siswa/<?= $s->id_relasi_rombel_siswa; ?>/<?= $s->id_rombel ?>" class="btn btn-danger btn-sm">Hapus</a></td>
                                                         </tr>
                                                     <?php
                                                         $i++;

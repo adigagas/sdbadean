@@ -175,4 +175,10 @@ class Rombel extends CI_Controller
             }
         }
     }
+
+    public function delete_siswa($id_relasi, $id_class)
+    {
+        $this->db->delete('tb_relasi_rombel_siswa', array('id_relasi_rombel_siswa' => $id_relasi));
+        redirect(base_url("rombel/detail_rombel/" . $id_class));
+    }
 }
