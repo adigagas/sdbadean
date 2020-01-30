@@ -11,6 +11,7 @@ class Absensi_siswa extends CI_Controller
         $this->load->model('M_absensi');
         $this->load->model('M_user');
         $this->load->model('M_peserta_didik');
+        $this->load->model('M_laporan_absensi');
 
         //
         $this->load->library('form_validation');
@@ -32,8 +33,6 @@ class Absensi_siswa extends CI_Controller
         $this->load->view('absensi/absensi_siswa', $data);
     }
 
-
-
     public function absenSiswa()
     {
         $waktu = date('Y-m-d');
@@ -52,6 +51,12 @@ class Absensi_siswa extends CI_Controller
         $data['id_gtk'] = $id_gtk;
         $data['id_rombel'] = $id_rombel;
         $this->load->view('absensi/data_absensi', $data);
+    }
+
+    public function laporan_absensi()
+    {
+        //$data = $this->db->get('tb_absensi')->result();
+        $this->load->view('absensi/laporan_absensi');
     }
 
     public function absensData()
