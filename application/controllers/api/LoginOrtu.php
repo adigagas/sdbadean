@@ -30,6 +30,7 @@ class LoginOrtu extends REST_Controller
 		$cek = $this->M_device->get_pesan_by_id($nisn, $password);
 		if ($cek) {
 			$output['id_device'] = $cek['id_device'];
+			$output['id_siswa'] = $cek['id_siswa'];
 			$output['nisn'] = $nisn;
 			$output['password'] = $cek['password'];
 			$output['token'] = $cek['token'];

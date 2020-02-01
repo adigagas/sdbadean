@@ -19,7 +19,7 @@ function formatHariTanggal($waktu)
 
     $bulan_array = [
         1 => 'Januari',
-        2 => 'February',
+        2 => 'Februari',
         3 => 'Maret',
         4 => 'April',
         5 => 'Mei',

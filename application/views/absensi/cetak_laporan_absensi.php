@@ -25,41 +25,77 @@
                         <tr>
 
                             <th>No.</th>
-                            <th>Nama</th>
+                            <th>NISN</th>
+                            <td>Nama</td>
+                            <th>L/P</th>
                             <?php
+                            /*
                             $this->db->group_by('tanggal_absensi');
                             $this->db->order_by('tanggal_absensi', 'DESC');
+                            $this->db->like('tanggal_absensi', $bulan, 'both');
                             $tgl = $this->db->get('tb_absensi');
                             foreach ($tgl->result() as $tgl) {
                                 $tanggal = $tgl->tanggal_absensi;
-                                list($day, $date, $month, $year) = mb_split('[ ]', $tanggal);
+                                list($day, $date, $month, $year) = mb_split('[ ]', $tanggal);*/
+                            for ($tl = 1; $tl <= 31; $tl++) {
                             ?>
-                                <th><?= $date ?></th>
+                                <th><?= $tl ?></th>
                             <?php } ?>
+                            <th>S</th>
+                            <th>I</th>
+                            <th>A</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $i = 1;
+                        $no = 1;
                         $this->db->group_by('id_siswa');
                         $data = $this->db->get('tb_absensi');
                         foreach ($data->result() as $d) {
+                            $this->db->select('COUNT(keterangan) as s');
+                            $this->db->where('id_siswa', $d->id_siswa);
+                            $this->db->where('keterangan', 's');
+                            $this->db->where('id_pelajaran', $id_pelajaran);
+                            $this->db->like('tanggal_absensi', $bulan, 'both');
+                            $s = $this->db->get('tb_absensi')->row_array();
+                            /*-------------------------------------------*/
+                            $this->db->select('COUNT(keterangan) as i');
+                            $this->db->where('id_siswa', $d->id_siswa);
+                            $this->db->where('keterangan', 'i');
+                            $this->db->where('id_pelajaran', $id_pelajaran);
+                            $this->db->like('tanggal_absensi', $bulan, 'both');
+                            $i = $this->db->get('tb_absensi')->row_array();
+                            /*-------------------------------------------*/
+                            $this->db->select('COUNT(keterangan) as a');
+                            $this->db->where('id_siswa', $d->id_siswa);
+                            $this->db->where('keterangan', 'a');
+                            $this->db->where('id_pelajaran', $id_pelajaran);
+                            $this->db->like('tanggal_absensi', $bulan, 'both');
+                            $a = $this->db->get('tb_absensi')->row_array();
+                            /*-------------------------------------------*/
                             $this->db->where('id_siswa', $d->id_siswa);
                             $siswa = $this->db->get('tb_siswa')->row_array();
                         ?>
                             <tr>
-                                <td><?= $i++ ?></td>
+                                <td><?= $no++ ?></td>
+                                <td><?= $siswa['nomor_induk_sn'] ?></td>
                                 <td><?= $siswa['nama_siswa'] ?></td>
+                                <td><?= $siswa['jenis_kelamin_siswa'] ?></td>
                                 <?php
                                 $this->db->where('id_siswa', $d->id_siswa);
                                 $this->db->where('id_pelajaran', $id_pelajaran);
+                                $this->db->like('tanggal_absensi', $bulan, 'both');
                                 $data2 = $this->db->get('tb_absensi');
                                 foreach ($data2->result_array($d->id_siswa) as $t) {
                                 ?>
                                     <td><?= $t['keterangan'] ?></td>
                                 <?php } ?>
+                                <td><?= $s['s'] ?></td>
+                                <td><?= $i['i'] ?></td>
+                                <td><?= $a['a'] ?></td>
                             </tr>
                         <?php } ?>
+
                     </tbody>
                 </table>
 
