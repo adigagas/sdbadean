@@ -37,7 +37,7 @@ class Info extends CI_Controller
     {
         if ($id_info) {
             $this->M_info->deleteInfo($id_info);
-            $this->session->set_flashdata('message', 'GTK telah dihapus');
+            $this->session->set_flashdata('hapusinfomessage', 'GTK telah dihapus');
             redirect('Info');
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -48,11 +48,11 @@ class Info extends CI_Controller
     public function editInfo($id_info = null)
     {
         if ($this->input->post('submit')) {
-            $this->M_info->updateinfo($id_info);
+            $this->M_info->updateInfo($id_info);
             redirect('info/index');
         }
             $data['info'] = $this->M_info->getById($id_info);
-            $this->load->view('info/edit_info', $data);
+            $this->load->view('info/editInfo', $data);
         
     }
 

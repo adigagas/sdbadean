@@ -94,8 +94,8 @@
                                                     <td><?= $g->tgl_publish ?></td>
                                                     <td> <img width="100px;" height="100px" src="<?= base_url('vendor/assets/images/info/') .  $g->gambar; ?>" alt="..."></td>
                                                     <td>
-                                                        <a data-toggle="modal" data-target="#modal-edit<?= $g->id_info; ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" class="mdi mdi-24px mdi-account-edit"></a>
-                                                        <a type="button" href="<?= base_url('Akun/hapusAkun/' . $g->id_info);   ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data  ?');" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus" class="mdi mdi-24px mdi-delete"></a>
+                                                        <a  href="<?php echo base_url('Info/editInfo/' . $g->id_info); ?>" type="button" class="mdi mdi-24px mdi-account-edit"></a>
+                                                        <a type="button" href="<?= base_url('Info/hapusInfo/' . $g->id_info);   ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data  ?');" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus" class="mdi mdi-24px mdi-delete"></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -108,53 +108,25 @@
                         </div>
                     </div>
                 </div>
-                <?php $no=0; foreach($info as $row): $no++; ?>
-                <div class="row">
-  <div id="modal-edit<?=$row->id_info;?>" class="modal fade">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Ekskul</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                           
-                            <div class="modal-body">
-                                <form action="<?php echo base_url('Akun/editAkun/'.$row->id_info); ?>" method="post" enctype="multipart/form-data">
-                                    
-                                    <div class="form-group row">
-                                        <label for="fname" class="col-sm-4  control-label col-form-label">Judul </label>
-                                        <div class="col-sm-8">
-                                        <input type="hidden" style="border-radius: 10px;" name="id_login" class="form-control" id="id_login" value="<?php echo $row->id_info; ?>" placeholder="Nama Penanggung Jawab" required>
-                                            <input type="text" style="border-radius: 10px;" name="username" class="form-control" id="username" value="<?php echo $row->judul;  ?>" placeholder="Nama Penanggung Jawab" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="fname" class="col-sm-4  control-label col-form-label">Description</label>
-                                        <div class="col-sm-8">
-                                        
-                                            <input type="text" style="border-radius: 10px;" name="username" class="form-control" id="username" value="<?php echo $row->description;  ?>" placeholder="Nama Penanggung Jawab" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="fname" class="col-sm-4  control-label col-form-label">Username</label>
-                                        <div class="col-sm-8">
-                                       
-                                            <input type="text" style="border-radius: 10px;" name="username" class="form-control" id="username" value="<?php echo $row->tgl_publish;  ?>" placeholder="Nama Penanggung Jawab" required>
-                                        </div>
-                                    </div>
-                                   
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                            </form>
+                <div class="modal fade" id="editConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Akan Mengubah Data GTK?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Ubah data jika diperlukan atau pembaruan.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">BATAL</button>
+                            <a id="btn-edit" class="btn btn-warning" href="#">EDIT</a>
                         </div>
                     </div>
-</div>
-                <?php endforeach; ?>
+                </div>
+            </div>
+               
+
                 <!-- Modal -->
 
                 <!-- ============================================================== -->
