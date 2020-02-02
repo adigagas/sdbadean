@@ -11,22 +11,26 @@ class Penilaian extends CI_Controller
 
     public function index()
     {
-        $this->load->view('Penilaian/penilaian');
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('Penilaian/penilaian', $data);
     }
 
     public function nilai_sikap_spiritual()
     {
-        $this->load->view('Penilaian/nilai_sikap_spiritual');
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('Penilaian/nilai_sikap_spiritual', $data);
     }
 
     public function nilai_sikap_sosial()
     {
-        $this->load->view('Penilaian/nilai_sikap_sosial');
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('Penilaian/nilai_sikap_sosial',$data);
     }
 
     public function nilai_mapel()
     {
-        $this->load->view('Penilaian/nilai_mapel');
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('Penilaian/nilai_mapel', $data);
     }
 
 }
