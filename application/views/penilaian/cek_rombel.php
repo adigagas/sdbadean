@@ -33,7 +33,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Penilaian</h4>
+                        <h4 class="page-title">Pilih Rombel Anda </h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -59,51 +59,38 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Daftar Penilaian</h5> <br>
-
-                                <div class="table-responsive">
-
-                                    <table id="zero_config" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-
-                                                <th><b>Kompetensi Inti</b></th>
-                                                <th><b>Mata Pelajaran</b></th>
-                                                <th><b>Rombel</b></th>
-                                                <th><b>Thn Ajaran/Smt</b></th>
-                                                <th><b>Aksi</b></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($ki as $k) { ?>
-                                                <tr>
-                                                    <form action="<?= base_url() ?>Penilaian/nilai_mapel" method="POST">
-                                                        <td><?= $k->id_ki ?> - <?= $k->nama_ki ?></td>
-                                                        <input name="id_ki" value="<?= $k->id_ki ?>" type="hidden">
-                                                        <input name="nama_ki" value="<?= $k->nama_ki ?>" type="hidden">
-                                                        <input name="nama_rombel" value="<?= $nama_rombel ?>" type="hidden">
-                                                        <input name="id_rombel" value="<?= $id_rombel ?>" type="hidden">
-                                                        <td><select name="id_pelajaran" class="form-control">
-                                                                <?php
-                                                                $this->db->like('id_ki', $k->id_ki, 'both');
-                                                                $pelajaran = $this->db->get('tb_pelajaran')->result();
-                                                                foreach ($pelajaran as $p) { ?>
-                                                                    <option value="<?= $p->id_pelajaran ?>"><?= $p->nama_pelajaran ?></option>
-                                                                <?php } ?>
-                                                            </select>
-                                                        </td>
-                                                        <td><?= $nama_rombel ?></td>
-                                                        <td>2019/2020 - 1</td>
-                                                        <td>
-                                                            <button class="btn btn-info btn-sm" type="submit">Nilai</button>
-                                                        </td>
+                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Daftar Rombel Anda</h5> <br>
+                                <div class="row">
+                                    <?php foreach ($rombel as $r) { ?>
+                                        <div class="col-md-6">
+                                            <div class="flot-chart">
+                                                <div class="card text-center">
+                                                    <div class="card-header">
+                                                        Kelas <?= $r->nama_rombel ?>
+                                                    </div>
+                                                    <form method="POST" action="<?= base_url() ?>Penilaian/index">
+                                                        <input type="hidden" name="id_rombel" value="<?= $r->id_rombel ?>">
+                                                        <input type="hidden" name="nama_rombel" value="<?= $r->nama_rombel ?>">
+                                                        <div class="card-body">
+                                                            <?php
+                                                            $this->db->select('COUNT(id_siswa) as jml');
+                                                            $this->db->where('id_rombel', $r->id_rombel);
+                                                            $jml = $this->db->get('tb_relasi_rombel_siswa')->row_array();
+                                                            ?>
+                                                            <h5 class="card-title">Jumlah : <?= $jml['jml'] ?> Siswa</h5>
+                                                            <p class="card-text"></p>
+                                                            <button class="btn btn-success" type="submit">Nilai Sekarang</button>
+                                                        </div>
                                                     </form>
-                                                </tr>
-                                            <?php } ?>
-
-                                        </tbody>
-                                    </table>
+                                                    <div class="card-footer text-muted">
+                                                        SDN 01 BADEAN BONDOWOSO
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
+
                             </div>
                         </div>
                     </div>

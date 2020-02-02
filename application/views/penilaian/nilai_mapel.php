@@ -67,22 +67,22 @@
                                             <tr>
                                                 <td><b>Mata Penilaian</b></td>
                                                 <td><b>:</b></td>
-                                                <td> Matematika </td>
+                                                <td> <?= $nama_pelajaran ?> </td>
                                             </tr>
                                             <tr>
                                                 <td><b>Kompetensi Inti</b></td>
                                                 <td><b>:</b></td>
-                                                <td> KI-3 pengetahuan </td>
+                                                <td><?= $id_ki ?> <?= $nama_ki ?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Rombel</b></td>
                                                 <td><b>:</b></td>
-                                                <td>1 A</td>
+                                                <td><?= $nama_rombel ?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Wali Kelas</b></td>
                                                 <td><b>:</b></td>
-                                                <td>Dewi Ayu</td>
+                                                <td><?= $this->session->userdata('nama_gtk'); ?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>NIP</b></td>
@@ -107,12 +107,12 @@
                                             <tr>
                                                 <td><b>Guru Mapel</b></td>
                                                 <td><b>:</b></td>
-                                                <td>Dewi Ayu</td>
+                                                <td><?= $nama_gtk ?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>NIP</b></td>
                                                 <td><b>:</b></td>
-                                                <td>1234567890</td>
+                                                <td><?= $nip_gtk ?></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -169,11 +169,14 @@
                                                 <td>Laili Permata</td>
                                                 <td>
                                                     <input type="number" class="form-control">
-                                                </td><td>
+                                                </td>
+                                                <td>
                                                     <input type="number" class="form-control">
-                                                </td><td>
+                                                </td>
+                                                <td>
                                                     <input type="number" class="form-control">
-                                                </td><td>
+                                                </td>
+                                                <td>
                                                     <input type="number" class="form-control">
                                                 </td>
                                                 <td>
@@ -185,7 +188,7 @@
                                                 <td></td>
                                                 <td class="text-danger">Tidak Tuntas</td>
                                             </tr>
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -217,7 +220,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-            COPYRIGHT © BIKEA TECHNOCRAFT 2019 
+                COPYRIGHT © BIKEA TECHNOCRAFT 2019
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

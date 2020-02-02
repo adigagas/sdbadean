@@ -58,6 +58,7 @@ class Auth extends CI_Controller
                         'username' => $username,
                         'jabatan' => 2,
                         'id_gtk' => $pass['id_gtk'],
+                        'nama_gtk' => $pass['nama_gtk'],
                         'status' => "login"
                     );
                     $this->session->set_userdata($data_session);
