@@ -62,7 +62,7 @@
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Daftar Penilaian</h5> <br>
 
                                 <div class="row mb-5">
-                                    <div class="col-6">
+                                    <div class="col">
                                         <table>
                                             <tr>
                                                 <td><b>Mata Penilaian</b></td>
@@ -92,7 +92,7 @@
                                         </table>
                                     </div>
 
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <table>
                                             <tr>
                                                 <td><b>Tahun Ajaran</b></td>
@@ -143,22 +143,22 @@
                                                 <td>1</td>
                                                 <td>Ahmad Deni</td>
                                                 <td>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" min="0" max="100">
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" min="0" max="100">
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" min="0" max="100">
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" min="0" max="100">
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" min="0" max="100">
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" min="0" max="100">
                                                 </td>
                                                 <td></td>
                                                 <td class="text-success">Tuntas</td>
@@ -168,19 +168,22 @@
                                                 <td>2</td>
                                                 <td>Laili Permata</td>
                                                 <td>
-                                                    <input type="number" class="form-control">
-                                                </td><td>
-                                                    <input type="number" class="form-control">
-                                                </td><td>
-                                                    <input type="number" class="form-control">
-                                                </td><td>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" min="0" max="100">
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" min="0" max="100">
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" min="0" max="100">
+                                                </td>
+                                                <td>
+                                                    <input type="number" class="form-control" min="0" max="100">
+                                                </td>
+                                                <td>
+                                                    <input type="number" class="form-control" min="0" max="100">
+                                                </td>
+                                                <td>
+                                                    <input type="number" class="form-control" min="0" max="100">
                                                 </td>
                                                 <td></td>
                                                 <td class="text-danger">Tidak Tuntas</td>
