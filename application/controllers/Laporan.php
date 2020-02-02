@@ -40,6 +40,11 @@ class Laporan extends CI_Controller
         $cek['tahun'] = $this->input->post('tahun');
         $cek['bulan'] = $this->input->post('bulan');
 
+        $this->db->where('nama_rombel', $cek['id_rombel']);
+        $rombel = $this->db->get('tb_rombel')->row_array();
+        $cek['id_rmbl'] =  $rombel['id_rombel'];
+        $cek['id_gtk'] =  $rombel['id_gtk'];
+
         $this->db->where('nama_pelajaran', $cek['nama_pelajaran']);
         $mapel = $this->db->get('tb_pelajaran')->row_array();
 
