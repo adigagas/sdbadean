@@ -62,7 +62,7 @@
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Daftar Penilaian</h5> <br>
 
                                 <div class="row mb-5">
-                                    <div class="col-6">
+                                    <div class="col">
                                         <table>
                                             <tr>
                                                 <td><b>Mata Penilaian</b></td>
@@ -92,7 +92,7 @@
                                         </table>
                                     </div>
 
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <table>
                                             <tr>
                                                 <td><b>Tahun Ajaran</b></td>
