@@ -35,6 +35,7 @@ class LoginOrtu extends REST_Controller
 			$output['password'] = $cek['password'];
 			$output['token'] = $cek['token'];
 			$output['nama_siswa'] = $cek['nama_siswa'];
+			$output['jenis_kelamin_siswa'] = $cek['jenis_kelamin_siswa'];
 			//$output['keterangan'] = $cek['keterangan'];
 			//$output['tanggal_absensi'] = $cek['tanggal_absensi'];
 			//$output['waktu_mulai'] = $cek['waktu_mulai'];
