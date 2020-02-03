@@ -90,7 +90,7 @@
                                                 <tr>
                                                     <td><?= $no++; ?></td>
                                                     <td><?= $g->judul ?></td>
-                                                    <td><?= $g->description ?></td>
+                                                    <td><?= substr($g->description, 0, 50 )  ?></td>
                                                     <td><?= $g->tgl_publish ?></td>
                                                     <td> <img width="100px;" height="100px" src="<?= base_url('vendor/assets/images/info/') .  $g->gambar; ?>" alt="..."></td>
                                                     <td>
@@ -107,24 +107,9 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
-                <div class="modal fade" id="editConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Akan Mengubah Data GTK?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Ubah data jika diperlukan atau pembaruan.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">BATAL</button>
-                            <a id="btn-edit" class="btn btn-warning" href="#">EDIT</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
                
 
                 <!-- Modal -->
