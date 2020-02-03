@@ -6,6 +6,8 @@ class Penilaian extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_rombel');
+        $this->load->model('M_penilaian');
     }
 
     public function index()
@@ -14,6 +16,44 @@ class Penilaian extends CI_Controller
         $data['nama_rombel'] = $this->input->post('nama_rombel');
         $data['ki'] = $this->db->get('tb_ki')->result();
         $this->load->view('Penilaian/penilaian', $data);
+    }
+
+    public function kd()
+    {
+        $data['rombel'] = $this->M_rombel->getAllRombel();
+        $data['kelas'] = $this->M_rombel->getKelas();
+        $data['pelajaran'] = $this->M_penilaian->getPelajaran();
+        $data['tahun'] = $this->M_penilaian->getTahun();
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('Penilaian/kd_view_example', $data);
+    }
+
+    public function userList()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getUsers($postData);
+        echo json_encode($data);
+    }
+
+    public function userListI()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getUsersI($postData);
+        echo json_encode($data);
+    }
+
+    public function userListII()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getUsersII($postData);
+        echo json_encode($data);
+    }
+
+    public function userListIII()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getUsersIII($postData);
+        echo json_encode($data);
     }
 
     public function cek_rombel()

@@ -33,6 +33,14 @@ class Laporan extends CI_Controller
         echo json_encode($data);
     }
 
+    public function getKD()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_laporan_absensi->getKD($postData);
+
+        echo json_encode($data);
+    }
+
     public function cetakLaporan()
     {
         $cek['id_rombel'] = $this->input->post('id_rombel');
