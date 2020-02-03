@@ -47,8 +47,18 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Absensi Peserta Didik</h5> <br>
+                                <style>
+                                    .btn-align {
+                                        padding: 6px 12px;
+                                        line-height: 1.42857143;
+                                        vertical-align: middle;
 
+                                    }
+                                </style>
                                 <div class="row">
+                                    <div class="btn-align text-center col-md-2">
+                                        <p><b>Tahun Ajaran</b></p>
+                                    </div>
                                     <div class="col-md-2 ">
                                         <!-- City -->
 
@@ -58,6 +68,9 @@
                                             <?php } ?>
                                         </select>
                                     </div>
+                                    <div class="btn-align text-center col-md-1">
+                                        <p><b>Pelajaran</b></p>
+                                    </div>
                                     <div class="col-md-2 ">
                                         <!-- Gender -->
                                         <select class="custom-select" id='sel_gender'>
@@ -66,9 +79,11 @@
                                             <?php } ?>
                                         </select>
                                     </div>
+                                    <div class="btn-align text-center col-md-1">
+                                        <p><b>Kelas</b></p>
+                                    </div>
                                     <div class="col-md-2 ">
                                         <!-- Gender -->
-
                                         <select class="custom-select" id='sel_class'>
                                             <?php foreach ($kelas as $class) { ?>
                                                 <option value="<?= $class->id_kelas ?>"><?= $class->kelas ?></option>

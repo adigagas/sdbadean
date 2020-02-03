@@ -12,6 +12,15 @@ class M_penilaian extends CI_Model
         return $query->result();
     }
 
+    public function getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran)
+    {
+        $this->db->select('*');
+        $array = array('id_kelas' => $id_kelas, 'id_pelajaran' => $id_pelajaran, 'id_ki' => $id_ki, 'semester' => $semester, 'tahun_ajaran' => $tahun_ajaran);
+        $this->db->where($array);
+        $query = $this->db->get('tb_kd');
+        return $query->result();
+    }
+
     public function getPelajaran()
     {
         $this->db->select('*');
@@ -72,7 +81,7 @@ class M_penilaian extends CI_Model
 
         ## Fetch records
         $this->db->select('*');
-        $array = array('id_kt' => 'KI-3', 'semester' => '1');
+        $array = array('id_ki' => 'KI-3', 'semester' => '1');
         $this->db->where($array);
         if ($searchQuery != '')
             $this->db->where($searchQuery);
@@ -154,7 +163,7 @@ class M_penilaian extends CI_Model
 
         ## Fetch records
         $this->db->select('*');
-        $array = array('id_kt' => 'KI-4', 'semester' => '1');
+        $array = array('id_ki' => 'KI-4', 'semester' => '1');
         $this->db->where($array);
         if ($searchQuery != '')
             $this->db->where($searchQuery);
@@ -236,7 +245,7 @@ class M_penilaian extends CI_Model
 
         ## Fetch records
         $this->db->select('*');
-        $array = array('id_kt' => 'KI-3', 'semester' => '2');
+        $array = array('id_ki' => 'KI-3', 'semester' => '2');
         $this->db->where($array);
         if ($searchQuery != '')
             $this->db->where($searchQuery);
@@ -318,7 +327,7 @@ class M_penilaian extends CI_Model
 
         ## Fetch records
         $this->db->select('*');
-        $array = array('id_kt' => 'KI-4', 'semester' => '2');
+        $array = array('id_ki' => 'KI-4', 'semester' => '2');
         $this->db->where($array);
         if ($searchQuery != '')
             $this->db->where($searchQuery);

@@ -132,19 +132,20 @@
                                                 <th rowspan="2"><b>KETUNTASAN</b></th>
                                             </tr>
                                             <tr>
-                                                <th width="70px" data-toggle="tooltip" data-placement="top" data-original-title="menjelaskan makna bilangan cacah sampai dengan 99 sebagai banyak anggota suatu kumpulan objek">3.1</th>
-                                                <th width="70px" data-toggle="tooltip" data-placement="top" data-original-title="menjelaskan bilangan sampai dua angka dan nilai tempat penyusun lambang bilangan menggunakan kumpulan benda konkret serta cara membacanya">3.2</th>
-                                                <th width="70px" data-toggle="tooltip" data-placement="top" data-original-title="membandingkan dua bilangan sampai dua angka dengan menggunakan kumpulan benda- benda konkret">3.3</th>
-                                                <th width="70px" data-toggle="tooltip" data-placement="top" data-original-title="menjelaskan dan melakukan penjumlahan dan pengurangan bilangan yang melibatkan bilangan cacah sampai dengan 99 dalam kehidupan sehari-hari serta mengaitkan penjumlahan dan pengurangan">3.4</th>
+                                                <?php foreach ($indikator_show as $indikators) { ?>
+                                                    <th width="70px" data-toggle="tooltip" data-placement="top" data-original-title="<?= $indikators->kompetensi_dasar ?>"><?= $indikators->indikator_kd ?></th>
+                                                <?php } ?>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
                                                 <td>Ahmad Deni</td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
+                                                <?php foreach ($indikator_show as $indikators) { ?>
+                                                    <td>
+                                                        <input type="number" class="form-control" min="0" max="100">
+                                                    </td>
+                                                <?php } ?>
                                                 <td>
                                                     <input type="number" class="form-control" min="0" max="100">
                                                 </td>

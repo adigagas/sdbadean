@@ -83,6 +83,19 @@ class Penilaian extends CI_Controller
         $data['id_pelajaran'] = $this->input->post('id_pelajaran');
         $data['nama_rombel'] = $this->input->post('nama_rombel');
         $data['id_rombel'] = $this->input->post('id_rombel');
+        $id = $this->input->post('id_rombel');
+        $query = $this->db->query('SELECT * FROM tb_rombel WHERE id_rombel = "' . $id . '"');
+        foreach ($query->result() as $row) {
+            $id_kelas = $row->id_kelas;
+            $semester = $row->semester;
+            $tahun_ajaran = $row->tahun_ajaran;
+        }
+        $id_pelajaran = $this->input->post('id_pelajaran');
+        $id_ki = $this->input->post('id_ki');
+        echo $id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran;
+        $data['indikator_show'] = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
+        // $show = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
+        // print_r($show);
 
         if ($data['id_ki'] == "KI-1") {
             $this->load->view('Penilaian/nilai_sikap_spiritual');
