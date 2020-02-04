@@ -49,6 +49,13 @@ class Penilaian extends CI_Controller
         echo json_encode($data);
     }
 
+    public function test()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getTahun();
+        echo json_encode($data);
+    }
+
     public function userListIII()
     {
         $postData = $this->input->post();
@@ -76,6 +83,46 @@ class Penilaian extends CI_Controller
         $this->load->view('Penilaian/nilai_sikap_sosial', $data);
     }
 
+    public function addNilai()
+    {
+        $id_pelajaran = $this->input->post('id_pelajaran');
+        $id_siswa = $this->input->post('id_siswa');
+        $id_rombel = $this->input->post('id_rombel');
+        $count_data = $this->input->post('count_indikator');
+        $mid = $this->input->post('mid');
+        $test = true;
+        $uas = $this->input->post('uas');
+        for ($z = 0; $z <= $count_data; $z++) {
+            $inputData[] = $this->input->post('inputData' . $z . '');
+        }
+        for ($g = 0; $g <= $count_data; $g++) {
+            $indikator[] = $this->input->post('indikator' . $g . '');
+        }
+        echo $indikator[1][0];
+        for ($i = 0; $i < sizeof($mid); $i++) {
+            $kode_nilai_ = md5(uniqid(rand(), true));
+            $data = array(
+                'id_nilai' => '',
+                'id_pelajaran' => $id_pelajaran,
+                'id_siswa' => $id_siswa[$i],
+                'id_rombel' => $id_rombel,
+                'kode_nilai_kd' => $kode_nilai_,
+                'mid_semester' => $mid[$i],
+                'uas' => $uas[$i],
+                'nilai_akhir' => '100'
+            );
+            $this->db->insert('tb_nilai', $data);
+            for ($r = 0; $r <= $count_data; $r++) {
+                $data = array(
+                    'kode_nilai_kd' => $kode_nilai_,
+                    'id_kd' => $indikator[$r][0],
+                    'nilai' => $inputData[$r][$i]
+                );
+                $this->db->insert('tb_nilai_kd', $data);
+            }
+        }
+    }
+
     public function nilai_mapel()
     {
         $data['id_ki'] = $this->input->post('id_ki');
@@ -94,6 +141,7 @@ class Penilaian extends CI_Controller
         $id_ki = $this->input->post('id_ki');
         echo $id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran;
         $data['indikator_show'] = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
+        $data['siswa_show'] = $this->M_rombel->getDetailRombel($id);
         // $show = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
         // print_r($show);
 
