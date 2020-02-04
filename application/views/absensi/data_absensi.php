@@ -105,6 +105,7 @@
                                                         <input type="hidden" name="tanggal_absensi" value="<?= $waktu ?>">
                                                         <input type="hidden" name="id_pelajaran" value="<?= $id_pelajaran ?>">
                                                         <input type="hidden" name="id_rombel" value="<?= $id_rombel ?>">
+                                                        <input type="hidden" name="id_kategori" value="<?= $id_kategori ?>">
                                                         <td> <?= $urut++; ?></td>
                                                         <td><?= $row->nomor_induk ?></td>
                                                         <td><?= $row->nama_siswa ?></td>

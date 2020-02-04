@@ -44,7 +44,7 @@ class Laporan extends CI_Controller
     public function cetakLaporan()
     {
         $cek['id_rombel'] = $this->input->post('id_rombel');
-        $cek['nama_pelajaran'] = $this->input->post('nama_pelajaran');
+        $cek['nama_kategori'] = $this->input->post('nama_kategori');
         $cek['tahun'] = $this->input->post('tahun');
         $cek['bulan'] = $this->input->post('bulan');
 
@@ -53,10 +53,10 @@ class Laporan extends CI_Controller
         $cek['id_rmbl'] =  $rombel['id_rombel'];
         $cek['id_gtk'] =  $rombel['id_gtk'];
 
-        $this->db->where('nama_pelajaran', $cek['nama_pelajaran']);
-        $mapel = $this->db->get('tb_pelajaran')->row_array();
+        $this->db->where('nama_kategori', $cek['nama_kategori']);
+        $mapel = $this->db->get('tb_kategori')->row_array();
 
-        $cek['id_pelajaran'] = $mapel['id_pelajaran'];
+        $cek['id_kategori'] = $mapel['id_kategori'];
 
 
 
