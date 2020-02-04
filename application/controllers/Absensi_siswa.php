@@ -42,6 +42,7 @@ class Absensi_siswa extends CI_Controller
         $nama_pelajaran = $this->input->post('nama_pelajaran');
         $id_pelajaran = $this->input->post('id_pelajaran');
         $id_rombel = $this->input->post('id_rombel');
+        $id_kategori = $this->input->post('id_kategori');
         $id_gtk =  $this->session->userdata('id_gtk');
         $data['rombel'] = $this->M_absensi->getMapel($id_rombel)->result();
         $data['id_pelajaran'] = $id_pelajaran;
@@ -50,6 +51,7 @@ class Absensi_siswa extends CI_Controller
         $data['jadwal_mapel'] = $id_jadwal_mapel;
         $data['id_gtk'] = $id_gtk;
         $data['id_rombel'] = $id_rombel;
+        $data['id_kategori'] = $id_kategori;
         $this->load->view('absensi/data_absensi', $data);
     }
 
@@ -70,6 +72,7 @@ class Absensi_siswa extends CI_Controller
         $id_mapel = $this->input->post('id_mapel');
         $id_rombel = $this->input->post('id_rombel');
         $tanggal_absensi = $this->input->post('tanggal_absensi');
+        $id_kategori = $this->input->post('id_kategori');
 
         for ($i = 0; $i < sizeof($id_siswa); $i++) {
             $keterangan = $_POST['keterangan' . $i];
@@ -80,7 +83,8 @@ class Absensi_siswa extends CI_Controller
                 'keterangan' => $keterangan,
                 'id_gtk' => $id_gtk,
                 'id_pelajaran' => $id_pelajaran,
-                'id_rombel' => $id_rombel
+                'id_rombel' => $id_rombel,
+                'id_kategori' => $id_kategori
             );
             //---------------------
             $mapel = $this->db->get_where('tb_pelajaran', ['id_pelajaran' => $data['id_pelajaran']])->row_array();

@@ -25,16 +25,28 @@ class LoginOrtu extends REST_Controller
 
 	function index_post()
 	{
+
 		$nisn = $this->input->post('nisn');
 		$password = $this->input->post('password');
+		$this->db->where('nomor_induk_sn', $nisn);
+		$siswa = $this->db->get('tb_siswa')->row_array();
+		//-----------------------------------------------
+		$this->db->where('id_siswa', $siswa['id_siswa']);
+		$rombel = $this->db->get('tb_relasi_rombel_siswa')->row_array();
+		//---------------------------------------------
+		$this->db->where('id_rombel',  $rombel['id_rombel']);
+		$nama_rombel = $this->db->get('tb_rombel')->row_array();
 		$cek = $this->M_device->get_pesan_by_id($nisn, $password);
 		if ($cek) {
+			$output['id_rombel'] = $rombel['id_rombel'];
+			$output['nama_rombel'] = $nama_rombel['nama_rombel'];
 			$output['id_device'] = $cek['id_device'];
 			$output['id_siswa'] = $cek['id_siswa'];
 			$output['nisn'] = $nisn;
 			$output['password'] = $cek['password'];
 			$output['token'] = $cek['token'];
 			$output['nama_siswa'] = $cek['nama_siswa'];
+			$output['jenis_kelamin_siswa'] = $cek['jenis_kelamin_siswa'];
 			//$output['keterangan'] = $cek['keterangan'];
 			//$output['tanggal_absensi'] = $cek['tanggal_absensi'];
 			//$output['waktu_mulai'] = $cek['waktu_mulai'];

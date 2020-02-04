@@ -9,6 +9,7 @@ class Mapel extends CI_Controller
         // Load model 
 
         $this->load->model('M_mapel');
+        $this->load->model('M_info_mapel');
 
 
         //
@@ -27,6 +28,20 @@ class Mapel extends CI_Controller
         $data['jabatan'] = $this->session->userdata('jabatan');
         $data['list'] = $this->db->get('tb_pelajaran')->result();
         $this->load->view('mapel/mapel', $data);
+    }
+
+    public function infoMapel()
+    {
+        $mapel = $this->M_info_mapel->addInfoMapel();
+        if ($mapel > 0) {
+            $this->session->set_flashdata(
+                'msg',
+                '<div class="alert alert-success">
+                <p> Ifnormasi Berhasil Ditambahkan!</p>
+                </div>'
+            );
+            redirect('Admin/indexguru');
+        }
     }
 
     public function tambahMapel()
@@ -78,6 +93,8 @@ class Mapel extends CI_Controller
         $data['gtk'] = $this->db->get('tb_gtk')->result();
         $data['hari'] = $this->db->get('tb_hari')->result();
 
+
+
         $waktu = date('Y-m-d');
         $data['waktu'] = formatHariTanggal($waktu);
         $this->load->view('mapel/daftar_mapel', $data);
@@ -93,9 +110,10 @@ class Mapel extends CI_Controller
                 <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
                 <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
                 <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
-                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel<?= $m->id_pelajaran ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Ubah </a></td>
 
             </tr>
+
         <?php endforeach; ?> <?php
 
                             }
@@ -110,7 +128,7 @@ class Mapel extends CI_Controller
                 <td style="font-size: 12px"><?= $b->nama_pelajaran ?></td>
                 <td style="font-size: 12px"><?= $b->waktu_mulai ?> - <?= $b->waktu_selesai ?></td>
                 <td style="font-size: 12px"><?= $b->nama_gtk ?></td>
-                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel<?= $b->id_pelajaran ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Ubah </a></td>
 
             </tr>
         <?php endforeach; ?> <?php
@@ -126,7 +144,7 @@ class Mapel extends CI_Controller
                 <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
                 <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
                 <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
-                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel<?= $m->id_pelajaran ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Ubah </a></td>
 
             </tr>
         <?php endforeach; ?> <?php
@@ -144,7 +162,7 @@ class Mapel extends CI_Controller
                 <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
                 <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
                 <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
-                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Ubah </a></td>
 
             </tr>
         <?php endforeach; ?> <?php
@@ -163,7 +181,7 @@ class Mapel extends CI_Controller
                 <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
                 <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
                 <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
-                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Ubah </a></td>
 
             </tr>
         <?php endforeach; ?> <?php
@@ -180,7 +198,7 @@ class Mapel extends CI_Controller
                 <td style="font-size: 12px"><?= $m->nama_pelajaran ?></td>
                 <td style="font-size: 12px"><?= $m->waktu_mulai ?> - <?= $m->waktu_selesai ?></td>
                 <td style="font-size: 12px"><?= $m->nama_gtk ?></td>
-                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hapus </a></td>
+                <td style="font-size: 12px"> <a href="" data-toggle="modal" data-target="#modalDel" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Ubah </a></td>
 
             </tr>
         <?php endforeach; ?> <?php

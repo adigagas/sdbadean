@@ -20,7 +20,7 @@
         <div class="col-md-12">
             <div class="card">
                 <h5>Rombel : <?= $id_rombel ?><br>
-                    Mapel : <?= $nama_pelajaran ?><br>
+                    Kategori : <?= $nama_kategori ?><br>
                     Tahun Ajaran : <?= $bulan ?>, <?= $tahun ?> </h5>
                 <table class="" border="1" cellpadding="5">
                     <thead>
@@ -34,7 +34,7 @@
                             $this->db->group_by('tanggal_absensi');
                             $this->db->order_by('tanggal_absensi', 'DESC');
                             $this->db->where('id_rombel', $id_rmbl);
-                            $this->db->where('id_pelajaran', $id_pelajaran);
+                            $this->db->where('id_kategori', $id_kategori);
                             $this->db->like('tanggal_absensi', $bulan, 'both');
 
                             $tgl = $this->db->get('tb_absensi');
@@ -58,20 +58,20 @@
                         /*-------------------------------------------*/
 
                         $this->db->group_by('id_siswa');
-                        $this->db->where('id_pelajaran', $id_pelajaran);
+                        $this->db->where('id_kategori', $id_kategori);
                         $this->db->where('id_rombel', $id_rmbl);
                         $data = $this->db->get('tb_absensi');
                         foreach ($data->result() as $d) {
                             $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
                             $this->db->where('tb_absensi.id_siswa', $d->id_siswa);
-                            $this->db->where('id_pelajaran', $id_pelajaran);
+                            $this->db->where('id_kategori', $id_kategori);
                             $this->db->where('id_rombel', $id_rmbl);
                             $siswa = $this->db->get('tb_absensi')->row_array();
 
                             $this->db->select('COUNT(keterangan) as s');
                             $this->db->where('id_siswa', $siswa['id_siswa']);
                             $this->db->where('keterangan', 's');
-                            $this->db->where('id_pelajaran', $id_pelajaran);
+                            $this->db->where('id_kategori', $id_kategori);
                             $this->db->where('id_rombel', $id_rmbl);
                             $this->db->like('tanggal_absensi', $bulan, 'both');
                             $s = $this->db->get('tb_absensi')->row_array();
@@ -79,7 +79,7 @@
                             $this->db->select('COUNT(keterangan) as i');
                             $this->db->where('id_siswa', $siswa['id_siswa']);
                             $this->db->where('keterangan', 'i');
-                            $this->db->where('id_pelajaran', $id_pelajaran);
+                            $this->db->where('id_kategori', $id_kategori);
                             $this->db->where('id_rombel', $id_rmbl);
                             $this->db->like('tanggal_absensi', $bulan, 'both');
                             $i = $this->db->get('tb_absensi')->row_array();
@@ -87,7 +87,7 @@
                             $this->db->select('COUNT(keterangan) as a');
                             $this->db->where('id_siswa', $siswa['id_siswa']);
                             $this->db->where('keterangan', 'a');
-                            $this->db->where('id_pelajaran', $id_pelajaran);
+                            $this->db->where('id_kategori', $id_kategori);
                             $this->db->where('id_rombel', $id_rmbl);
                             $this->db->like('tanggal_absensi', $bulan, 'both');
                             $a = $this->db->get('tb_absensi')->row_array();
@@ -100,7 +100,7 @@
                                 <td><?= $siswa['jenis_kelamin_siswa'] ?></td>
                                 <?php
                                 $this->db->where('id_siswa', $siswa['id_siswa']);
-                                $this->db->where('id_pelajaran', $id_pelajaran);
+                                $this->db->where('id_kategori', $id_kategori);
                                 $this->db->where('id_rombel', $id_rmbl);
                                 $this->db->like('tanggal_absensi', $bulan, 'both');
                                 $data2 = $this->db->get('tb_absensi')->result_array($d->id_siswa);
@@ -128,11 +128,11 @@
                 </b> </p>
         </div>
 
-        <div class="col-md-3" style="text-align: right">
+        <div class="col-md-2" style="text-align: right">
             <?php
             $this->db->select('COUNT(jenis_kelamin_siswa) as l');
             $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
-            $this->db->where('id_pelajaran', $id_pelajaran);
+            $this->db->where('id_kategori', $id_kategori);
             $this->db->where('jenis_kelamin_siswa', 'L');
             $this->db->where('id_rombel', $id_rmbl);
             $this->db->like('tanggal_absensi', $bulan, 'both');
@@ -141,7 +141,7 @@
             <?php
             $this->db->select('COUNT(jenis_kelamin_siswa) as p');
             $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
-            $this->db->where('id_pelajaran', $id_pelajaran);
+            $this->db->where('id_kategori', $id_kategori);
             $this->db->where('jenis_kelamin_siswa', 'P');
             $this->db->where('id_rombel', $id_rmbl);
             $this->db->like('tanggal_absensi', $bulan, 'both');
@@ -152,10 +152,10 @@
                     JML&nbsp;&nbsp;: <?= $jk_p['p'] + $jk['l']  ?> Orang
                 </b></p>
         </div>
-        <div class="col-md-3" style="text-align: left;padding-left:100px;">
+        <div class="col-md-4" style="text-align: left;padding-left:100px;">
             <?php
             $this->db->select('COUNT(keterangan) as s');
-            $this->db->where('id_pelajaran', $id_pelajaran);
+            $this->db->where('id_kategori', $id_kategori);
             $this->db->where('keterangan', 's');
             $this->db->where('id_rombel', $id_rmbl);
             $this->db->like('tanggal_absensi', $bulan, 'both');
@@ -163,7 +163,7 @@
             ?>
             <?php
             $this->db->select('COUNT(keterangan) as i');
-            $this->db->where('id_pelajaran', $id_pelajaran);
+            $this->db->where('id_kategori', $id_kategori);
             $this->db->where('keterangan', 'i');
             $this->db->where('id_rombel', $id_rmbl);
             $this->db->like('tanggal_absensi', $bulan, 'both');
@@ -172,7 +172,7 @@
             <?php
             $jmlh_siswa = $jk_p['p'] + $jk['l'];
             $this->db->select('COUNT(keterangan) as a');
-            $this->db->where('id_pelajaran', $id_pelajaran);
+            $this->db->where('id_kategori', $id_kategori);
             $this->db->where('keterangan', 'a');
             $this->db->where('id_rombel', $id_rmbl);
             $this->db->like('tanggal_absensi', $bulan, 'both');
@@ -181,7 +181,17 @@
             <p><b>Hari Efektif : <?= $aktif ?><br>
                     S : <?= $jum_s['s'] ?><br>
                     I &nbsp;: <?= $jum_i['i'] ?><br>A : <?= $jum_a['a'] ?>
-                </b></p>
+                </b></p><br>
+            <?php
+            $tot =  $jum_s['s']  +  $jum_i['i'] + $jum_a['a'];
+            $jmlh_siswa = $jk_p['p'] + $jk['l'];
+            $tot2 = $tot * $jmlh_siswa;
+            $bagi = $aktif / $tot2;
+            $tot3 = $bagi * 100;
+            ?>
+            <p> Absensi = (<?= $aktif ?>/<?= $jum_s['s'] ?> + <?= $jum_i['i'] ?> + <?= $jum_a['a'] ?> * <?= $jmlh_siswa ?>) * 100% </p>
+            <h4 style="margin-left: 55px"><b>= <?= $tot3 ?>% </b></h4>
+
 
         </div>
         <div class="col-md-3">

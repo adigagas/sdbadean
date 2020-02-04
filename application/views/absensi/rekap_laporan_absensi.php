@@ -52,32 +52,6 @@
                                         <form action="<?= base_url() ?>Laporan/cetakLaporan" method="POST">
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <h4>Rombel</h4>
-                                                    <!-- Gender -->
-                                                    <select id='sel_rombel' name="id_rombel" class="form-control">
-                                                        <!--<option value=''>-- Pilih Rombel --</option>-->
-                                                        <?php
-                                                        $this->db->order_by('id_kelas', 'ASC');
-                                                        $data = $this->db->get('tb_rombel')->result();
-                                                        foreach ($data as $d) : ?>
-                                                            <option value='<?= $d->nama_rombel ?>'><?= $d->nama_rombel ?></option>
-                                                        <?php endforeach ?>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <h4>Mapel</h4>
-                                                    <!-- Gender -->
-                                                    <select id='sel_mapel' name="nama_pelajaran" class="form-control">
-                                                        <!--<option value=''>-- Pilih Mapel --</option>-->
-                                                        <?php
-                                                        $data = $this->db->get('tb_pelajaran')->result();
-                                                        foreach ($data as $d) : ?>
-                                                            <option value='<?= $d->nama_pelajaran ?>'><?= $d->nama_pelajaran ?></option>
-                                                        <?php endforeach ?>
-                                                    </select>
-
-                                                </div>
-                                                <div class="col-md-2">
                                                     <h4>Tahun Ajaran</h4>
 
                                                     <select class="form-control" name="tahun" id="sel_tahun">
@@ -104,6 +78,33 @@
                                                         <option value="Desember"> Desember </option>
                                                     </select>
                                                 </div>
+                                                <div class="col-md-2">
+                                                    <h4>Rombel</h4>
+                                                    <!-- Gender -->
+                                                    <select id='sel_rombel' name="id_rombel" class="form-control">
+                                                        <!--<option value=''>-- Pilih Rombel --</option>-->
+                                                        <?php
+                                                        $this->db->order_by('id_kelas', 'ASC');
+                                                        $data = $this->db->get('tb_rombel')->result();
+                                                        foreach ($data as $d) : ?>
+                                                            <option value='<?= $d->nama_rombel ?>'><?= $d->nama_rombel ?></option>
+                                                        <?php endforeach ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <h4>Kategori</h4>
+                                                    <!-- Gender -->
+                                                    <select id='sel_mapel' name="nama_kategori" class="form-control">
+                                                        <!--<option value=''>-- Pilih Mapel --</option>-->
+                                                        <?php
+                                                        $data = $this->db->get('tb_kategori')->result();
+                                                        foreach ($data as $d) : ?>
+                                                            <option value='<?= $d->nama_kategori ?>'><?= $d->nama_kategori ?></option>
+                                                        <?php endforeach ?>
+                                                    </select>
+
+                                                </div>
+
                                                 <!-- Name -->
                                                 <div class="col-md-2 ">
                                                     <h4></h4><br>
@@ -126,7 +127,7 @@
                                                     <th>NISN</th>
                                                     <th>Nama Siswa</th>
                                                     <th>Nama Rombel</th>
-                                                    <th>Nama Pelajaran</th>
+                                                    <th>Kategori</th>
                                                     <th>Bulan Absensi</th>
                                                     <th>Tahun Absensi</th>
 
@@ -194,7 +195,7 @@
                         data: 'nama_rombel'
                     },
                     {
-                        data: 'nama_pelajaran'
+                        data: 'nama_kategori'
                     },
                     {
                         data: 'tanggal_absensi'

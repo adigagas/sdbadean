@@ -117,19 +117,19 @@
                                         </table>
                                     </div>
                                 </div>
-
-                                <div class="table-responsive">
-
-                                    <table id="zero_config" class="table table-striped table-bordered">
+                                <form action="<?= base_url('penilaian/addNilai') ?>" method="POST">
+                                    <table id="zero_config" class="table table-sm">
                                         <thead class="text-center">
                                             <tr>
                                                 <th rowspan="2"><b>NO</b></th>
                                                 <th rowspan="2"><b>NAMA PESERTA DIDIK</b></th>
-                                                <th colspan="4"><b>KOMPETENSI DASAR</b></th>
+                                                <?php $i = 0;
+                                                foreach ($indikator_show as $indikators) {
+                                                    $i++; ?>
+                                                <?php } ?>
+                                                <th colspan="<?= $i ?>"><b>KOMPETENSI DASAR</b></th>
                                                 <th rowspan="2" width="70px"><b>MID</b></th>
                                                 <th rowspan="2" width="70px"><b>UAS</b></th>
-                                                <th rowspan="2"><b>DESKRIPSI RAPORT</b></th>
-                                                <th rowspan="2"><b>KETUNTASAN</b></th>
                                             </tr>
                                             <tr>
                                                 <?php foreach ($indikator_show as $indikators) { ?>
@@ -138,78 +138,42 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Ahmad Deni</td>
-                                                <?php foreach ($indikator_show as $indikators) { ?>
+                                            <?php $i = 0;
+                                            foreach ($siswa_show as $siswa) {
+                                                $i++; ?>
+                                                <tr>
+                                                    <td><?= $i ?></td>
+                                                    <input type="text" hidden value="<?= $siswa->id_siswa ?>" name="id_siswa[]">
+                                                    <td><?= $siswa->nama_siswa ?></td>
+                                                    <?php
+                                                    $f = 0;
+                                                    foreach ($indikator_show as $indikators) {
+                                                    ?>
+                                                        <td>
+                                                            <input hidden name="count_indikator" type="text" class="form-control" value="<?= $f ?>">
+                                                            <input hidden name="indikator<?= $f ?>[]" type="text" value="<?= $indikators->id_kd ?>">
+                                                            <input name="inputData<?= $f ?>[]" type="number" class="form-control" min="0" max="100" value="70">
+                                                        </td>
+                                                    <?php $f++;
+                                                    } ?>
                                                     <td>
-                                                        <input type="number" class="form-control" min="0" max="100">
+                                                        <input name="mid[]" type="number" class="form-control" min="0" max="100" value="70">
                                                     </td>
-                                                <?php } ?>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td></td>
-                                                <td class="text-success">Tuntas</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Laili Permata</td>
-                                                <td>
-                                                    <<<<<<< HEAD <input type="number" class="form-control">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control">
-                                                    =======
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                    >>>>>>> 22386b9f0f2061760b577c9c52ad3c6d2fbc89e9
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td>
-                                                    <input type="number" class="form-control" min="0" max="100">
-                                                </td>
-                                                <td></td>
-                                                <td class="text-danger">Tidak Tuntas</td>
-                                            </tr>
-
+                                                    <td>
+                                                        <input name="uas[]" type="number" class="form-control" min="0" max="100" value="70">
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                            <input type="text" hidden value="<?= $id_pelajaran ?>" name="id_pelajaran">
+                                            <input type="text" hidden value="<?= $siswa->id_rombel ?>" name="id_rombel">
                                         </tbody>
                                     </table>
-                                </div>
 
-                                <div class="row justify-content-end mt-5">
-                                    <a href="" class="btn btn-outline-secondary mr-2">Batal</a>
-                                    <a href="" class="btn btn-success mr-4">Simpan</a>
-                                </div>
+                                    <div class="row justify-content-end mt-5">
+                                        <a href="" class="btn btn-outline-secondary mr-2"><?= $siswa->id_rombel ?></a>
+                                        <button type="submit" value="Simpan">Simpan</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -270,7 +234,20 @@
         /****************************************
          *       Basic Table                   *
          ****************************************/
-        $('#zero_config').DataTable();
+        $(document).ready(function() {
+            $('#zero_config').dataTable({
+                'bInfo': false,
+                "aLengthMenu": [
+                    [25, 50, 75, -1],
+                    [25, 50, 75, "All"]
+                ],
+                "iDisplayLength": 1000,
+                "columnDefs": [{
+                    "targets": All,
+                    "orderable": false
+                }]
+            });
+        });
     </script>
 
 </body>

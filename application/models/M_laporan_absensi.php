@@ -30,7 +30,7 @@ class M_laporan_absensi extends CI_Model
         $searchQuery = "";
         if ($searchValue != '') {
             $search_arr[] = " (nomor_induk_sn like '%" . $searchValue . "%' or 
-            nama_pelajaran like '%" . $searchValue . "%' or 
+            nama_kategori like '%" . $searchValue . "%' or 
                 nama_rombel like'%" . $searchValue . "%  or 
                 tanggal_absensi like'%" . $searchValue . "%' ) ";
         }
@@ -38,7 +38,7 @@ class M_laporan_absensi extends CI_Model
             $search_arr[] = " nama_rombel='" . $searchRombel . "' ";
         }
         if ($searchMapel != '') {
-            $search_arr[] = " nama_pelajaran='" . $searchMapel . "' ";
+            $search_arr[] = " nama_kategori='" . $searchMapel . "' ";
         }
         if ($searchBulan != '') {
             $search_arr[] = " tanggal_absensi like '%" . $searchBulan . "%' ";
@@ -57,6 +57,7 @@ class M_laporan_absensi extends CI_Model
         $this->db->select('count(*) as allcount');
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
+        $this->db->join('tb_kategori', 'tb_absensi.id_kategori=tb_kategori.id_kategori');
         $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $records = $this->db->get('tb_absensi')->result();
         $totalRecords = $records[0]->allcount;
@@ -67,6 +68,7 @@ class M_laporan_absensi extends CI_Model
             $this->db->where($searchQuery);
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
+        $this->db->join('tb_kategori', 'tb_absensi.id_kategori=tb_kategori.id_kategori');
         $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $records = $this->db->get('tb_absensi')->result();
         $totalRecordwithFilter = $records[0]->allcount;
@@ -81,6 +83,7 @@ class M_laporan_absensi extends CI_Model
         $this->db->group_by('tb_absensi.id_siswa');
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
+        $this->db->join('tb_kategori', 'tb_absensi.id_kategori=tb_kategori.id_kategori');
         $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $records = $this->db->get('tb_absensi')->result();
 
@@ -94,7 +97,7 @@ class M_laporan_absensi extends CI_Model
                 "nomor_induk_sn" => $record->nomor_induk_sn,
                 "nama_siswa" => $record->nama_siswa,
                 "nama_rombel" => $record->nama_rombel,
-                "nama_pelajaran" => $record->nama_pelajaran,
+                "nama_kategori" => $record->nama_kategori,
                 "tanggal_absensi" => $month,
                 "tahun_absensi" => $year,
             );
