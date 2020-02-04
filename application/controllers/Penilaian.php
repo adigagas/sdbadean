@@ -83,6 +83,11 @@ class Penilaian extends CI_Controller
         $this->load->view('Penilaian/nilai_sikap_sosial', $data);
     }
 
+    public function show_nilai()
+    {
+        $this->load->view('Penilaian/hasil_nilai');
+    }
+
     public function addNilai()
     {
         $id_pelajaran = $this->input->post('id_pelajaran');
@@ -90,7 +95,6 @@ class Penilaian extends CI_Controller
         $id_rombel = $this->input->post('id_rombel');
         $count_data = $this->input->post('count_indikator');
         $mid = $this->input->post('mid');
-        $test = true;
         $uas = $this->input->post('uas');
         for ($z = 0; $z <= $count_data; $z++) {
             $inputData[] = $this->input->post('inputData' . $z . '');
@@ -121,6 +125,14 @@ class Penilaian extends CI_Controller
                 $this->db->insert('tb_nilai_kd', $data);
             }
         }
+        $data = array(
+            'id_riwayat_nilai' => md5(uniqid(rand(), true)),
+            'id_pelajaran' => $id_pelajaran,
+            'id_rombel' => $id_rombel,
+            'id_kd' => $indikator[0][0],
+            'id_gtk' => $this->session->userdata('id_gtk')
+        );
+        $this->db->insert('tb_riwayat_nilai', $data);
     }
 
     public function nilai_mapel()
