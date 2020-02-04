@@ -42,7 +42,9 @@ class Admin extends CI_Controller
         list($hari) = mb_split('[,]', $date);
         $id_gtk = $this->session->userdata('id_gtk');
         $this->load->helper('tgl_indo');
+        $data['info'] = $this->db->get('tb_jenis_info')->result();
         $data['jadwal'] = $this->M_mapel->jadwalAjar($id_gtk, $hari);
+        $data['pr'] = $this->M_mapel->jadwalAjar($id_gtk, $hari);
         $data['jabatan'] = $this->session->userdata('jabatan');
         if ($data == 0) {
             $this->session->set_flashdata(

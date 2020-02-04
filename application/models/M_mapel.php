@@ -46,6 +46,7 @@ class M_mapel extends CI_Model
         $this->db->join('tb_pelajaran', 'tb_mapel.id_pelajaran=tb_pelajaran.id_pelajaran');
         $this->db->join('tb_gtk', 'tb_mapel.id_gtk=tb_gtk.id_gtk');
         $this->db->join('tb_rombel', 'tb_mapel.id_rombel=tb_rombel.id_rombel');
+        $this->db->group_by('tb_pelajaran.id_kategori');
         $this->db->order_by('waktu_mulai');
         $this->db->where('tb_mapel.id_hari', $hari);
         $this->db->where('tb_mapel.id_rombel', $angkatan);

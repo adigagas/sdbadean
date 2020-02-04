@@ -118,7 +118,7 @@ if ($this->session->userdata('username') == null) {
                                     <div class="row">
                                         <!-- column -->
                                         <div class="col-lg-9">
-                                            <?php echo $this->session->flashdata('kosong'); ?>
+                                            <?php echo $this->session->flashdata('msg'); ?>
                                             <div class="row">
                                                 <?php foreach ($jadwal as $a) : ?>
                                                     <div class="col-md-6">
@@ -136,10 +136,11 @@ if ($this->session->userdata('username') == null) {
                                                                         <input type="hidden" value="<?= $a->nama_pelajaran ?>" name="nama_pelajaran">
                                                                         <input type="hidden" value="<?= $a->id_pelajaran ?>" name="id_pelajaran">
                                                                         <input type="hidden" value="<?= $a->id_gtk ?>" name="id_gtk">
+                                                                        <input type="hidden" value="<?= $a->id_kategori ?>" name="id_kategori">
                                                                         <input type="hidden" value="<?= $a->id_jadwal_mapel ?>" name="id_jadwal_mapel">
                                                                         <button class="btn btn-success" type="submit" <?php
                                                                                                                         $sql = "SELECT COUNT(id_siswa)
-                                                                                                                    FROM tb_absensi WHERE tanggal_absensi='" . $waktu . "' AND id_mapel='" . $a->id_jadwal_mapel . "'";
+                                                                                                                    FROM tb_absensi WHERE tanggal_absensi='" . $waktu . "' AND id_kategori='" . $a->id_kategori . "'";
                                                                                                                         $query = $this->db->query($sql);
                                                                                                                         $result = $query->row_array();
                                                                                                                         $count = $result['COUNT(id_siswa)'];
@@ -150,8 +151,10 @@ if ($this->session->userdata('username') == null) {
                                                                                                                         } ?>> <?php if ($count <= 0) {
                                                                                                                                     echo "Absensi Sekarang";
                                                                                                                                 } else {
-                                                                                                                                    echo "Sudah Diabsen";
-                                                                                                                                } ?></button>
+                                                                                                                                    echo "Sudah Diabsen"; ?>
+                                                                        </button>
+                                                                        <a class="btn btn-success" href="" data-toggle="modal" data-target="#myModal<?= $a->id_pelajaran ?>"> Informasi</a>
+                                                                    <?php } ?>
                                                                     </div>
                                                                 </form>
                                                                 <div class="card-footer text-muted">
@@ -228,6 +231,45 @@ if ($this->session->userdata('username') == null) {
                 <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
             </div>
+            <?php foreach ($pr as $p) { ?>
+                <div class="modal fade " id="myModal<?= $p->id_pelajaran ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md-12 ">
+                        <div class="modal-content col-md-12">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Tambah Informasi <?= $p->nama_pelajaran ?></h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="<?= base_url() ?>mapel/infoMapel" method="POST">
+                                    <input type="hidden" value="<?= $p->id_rombel ?>" name="id_rombel">
+                                    <input type="hidden" value="<?= $p->id_pelajaran ?>" name="id_pelajaran">
+                                    <input type="hidden" value="<?= $p->id_gtk ?>" name="id_gtk">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Jenis Informasi</label>
+                                        <select class="form-control" name="id_jenis">
+                                            <?php foreach ($info as $j) { ?>
+                                                <option value="<?= $j->id_jenis ?>"><?= $j->jenis_info ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Tanggal</label>
+                                        <input style="border-radius: 10px" required type="date" class="form-control" name="dateline" placeholder="Cth : IPA">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Ulasan Informasi</label>
+                                        <textarea style="border-radius: 10px" required type="text" class="form-control" name="ulasan_informasi" placeholder="Ulasan Informasi"></textarea>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="input" class=" btn btn-primary">Tambah</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
@@ -274,6 +316,30 @@ if ($this->session->userdata('username') == null) {
     <script src="<?= base_url() ?>vendor/assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="<?= base_url() ?>vendor/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="<?= base_url() ?>vendor/dist/js/pages/chart/chart-page-init.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#state").change(function() {
+                // foo is the id of the other select box 
+                if ($(this).val() == "1") {
+                    $("#keluar").show();
+                    $("#pindah").hide();
+                    $("#tamat").hide();
+                } else if ($(this).val() == "2") {
+                    $("#tamat").hide();
+                    $("#keluar").hide();
+                    $("#pindah").show();
+                } else if ($(this).val() == "3") {
+                    $("#keluar").hide();
+                    $("#pindah").hide();
+                    $("#tamat").show();
+                } else {
+                    $("#keluar").hide();
+                    $("#pindah").hide();
+                    $("#tamat").hide();
+                }
+            });
+        });
+    </script>
 
 </body>
 

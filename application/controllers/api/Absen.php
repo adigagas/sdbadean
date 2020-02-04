@@ -129,6 +129,8 @@ class Absen extends REST_Controller
         $tgl['waktu'] = formatHariTanggal($waktu);
 
         $this->db->join('tb_mapel', 'tb_absensi.id_mapel=tb_mapel.id_jadwal_mapel');
+        $this->db->join('users', 'users.id_gtk=tb_absensi.id_gtk');
+        $this->db->join('tb_kategori', 'tb_absensi.id_kategori=tb_kategori.id_kategori');
         $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $this->db->join('tb_gtk', 'tb_absensi.id_gtk=tb_gtk.id_gtk');
         $this->db->where('id_siswa', $id_siswa);
