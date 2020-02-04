@@ -12,6 +12,7 @@ class M_akun extends CI_Model
     public $id_gtk;
     public $username;
     public $password;
+    public $no_wa;
     public $jabatan;
 
 
@@ -41,6 +42,7 @@ class M_akun extends CI_Model
         $this->id_gtk = $post['id_gtk'];
         $this->username = $post['username'];
         $this->password = $post['password'];
+        $this->no_wa = $post['no_wa'];
         $this->jabatan = $post['jabatan'];
         $this->db->insert($this->_table, $this);
     }
@@ -78,6 +80,7 @@ class M_akun extends CI_Model
         $this->id_gtk = $post['id_gtk'];
         $this->username = $post['username'];
         $this->password = $post['password'];
+        $this->no_wa = $post['no_wa'];
         $this->jabatan = $post['jabatan'];
         $this->db->update($this->_table, $this, array("id_login" => $id_login));
     }

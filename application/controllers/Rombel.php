@@ -103,6 +103,7 @@ class Rombel extends CI_Controller
             'nama_rombel' => $nama_kelas,
             'id_gtk' => $aboutgtk,
             'tahun_ajaran' => $years_ajaran,
+            'semester' => '1',
         );
 
         if (isset($_POST['remove_levels'])) {
@@ -146,6 +147,7 @@ class Rombel extends CI_Controller
                     'nama_rombel' => $nama_rombel_nonaik,
                     'id_gtk' => $id_gtk_nonaik,
                     'tahun_ajaran' => $tahun_ajaran_nonaik,
+                    'semester' => '1',
                 );
                 $this->M_rombel->input_data($yeah, 'tb_rombel');
                 for ($i = 0; $i < count($Id_siswaRombel); $i++) {

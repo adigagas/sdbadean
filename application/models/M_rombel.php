@@ -77,6 +77,7 @@ class M_rombel extends CI_Model
         $this->db->join('tb_siswa', 'tb_siswa.id_siswa = tb_relasi_rombel_siswa.id_siswa');
         $array = array('tb_relasi_rombel_siswa.id_rombel' => $id_rombel, 'tb_siswa.status' => 'Aktif');
         $this->db->where($array);
+        $this->db->order_by('nama_siswa', 'ASC');
         $query = $this->db->get();
         return $query->result();
     }

@@ -166,6 +166,7 @@
                                                 <th><b>Nama Rombel</b></th>
                                                 <th><b>Wali Kelas</b></th>
                                                 <th><b>Tahun Ajaran</b></th>
+                                                <th><b>Semester</b></th>
                                                 <th><b>Aksi</b></th>
                                             </tr>
                                         </thead>
@@ -178,6 +179,7 @@
                                                     <td><?= $s->nama_rombel ?></td>
                                                     <td><?= $s->nama_gtk ?></td>
                                                     <td><?= $s->tahun_ajaran ?></td>
+                                                    <td><?= $s->semester ?></td>
                                                     <td>
                                                         <a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="mdi mdi-24px mdi-account-card-details"></a>
                                                         <?php

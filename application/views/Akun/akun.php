@@ -111,14 +111,20 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
+                                                                <label for="fname" class="col-sm-4  control-label col-form-label">Nomor WA</label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="number" style="border-radius: 10px;" name="no_wa" class="form-control" id="no_wa" placeholder="08xxxxxxxxxx" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
                                                                 <label for="fname" class="col-sm-4  control-label col-form-label">Jabatan</label>
                                                                 <div class="col-sm-8">
                                                                     <select required class="custom-select" id="jabatan" name="jabatan">
                                                                         <?php
                                                                         foreach ($jabatan as $jabatan_select) : ?>
-                                                                            <option if value="<?= $jabatan_select->jabatan ?>"><?= $jabatan_select->jabatan ?></option>
+                                                                            <option if value="<?= $jabatan_select->id_jabatan ?>"><?= $jabatan_select->jabatan ?></option>
                                                                         <?php
-                                                                            $jabatan = $jabatan_select->jabatan;
+                                                                            $jabatan = $jabatan_select->id_jabatan;
                                                                         endforeach; ?>
                                                                     </select>
                                                                 </div>
@@ -170,11 +176,15 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
+
+                <!-- Modal -->
+                
                 <?php $no=0; foreach($akun as $row): $no++; ?>
                 <div class="row">
-  <div id="modal-edit<?=$row->id_login;?>" class="modal fade">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+                 <div id="modal-edit<?=$row->id_login;?>" class="modal fade">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalCenterTitle">Edit Ekskul</h5>
@@ -201,6 +211,13 @@
                                             <input type="hidden" style="border-radius: 10px;" name="jabatan" class="form-control" id="jabatan" value="<?php echo $row->jabatan  ?>" placeholder="Nama Penanggung Jawab" required>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-4  control-label col-form-label">Nomor WA</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" style="border-radius: 10px;" name="no_wa" class="form-control" id="no_wa" value="<?php echo $row->no_wa  ?>" placeholder="Nama Penanggung Jawab" required>
+                                           
+                                        </div>
+                                    </div>
                                    
                             </div>
                             <div class="modal-footer">
@@ -210,10 +227,9 @@
                             </form>
                         </div>
                     </div>
-</div>
+                </div>
+                </div>
                 <?php endforeach; ?>
-                <!-- Modal -->
-
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -246,9 +262,7 @@
     <!-- End Wrapper -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="<?= base_url() ?>vendor/assets/libs/jquery/dist/jquery.min.js"></script>
+     <script src="<?= base_url() ?>vendor/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?= base_url() ?>vendor/assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="<?= base_url() ?>vendor/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -271,6 +285,7 @@
          ****************************************/
         $('#zero_config').DataTable();
     </script>
+
 
 </body>
 

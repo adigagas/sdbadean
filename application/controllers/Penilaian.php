@@ -6,6 +6,8 @@ class Penilaian extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_rombel');
+        $this->load->model('M_penilaian');
     }
 
     public function index()
@@ -14,6 +16,51 @@ class Penilaian extends CI_Controller
         $data['nama_rombel'] = $this->input->post('nama_rombel');
         $data['ki'] = $this->db->get('tb_ki')->result();
         $this->load->view('Penilaian/penilaian', $data);
+    }
+
+    public function kd()
+    {
+        $data['rombel'] = $this->M_rombel->getAllRombel();
+        $data['kelas'] = $this->M_rombel->getKelas();
+        $data['pelajaran'] = $this->M_penilaian->getPelajaran();
+        $data['tahun'] = $this->M_penilaian->getTahun();
+        $data['jabatan'] = $this->session->userdata('jabatan');
+        $this->load->view('Penilaian/kd_view_example', $data);
+    }
+
+    public function userList()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getUsers($postData);
+        echo json_encode($data);
+    }
+
+    public function userListI()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getUsersI($postData);
+        echo json_encode($data);
+    }
+
+    public function userListII()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getUsersII($postData);
+        echo json_encode($data);
+    }
+
+    public function test()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getTahun();
+        echo json_encode($data);
+    }
+
+    public function userListIII()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getUsersIII($postData);
+        echo json_encode($data);
     }
 
     public function cek_rombel()
@@ -36,6 +83,46 @@ class Penilaian extends CI_Controller
         $this->load->view('Penilaian/nilai_sikap_sosial', $data);
     }
 
+    public function addNilai()
+    {
+        $id_pelajaran = $this->input->post('id_pelajaran');
+        $id_siswa = $this->input->post('id_siswa');
+        $id_rombel = $this->input->post('id_rombel');
+        $count_data = $this->input->post('count_indikator');
+        $mid = $this->input->post('mid');
+        $test = true;
+        $uas = $this->input->post('uas');
+        for ($z = 0; $z <= $count_data; $z++) {
+            $inputData[] = $this->input->post('inputData' . $z . '');
+        }
+        for ($g = 0; $g <= $count_data; $g++) {
+            $indikator[] = $this->input->post('indikator' . $g . '');
+        }
+        echo $indikator[1][0];
+        for ($i = 0; $i < sizeof($mid); $i++) {
+            $kode_nilai_ = md5(uniqid(rand(), true));
+            $data = array(
+                'id_nilai' => '',
+                'id_pelajaran' => $id_pelajaran,
+                'id_siswa' => $id_siswa[$i],
+                'id_rombel' => $id_rombel,
+                'kode_nilai_kd' => $kode_nilai_,
+                'mid_semester' => $mid[$i],
+                'uas' => $uas[$i],
+                'nilai_akhir' => '100'
+            );
+            $this->db->insert('tb_nilai', $data);
+            for ($r = 0; $r <= $count_data; $r++) {
+                $data = array(
+                    'kode_nilai_kd' => $kode_nilai_,
+                    'id_kd' => $indikator[$r][0],
+                    'nilai' => $inputData[$r][$i]
+                );
+                $this->db->insert('tb_nilai_kd', $data);
+            }
+        }
+    }
+
     public function nilai_mapel()
     {
         $data['id_ki'] = $this->input->post('id_ki');
@@ -43,6 +130,20 @@ class Penilaian extends CI_Controller
         $data['id_pelajaran'] = $this->input->post('id_pelajaran');
         $data['nama_rombel'] = $this->input->post('nama_rombel');
         $data['id_rombel'] = $this->input->post('id_rombel');
+        $id = $this->input->post('id_rombel');
+        $query = $this->db->query('SELECT * FROM tb_rombel WHERE id_rombel = "' . $id . '"');
+        foreach ($query->result() as $row) {
+            $id_kelas = $row->id_kelas;
+            $semester = $row->semester;
+            $tahun_ajaran = $row->tahun_ajaran;
+        }
+        $id_pelajaran = $this->input->post('id_pelajaran');
+        $id_ki = $this->input->post('id_ki');
+        echo $id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran;
+        $data['indikator_show'] = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
+        $data['siswa_show'] = $this->M_rombel->getDetailRombel($id);
+        // $show = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
+        // print_r($show);
 
         if ($data['id_ki'] == "KI-1") {
             $this->load->view('Penilaian/nilai_sikap_spiritual');
