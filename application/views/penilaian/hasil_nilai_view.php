@@ -153,19 +153,20 @@
                                                     $query = $this->db->get('tb_nilai_kd');
                                                     foreach ($query->result() as $row) {
                                                     ?>
-                                                        <td>
+                                                        <td class="text-center">
                                                             <?php echo $row->nilai;
                                                             $nilaidata[] = $row->nilai; ?>
                                                         </td>
                                                     <?php $f++;
                                                     }
                                                     echo array_sum($nilaidata) ?>
-                                                    <td>
-                                                        <input name="mid[]" type="number" class="form-control" min="0" max="100" value="<?php $avg = array_sum($nilaidata) / count($nilaidata);
-                                                                                                                                        echo $avg ?>">
+                                                    <td class="text-center">
+                                                        <?php $avg = array_sum($nilaidata) / count($nilaidata);
+                                                        echo round($avg) ?>
                                                     </td>
-                                                    <td>
-                                                        <input name="uas[]" type="number" class="form-control" min="0" max="100" value="70">
+                                                    <td class="text-center">
+                                                        <?php $avg = array_sum($nilaidata) / count($nilaidata);
+                                                        echo round($avg) ?>
                                                     </td>
                                                 </tr>
                                             <?php unset($nilaidata);
