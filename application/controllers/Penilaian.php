@@ -24,11 +24,26 @@ class Penilaian extends CI_Controller
         foreach ($query->result() as $row) {
             $kode_nilai_kd = $row->kode_nilai_kd;
         }
+        $data['nama_pelajaran'] = $this->M_penilaian->getPelajaranFilter($id_riwayat_nilai);
+        $data['ki_data'] = $this->M_penilaian->getKIFilter($id_riwayat_nilai);
         $data['siswa_show'] = $this->M_penilaian->getNilai($id_riwayat_nilai);
         $data['indikator_show'] = $this->M_penilaian->getKD($kode_nilai_kd);
+        $data['id_riwayat'] = $id_riwayat_nilai;
         $this->load->view('penilaian/hasil_nilai_view', $data);
     }
 
+    public function change_value()
+    {
+        $kode = $this->input->post('bookEn');
+        $nilai = $this->input->post('bookId');
+        $redirect = $this->input->post('bookRiwayat');
+
+        $this->db->set('nilai', $nilai);
+        $this->db->where('id_nilai_kd', $kode);
+        $this->db->update('tb_nilai_kd');
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Berhasil di Perbarui!</div>');
+        redirect(base_url('penilaian/detail_show/' . $redirect));
+    }
     public function kd()
     {
         $data['rombel'] = $this->M_rombel->getAllRombel();

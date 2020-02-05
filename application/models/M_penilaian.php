@@ -57,6 +57,15 @@ class M_penilaian extends CI_Model
         return $query->result();
     }
 
+    public function getKIFilter($kode)
+    {
+        $this->db->select('tb_ki.id_ki, tb_ki.nama_ki');
+        $this->db->join('tb_kd', 'tb_kd.id_kd = tb_riwayat_nilai.id_kd');
+        $this->db->join('tb_ki', 'tb_ki.id_ki = tb_kd.id_ki');
+        $query = $this->db->get_where('tb_riwayat_nilai', array('tb_riwayat_nilai.id_riwayat_nilai' => $kode));
+        return $result = $query->row();
+    }
+
     public function getKI()
     {
         $this->db->select('*');
@@ -72,6 +81,14 @@ class M_penilaian extends CI_Model
         $this->db->where($array);
         $query = $this->db->get('tb_kd');
         return $query->result();
+    }
+
+    public function getPelajaranFilter($kode)
+    {
+        $this->db->select('nama_pelajaran');
+        $this->db->join('tb_pelajaran', 'tb_pelajaran.id_pelajaran = tb_riwayat_nilai.id_pelajaran');
+        $query = $this->db->get_where('tb_riwayat_nilai', array('tb_riwayat_nilai.id_riwayat_nilai' => $kode));
+        return $result = $query->row();
     }
 
     public function getPelajaran()

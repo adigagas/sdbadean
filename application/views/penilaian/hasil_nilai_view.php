@@ -60,24 +60,18 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-header" style="background:#2980b9; color:#fff;">Daftar Penilaian</h5> <br>
-
                                 <div class="row mb-5">
                                     <div class="col">
                                         <table>
                                             <tr>
                                                 <td><b>Mata Penilaian</b></td>
                                                 <td><b>:</b></td>
-                                                <td> <?= $nama_pelajaran ?> </td>
+                                                <td> <?= $nama_pelajaran->nama_pelajaran ?> </td>
                                             </tr>
                                             <tr>
                                                 <td><b>Kompetensi Inti</b></td>
                                                 <td><b>:</b></td>
-                                                <td><?= $id_ki ?> <?= $nama_ki ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Rombel</b></td>
-                                                <td><b>:</b></td>
-                                                <td><?= $nama_rombel ?></td>
+                                                <td><?= $ki_data->id_ki ?> <?= $ki_data->nama_ki ?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Wali Kelas</b></td>
@@ -104,82 +98,88 @@
                                                 <td><b>:</b></td>
                                                 <td>1</td>
                                             </tr>
-                                            <tr>
-                                                <td><b>Guru Mapel</b></td>
-                                                <td><b>:</b></td>
-                                                <td><?= $nama_gtk ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>NIP</b></td>
-                                                <td><b>:</b></td>
-                                                <td><?= $nip_gtk ?></td>
-                                            </tr>
                                         </table>
                                     </div>
                                 </div>
-                                <form action="<?= base_url('penilaian/addNilai') ?>" method="POST">
-                                    <table id="zero_config" class="table table-sm">
-                                        <thead class="text-center">
-                                            <tr>
-                                                <th rowspan="2"><b>NO</b></th>
-                                                <th rowspan="2"><b>NAMA PESERTA DIDIK</b></th>
-                                                <?php $i = 0;
-                                                foreach ($indikator_show as $indikators) {
-                                                    $i++; ?>
-                                                <?php } ?>
-                                                <th colspan="<?= $i ?>"><b>KOMPETENSI DASAR</b></th>
-                                                <th rowspan="2" width="70px"><b>MID</b></th>
-                                                <th rowspan="2" width="70px"><b>UAS</b></th>
-                                            </tr>
-                                            <tr>
-                                                <?php foreach ($indikator_show as $indikators) { ?>
-                                                    <th width="70px" data-toggle="tooltip" data-placement="top" data-original-title="<?= $indikators->kompetensi_dasar ?>"><?= $indikators->indikator_kd ?></th>
-                                                <?php } ?>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                <?= $this->session->flashdata('message'); ?>
+                                <table id="zero_config" class="table table-sm">
+                                    <thead class="text-center">
+                                        <tr>
+                                            <th rowspan="2"><b>NO</b></th>
+                                            <th rowspan="2"><b>NAMA PESERTA DIDIK</b></th>
                                             <?php $i = 0;
-                                            foreach ($siswa_show as $siswa) {
+                                            foreach ($indikator_show as $indikators) {
                                                 $i++; ?>
-                                                <tr>
-                                                    <td><?= $i ?></td>
-                                                    <input type="text" hidden value="<?= $siswa->id_siswa ?>" name="id_siswa[]">
-                                                    <td><?= $siswa->nama_siswa ?></td>
-                                                    <?php
-                                                    $f = 0;
-                                                    $this->db->select('*');
-                                                    $this->db->join('tb_nilai', 'tb_nilai.kode_nilai_kd = tb_nilai_kd.kode_nilai_kd');
-                                                    $this->db->where('tb_nilai_kd.kode_nilai_kd', $siswa->kode_nilai_kd);
-                                                    $query = $this->db->get('tb_nilai_kd');
-                                                    foreach ($query->result() as $row) {
-                                                    ?>
-                                                        <td class="text-center">
-                                                            <?php echo $row->nilai;
-                                                            $nilaidata[] = $row->nilai; ?>
-                                                        </td>
-                                                    <?php $f++;
-                                                    }
-                                                    echo array_sum($nilaidata) ?>
+                                            <?php } ?>
+                                            <th colspan="<?= $i ?>"><b>KOMPETENSI DASAR</b></th>
+                                            <th rowspan="2" width="70px"><b>MID</b></th>
+                                            <th rowspan="2" width="70px"><b>UAS</b></th>
+                                        </tr>
+                                        <tr>
+                                            <?php foreach ($indikator_show as $indikators) { ?>
+                                                <th width="70px" data-toggle="tooltip" data-placement="top" data-original-title="<?= $indikators->kompetensi_dasar ?>"><?= $indikators->indikator_kd ?></th>
+                                            <?php } ?>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 0;
+                                        foreach ($siswa_show as $siswa) {
+                                            $i++; ?>
+                                            <tr>
+                                                <td><?= $i ?></td>
+                                                <td><?= $siswa->nama_siswa ?></td>
+                                                <?php
+                                                $f = 0;
+                                                $this->db->select('*');
+                                                $this->db->join('tb_nilai', 'tb_nilai.kode_nilai_kd = tb_nilai_kd.kode_nilai_kd');
+                                                $this->db->where('tb_nilai_kd.kode_nilai_kd', $siswa->kode_nilai_kd);
+                                                $query = $this->db->get('tb_nilai_kd');
+                                                foreach ($query->result() as $row) {
+                                                ?>
                                                     <td class="text-center">
-                                                        <?php $avg = array_sum($nilaidata) / count($nilaidata);
-                                                        echo round($avg) ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php $avg = array_sum($nilaidata) / count($nilaidata);
-                                                        echo round($avg) ?>
-                                                    </td>
-                                                </tr>
-                                            <?php unset($nilaidata);
-                                            } ?>
-                                            <input type="text" hidden value="<?= $id_pelajaran ?>" name="id_pelajaran">
-                                            <input type="text" hidden value="<?= $siswa->id_rombel ?>" name="id_rombel">
-                                        </tbody>
-                                    </table>
+                                                        <?php echo $row->nilai;
 
-                                    <div class="row justify-content-end mt-5">
-                                        <a href="" class="btn btn-outline-secondary mr-2">Batal</a>
-                                        <button type="submit" value="Simpan">Simpan</button>
+                                                        $nilaidata[] = $row->nilai; ?>
+                                                        <i data-toggle="modal" data-id="<?= $row->nilai; ?>" data-en="<?= $row->id_nilai_kd; ?>" href="#addBookDialog" class="open-AddBookDialog mdi mdi-border-color"></i>
+                                                    </td>
+                                                <?php $f++;
+                                                } ?>
+                                                <td class="text-center">
+                                                    <?php $avg = array_sum($nilaidata) / count($nilaidata);
+                                                    echo round($avg) ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <?php $avg = array_sum($nilaidata) / count($nilaidata);
+                                                    echo round($avg) ?>
+                                                </td>
+                                            </tr>
+                                        <?php unset($nilaidata);
+                                        } ?>
+                                    </tbody>
+                                </table>
+                                <div class="modal fade" id="addBookDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="<?= base_url('penilaian/change_value') ?>" method="POST" ?>
+                                                <div class="modal-body">
+                                                    <input hidden class="form-control" type="text" name="bookEn" id="bookEn" value="" />
+                                                    <input class="form-control" type="text" name="bookId" id="bookId" value="" />
+                                                    <input hidden class="form-control" type="text" name="bookRiwayat" id="bookRiwayat" value="<?= $id_riwayat ?>" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save Perubahan</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
+                                </div>
                                 </form>
                             </div>
                         </div>
@@ -254,6 +254,16 @@
                     "orderable": false
                 }]
             });
+        });
+        $('#zero_config').on('click', 'tbody td:not(:first-child)', function(e) {
+            editor.inline(this);
+        });
+        $(document).on("click", ".open-AddBookDialog", function() {
+            var myBookId = $(this).data('id');
+            var myBookEn = $(this).data('en');
+            $(".modal-body #bookId").val(myBookId);
+            $(".modal-body #bookEn").val(myBookEn);
+            $('#addBookDialog').modal('show');
         });
     </script>
 
