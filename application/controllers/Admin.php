@@ -64,10 +64,20 @@ class Admin extends CI_Controller
         $data['countnon'] = $this->M_peserta_didik->getCountSiswaNonAktif();
         $data['countgtk'] = $this->M_Gtk->getCountGTK();
         $data['countrombel'] = $this->M_rombel->getCountRombel();
+       
+       $waktu = date('Y-m-d');
+        $data['waktu'] = formatHariTanggal($waktu);
+        $date = formatHariTanggal($waktu);
+        list($hari) = mb_split('[,]', $date);
+        $id_gtk = $this->session->userdata('id_gtk');
         $this->load->helper('tgl_indo');
-        $waktu = date('Y-m-d');
+        $data['info'] = $this->db->get('tb_jenis_info')->result();
+        $data['jadwal'] = $this->M_mapel->jadwalAjar($id_gtk, $hari);
+        $data['pr'] = $this->M_mapel->jadwalAjar($id_gtk, $hari);
+        
         $data['waktu'] = formatHariTanggal($waktu);
         $data['jabatan'] = $this->session->userdata('jabatan');
+        
         $this->load->view('index', $data);
     }
     public function indextu()

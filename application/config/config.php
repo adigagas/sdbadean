@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://localhost/sdbadean/';
+$config['base_url'] = 'http://sdbadean1.xyz/';
 
 /*
 |--------------------------------------------------------------------------

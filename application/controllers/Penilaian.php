@@ -15,35 +15,9 @@ class Penilaian extends CI_Controller
         $data['id_rombel'] = $this->input->post('id_rombel');
         $data['nama_rombel'] = $this->input->post('nama_rombel');
         $data['ki'] = $this->db->get('tb_ki')->result();
-        $this->load->view('Penilaian/penilaian', $data);
+        $this->load->view('penilaian/penilaian', $data);
     }
 
-    public function detail_show($id_riwayat_nilai)
-    {
-        $query = $this->db->query('SELECT * FROM tb_nilai WHERE tb_nilai.id_riwayat_nilai = "' . $id_riwayat_nilai . '"');
-        foreach ($query->result() as $row) {
-            $kode_nilai_kd = $row->kode_nilai_kd;
-        }
-        $data['nama_pelajaran'] = $this->M_penilaian->getPelajaranFilter($id_riwayat_nilai);
-        $data['ki_data'] = $this->M_penilaian->getKIFilter($id_riwayat_nilai);
-        $data['siswa_show'] = $this->M_penilaian->getNilai($id_riwayat_nilai);
-        $data['indikator_show'] = $this->M_penilaian->getKD($kode_nilai_kd);
-        $data['id_riwayat'] = $id_riwayat_nilai;
-        $this->load->view('penilaian/hasil_nilai_view', $data);
-    }
-
-    public function change_value()
-    {
-        $kode = $this->input->post('bookEn');
-        $nilai = $this->input->post('bookId');
-        $redirect = $this->input->post('bookRiwayat');
-
-        $this->db->set('nilai', $nilai);
-        $this->db->where('id_nilai_kd', $kode);
-        $this->db->update('tb_nilai_kd');
-        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Berhasil di Perbarui!</div>');
-        redirect(base_url('penilaian/detail_show/' . $redirect));
-    }
     public function kd()
     {
         $data['rombel'] = $this->M_rombel->getAllRombel();
@@ -51,20 +25,13 @@ class Penilaian extends CI_Controller
         $data['pelajaran'] = $this->M_penilaian->getPelajaran();
         $data['tahun'] = $this->M_penilaian->getTahun();
         $data['jabatan'] = $this->session->userdata('jabatan');
-        $this->load->view('Penilaian/kd_view_example', $data);
+        $this->load->view('penilaian/kd_view_example', $data);
     }
 
     public function userList()
     {
         $postData = $this->input->post();
         $data = $this->M_penilaian->getUsers($postData);
-        echo json_encode($data);
-    }
-
-    public function userdaata()
-    {
-        $postData = $this->input->post();
-        $data = $this->M_penilaian->getKom($postData);
         echo json_encode($data);
     }
 
@@ -81,6 +48,7 @@ class Penilaian extends CI_Controller
         $data = $this->M_penilaian->getUsersII($postData);
         echo json_encode($data);
     }
+    
 
     public function test()
     {
@@ -101,31 +69,28 @@ class Penilaian extends CI_Controller
         $id_gtk = $this->session->userdata('id_gtk');
         $this->db->where('id_gtk', $id_gtk);
         $data['rombel'] = $this->db->get('tb_rombel')->result();
-        $this->load->view('Penilaian/cek_rombel', $data);
+        $this->load->view('penilaian/cek_rombel', $data);
     }
 
     public function nilai_sikap_spiritual()
     {
         $data['jabatan'] = $this->session->userdata('jabatan');
-        $this->load->view('Penilaian/nilai_sikap_spiritual', $data);
+        $this->load->view('penilaian/nilai_sikap_spiritual', $data);
     }
 
     public function nilai_sikap_sosial()
     {
         $data['jabatan'] = $this->session->userdata('jabatan');
-        $this->load->view('Penilaian/nilai_sikap_sosial', $data);
+        $this->load->view('penilaian/nilai_sikap_sosial', $data);
     }
 
     public function show_nilai()
     {
-        $data['tahun'] = $this->M_penilaian->getTahunKI();
-        $data['ki'] = $this->M_penilaian->getKI();
-        $this->load->view('penilaian/hasil_nilai', $data);
+        $this->load->view('penilaian/hasil_nilai');
     }
 
     public function addNilai()
     {
-        $id_riwayat_nilai = md5(uniqid(rand(), true));
         $id_pelajaran = $this->input->post('id_pelajaran');
         $id_siswa = $this->input->post('id_siswa');
         $id_rombel = $this->input->post('id_rombel');
@@ -149,8 +114,7 @@ class Penilaian extends CI_Controller
                 'kode_nilai_kd' => $kode_nilai_,
                 'mid_semester' => $mid[$i],
                 'uas' => $uas[$i],
-                'nilai_akhir' => '100',
-                'id_riwayat_nilai' => $id_riwayat_nilai
+                'nilai_akhir' => '100'
             );
             $this->db->insert('tb_nilai', $data);
             for ($r = 0; $r <= $count_data; $r++) {
@@ -163,7 +127,7 @@ class Penilaian extends CI_Controller
             }
         }
         $data = array(
-            'id_riwayat_nilai' => $id_riwayat_nilai,
+            'id_riwayat_nilai' => md5(uniqid(rand(), true)),
             'id_pelajaran' => $id_pelajaran,
             'id_rombel' => $id_rombel,
             'id_kd' => $indikator[0][0],
@@ -188,22 +152,25 @@ class Penilaian extends CI_Controller
         }
         $id_pelajaran = $this->input->post('id_pelajaran');
         $id_ki = $this->input->post('id_ki');
-        echo $id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran;
+        //echo $id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran;
         $data['indikator_show'] = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
         $data['siswa_show'] = $this->M_rombel->getDetailRombel($id);
         // $show = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
         // print_r($show);
 
         if ($data['id_ki'] == "KI-1") {
-            $this->load->view('Penilaian/nilai_sikap_spiritual');
+            $this->load->view('penilaian/nilai_sikap_spiritual');
         } else if ($data['id_ki'] == "KI-2") {
-            $this->load->view('Penilaian/nilai_sikap_sosial');
+            $this->load->view('penilaian/nilai_sikap_sosial');
         } else {
 
             //---------------------------Ambil Id GTK-----------------------------
             $this->db->where('id_pelajaran', $data['id_pelajaran']);
-            $mapel = $this->db->get('tb_mapel')->row_array();
+            $kat = $this->db->get('tb_pelajaran')->row_array();
             //---------------------------Ambil Nama Pelajaran-----------------------------
+            $this->db->where('id_kategori', $kat['id_kategori']);
+            $mapel = $this->db->get('tb_mapel')->row_array();
+            //---------------------------Ambil Nama Pelajara
             $this->db->where('id_pelajaran', $data['id_pelajaran']);
             $pelajaran = $this->db->get('tb_pelajaran')->row_array();
             $data['nama_pelajaran'] = $pelajaran['nama_pelajaran'];
@@ -213,7 +180,7 @@ class Penilaian extends CI_Controller
             $data['nama_gtk'] = $gtk['nama_gtk'];
             $data['nip_gtk'] = $gtk['nip_gtk'];
 
-            $this->load->view('Penilaian/nilai_mapel', $data);
+            $this->load->view('penilaian/nilai_mapel', $data);
         }
     }
 }

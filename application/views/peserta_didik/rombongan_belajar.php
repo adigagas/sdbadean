@@ -119,8 +119,8 @@
                                                         <div class="input-group mb-3">
                                                             <select required class="custom-select" id="tahun_ajaran" name="tahun_ajaran">
                                                                 <option selected value="">Pilih Tahun Ajaran</option>
-                                                                <option value="1">2019/2020</option>
-                                                                <option value="2">2020/2021</option>
+                                                                <option value="2019/2020">2019/2020</option>
+                                                                <option value="2020/2021">2020/2021</option>
                                                                 <option value="3">......</option>
                                                             </select>
                                                         </div>
@@ -128,7 +128,7 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">Semester</label>
                                                         <div class="input-group mb-3">
-                                                            <select required class="custom-select" id="tahun_ajaran" name="tahun_ajaran">
+                                                            <select required class="custom-select" id="tahun_ajaran" name="semester">
                                                                 <option selected value="">Pilih Semester</option>
                                                                 <option value="1">Ganjil</option>
                                                                 <option value="2">Genap</option>
@@ -172,14 +172,22 @@
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $ab= "Ganjil";
                                             $i = 1;
-                                            foreach ($rombel as $s) : ?>
+                                            foreach ($rombel as $s) : 
+                                            if($s->semester == "1"){
+                                                $ab="Ganjil";
+                                            } else if($s->semester == "2"){
+                                                $ab="Genap";
+                                            }
+                                            
+                                            ?>
                                                 <tr>
                                                     <td><?= $s->kelas ?></td>
                                                     <td><?= $s->nama_rombel ?></td>
                                                     <td><?= $s->nama_gtk ?></td>
                                                     <td><?= $s->tahun_ajaran ?></td>
-                                                    <td><?= $s->semester ?></td>
+                                                    <td><?= $ab ?></td>
                                                     <td>
                                                         <a type="button" href="<?= base_url() ?>rombel/detail_rombel/<?= $s->id_rombel ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="mdi mdi-24px mdi-account-card-details"></a>
                                                         <?php

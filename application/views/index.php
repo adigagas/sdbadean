@@ -117,11 +117,11 @@ if ($this->session->userdata('username') == null) {
 
                                     <div class="row">
                                         <!-- column -->
-                                        <div class="col-lg">
+                                        <div class="col-lg-9">
                                             <?php echo $this->session->flashdata('msg'); ?>
                                             <div class="row">
                                                 <?php foreach ($jadwal as $a) : ?>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <div class="flot-chart">
                                                             <div class="card text-center">
                                                                 <div class="card-header">
@@ -129,12 +129,12 @@ if ($this->session->userdata('username') == null) {
                                                                 </div>
                                                                 <form action="<?php echo base_url('Absensi_siswa/absenSiswa'); ?>" method="post" enctype="multipart/form-data">
                                                                     <div class="card-body">
-                                                                        <h5 class="card-title"><?= $a->nama_pelajaran ?></h5>
-                                                                        <p class="card-text"><?= $a->waktu_mulai ?>-<?= $a->waktu_selesai ?> WIB</p>
+                                                                        <h5 class="card-title"><?= $a->nama_kategori ?></h5>
+                                                                        <p class="card-text"><?= $a->waktu_mulai ?> WIB</p>
                                                                         <input type="hidden" value="<?= $a->id_rombel ?>" name="id_rombel">
                                                                         <input type="hidden" value="<?= $a->nama_rombel ?>" name="nama_rombel">
-                                                                        <input type="hidden" value="<?= $a->nama_pelajaran ?>" name="nama_pelajaran">
-                                                                        <input type="hidden" value="<?= $a->id_pelajaran ?>" name="id_pelajaran">
+                                                                        <input type="hidden" value="<?= $a->nama_kategori ?>" name="nama_pelajaran">
+                                                                        <input type="hidden" value="<?= $a->id_kategori ?>" name="id_kategori">
                                                                         <input type="hidden" value="<?= $a->id_gtk ?>" name="id_gtk">
                                                                         <input type="hidden" value="<?= $a->id_kategori ?>" name="id_kategori">
                                                                         <input type="hidden" value="<?= $a->id_jadwal_mapel ?>" name="id_jadwal_mapel">
@@ -153,7 +153,7 @@ if ($this->session->userdata('username') == null) {
                                                                                                                                 } else {
                                                                                                                                     echo "Sudah Diabsen"; ?>
                                                                         </button>
-                                                                        <a class="btn btn-success" href="" data-toggle="modal" data-target="#myModal<?= $a->id_pelajaran ?>"> Informasi</a>
+                                                                        <a class="btn btn-success" href="" data-toggle="modal" data-target="#myModal<?= $a->id_kategori ?>"> Informasi</a>
                                                                     <?php } ?>
                                                                     </div>
                                                                 </form>
@@ -164,6 +164,52 @@ if ($this->session->userdata('username') == null) {
                                                         </div>
                                                     </div>
                                                 <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="bg-dark p-10 text-white text-center">
+                                                        <i class="fa fa-user m-b-5 font-16"></i>
+                                                        <h5 class="m-b-0 m-t-5">2540</h5>
+                                                        <small class="font-light">Total Users</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="bg-dark p-10 text-white text-center">
+                                                        <i class="fa fa-plus m-b-5 font-16"></i>
+                                                        <h5 class="m-b-0 m-t-5">120</h5>
+                                                        <small class="font-light">New Users</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 m-t-15">
+                                                    <div class="bg-dark p-10 text-white text-center">
+                                                        <i class="fa fa-cart-plus m-b-5 font-16"></i>
+                                                        <h5 class="m-b-0 m-t-5">656</h5>
+                                                        <small class="font-light">Total Shop</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 m-t-15">
+                                                    <div class="bg-dark p-10 text-white text-center">
+                                                        <i class="fa fa-tag m-b-5 font-16"></i>
+                                                        <h5 class="m-b-0 m-t-5">9540</h5>
+                                                        <small class="font-light">Total Orders</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 m-t-15">
+                                                    <div class="bg-dark p-10 text-white text-center">
+                                                        <i class="fa fa-table m-b-5 font-16"></i>
+                                                        <h5 class="m-b-0 m-t-5">100</h5>
+                                                        <small class="font-light">Pending Orders</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 m-t-15">
+                                                    <div class="bg-dark p-10 text-white text-center">
+                                                        <i class="fa fa-globe m-b-5 font-16"></i>
+                                                        <h5 class="m-b-0 m-t-5">8540</h5>
+                                                        <small class="font-light">Online Orders</small>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- column -->
@@ -186,17 +232,28 @@ if ($this->session->userdata('username') == null) {
                 <!-- ============================================================== -->
             </div>
             <?php foreach ($pr as $p) { ?>
-                <div class="modal fade " id="myModal<?= $p->id_pelajaran ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade " id="myModal<?= $p->id_kategori ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-md-12 ">
                         <div class="modal-content col-md-12">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Tambah Informasi <?= $p->nama_pelajaran ?></h4>
+                                <h4 class="modal-title" id="myModalLabel">Tambah Informasi <?= $p->nama_kategori ?></h4>
                             </div>
                             <div class="modal-body">
                                 <form action="<?= base_url() ?>mapel/infoMapel" method="POST">
                                     <input type="hidden" value="<?= $p->id_rombel ?>" name="id_rombel">
-                                    <input type="hidden" value="<?= $p->id_pelajaran ?>" name="id_pelajaran">
+                                    <input type="hidden" value="<?= $p->id_kategori ?>">
                                     <input type="hidden" value="<?= $p->id_gtk ?>" name="id_gtk">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Mapel</label>
+                                        <select class="form-control" name="id_pelajaran">
+                                            <?php 
+                                            $this->db->where('id_kategori', $p->id_kategori );
+                                            $pel=$this->db->get('tb_pelajaran')->result();
+                                            foreach ($pel as $j) { ?>
+                                                <option value="<?= $j->id_pelajaran ?>"><?= $j->nama_pelajaran ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Jenis Informasi</label>
                                         <select class="form-control" name="id_jenis">

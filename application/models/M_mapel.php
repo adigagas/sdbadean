@@ -6,10 +6,9 @@ class M_mapel extends CI_Model
 
     private $_table = 'tb_mapel';
 
-    public $id_pelajaran;
+    public $id_kategori;
     public $id_hari;
     public $waktu_mulai;
-    public $waktu_selesai;
     public $id_rombel;
     public $id_gtk;
 
@@ -40,13 +39,12 @@ class M_mapel extends CI_Model
     public function getMapelDay($angkatan)
     {
         $hari = "1";
-        $this->db->select('tb_mapel.*,tb_hari.*,tb_pelajaran.*,tb_gtk.*');
+        $this->db->select('tb_mapel.*,tb_hari.*,tb_kategori.*,tb_gtk.*');
         $this->db->from('tb_mapel');
         $this->db->join('tb_hari', 'tb_mapel.id_hari=tb_hari.id_hari');
-        $this->db->join('tb_pelajaran', 'tb_mapel.id_pelajaran=tb_pelajaran.id_pelajaran');
+        $this->db->join('tb_kategori', 'tb_mapel.id_kategori=tb_kategori.id_kategori');
         $this->db->join('tb_gtk', 'tb_mapel.id_gtk=tb_gtk.id_gtk');
         $this->db->join('tb_rombel', 'tb_mapel.id_rombel=tb_rombel.id_rombel');
-        $this->db->group_by('tb_pelajaran.id_kategori');
         $this->db->order_by('waktu_mulai');
         $this->db->where('tb_mapel.id_hari', $hari);
         $this->db->where('tb_mapel.id_rombel', $angkatan);
@@ -56,10 +54,10 @@ class M_mapel extends CI_Model
     public function getMapelSelasa($angkatan)
     {
         $hari = "2";
-        $this->db->select('tb_mapel.*,tb_hari.*,tb_pelajaran.*,tb_gtk.*');
+        $this->db->select('tb_mapel.*,tb_hari.*,tb_kategori.*,tb_gtk.*');
         $this->db->from('tb_mapel');
         $this->db->join('tb_hari', 'tb_mapel.id_hari=tb_hari.id_hari');
-        $this->db->join('tb_pelajaran', 'tb_mapel.id_pelajaran=tb_pelajaran.id_pelajaran');
+        $this->db->join('tb_kategori', 'tb_mapel.id_kategori=tb_kategori.id_kategori');
         $this->db->join('tb_gtk', 'tb_mapel.id_gtk=tb_gtk.id_gtk');
         $this->db->join('tb_rombel', 'tb_mapel.id_rombel=tb_rombel.id_rombel');
         $this->db->order_by('waktu_mulai');
@@ -100,19 +98,18 @@ class M_mapel extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function getMapelJumat($angkatan)
+   public function getMapelJumat($angkatan)
     {
         $hari = "5";
-        $this->db->select('tb_mapel.*,tb_hari.*,tb_pelajaran.*,tb_gtk.*');
-
+        $this->db->select('tb_mapel.*,tb_hari.*,tb_kategori.*,tb_gtk.*');
         $this->db->from('tb_mapel');
         $this->db->join('tb_hari', 'tb_mapel.id_hari=tb_hari.id_hari');
-        $this->db->join('tb_pelajaran', 'tb_mapel.id_pelajaran=tb_pelajaran.id_pelajaran');
+        $this->db->join('tb_kategori', 'tb_mapel.id_kategori=tb_kategori.id_kategori');
         $this->db->join('tb_gtk', 'tb_mapel.id_gtk=tb_gtk.id_gtk');
-        $this->db->order_by('waktu_mulai');
         $this->db->join('tb_rombel', 'tb_mapel.id_rombel=tb_rombel.id_rombel');
-        $this->db->where('tb_mapel.id_rombel', $angkatan);
+        $this->db->order_by('waktu_mulai');
         $this->db->where('tb_mapel.id_hari', $hari);
+        $this->db->where('tb_mapel.id_rombel', $angkatan);
         return $this->db->get()->result();
     }
 
@@ -147,10 +144,9 @@ class M_mapel extends CI_Model
     public function addMapel()
     {
         $post = $this->input->post();
-        $this->id_pelajaran = $post['id_pelajaran'];
+        $this->id_kategori = $post['id_kategori'];
         $this->id_hari = $post['id_hari'];
         $this->waktu_mulai = $post['waktu_mulai'];
-        $this->waktu_selesai = $post['waktu_selesai'];
         $this->id_rombel = $post['id_rombel'];
         $this->id_gtk = $post['id_gtk'];
 
@@ -171,16 +167,16 @@ class M_mapel extends CI_Model
         }
 
 
-        $this->db->select('tb_mapel.*, tb_gtk.*, tb_rombel.*, tb_pelajaran.*');
+        $this->db->select('tb_mapel.*, tb_gtk.*, tb_rombel.*, tb_kategori.*');
         $this->db->from('tb_mapel');
         $this->db->join('users', 'tb_mapel.id_gtk=users.id_gtk');
         $this->db->join('tb_gtk', 'tb_mapel.id_gtk=tb_gtk.id_gtk');
         $this->db->join('tb_hari', 'tb_mapel.id_hari=tb_hari.id_hari');
-        $this->db->join('tb_pelajaran', 'tb_mapel.id_pelajaran=tb_pelajaran.id_pelajaran');
+        $this->db->join('tb_kategori', 'tb_mapel.id_kategori=tb_kategori.id_kategori');
         $this->db->join('tb_rombel', 'tb_mapel.id_rombel=tb_rombel.id_rombel');
         $this->db->where('tb_mapel.id_gtk', $id_gtk);
         $this->db->where('tb_hari.id_hari', $hri);
-        $this->db->order_by('tb_mapel.waktu_mulai');
+        
         return $this->db->get()->result();
     }
 

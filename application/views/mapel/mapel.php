@@ -159,13 +159,28 @@
                             <div class="modal-body">
                                 <form action="<?= base_url() ?>mapel/tambahPelajaran" method="POST">
                                     <div class="form-group">
+                                        <label for="exampleInputPassword1">Jenis Kategori</label>
+                                        <select name="id_kategori" class="form-control">
+                                            <?php 
+                                            $kategori=$this->db->get('tb_kategori')->result();
+                                            foreach($kategori as $k){?>
+                                            <option value="<?= $k->id_kategori?>"><?= $k->nama_kategori?></option>
+                                            <?php }?>
+                                        </select>
+                                    </div>
+                                    
+                                  
+                                    
+                                    <div class="form-group">
                                         <label for="exampleInputPassword1">ID Mapel</label>
                                         <input style="border-radius: 10px" required type="text" class="form-control" name="id_pelajaran" id="nama_rombel" placeholder="Cth : M -01">
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Mapel</label>
                                         <input style="border-radius: 10px" required type="text" class="form-control" name="nama_pelajaran" id="nama_rombel" placeholder="Cth : IPA">
                                     </div>
+                                    
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                         <button type="input" class=" btn btn-primary">Tambah</button>

@@ -103,7 +103,6 @@
                                                             <th scope="col"><b> Mapel</b></th>
                                                             <th scope="col"><b>Waktu</b></th>
                                                             <th scope="col"><b>Guru</b></th>
-                                                            <th scope="col"><b>Aksi</b></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="kelas">
@@ -127,7 +126,6 @@
                                                             <th scope="col"><b> Mapel</b></th>
                                                             <th scope="col"><b>Waktu</b></th>
                                                             <th scope="col"><b>Guru</b></th>
-                                                            <th scope="col"><b>Aksi</b></th>
 
                                                         </tr>
                                                     </thead>
@@ -151,7 +149,6 @@
                                                             <th scope="col"><b> Mapel</b></th>
                                                             <th scope="col"><b>Waktu</b></th>
                                                             <th scope="col"><b>Guru</b></th>
-                                                            <th scope="col"><b>Aksi</b></th>
 
                                                         </tr>
                                                     </thead>
@@ -175,7 +172,7 @@
                                                             <th scope="col"><b> Mapel</b></th>
                                                             <th scope="col"><b>Waktu</b></th>
                                                             <th scope="col"><b>Guru</b></th>
-                                                            <th scope="col"><b>Aksi</b></th>
+
 
                                                         </tr>
                                                     </thead>
@@ -199,7 +196,7 @@
                                                             <th scope="col"><b> Mapel</b></th>
                                                             <th scope="col"><b>Waktu</b></th>
                                                             <th scope="col"><b>Guru</b></th>
-                                                            <th scope="col"><b>Aksi</b></th>
+
 
                                                         </tr>
                                                     </thead>
@@ -223,7 +220,7 @@
                                                             <th scope="col"><b> Mapel</b></th>
                                                             <th scope="col"><b>Waktu</b></th>
                                                             <th scope="col"><b>Guru</b></th>
-                                                            <th scope="col"><b>Aksi</b></th>
+                                                         
 
                                                         </tr>
                                                     </thead>
@@ -266,32 +263,67 @@
                             <div class="modal-body">
                                 <form action="<?= base_url() ?>mapel/tambahMapel" method="POST">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Mapel</label>
-                                        <select style="border-radius: 10px" class="form-control" name="id_pelajaran">
-                                            <option value="">--Pilih Mapel--</option>
-                                            <?php foreach ($pelajaran as $r) : ?>
-                                                <option value="<?= $r->id_pelajaran ?>"><?= $r->nama_pelajaran ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-6 col-xs-12 ">
-                                                <label for="exampleInputPassword1">Jadwal Hari</label>
+                                         <label for="exampleInputPassword1">Jadwal Hari</label>
                                                 <select style="border-radius: 10px" class="form-control" name="id_hari">
                                                     <option value="">--Pilih Hari--</option>
                                                     <?php foreach ($hari as $r) : ?>
                                                         <option value="<?= $r->id_hari ?>"><?= $r->nama_hari ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-12 ">
+                                               <label for="exampleInputPassword1">Mapel</label>
+                                        <select style="border-radius: 10px" class="form-control" name="id_kategori">
+                                            <option value="">--Pilih Kategori--</option>
+                                            <?php 
+                                            $kat=$this->db->get('tb_kategori')->result();
+                                            foreach ($kat as $r) : ?>
+                                                <option value="<?= $r->id_kategori ?>"><?= $r->nama_kategori ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                             </div>
-                                            <div class="col-md-3 col-xs-6 ">
-                                                <label for="exampleInputPassword1">Waktu Mulai</label>
-                                                <input style="border-radius: 10px" required type="time" class="form-control" name="waktu_mulai" id="nama_rombel" placeholder="IPA">
-                                            </div>
-                                            <div class="col-md-3 col-xs-6 ">
-                                                <label for="exampleInputPassword1">Waktu Selesai</label>
-                                                <input style="border-radius: 10px" required type="time" class="form-control" name="waktu_selesai" id="nama_rombel" placeholder="IPA">
+                                            <div class="col-md-6 col-xs-12 ">
+                                                <label for="exampleInputPassword1">Waktu </label>
+                                                <select name="waktu_mulai" class="form-control">
+                                                <option value="06.35-07.00">
+                                                    06.35-07.00
+                                                </option> 
+                                                <option value="07.00-07.15">
+                                                    07.00-07.15
+                                                </option> 
+                                                <option value="07.15-07.50">
+                                                    07.15-07.50
+                                                </option> 
+                                                <option value="07.50-08.25">
+                                                    07.50-08.25
+                                                </option> 
+                                                <option value="08.25-09.00">
+                                                    08.25-09.00
+                                                </option> 
+                                                <option value="09.00-09.15">
+                                                    09.00-09.15
+                                                </option> 
+                                                <option value="09.15-09.50">
+                                                    09.15-09.50
+                                                </option> 
+                                                <option value="09.50-10.25">
+                                                    09.50-10.25
+                                                </option> 
+                                                <option value="10.25-11.00">
+                                                    10.25-11.00
+                                                </option> 
+                                                <option value="11.00-11.15">
+                                                    11.00-11.15
+                                                </option> 
+                                                <option value="11.15-11.50">
+                                                    11.15-11.50
+                                                </option> 
+                                               
+                                                </select>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -302,7 +334,10 @@
                                                 <label for="exampleInputPassword1">Rombel</label>
                                                 <select style="border-radius: 10px" class="form-control" name="id_rombel">
                                                     <option value="">--Pilih Rombel--</option>
-                                                    <?php foreach ($rombel as $r) : ?>
+                                                    <?php
+                                                    $this->db->where('tahun_ajaran','2019/2020');
+                                                    $rom=$this->db->get('tb_rombel')->result();
+                                                    foreach ($rom as $r) : ?>
                                                         <option value="<?= $r->id_rombel ?>"><?= $r->nama_rombel ?></option>
                                                     <?php endforeach; ?>
                                                 </select>

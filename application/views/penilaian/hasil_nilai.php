@@ -68,48 +68,25 @@
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="btn-align text-center col-md-2">
+                                    <div class="btn-align text-center col-md-1">
                                         <p><b>Pelajaran</b></p>
                                     </div>
                                     <div class="col-md-2 ">
                                         <!-- Gender -->
                                         <select class="custom-select" id='sel_gender'>
-                                            <?php foreach ($tahun as $years) { ?>
-                                                <option value="<?= $years->id_pelajaran ?>"><?= $years->nama_pelajaran ?></option>
+                                            <?php foreach ($pelajaran as $study) { ?>
+                                                <option value="<?= $study->id_pelajaran ?>"><?= $study->nama_pelajaran ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
                                     <div class="btn-align text-center col-md-1">
                                         <p><b>Kelas</b></p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 ">
                                         <!-- Gender -->
                                         <select class="custom-select" id='sel_class'>
-                                            <?php foreach ($tahun as $years) { ?>
-                                                <option value="<?= $years->id_kelas ?>"><?= $years->id_kelas ?></option>
-                                            <?php } ?>
-                                        </select>
-
-                                    </div>
-                                    <div class="btn-align text-center col-md-2">
-                                        <p><b>Semester</b></p>
-                                    </div>
-                                    <div class="col-md-2 ">
-                                        <select class="custom-select" id='sel_semester'>
-                                            <?php foreach ($tahun as $years) { ?>
-                                                <option value="<?= $years->semester ?>"><?= $years->semester ?></option>
-                                            <?php } ?>
-                                        </select>
-
-                                    </div>
-                                    <div class="btn-align text-center col-md-2">
-                                        <p><b>Kompentensi Inti</b></p>
-                                    </div>
-                                    <div class="col-md-2 ">
-                                        <!-- Gender -->
-                                        <select class="custom-select" id='sel_ki'>
-                                            <?php foreach ($tahun as $years) { ?>
-                                                <option value="<?= $years->id_ki ?>"><?= $years->nama_ki ?></option>
+                                            <?php foreach ($kelas as $class) { ?>
+                                                <option value="<?= $class->id_kelas ?>"><?= $class->kelas ?></option>
                                             <?php } ?>
                                         </select>
 
@@ -119,20 +96,31 @@
                                         <input hidden type="text" id="searchName" placeholder="Search Name">
                                     </div>
                                 </div>
-                                <div class="table-responsive">
-                                    <table id='userTableData' class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="2" class="text-center">Semester I</th>
-                                            </tr>
-                                            <tr>
-                                                <th class="w-15">NO</th>
-                                                <th>DESKRIPSI KD PENGETAHUAN (KI_3)</th>
-                                                <th>DESKRIPSI KD PENGETAHUAN (KI_3)</th>
-
-                                            </tr>
-                                        </thead>
-                                    </table>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">First</th>
+                                                    <th scope="col">Last</th>
+                                                    <th scope="col">Handle</th>
+                                                </tr>
+                                            </thead>
+                                            <div class="table-responsive">
+                                                <table id='userTable' class="table table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="2" class="text-center">Semester I</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="w-15">NO</th>
+                                                            <th>DESKRIPSI KD PENGETAHUAN (KI_3)</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -166,39 +154,33 @@
     <!-- Script -->
     <script type="text/javascript">
         $(document).ready(function() {
+
             var userDataTable = $('#userTableData').DataTable({
                 'processing': true,
                 'bInfo': false,
                 "lengthChange": false,
                 'serverSide': true,
                 'serverMethod': 'post',
+                //'searching': false, // Remove default Search Control
                 'ajax': {
-                    'url': '<?= base_url() ?>penilaian/userdaata',
+                    'url': '<?= base_url() ?>Penilaian/userListI',
                     'data': function(data) {
                         data.searchCity = $('#sel_city').val();
                         data.searchGender = $('#sel_gender').val();
                         data.searchClass = $('#sel_class').val();
                         data.searchName = $('#searchName').val();
-                        data.searchSemester = $('#sel_semester').val();
-                        data.searchKI = $('#sel_ki').val();
                     }
                 },
                 'columns': [{
-                        data: 'nama_pelajaran'
+                        data: 'indikator_kd'
                     },
                     {
-                        data: 'nama_pelajaran'
-                    },
-                    {
-                        data: 'id_riwayat_nilai',
-                        render: function(data, type, row) {
-                            return '<a href="<?= base_url('penilaian/detail_show/') ?>' + data + '" class="btn btn-primary btn-lg active" role="button" >Primary link</a>';
-                        }
+                        data: 'kompetensi_dasar'
                     },
                 ]
             });
 
-            $('#sel_city,#sel_gender,#sel_class,#sel_semester,#sel_ki', ).change(function() {
+            $('#sel_city,#sel_gender,#sel_class').change(function() {
                 userDataTable.draw();
             });
             $('#searchName').keyup(function() {
@@ -222,6 +204,131 @@
             visibility: hidden;
         }
     </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var userDataTable = $('#userTable').DataTable({
+                'processing': true,
+                'bInfo': false,
+                "lengthChange": false,
+                'serverSide': true,
+                'serverMethod': 'post',
+                //'searching': false, // Remove default Search Control
+                'ajax': {
+                    'url': '<?= base_url() ?>Penilaian/userList',
+                    'data': function(data) {
+                        data.searchCity = $('#sel_city').val();
+                        data.searchGender = $('#sel_gender').val();
+                        data.searchClass = $('#sel_class').val();
+                        data.searchName = $('#searchName').val();
+                    }
+                },
+                'columns': [{
+                        data: 'indikator_kd'
+                    },
+                    {
+                        data: 'kompetensi_dasar'
+                    },
+                ]
+            });
+
+            $('#sel_city,#sel_gender,#sel_class').change(function() {
+                userDataTable.draw();
+            });
+            $('#searchName').keyup(function() {
+                userDataTable.draw();
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var userDataTable = $('#userTableII').DataTable({
+                'processing': true,
+                'bInfo': false,
+                "lengthChange": false,
+                'serverSide': true,
+                'serverMethod': 'post',
+                //'searching': false, // Remove default Search Control
+                'ajax': {
+                    'url': '<?= base_url() ?>Penilaian/userListII',
+                    'data': function(data) {
+                        data.searchCity = $('#sel_city').val();
+                        data.searchGender = $('#sel_gender').val();
+                        data.searchClass = $('#sel_class').val();
+                        data.searchName = $('#searchName').val();
+                    }
+                },
+                'columns': [{
+                        data: 'indikator_kd'
+                    },
+                    {
+                        data: 'kompetensi_dasar'
+                    },
+                ]
+            });
+
+            $('#sel_city,#sel_gender,#sel_class').change(function() {
+                userDataTable.draw();
+            });
+            $('#searchName').keyup(function() {
+                userDataTable.draw();
+            });
+        });
+    </script>
+    <style>
+        /* ul.pagination li:first-child,
+        ul.pagination li:last-child {
+            display: none;
+        } */
+
+        ul.pagination {
+            display: none;
+        }
+
+        .dataTables_wrapper .dataTables_filter {
+            float: right;
+            text-align: right;
+            visibility: hidden;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var userDataTable = $('#userTableI').DataTable({
+                'processing': true,
+                'bInfo': false,
+                "lengthChange": false,
+                'serverSide': true,
+                'serverMethod': 'post',
+                //'searching': false, // Remove default Search Control
+                'ajax': {
+                    'url': '<?= base_url() ?>Penilaian/userListIII',
+                    'data': function(data) {
+                        data.searchCity = $('#sel_city').val();
+                        data.searchGender = $('#sel_gender').val();
+                        data.searchClass = $('#sel_class').val();
+                        data.searchName = $('#searchName').val();
+                    }
+                },
+                'columns': [{
+                        data: 'indikator_kd'
+                    },
+                    {
+                        data: 'kompetensi_dasar'
+                    },
+                ]
+            });
+
+            $('#sel_city,#sel_gender,#sel_class').change(function() {
+                userDataTable.draw();
+            });
+            $('#searchName').keyup(function() {
+                userDataTable.draw();
+            });
+        });
+    </script>
 </body>
 
 </html>
