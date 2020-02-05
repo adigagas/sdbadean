@@ -20,6 +20,13 @@ class Penilaian extends CI_Controller
 
     public function detail_show($id_riwayat_nilai)
     {
+        $query = $this->db->query('SELECT * FROM tb_nilai WHERE tb_nilai.id_riwayat_nilai = "' . $id_riwayat_nilai . '"');
+        foreach ($query->result() as $row) {
+            $kode_nilai_kd = $row->kode_nilai_kd;
+        }
+        $data['siswa_show'] = $this->M_penilaian->getNilai($id_riwayat_nilai);
+        $data['indikator_show'] = $this->M_penilaian->getKD($kode_nilai_kd);
+        $this->load->view('penilaian/hasil_nilai_view', $data);
     }
 
     public function kd()

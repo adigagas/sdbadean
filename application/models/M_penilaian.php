@@ -12,6 +12,27 @@ class M_penilaian extends CI_Model
         return $query->result();
     }
 
+    public function getNilai($id_riwayat_nilai)
+    {
+        $this->db->distinct();
+        $this->db->select('*');
+        $this->db->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa');
+        $this->db->order_by('nama_siswa', 'ASC  ');
+        $query = $this->db->get('tb_nilai');
+        return $query->result();
+    }
+
+    public function getKD($kode)
+    {
+        $this->db->distinct();
+        $this->db->select('*');
+        $this->db->join('tb_nilai_kd', ' tb_nilai_kd.kode_nilai_kd = tb_nilai.kode_nilai_kd');
+        $this->db->join('tb_kd', ' tb_kd.id_kd = tb_nilai_kd.id_kd');
+        $this->db->where('tb_nilai_kd.kode_nilai_kd', $kode);
+        $query = $this->db->get('tb_nilai');
+        return $query->result();
+    }
+
     public function getTahunKI()
     {
         $this->db->distinct();
