@@ -18,6 +18,10 @@ class Penilaian extends CI_Controller
         $this->load->view('Penilaian/penilaian', $data);
     }
 
+    public function detail_show($id_riwayat_nilai)
+    {
+    }
+
     public function kd()
     {
         $data['rombel'] = $this->M_rombel->getAllRombel();
@@ -32,6 +36,13 @@ class Penilaian extends CI_Controller
     {
         $postData = $this->input->post();
         $data = $this->M_penilaian->getUsers($postData);
+        echo json_encode($data);
+    }
+
+    public function userdaata()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getKom($postData);
         echo json_encode($data);
     }
 
@@ -85,11 +96,14 @@ class Penilaian extends CI_Controller
 
     public function show_nilai()
     {
-        $this->load->view('Penilaian/hasil_nilai');
+        $data['tahun'] = $this->M_penilaian->getTahunKI();
+        $data['ki'] = $this->M_penilaian->getKI();
+        $this->load->view('penilaian/hasil_nilai', $data);
     }
 
     public function addNilai()
     {
+        $id_riwayat_nilai = md5(uniqid(rand(), true));
         $id_pelajaran = $this->input->post('id_pelajaran');
         $id_siswa = $this->input->post('id_siswa');
         $id_rombel = $this->input->post('id_rombel');
@@ -113,7 +127,8 @@ class Penilaian extends CI_Controller
                 'kode_nilai_kd' => $kode_nilai_,
                 'mid_semester' => $mid[$i],
                 'uas' => $uas[$i],
-                'nilai_akhir' => '100'
+                'nilai_akhir' => '100',
+                'id_riwayat_nilai' => $id_riwayat_nilai
             );
             $this->db->insert('tb_nilai', $data);
             for ($r = 0; $r <= $count_data; $r++) {
@@ -126,7 +141,7 @@ class Penilaian extends CI_Controller
             }
         }
         $data = array(
-            'id_riwayat_nilai' => md5(uniqid(rand(), true)),
+            'id_riwayat_nilai' => $id_riwayat_nilai,
             'id_pelajaran' => $id_pelajaran,
             'id_rombel' => $id_rombel,
             'id_kd' => $indikator[0][0],
