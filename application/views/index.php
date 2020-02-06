@@ -141,7 +141,7 @@ if ($this->session->userdata('username') == null) {
                                                                         <input type="hidden" value="<?= $a->id_jadwal_mapel ?>" name="id_jadwal_mapel">
                                                                         <button class="btn btn-success" type="submit" <?php
                                                                                                                         $sql = "SELECT COUNT(id_siswa)
-                                                                                                                    FROM tb_absensi WHERE tanggal_absensi='" . $waktu . "' AND id_kategori='" . $a->id_kategori . "'";
+                                                                                                                    FROM tb_absensi WHERE tanggal_absensi='" . $waktu . "' AND id_kategori='" . $a->id_kategori . "'AND id_rombel='" . $a->id_rombel . "'";
                                                                                                                         $query = $this->db->query($sql);
                                                                                                                         $result = $query->row_array();
                                                                                                                         $count = $result['COUNT(id_siswa)'];

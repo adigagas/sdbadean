@@ -134,6 +134,7 @@
             $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
             $this->db->where('id_kategori', $id_kategori);
             $this->db->where('jenis_kelamin_siswa', 'L');
+            $this->db->group_by('tb_absensi.id_siswa');
             $this->db->where('id_rombel', $id_rmbl);
             $this->db->like('tanggal_absensi', $bulan, 'both');
             $jk = $this->db->get('tb_absensi')->row_array();
@@ -143,6 +144,7 @@
             $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
             $this->db->where('id_kategori', $id_kategori);
             $this->db->where('jenis_kelamin_siswa', 'P');
+            $this->db->group_by('tb_absensi.id_siswa');
             $this->db->where('id_rombel', $id_rmbl);
             $this->db->like('tanggal_absensi', $bulan, 'both');
             $jk_p = $this->db->get('tb_absensi')->row_array();

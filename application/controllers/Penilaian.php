@@ -146,6 +146,12 @@ class Penilaian extends CI_Controller
         $this->load->view('penilaian/hasil_nilai', $data);
     }
 
+    public function cetak_raport()
+    {
+
+        $this->load->view('Penilaian/cetak_raport');
+    }
+
     public function addNilai()
     {
 
