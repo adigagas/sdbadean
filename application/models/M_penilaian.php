@@ -12,6 +12,31 @@ class M_penilaian extends CI_Model
         return $query->result();
     }
 
+    public function getSosial()
+    {
+        $this->db->distinct();
+        $this->db->select('tahun_ajaran');
+        $query = $this->db->get('tb_sosial');
+        return $query->result();
+    }
+
+    public function getSosialSemester()
+    {
+        $this->db->distinct();
+        $this->db->select('semester');
+        $query = $this->db->get('tb_sosial');
+        return $query->result();
+    }
+
+    public function getSosialRombel()
+    {
+        $this->db->distinct();
+        $this->db->select('tb_sosial.id_rombel, nama_rombel');
+        $this->db->join('tb_rombel', 'tb_rombel.id_rombel = tb_sosial.id_rombel');
+        $query = $this->db->get('tb_sosial');
+        return $query->result();
+    }
+
     public function getSpiritual()
     {
         $this->db->distinct();
@@ -19,20 +44,20 @@ class M_penilaian extends CI_Model
         $query = $this->db->get('tb_spiritual');
         return $query->result();
     }
-    
-        public function getSpiritualSemester()
+
+    public function getSpiritualSemester()
     {
         $this->db->distinct();
         $this->db->select('semester');
         $query = $this->db->get('tb_spiritual');
         return $query->result();
     }
-    
-        public function getSpiritualRombel()
+
+    public function getSpiritualRombel()
     {
         $this->db->distinct();
         $this->db->select('tb_spiritual.id_rombel, nama_rombel');
-                $this->db->join('tb_rombel', 'tb_rombel.id_rombel = tb_spiritual.id_rombel');
+        $this->db->join('tb_rombel', 'tb_rombel.id_rombel = tb_spiritual.id_rombel');
 
         $query = $this->db->get('tb_spiritual');
         return $query->result();
@@ -250,7 +275,7 @@ class M_penilaian extends CI_Model
         if ($searchSemester != '') {
             $search_arr[] = " semester='" . $searchSemester . "' ";
         }
-                if ($searchPelajaran != '') {
+        if ($searchPelajaran != '') {
             $search_arr[] = " id_rombel='" . $searchPelajaran . "' ";
         }
         if (count($search_arr) > 0) {
@@ -299,6 +324,95 @@ class M_penilaian extends CI_Model
                 "id_rombel" => $record->id_rombel,
                 "id_rombel" => $record->id_rombel,
                 'deskripsi_spiritual' => $deskripsi
+            );
+        }
+        ## Response
+        $response = array(
+            "draw" => intval($draw),
+            "iTotalRecords" => $totalRecords,
+            "iTotalDisplayRecords" => $totalRecordwithFilter,
+            "aaData" => $data
+        );
+
+        return $response;
+    }
+
+
+    function getSosialValue($postData = null)
+    {
+        $response = array();
+        $draw = $postData['draw'];
+        $start = $postData['start'];
+        $rowperpage = $postData['length']; // Rows display per page
+        $columnIndex = $postData['order'][0]['column']; // Column index
+        $columnName = $postData['columns'][$columnIndex]['data']; // Column name
+        $columnSortOrder = $postData['order'][0]['dir']; // asc or desc
+        $searchValue = $postData['search']['value']; // Search value
+
+        // Custom search filter 
+        $searchTahun = $postData['searchCity'];
+        $searchPelajaran = $postData['searchGender'];
+        $searchClass = $postData['searchClass'];
+        $searchSemester = $postData['searchSemester'];
+
+        ## Search 
+        $search_arr = array();
+        $searchQuery = "";
+        if ($searchValue != '') {
+            $search_arr[] = " (tahun_ajaran like '%" . $searchValue . "%') ";
+        }
+        if ($searchTahun != '') {
+            $search_arr[] = " tahun_ajaran='" . $searchTahun . "' ";
+        }
+        if ($searchSemester != '') {
+            $search_arr[] = " semester='" . $searchSemester . "' ";
+        }
+        if ($searchPelajaran != '') {
+            $search_arr[] = " id_rombel='" . $searchPelajaran . "' ";
+        }
+        if (count($search_arr) > 0) {
+            $searchQuery = implode(" and ", $search_arr);
+        }
+
+        ## Total number of records without filtering
+        $this->db->select('count(*) as allcount');
+        $this->db->from('tb_sosial');
+        if ($searchQuery != '')
+            $this->db->where($searchQuery);
+        $records = $this->db->get()->result();
+        $totalRecords = $records[0]->allcount;
+
+        ## Total number of record with filtering
+        $this->db->select('count(*) as allcount');
+        $this->db->from('tb_sosial');
+        if ($searchQuery != '')
+            $this->db->where($searchQuery);
+        $records = $this->db->get()->result();
+        $totalRecordwithFilter = $records[0]->allcount;
+
+        ## Fetch records
+        $this->db->select('*');
+        $this->db->join('tb_siswa', 'tb_siswa.id_siswa = tb_sosial.id_siswa');
+        if ($searchQuery != '')
+            $this->db->where($searchQuery);
+        $this->db->order_by($columnName, $columnSortOrder);
+        $this->db->limit($rowperpage, $start);
+        $records = $this->db->get('tb_sosial')->result();
+        $data = array();
+        foreach ($records as $record) {
+            $deskripsi = 'Tuntas';
+            $nilai = $record->nama_siswa;
+            $data[] = array(
+                "nama_siswa" => $nilai,
+                'nilai_jujur' => $record->nilai_jujur,
+                'nilai_disiplin' => $record->nilai_disiplin,
+                'nilai_tj' => $record->nilai_tj,
+                "nilai_santun" => $record->nilai_santun,
+                "nilai_peduli" => $record->nilai_peduli,
+                "nilai_pd" => $record->nilai_pd,
+                "nilai_toleransi" => $record->nilai_toleransi,
+                "id_rombel" => $record->id_rombel,
+                'deskripsi' => $deskripsi
             );
         }
         ## Response

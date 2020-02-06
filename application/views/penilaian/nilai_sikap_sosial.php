@@ -58,237 +58,177 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-header" style="background:#2980b9; color:#fff;">Penilaian</h5> <br>
+                            <form action="<?= base_url('penilaian/nilai_sosial') ?>" method="POST" ?>
+                                <div class="card-body">
+                                    <h5 class="card-header" style="background:#2980b9; color:#fff;">Penilaian</h5> <br>
 
-                                <div class="row mb-5 mx-2">
-                                    <div class="col">
-                                        <table>
-                                            <tr>
-                                                <td><b>Mata Penilaian</b></td>
-                                                <td><b>:</b></td>
-                                                <td> - </td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Kompetensi Inti</b></td>
-                                                <td><b>:</b></td>
-                                                <td> KI-2 SIKAP SOSIAL</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Rombel</b></td>
-                                                <td><b>:</b></td>
-                                                <td>1 A</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Wali Kelas</b></td>
-                                                <td><b>:</b></td>
-                                                <td>Dewi Ayu</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>NIP</b></td>
-                                                <td><b>:</b></td>
-                                                <td>1234567890</td>
-                                            </tr>
+                                    <div class="row mb-5 mx-2">
+                                        <div class="col">
+                                            <table>
+                                                <tr>
+                                                    <td><b>Mata Penilaian</b></td>
+                                                    <td><b>:</b></td>
+                                                    <td> - </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Kompetensi Inti</b></td>
+                                                    <td><b>:</b></td>
+                                                    <td> KI-2 SIKAP SOSIAL</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Rombel</b></td>
+                                                    <td><b>:</b></td>
+                                                    <td>1 A</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Wali Kelas</b></td>
+                                                    <td><b>:</b></td>
+                                                    <td>Dewi Ayu</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>NIP</b></td>
+                                                    <td><b>:</b></td>
+                                                    <td>1234567890</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div class="col-4">
+                                            <table>
+                                                <tr>
+                                                    <td><b>Tahun Ajaran</b></td>
+                                                    <td><b>:</b></td>
+                                                    <td><?= $tahun_ajaran ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Semester</b></td>
+                                                    <td><b>:</b></td>
+                                                    <td>1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Guru Mapel</b></td>
+                                                    <td><b>:</b></td>
+                                                    <td>Dewi Ayu</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>NIP</b></td>
+                                                    <td><b>:</b></td>
+                                                    <td>1234567890</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive">
+
+                                        <table id="zero_config" class="table table-sm" width="1600px">
+                                            <thead class="text-center">
+
+                                                <tr>
+                                                    <th rowspan="2" width="20px"><b>NO</b></th>
+                                                    <th rowspan="2" width="20px"><b>NAMA PESERTA DIDIK</b></th>
+                                                    <th colspan="7"><b>ASPEK NILAI</b></th>
+                                                </tr>
+                                                <tr>
+                                                    <th width="60px">Jujur</th>
+                                                    <th width="60px">Disiplin</th>
+                                                    <th width="60px">Tanggung Jawab</th>
+                                                    <th width="60px">Santun</th>
+                                                    <th width="60px">Peduli</th>
+                                                    <th width="60px">Percaya Diri</th>
+                                                    <th width="60px">Toleransi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <?php $y = 0;
+                                                    foreach ($siswa_show as $siswa) {
+                                                        $y++ ?>
+                                                        <input type="text" hidden value="<?= $siswa->id_siswa ?>" name="id_siswa[]">
+                                                        <input type="text" hidden value="<?= $semester ?>" name="semester">
+                                                        <input type="text" hidden value="<?= $tahun_ajaran ?>" name="tahun_ajaran">
+                                                        <input type="text" hidden value="<?= $id_rombel ?>" name="id_rombel">
+                                                        <input type="text" hidden value="<?= $this->session->userdata('id_gtk') ?>" name="id_gtk">
+
+                                                        <td>1</td>
+                                                        <td><?= $siswa->nama_siswa ?></td>
+                                                        <td>
+                                                            <select required name="sel_jujur[]" class="select2 form-control custom-select">
+                                                                <option value="">0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <select required name="sel_dispin[]" class="select2 form-control custom-select">
+                                                                <option value="">0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <select required name="sel_tj[]" class="select2 form-control custom-select">
+                                                                <option value="">0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <select required name="sel_santun[]" class="select2 form-control custom-select">
+                                                                <option value="">0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <select required name="sel_peduli[]" class="select2 form-control custom-select">
+                                                                <option value="">0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <select required name="sel_pd[]" class="select2 form-control custom-select">
+                                                                <option value="">0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <select required name="sel_toleransi[]" class="select2 form-control custom-select">
+                                                                <option value="">0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                        </td>
+                                                </tr>
+
+                                            <?php } ?>
+
+                                            </tbody>
                                         </table>
                                     </div>
 
-                                    <div class="col-4">
-                                        <table>
-                                            <tr>
-                                                <td><b>Tahun Ajaran</b></td>
-                                                <td><b>:</b></td>
-                                                <td>2019/2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Semester</b></td>
-                                                <td><b>:</b></td>
-                                                <td>1</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Guru Mapel</b></td>
-                                                <td><b>:</b></td>
-                                                <td>Dewi Ayu</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>NIP</b></td>
-                                                <td><b>:</b></td>
-                                                <td>1234567890</td>
-                                            </tr>
-                                        </table>
+                                    <div class="row justify-content-end mt-5">
+                                        <a href="" class="btn btn-outline-secondary mr-2">Batal</a>
+                                        <button type="submit" class="btn btn-success mr-4">Simpan</button>
                                     </div>
                                 </div>
-
-                                <div class="table-responsive">
-
-                                    <table id="zero_config" class="table table-striped table-bordered" width="1600px">
-                                        <thead class="text-center">
-                                            <tr>
-                                                <th rowspan="2" width="20px"><b>NO</b></th>
-                                                <th rowspan="2"><b>NAMA PESERTA DIDIK</b></th>
-                                                <th colspan="7"><b>ASPEK NILAI</b></th>
-                                                <th rowspan="2"><b>DESKRIPSI RAPORT</b></th>
-                                                <th rowspan="2" width="100px"><b>KETUNTASAN</b></th>
-                                            </tr>
-                                            <tr>
-                                                <th width="60px">Jujur</th>
-                                                <th width="60px">Disiplin</th>
-                                                <th width="60px">Tanggung Jawab</th>
-                                                <th width="60px">Santun</th>
-                                                <th width="60px">Peduli</th>
-                                                <th width="60px">Percaya Diri</th>
-                                                <th width="60px">Toleransi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Ahmad Deni</td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td></td>
-                                                <td class="text-success">Tuntas</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Laili Permata</td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="select2 form-control custom-select">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </td>
-                                                <td></td>
-                                                <td class="text-danger">Tidak Tuntas</td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div class="row justify-content-end mt-5">
-                                    <a href="" class="btn btn-outline-secondary mr-2">Batal</a>
-                                    <a href="" class="btn btn-success mr-4">Simpan</a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -311,7 +251,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-            COPYRIGHT © BIKEA TECHNOCRAFT 2019 
+                COPYRIGHT © BIKEA TECHNOCRAFT 2019
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -348,7 +288,20 @@
         /****************************************
          *       Basic Table                   *
          ****************************************/
-        $('#zero_config').DataTable();
+        $(document).ready(function() {
+            $('#zero_config').dataTable({
+                'bInfo': false,
+                "aLengthMenu": [
+                    [25, 50, 75, -1],
+                    [25, 50, 75, "All"]
+                ],
+                "iDisplayLength": 1000,
+                "columnDefs": [{
+                    "targets": All,
+                    "orderable": false
+                }]
+            });
+        });
     </script>
 
 </body>

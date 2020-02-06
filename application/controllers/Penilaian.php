@@ -40,11 +40,18 @@ class Penilaian extends CI_Controller
         $data['id_riwayat'] = $id_riwayat_nilai;
         $this->load->view('penilaian/hasil_nilai_view', $data);
     }
-    
+
     public function userdataspiritual()
     {
         $postData = $this->input->post();
         $data = $this->M_penilaian->getSpiritualValue($postData);
+        echo json_encode($data);
+    }
+
+    public function userdatasosial()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_penilaian->getSosialValue($postData);
         echo json_encode($data);
     }
 
@@ -209,9 +216,11 @@ class Penilaian extends CI_Controller
             'id_gtk' => $this->session->userdata('id_gtk')
         );
         $this->db->insert('tb_riwayat_nilai', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil di Tambahkan!</div>');
+        redirect(base_url('penilaian/cek_rombel'));
     }
-    
-        public function nilai_spiritual()
+
+    public function nilai_spiritual()
     {
         $Id_siswa = $this->input->post('id_siswa');
         $Id_rombel = $this->input->post('id_rombel');
@@ -236,6 +245,45 @@ class Penilaian extends CI_Controller
             );
             $this->db->insert('tb_spiritual', $data);
         }
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil di Tambahkan!</div>');
+        redirect(base_url('penilaian/cek_rombel'));
+    }
+
+    public function nilai_sosial()
+    {
+        $tahun_ajaran = $this->input->post('tahun_ajaran');
+        $Id_siswa = $this->input->post('id_siswa');
+        $Id_rombel = $this->input->post('id_rombel');
+        $id_gtk = $this->input->post('id_gtk');
+        $sel_jujur = $this->input->post('sel_jujur');
+        $sel_dispin = $this->input->post('sel_dispin');
+        $sel_tj = $this->input->post('sel_tj');
+        $sel_santun = $this->input->post('sel_santun');
+        $sel_peduli = $this->input->post('sel_peduli');
+        $sel_toleransi = $this->input->post('sel_toleransi');
+        $sel_pd = $this->input->post('sel_pd');
+        $semester = $this->input->post('semester');
+        for ($i = 0; $i < count($Id_siswa); $i++) {
+
+            $data = array(
+                'id_sosial' => '',
+                'id_siswa' => $Id_siswa[$i],
+                'id_rombel' => $Id_rombel,
+                'nilai_jujur' => $sel_jujur[$i],
+                'nilai_disiplin' => $sel_dispin[$i],
+                'nilai_tj' => $sel_tj[$i],
+                'nilai_santun' => $sel_santun[$i],
+                'nilai_peduli' => $sel_peduli[$i],
+                'nilai_pd' => $sel_pd[$i],
+                'nilai_toleransi' => $sel_toleransi[$i],
+                'id_gtk' => $id_gtk,
+                'tahun_ajaran' => $tahun_ajaran,
+                'semester' => $semester
+            );
+            $this->db->insert('tb_sosial', $data);
+        }
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil di Tambahkan!</div>');
+        redirect(base_url('penilaian/cek_rombel'));
     }
 
     public function hasilnilai_spiritual()
@@ -244,6 +292,14 @@ class Penilaian extends CI_Controller
         $data['semester'] = $this->M_penilaian->getSpiritualSemester();
         $data['rombel'] = $this->M_penilaian->getSpiritualRombel();
         $this->load->view('penilaian/spiritual', $data);
+    }
+
+    public function hasilnilai_sosial()
+    {
+        $data['tahun'] = $this->M_penilaian->getSosial();
+        $data['semester'] = $this->M_penilaian->getSosialSemester();
+        $data['rombel'] = $this->M_penilaian->getSosialRombel();
+        $this->load->view('penilaian/sosial', $data);
     }
 
     public function nilai_mapel()
@@ -264,7 +320,7 @@ class Penilaian extends CI_Controller
         }
         $id_pelajaran = $this->input->post('id_pelajaran');
         $id_ki = $this->input->post('id_ki');
-       // echo $id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran;
+        // echo $id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran;
         $data['indikator_show'] = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
         $data['siswa_show'] = $this->M_rombel->getDetailRombel($id);
         // $show = $this->M_penilaian->getIndikator($id_kelas, $id_pelajaran, $id_ki, $semester, $tahun_ajaran);
@@ -273,10 +329,10 @@ class Penilaian extends CI_Controller
         if ($data['id_ki'] == "KI-1") {
             $this->load->view('penilaian/nilai_sikap_spiritual', $data);
         } else if ($data['id_ki'] == "KI-2") {
-            $this->load->view('penilaian/nilai_sikap_sosial');
+            $this->load->view('penilaian/nilai_sikap_sosial', $data);
         } else {
 
-             $this->db->where('id_pelajaran', $data['id_pelajaran']);
+            $this->db->where('id_pelajaran', $data['id_pelajaran']);
             $kat = $this->db->get('tb_pelajaran')->row_array();
             //---------------------------Ambil Nama Pelajaran-----------------------------
             $this->db->where('id_kategori', $kat['id_kategori']);
@@ -285,7 +341,7 @@ class Penilaian extends CI_Controller
             $this->db->where('id_pelajaran', $data['id_pelajaran']);
             $pelajaran = $this->db->get('tb_pelajaran')->row_array();
             $data['nama_pelajaran'] = $pelajaran['nama_pelajaran'];
-            
+
             $this->db->where('id_gtk', $mapel['id_gtk']);
             $gtk = $this->db->get('tb_gtk')->row_array();
             $data['nama_gtk'] = $gtk['nama_gtk'];

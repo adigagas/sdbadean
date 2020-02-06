@@ -108,15 +108,16 @@ if ($this->session->userdata('username') == null) {
                 <!-- ============================================================== -->
                 <!-- Sales chart -->
                 <!-- ============================================================== -->
-                <?php if ($jabatan == 2) {
-                ?>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-body">
 
-                                    <div class="row">
-                                        <!-- column -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <!-- column -->
+                                    <?php if ($jabatan == 2) {
+                                    ?>
                                         <div class="col-lg-9">
                                             <?php echo $this->session->flashdata('msg'); ?>
                                             <div class="row">
@@ -166,60 +167,39 @@ if ($this->session->userdata('username') == null) {
                                                 <?php endforeach; ?>
                                             </div>
                                         </div>
+                                        <?php
+                                        $this->db->select('COUNT(id_device) as jumlah');
+                                        $users = $this->db->get('tb_device')->row_array();
+
+                                        $this->db->select('COUNT(id_login) as jumlah');
+                                        $gtk = $this->db->get('users')->row_array();
+
+                                        ?>
                                         <div class="col-lg-3">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <div class="bg-dark p-10 text-white text-center">
-                                                        <i class="fa fa-user m-b-5 font-16"></i>
-                                                        <h5 class="m-b-0 m-t-5">2540</h5>
-                                                        <small class="font-light">Total Users</small>
-                                                    </div>
+
+                                            <div class="col-lg-12">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                    <i class="fa fa-user m-b-5 font-16"></i>
+                                                    <h5 class="m-b-0 m-t-5"><?= $users['jumlah'] ?></h5>
+                                                    <small class="font-light">Akun Wali Murid</small>
                                                 </div>
-                                                <div class="col-6">
-                                                    <div class="bg-dark p-10 text-white text-center">
-                                                        <i class="fa fa-plus m-b-5 font-16"></i>
-                                                        <h5 class="m-b-0 m-t-5">120</h5>
-                                                        <small class="font-light">New Users</small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6 m-t-15">
-                                                    <div class="bg-dark p-10 text-white text-center">
-                                                        <i class="fa fa-cart-plus m-b-5 font-16"></i>
-                                                        <h5 class="m-b-0 m-t-5">656</h5>
-                                                        <small class="font-light">Total Shop</small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6 m-t-15">
-                                                    <div class="bg-dark p-10 text-white text-center">
-                                                        <i class="fa fa-tag m-b-5 font-16"></i>
-                                                        <h5 class="m-b-0 m-t-5">9540</h5>
-                                                        <small class="font-light">Total Orders</small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6 m-t-15">
-                                                    <div class="bg-dark p-10 text-white text-center">
-                                                        <i class="fa fa-table m-b-5 font-16"></i>
-                                                        <h5 class="m-b-0 m-t-5">100</h5>
-                                                        <small class="font-light">Pending Orders</small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6 m-t-15">
-                                                    <div class="bg-dark p-10 text-white text-center">
-                                                        <i class="fa fa-globe m-b-5 font-16"></i>
-                                                        <h5 class="m-b-0 m-t-5">8540</h5>
-                                                        <small class="font-light">Online Orders</small>
-                                                    </div>
+                                            </div><br>
+                                            <div class="col-lg-12">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                    <i class="fa fa-user m-b-5 font-16"></i>
+                                                    <h5 class="m-b-0 m-t-5"><?= $gtk['jumlah'] ?></h5>
+                                                    <small class="font-light">Akun GTK</small>
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- column -->
-                                    </div>
-
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                <?php } ?>
+                </div>
+
                 <!-- ============================================================== -->
                 <!-- Sales chart -->
                 <!-- ============================================================== -->
@@ -246,9 +226,9 @@ if ($this->session->userdata('username') == null) {
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Mapel</label>
                                         <select class="form-control" name="id_pelajaran">
-                                            <?php 
-                                            $this->db->where('id_kategori', $p->id_kategori );
-                                            $pel=$this->db->get('tb_pelajaran')->result();
+                                            <?php
+                                            $this->db->where('id_kategori', $p->id_kategori);
+                                            $pel = $this->db->get('tb_pelajaran')->result();
                                             foreach ($pel as $j) { ?>
                                                 <option value="<?= $j->id_pelajaran ?>"><?= $j->nama_pelajaran ?></option>
                                             <?php } ?>
@@ -281,18 +261,20 @@ if ($this->session->userdata('username') == null) {
                     </div>
                 </div>
             <?php } ?>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                COPYRIGHT © BIKEA TECHNOCRAFT 2019
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+        <?php } ?>
+
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center">
+            COPYRIGHT © BIKEA TECHNOCRAFT 2019
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
