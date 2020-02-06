@@ -83,6 +83,12 @@ class Penilaian extends CI_Controller
         $this->load->view('Penilaian/nilai_sikap_sosial', $data);
     }
 
+    public function cetak_raport()
+    {
+
+        $this->load->view('Penilaian/cetak_raport');
+    }
+
     public function addNilai()
     {
         $id_pelajaran = $this->input->post('id_pelajaran');
