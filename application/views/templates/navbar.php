@@ -96,7 +96,7 @@
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="<?= base_url() ?>peserta_didik" class="sidebar-link"><i class="mdi mdi-account"></i><span class="hide-menu"> Peserta Didik</span></a></li>
                         <li class="sidebar-item"><a href="<?= base_url() ?>gtk" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> GTK </span></a></li>
-                        <?php if ($jabatan == 3) {
+                        <?php if ($this->session->userdata('jabatan') == 3) {
                         ?>
                             <li class="sidebar-item"><a href="<?= base_url() ?>Akun" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> Akun </span></a></li>
                             <li class="sidebar-item"><a href="<?= base_url() ?>Info" class="sidebar-link"><i class="mdi mdi-presentation"></i><span class="hide-menu"> Info </span></a></li>
@@ -118,6 +118,8 @@
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-pen"></i><span class="hide-menu">Penilaian </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="<?= base_url() ?>Penilaian/show_nilai" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Hasil Penilaian </span></a></li>
+                                                <li class="sidebar-item"><a href="<?= base_url() ?>penilaian/hasilnilai_spiritual" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Hasil Penilaian Spiritual</span></a></li>
+                        <li class="sidebar-item"><a href="<?= base_url() ?>penilaian/hasilnilai_sosial" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Hasil Penilaian Sosial</span></a></li>
                         <li class="sidebar-item"><a href="<?= base_url() ?>Penilaian/cek_rombel" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Penilaian </span></a></li>
                         <li class="sidebar-item"><a href="<?= base_url() ?>Penilaian/kd" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Kompetensi Dasar </span></a></li>
                     </ul>

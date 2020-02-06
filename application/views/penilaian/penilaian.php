@@ -83,6 +83,9 @@
                                                         <input name="nama_ki" value="<?= $k->nama_ki ?>" type="hidden">
                                                         <input name="nama_rombel" value="<?= $nama_rombel ?>" type="hidden">
                                                         <input name="id_rombel" value="<?= $id_rombel ?>" type="hidden">
+                                                        <input name="tahun_ajaran" value="<?= $tahun_ajaran ?>" type="hidden">
+                                                        <input name="semester" value="<?= $semester ?>" type="hidden">
+
                                                         <td><select name="id_pelajaran" class="form-control">
                                                                 <?php
                                                                 $this->db->like('id_ki', $k->id_ki, 'both');
@@ -93,7 +96,7 @@
                                                             </select>
                                                         </td>
                                                         <td><?= $nama_rombel ?></td>
-                                                        <td>2019/2020 - 1</td>
+                                                        <td><?= $tahun_ajaran . "-" . $semester ?></td>
                                                         <td>
                                                             <button class="btn btn-info btn-sm" type="submit">Nilai</button>
                                                         </td>

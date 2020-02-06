@@ -152,15 +152,15 @@
                                                         <td>
                                                             <input hidden name="count_indikator" type="text" class="form-control" value="<?= $f ?>">
                                                             <input hidden name="indikator<?= $f ?>[]" type="text" value="<?= $indikators->id_kd ?>">
-                                                            <input name="inputData<?= $f ?>[]" type="number" class="form-control" min="0" max="100" value="70">
+                                                            <input name="inputData<?= $f ?>[]" type="number" class="form-control" min="0" max="100" value="">
                                                         </td>
                                                     <?php $f++;
                                                     } ?>
                                                     <td>
-                                                        <input name="mid[]" type="number" class="form-control" min="0" max="100" value="70">
+                                                        <input name="mid[]" type="number" class="form-control" min="0" max="100" value="">
                                                     </td>
                                                     <td>
-                                                        <input name="uas[]" type="number" class="form-control" min="0" max="100" value="70">
+                                                        <input name="uas[]" type="number" class="form-control" min="0" max="100" value="">
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -176,7 +176,6 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->

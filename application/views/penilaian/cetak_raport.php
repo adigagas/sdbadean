@@ -79,18 +79,60 @@
                         <?php
                         $i=1;
                         foreach($nilai as $n){
+                            
+                           
+                           $this->db->select('MAX(nilai) as nil_max, id_kd');
+                         $this->db->where('kode_nilai_kd',$n->kode_nilai_kd);$this->db->group_by('kode_nilai_kd');
+                           $max=$this->db->get('tb_nilai_kd')->row_array();
+                           $kd_maks=$max['id_kd'];
+                           $nil_max=$max['nil_max'];
+                           
+                           $this->db->select('MIN(nilai) as nil_min, id_kd');
+                           $this->db->group_by('kode_nilai_kd');
+                           $this->db->where('kode_nilai_kd',$n->kode_nilai_kd);
+                           $min=$this->db->get('tb_nilai_kd')->row_array();
+                           $kd_min=$min['id_kd'];
+                           $nil_min= $min['nil_min'];
+                           
+                           $this->db->where('id_kd',$kd_maks);
+                           $tb_kd_max = $this->db->get('tb_kd')->row_array();
+                           $isi_max=$tb_kd_max['kompetensi_dasar'];
+                           
+                            $this->db->where('id_kd',$kd_min);
+                           $tb_kd_min = $this->db->get('tb_kd')->row_array();
+                           $isi_min=$tb_kd_min['kompetensi_dasar'];
+                           
+                           
+                              
+                           if($nil_max >= 65 and $nil_max <= 76 ){
+                            $nila="cukup";
+                        } else if ($nil_max >= 76 and $nil_max <= 88 ){
+                            $nila="baik";
+                        } else if ($nil_max >= 88 and $nil_max <= 100 ){
+                            $nila="sangat baik";
+                        }
+                        
+                           if($nil_min >= 65 and $nil_min <= 76 ){
+                            $nilai="cukup";
+                        } else if ($nil_min >= 76 and $nil_min <= 88 ){
+                            $nilai="baik";
+                        } else if ($nil_min >= 88 and $nil_min <= 100 ){
+                            $nilai="sangat baik";
+                        }
+                           
+                           
                         ?>
                           <tr>
                             <td rowspan="2"> <?= $i++ ?></td>
                             <td rowspan="2"> <?= $n->nama_pelajaran ?></td>
                         </tr>
                         <tr>
-                            <td> <?= $n->nilai_akhir ?></td>
-                            <td> Predikat</td>
-                            <td> Deskripsi</td>
-                            <td> Nilai</td>
-                            <td> Predikat</td>
-                            <td> Deskripsi</td>
+                            <td style="padding:5px;text-align: center;"> <?= $n->nilai_akhir ?></td>
+                            <td style="padding:5px;text-align: center;"> <?= $n->predikat;?></td>
+                            <td style="padding:5px"> Ananda  <?= $nama_siswa?>  <?= $nila ?> <?= $isi_max ?> dan <?= $nilai ?> <?= $isi_min ?> </td>
+                            <td style="padding:5px"> Nilai</td>
+                            <td style="padding:5px"> Predikat</td>
+                            <td style="padding:5px"> Deskripsi</td>
                         </tr>
                         <?php }?>
                     </thead>

@@ -74,42 +74,33 @@
                                     <div class="col-md-2 ">
                                         <!-- Gender -->
                                         <select class="custom-select" id='sel_gender' name="sel_gender">
-                                            <?php foreach ($tahun as $years) { ?>
-                                                <option value="<?= $years->id_pelajaran ?>"><?= $years->nama_pelajaran ?></option>
+                                            <?php foreach ($rombel as $years) { ?>
+                                                <option value="<?= $years->id_rombel ?>"><?= $years->nama_rombel ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="btn-align text-center col-md-1">
-                                        <p><b>Kelas</b></p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <!-- Gender -->
-                                        <select class="custom-select" id='sel_class' name="sel_class">
-                                            <?php foreach ($tahun as $years) { ?>
-                                                <option value="<?= $years->id_kelas ?>"><?= $years->id_kelas ?></option>
-                                            <?php } ?>
-                                        </select>
-
-                                    </div>
+                                    <!-- Gender -->
+                                    <select hidden class="custom-select" id='sel_class' name="sel_class">
+                                        <?php foreach ($tahun as $years) { ?>
+                                            <option value="<?= $years->id_rombel ?>"><?= $years->id_kelas ?></option>
+                                        <?php } ?>
+                                    </select>
                                     <div class="btn-align text-center col-md-2">
                                         <p><b>Semester</b></p>
                                     </div>
                                     <div class="col-md-2 ">
                                         <select class="custom-select" id='sel_semester' name="sel_semester">
-                                            <?php foreach ($tahun as $years) { ?>
+                                            <?php foreach ($semester as $years) { ?>
                                                 <option value="<?= $years->semester ?>"><?= $years->semester ?></option>
                                             <?php } ?>
                                         </select>
 
                                     </div>
-                                    <div class="btn-align text-center col-md-2">
-                                        <p><b>Kompentensi Inti</b></p>
-                                    </div>
                                     <div class="col-md-2 ">
                                         <!-- Gender -->
-                                        <select class="custom-select" id='sel_ki' name="sel_ki">
+                                        <select hidden class="custom-select" id='sel_ki' name="sel_ki">
                                             <?php foreach ($tahun as $years) { ?>
-                                                <option value="<?= $years->id_ki ?>"><?= $years->nama_ki ?></option>
+                                                <option value="<?= $years->id_rombel ?>"><?= $years->nama_rombel ?></option>
                                             <?php } ?>
                                         </select>
 
@@ -120,16 +111,18 @@
                                     </div>
                                 </div>
                                 <div class="table-responsive">
-                                    <table id='userTableData' class="table table-striped table-bordered">
+                                    <table id='userTableData' class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th colspan="2" class="text-center">Semester I</th>
+                                                <th style="vertical-align : middle;text-align:center;" rowspan="2"><b>NAMA PESERTA DIDIK</b></th>
+                                                <th style="vertical-align : middle;text-align:center;" colspan="3"><b>ASPEK NILAI</b></th>
+
+                                                <th style="vertical-align : middle;text-align:center;" rowspan="2">Ketuntasan</th>
                                             </tr>
                                             <tr>
-                                                <th class="w-15">NO</th>
-                                                <th>DESKRIPSI KD PENGETAHUAN (KI_3)</th>
-                                                <th>DESKRIPSI KD PENGETAHUAN (KI_3)</th>
-
+                                                <th style="vertical-align : middle;text-align:center;">Beribadah</th>
+                                                <th style="vertical-align : middle;text-align:center;">Bersyukur</th>
+                                                <th style="vertical-align : middle;text-align:center;">Berdoa</th>
                                             </tr>
                                         </thead>
                                     </table>
@@ -173,27 +166,29 @@
                 'serverSide': true,
                 'serverMethod': 'post',
                 'ajax': {
-                    'url': '<?= base_url() ?>penilaian/userdaata',
+                    'url': '<?= base_url() ?>penilaian/userdataspiritual',
                     'data': function(data) {
                         data.searchCity = $('#sel_city').val();
                         data.searchGender = $('#sel_gender').val();
                         data.searchClass = $('#sel_class').val();
                         data.searchName = $('#searchName').val();
                         data.searchSemester = $('#sel_semester').val();
-                        data.searchKI = $('#sel_ki').val();
                     }
                 },
                 'columns': [{
-                        data: 'nama_pelajaran'
+                        data: 'nama_siswa'
                     },
                     {
-                        data: 'nama_pelajaran'
+                        data: 'nilai_beribadah'
                     },
                     {
-                        data: 'id_riwayat_nilai',
-                        render: function(data, type, row) {
-                            return '<a href="<?= base_url('penilaian/detail_show/') ?>' + data + '" class="btn btn-primary btn-lg active" role="button" >Primary link</a>';
-                        }
+                        data: 'nilai_syukur'
+                    },
+                    {
+                        data: 'nilai_berdoa'
+                    },
+                    {
+                        data: 'deskripsi_spiritual'
                     },
                 ]
             });
