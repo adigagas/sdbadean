@@ -32,6 +32,38 @@ class Laporan extends CI_Controller
 
         echo json_encode($data);
     }
+    
+    
+    public function rekapNilai(){
+        
+        $this->load->view('penilaian/rekap_nilai');
+    }
+    public function cetak_raport($id_siswa=null)
+    {   
+        $this->db->where('id_siswa',$id_siswa);
+        $siswa=$this->db->get('tb_siswa')->row_array();
+        $data['nama_siswa']=$siswa['nama_siswa'];
+        $data['nisn']=$siswa['nomor_induk_sn'];
+        $data['nis']=$siswa['nomor_induk'];
+        
+        $this->db->join('tb_pelajaran','tb_nilai.id_pelajaran=tb_pelajaran.id_pelajaran');
+        $this->db->where('id_siswa',$id_siswa);
+        $data['nilai']=$this->db->get('tb_nilai')->result();
+        $this->load->view('penilaian/cetak_raport',$data);
+    }
+    
+     public function rombelList()
+    {
+
+        // POST data
+        $postData = $this->input->post();
+
+        // Get data
+        $data = $this->M_laporan_absensi->getRombel($postData);
+
+        echo json_encode($data);
+    }
+    
 
     public function getKD()
     {

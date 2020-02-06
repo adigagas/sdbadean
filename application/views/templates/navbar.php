@@ -1,4 +1,4 @@
-<header class="topbar" data-navbarbg="skin5">
+<header class="topbar" data-navbarbg="skin5"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <nav class="navbar top-navbar navbar-expand-md navbar-dark">
         <div class="navbar-header" data-logobg="skin5">
             <!-- This is for the sidebar toggle which is visible on mobile only -->
@@ -96,7 +96,7 @@
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="<?= base_url() ?>peserta_didik" class="sidebar-link"><i class="mdi mdi-account"></i><span class="hide-menu"> Peserta Didik</span></a></li>
                         <li class="sidebar-item"><a href="<?= base_url() ?>gtk" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> GTK </span></a></li>
-                        <?php if ($jabatan == 3) {
+                        <?php if ($this->session->userdata('jabatan') == 3) {
                         ?>
                             <li class="sidebar-item"><a href="<?= base_url() ?>Akun" class="sidebar-link"><i class="mdi mdi-school"></i><span class="hide-menu"> Akun </span></a></li>
                             <li class="sidebar-item"><a href="<?= base_url() ?>Info" class="sidebar-link"><i class="mdi mdi-presentation"></i><span class="hide-menu"> Info </span></a></li>
@@ -111,23 +111,25 @@
                         <li class="sidebar-item"><a href="<?= base_url() ?>Ekskul/index" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Ekstrakurikuler </span></a></li>
                         <!-- <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Penilaian Siswa </span></a></li> -->
                         <li class="sidebar-item"><a href="<?= base_url() ?>Absensi_siswa/index" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Absensi Peserta Didik </span></a></li>
-                        <li class="sidebar-item"><a href="<?= base_url() ?>Laporan/index" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Laporan Abasensi </span></a></li>
+                        
                     </ul>
                 </li>
 
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-library"></i><span class="hide-menu">Penilaian </span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-pen"></i><span class="hide-menu">Penilaian </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="<?= base_url() ?>Penilaian/show_nilai" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Hasil Penilaian </span></a></li>
+                                                <li class="sidebar-item"><a href="<?= base_url() ?>penilaian/hasilnilai_spiritual" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Hasil Penilaian Spiritual</span></a></li>
+                        <li class="sidebar-item"><a href="<?= base_url() ?>penilaian/hasilnilai_sosial" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Hasil Penilaian Sosial</span></a></li>
                         <li class="sidebar-item"><a href="<?= base_url() ?>Penilaian/cek_rombel" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Penilaian </span></a></li>
                         <li class="sidebar-item"><a href="<?= base_url() ?>Penilaian/kd" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Kompetensi Dasar </span></a></li>
                     </ul>
                 </li>
-                <!-- <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-printer"></i><span class="hide-menu">Cetak </span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-printer"></i><span class="hide-menu">Cetak </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="<?= base_url() ?>Absensi_siswa/laporanAbsen" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Absensi Peserta Didik </span></a></li>
-                        <li class="sidebar-item"><a href="pages-calendar.html" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Absensi GTK </span></a></li>
-                        <li class="sidebar-item"><a href="pages-invoice.html" class="sidebar-link"><i class="mdi mdi-bulletin-board"></i><span class="hide-menu"> Raport Pserta Didik </span></a></li>
+                        <li class="sidebar-item"><a href="<?= base_url() ?>laporan/rekapNilai" class="sidebar-link"><i class="mdi mdi-printer"></i><span class="hide-menu"> Raport </span></a></li>
+                        <li class="sidebar-item"><a href="<?= base_url() ?>Laporan/index" class="sidebar-link"><i class="mdi mdi-printer"></i><span class="hide-menu"> Laporan Abasensi </span></a></li>
                     </ul>
-                </li> -->
+                </li> 
                 <br>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('Profile'); ?>" aria-expanded="false"><i class="mdi mdi-contacts"></i><span class="hide-menu">Profil Sekolah</span></a></li>
             </ul>

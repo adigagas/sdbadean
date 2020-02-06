@@ -31,7 +31,7 @@ class Absen extends REST_Controller
         //----------------------------
         $this->db->select('COUNT(keterangan) as jumlah,keterangan,nama_rombel');
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
-        $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
+        //$this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
         $this->db->group_by('keterangan');
         $this->db->where('tb_absensi.id_siswa', $id_siswa);
@@ -42,7 +42,7 @@ class Absen extends REST_Controller
         //----------------------------
         $this->db->select('COUNT(keterangan) as jumlah,keterangan,nama_rombel');
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
-        $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
+       // $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
         $this->db->group_by('keterangan');
         $this->db->where('tb_absensi.id_siswa', $id_siswa);
@@ -53,7 +53,7 @@ class Absen extends REST_Controller
         //----------------------------
         $this->db->select('COUNT(keterangan) as jumlah,keterangan,nama_rombel');
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
-        $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
+       // $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
         $this->db->group_by('keterangan');
         $this->db->where('tb_absensi.id_siswa', $id_siswa);
@@ -64,7 +64,7 @@ class Absen extends REST_Controller
         //----------------------------
         $this->db->select('COUNT(keterangan) as jumlah,keterangan,nama_rombel');
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
-        $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
+       // $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
         $this->db->group_by('keterangan');
         $this->db->where('tb_absensi.id_siswa', $id_siswa);
@@ -105,7 +105,7 @@ class Absen extends REST_Controller
     public function bulan_post()
     {
         $id_siswa = $this->input->post('id_siswa');
-        $id_pelajaran = $this->input->post('id_pelajaran');
+        $id_pelajaran = $this->input->post('id_kategori');
         $bulan = $this->input->post('bulan');
 
         //----------------------------
@@ -131,7 +131,7 @@ class Absen extends REST_Controller
         $this->db->join('tb_mapel', 'tb_absensi.id_mapel=tb_mapel.id_jadwal_mapel');
         $this->db->join('users', 'users.id_gtk=tb_absensi.id_gtk');
         $this->db->join('tb_kategori', 'tb_absensi.id_kategori=tb_kategori.id_kategori');
-        $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
+       // $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $this->db->join('tb_gtk', 'tb_absensi.id_gtk=tb_gtk.id_gtk');
         $this->db->where('id_siswa', $id_siswa);
         $this->db->where('tanggal_absensi', $tgl['waktu']);

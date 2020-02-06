@@ -60,6 +60,7 @@ class Rombel extends CI_Controller
         $id_gtk = $this->input->post('id_gtk');
         $nama_rombel = $this->input->post('nama_rombel');
         $tahun_ajaran = $this->input->post('tahun_ajaran');
+        $semester = $this->input->post('semester');
 
         $data = array(
             'id_rombel' => md5(uniqid(rand(), true)),
@@ -67,6 +68,7 @@ class Rombel extends CI_Controller
             'nama_rombel' => $nama_rombel,
             'id_gtk' => $id_gtk,
             'tahun_ajaran' => $tahun_ajaran,
+            'semester' => $semester,
         );
         $this->M_rombel->input_data($data, 'tb_rombel');
         redirect('rombel');

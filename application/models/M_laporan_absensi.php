@@ -58,7 +58,7 @@ class M_laporan_absensi extends CI_Model
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
         $this->db->join('tb_kategori', 'tb_absensi.id_kategori=tb_kategori.id_kategori');
-        $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
+       // $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $records = $this->db->get('tb_absensi')->result();
         $totalRecords = $records[0]->allcount;
 
@@ -69,7 +69,7 @@ class M_laporan_absensi extends CI_Model
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
         $this->db->join('tb_kategori', 'tb_absensi.id_kategori=tb_kategori.id_kategori');
-        $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
+        //$this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $records = $this->db->get('tb_absensi')->result();
         $totalRecordwithFilter = $records[0]->allcount;
 
@@ -79,12 +79,12 @@ class M_laporan_absensi extends CI_Model
             $this->db->where($searchQuery);
         $this->db->order_by($columnName, $columnSortOrder);
         $this->db->limit($rowperpage, $start);
-        $this->db->group_by('tb_absensi.id_pelajaran');
+        $this->db->group_by('tb_absensi.id_kategori');
         $this->db->group_by('tb_absensi.id_siswa');
         $this->db->join('tb_siswa', 'tb_absensi.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_rombel', 'tb_absensi.id_rombel=tb_rombel.id_rombel');
         $this->db->join('tb_kategori', 'tb_absensi.id_kategori=tb_kategori.id_kategori');
-        $this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
+        //$this->db->join('tb_pelajaran', 'tb_absensi.id_pelajaran=tb_pelajaran.id_pelajaran');
         $records = $this->db->get('tb_absensi')->result();
 
         $data = array();
@@ -100,6 +100,97 @@ class M_laporan_absensi extends CI_Model
                 "nama_kategori" => $record->nama_kategori,
                 "tanggal_absensi" => $month,
                 "tahun_absensi" => $year,
+            );
+        }
+
+        ## Response
+        $response = array(
+            "draw" => intval($draw),
+            "iTotalRecords" => $totalRecords,
+            "iTotalDisplayRecords" => $totalRecordwithFilter,
+            "aaData" => $data
+        );
+
+        return $response;
+    }
+    
+     function getRombel($postData = null)
+    {
+
+        $response = array();
+
+        ## Read value
+        $draw = $postData['draw'];
+        $start = $postData['start'];
+        $rowperpage = $postData['length']; // Rows display per page
+        $columnIndex = $postData['order'][0]['column']; // Column index
+        $columnName = $postData['columns'][$columnIndex]['data']; // Column name
+        $columnSortOrder = $postData['order'][0]['dir']; // asc or desc
+        $searchValue = $postData['search']['value']; // Search value
+
+        // Custom search filter 
+        $searchTahun = $postData['searchTahun'];
+        $searchRombel = $postData['searchRombel'];
+        $searchName = $postData['searchName'];
+
+        ## Search 
+        $search_arr = array();
+        $searchQuery = "";
+        if ($searchValue != '') {
+            $search_arr[] = " (nomor_induk_sn like '%" . $searchValue . "%' or 
+            nama_siswa like '%" . $searchValue . "%' or 
+                nama_rombel like'%" . $searchValue . "%  ) ";
+        }
+        if ($searchRombel != '') {
+            $search_arr[] = " nama_rombel='" . $searchRombel . "' ";
+        }
+        if ($searchTahun != '') {
+            $search_arr[] = " tahun_ajaran = '" . $searchTahun . "' ";
+        }
+        if ($searchName != '') {
+            $search_arr[] = " nama_siswa like '%" . $searchName . "%' ";
+        }
+        if (count($search_arr) > 0) {
+            $searchQuery = implode(" and ", $search_arr);
+        }
+
+        ## Total number of records without filtering
+        $this->db->select('count(*) as allcount');
+        $this->db->join('tb_siswa', 'tb_relasi_rombel_siswa.id_siswa=tb_siswa.id_siswa');
+        $this->db->join('tb_rombel', 'tb_relasi_rombel_siswa.id_rombel=tb_rombel.id_rombel');
+        $records = $this->db->get('tb_relasi_rombel_siswa')->result();
+        $totalRecords = $records[0]->allcount;
+
+        ## Total number of record with filtering
+        $this->db->select('count(*) as allcount');
+        if ($searchQuery != '')
+            $this->db->where($searchQuery);
+          $this->db->join('tb_siswa', 'tb_relasi_rombel_siswa.id_siswa=tb_siswa.id_siswa');
+        $this->db->join('tb_rombel', 'tb_relasi_rombel_siswa.id_rombel=tb_rombel.id_rombel');
+        $records = $this->db->get('tb_relasi_rombel_siswa')->result();
+        $totalRecordwithFilter = $records[0]->allcount;
+
+        ## Fetch records
+        $this->db->select('*');
+        if ($searchQuery != '')
+            $this->db->where($searchQuery);
+        $this->db->order_by($columnName, $columnSortOrder);
+        $this->db->limit($rowperpage, $start);
+        $this->db->group_by('tb_relasi_rombel_siswa.id_siswa');
+          $this->db->join('tb_siswa', 'tb_relasi_rombel_siswa.id_siswa=tb_siswa.id_siswa');
+        $this->db->join('tb_rombel', 'tb_relasi_rombel_siswa.id_rombel=tb_rombel.id_rombel');
+        $records = $this->db->get('tb_relasi_rombel_siswa')->result();
+
+        $data = array();
+
+        foreach ($records as $record) {
+
+           
+            $data[] = array(
+                "nomor_induk_sn" => $record->nomor_induk_sn,
+                "nama_siswa" => $record->nama_siswa,
+                "nama_rombel" => $record->nama_rombel,
+                "action"=>"<a type='button btn-success' href='cetak_raport/$record->id_siswa'>Cetak</a>"
             );
         }
 

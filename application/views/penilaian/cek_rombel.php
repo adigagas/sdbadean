@@ -68,9 +68,11 @@
                                                     <div class="card-header">
                                                         Kelas <?= $r->nama_rombel ?>
                                                     </div>
-                                                    <form method="POST" action="<?= base_url() ?>Penilaian/index">
+                                                    <form method="GET" action="<?= base_url() ?>Penilaian/index">
                                                         <input type="hidden" name="id_rombel" value="<?= $r->id_rombel ?>">
                                                         <input type="hidden" name="nama_rombel" value="<?= $r->nama_rombel ?>">
+                                                        <input type="hidden" name="tahun_ajaran" value="<?= $r->tahun_ajaran ?>">
+                                                        <input type="hidden" name="semester" value="<?= $r->semester ?>">
                                                         <div class="card-body">
                                                             <?php
                                                             $this->db->select('COUNT(id_siswa) as jml');

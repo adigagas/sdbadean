@@ -44,7 +44,7 @@ class Absensi_siswa extends CI_Controller
         $id_rombel = $this->input->post('id_rombel');
         $id_kategori = $this->input->post('id_kategori');
         $id_gtk =  $this->session->userdata('id_gtk');
-        $data['rombel'] = $this->M_absensi->getMapel($id_rombel)->result();
+        $data['rombel'] = $this->M_absensi->getMapel($id_rombel,$id_gtk )->result();
         $data['id_pelajaran'] = $id_pelajaran;
         $data['nama_mapel'] = $nama_pelajaran;
         $data['nama_rombel'] = $nama_rombel;
@@ -65,8 +65,6 @@ class Absensi_siswa extends CI_Controller
     {
         $waktu = date('Y-m-d');
         $hari = formatHariTanggal($waktu);
-
-        $id_pelajaran = $this->input->post('id_pelajaran');
         $id_gtk =  $this->session->userdata('id_gtk');
         $id_siswa = $this->input->post('id_siswa');
         $id_mapel = $this->input->post('id_mapel');
@@ -82,13 +80,12 @@ class Absensi_siswa extends CI_Controller
                 'tanggal_absensi' => $tanggal_absensi,
                 'keterangan' => $keterangan,
                 'id_gtk' => $id_gtk,
-                'id_pelajaran' => $id_pelajaran,
                 'id_rombel' => $id_rombel,
                 'id_kategori' => $id_kategori
             );
             //---------------------
-            $mapel = $this->db->get_where('tb_pelajaran', ['id_pelajaran' => $data['id_pelajaran']])->row_array();
-            $pel = $mapel['nama_pelajaran'];
+            $mapel = $this->db->get_where('tb_kategori', ['id_kategori' => $data['id_kategori']])->row_array();
+            $pel = $mapel['nama_kategori'];
             //--------------------
             $siswa = $this->db->get_where('tb_siswa', ['id_siswa' => $data['id_siswa']])->row_array();
             $nama = $siswa['nama_siswa'];

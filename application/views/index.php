@@ -129,12 +129,12 @@ if ($this->session->userdata('username') == null) {
                                                                 </div>
                                                                 <form action="<?php echo base_url('Absensi_siswa/absenSiswa'); ?>" method="post" enctype="multipart/form-data">
                                                                     <div class="card-body">
-                                                                        <h5 class="card-title"><?= $a->nama_pelajaran ?></h5>
-                                                                        <p class="card-text"><?= $a->waktu_mulai ?>-<?= $a->waktu_selesai ?> WIB</p>
+                                                                        <h5 class="card-title"><?= $a->nama_kategori ?></h5>
+                                                                        <p class="card-text"><?= $a->waktu_mulai ?> WIB</p>
                                                                         <input type="hidden" value="<?= $a->id_rombel ?>" name="id_rombel">
                                                                         <input type="hidden" value="<?= $a->nama_rombel ?>" name="nama_rombel">
-                                                                        <input type="hidden" value="<?= $a->nama_pelajaran ?>" name="nama_pelajaran">
-                                                                        <input type="hidden" value="<?= $a->id_pelajaran ?>" name="id_pelajaran">
+                                                                        <input type="hidden" value="<?= $a->nama_kategori ?>" name="nama_pelajaran">
+                                                                        <input type="hidden" value="<?= $a->id_kategori ?>" name="id_kategori">
                                                                         <input type="hidden" value="<?= $a->id_gtk ?>" name="id_gtk">
                                                                         <input type="hidden" value="<?= $a->id_kategori ?>" name="id_kategori">
                                                                         <input type="hidden" value="<?= $a->id_jadwal_mapel ?>" name="id_jadwal_mapel">
@@ -153,7 +153,7 @@ if ($this->session->userdata('username') == null) {
                                                                                                                                 } else {
                                                                                                                                     echo "Sudah Diabsen"; ?>
                                                                         </button>
-                                                                        <a class="btn btn-success" href="" data-toggle="modal" data-target="#myModal<?= $a->id_pelajaran ?>"> Informasi</a>
+                                                                        <a class="btn btn-success" href="" data-toggle="modal" data-target="#myModal<?= $a->id_kategori ?>"> Informasi</a>
                                                                     <?php } ?>
                                                                     </div>
                                                                 </form>
@@ -232,17 +232,28 @@ if ($this->session->userdata('username') == null) {
                 <!-- ============================================================== -->
             </div>
             <?php foreach ($pr as $p) { ?>
-                <div class="modal fade " id="myModal<?= $p->id_pelajaran ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade " id="myModal<?= $p->id_kategori ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-md-12 ">
                         <div class="modal-content col-md-12">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Tambah Informasi <?= $p->nama_pelajaran ?></h4>
+                                <h4 class="modal-title" id="myModalLabel">Tambah Informasi <?= $p->nama_kategori ?></h4>
                             </div>
                             <div class="modal-body">
                                 <form action="<?= base_url() ?>mapel/infoMapel" method="POST">
                                     <input type="hidden" value="<?= $p->id_rombel ?>" name="id_rombel">
-                                    <input type="hidden" value="<?= $p->id_pelajaran ?>" name="id_pelajaran">
+                                    <input type="hidden" value="<?= $p->id_kategori ?>">
                                     <input type="hidden" value="<?= $p->id_gtk ?>" name="id_gtk">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Mapel</label>
+                                        <select class="form-control" name="id_pelajaran">
+                                            <?php 
+                                            $this->db->where('id_kategori', $p->id_kategori );
+                                            $pel=$this->db->get('tb_pelajaran')->result();
+                                            foreach ($pel as $j) { ?>
+                                                <option value="<?= $j->id_pelajaran ?>"><?= $j->nama_pelajaran ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Jenis Informasi</label>
                                         <select class="form-control" name="id_jenis">
